@@ -2,14 +2,19 @@
 
 
 
-WG Working Group                                              Y. N. Here
-Internet-Draft                                    Your Organization Here
-Intended status: Informational                              7 April 2025
-Expires: 9 October 2025
+GREEN Working Group                                            B. Claise
+Internet-Draft                                                    Huawei
+Intended status: Informational                                E. Stephan
+Expires: 25 October 2025                                          Orange
+                                                         L. M. Contreras
+                                                              Telefonica
+                                                              M. Palmero
+                                                     Cisco Systems, Inc.
+                                                           23 April 2025
 
 
-                           TODO - Your title
-                  draft-todo-yourname-protocol-latest
+                       draft-belm-green-framework
+                   draft-belm-green-framework-latest
 
 Abstract
 
@@ -21,8 +26,8 @@ About This Document
 
    The latest revision of this draft can be found at
    https://example.com/LATEST.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-todo-yourname-
-   protocol/.
+   be found at https://datatracker.ietf.org/doc/draft-belm-green-
+   framework/.
 
    Discussion of this document takes place on the WG Working Group
    mailing list (mailto:WG@example.com), which is archived at
@@ -46,7 +51,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 October 2025.
+   This Internet-Draft will expire on 25 October 2025.
 
 Copyright Notice
 
@@ -70,7 +75,7 @@ Table of Contents
    4.  IANA Considerations
    5.  Normative References
    Acknowledgments
-   Author's Address
+   Authors' Addresses
 
 1.  Introduction
 
@@ -107,8 +112,23 @@ Acknowledgments
 
    TODO acknowledge.
 
-Author's Address
+Authors' Addresses
 
-   Your Name Here
-   Your Organization Here
-   Email: your.email@example.com
+   Benoit Claise
+   Huawei
+   Email: benoit.claise@huawei.com
+
+
+   Emile Stephan
+   Orange
+   Email: emile.stephan@orange.com
+
+
+   Luis M. Contreras
+   Telefonica
+   Email: luismiguel.contrerasmurillo@telefonica.com
+
+
+   Marisol Palmero
+   Cisco Systems, Inc.
+   Email: mpalmero@cisco.com
