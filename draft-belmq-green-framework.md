@@ -20,7 +20,7 @@ venue:
   mail: green@ietf.org
   arch: https://mailarchive.ietf.org/arch/browse/green/
   github: https://github.com/marisolpalmero/draft-belm-green-framework
-  latest: https://example.com/LATEST
+  latest: https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/draft-belmq-green-framework.html
 
 author:
  -
@@ -60,14 +60,14 @@ Recognizing the urgent need for energy efficiency, this document emphasizes the 
 
 In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices towards energy-efficient operations. The framework is essential for:
 
-- **Standardization**: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
-- **Efficient Energy Management**: Providing guidelines to identify inefficiencies and implement improvements.
-- **Scalability**: Offering solutions that accommodate growing network demands and complexity.
-- **Cost Reduction**: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
-- **Competitiveness**: Enabling organizations to maintain a competitive edge through enhanced sustainability.
-- **Environmental Impact**: Supporting broader sustainability initiatives by reducing carbon footprints.
-- **Simplified Implementation**: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
-- **Security**: Protecting sensitive operations related to power states and consumption.
+- Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
+- Efficient Energy Management: Providing guidelines to identify inefficiencies and implement improvements.
+- Scalability: Offering solutions that accommodate growing network demands and complexity.
+- Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
+- Competitiveness: Enabling organizations to maintain a competitive edge through enhanced sustainability.
+- Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints.
+- Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
+- Security: Protecting sensitive operations related to power states and consumption.
 
 # Motivation
 
@@ -75,11 +75,11 @@ In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/,
 
 The framework will significantly enhance the creation of energy metrics with actionable insights by:
 
-- **Standardizing Metrics**: Establishing consistent measurement protocols for energy consumption and efficiency.
-- **Enhancing Data Collection**: Facilitating comprehensive monitoring and data aggregation across devices.
-- **Supporting Real-time Monitoring**: Enabling dynamic tracking and immediate optimization of energy usage.
-- **Integration Across Devices**: Ensuring interoperability for network-wide data analysis.
-- **Providing Actionable Insights**: Translating raw data into meaningful information for decision-making.
+- Standardizing Metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
+- Enhancing Data Collection: Facilitating comprehensive monitoring and data aggregation across devices.
+- Supporting Real-time Monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
+- Integration Across Devices: Ensuring interoperability for network-wide data analysis.
+- Providing Actionable Insights: Translating raw data into meaningful information for decision-making.
 
 ## Current Device Readiness
 
@@ -89,15 +89,15 @@ While many modern networking devices have basic energy monitoring capabilities, 
 
 The decision to define the framework now, rather than later, is driven by:
 
-- **Immediate Benefits**: Start realizing cost savings, reduced carbon footprints, and improved efficiencies.
-- **Rapid Technological Advancements**: Aligning the framework with current technologies to prevent obsolescence.
-- **Increasing Energy Demands**: Mitigating the impact of growing energy consumption on costs and sustainability.
-- **Regulatory Pressure**: Preparing for compliance with existing and anticipated sustainability regulations.
-- **Competitive Advantage**: Positioning organizations as leaders in sustainability and innovation.
-- **Foundational Work Ready**: Building on the use cases and requirements established in Phase I.
-- **Proactive Risk Management**: Minimizing risks associated with energy costs and environmental factors.
-- **Facilitate Future Innovations**: Creating a platform for continuous improvements and adaptations.
-- **Stakeholder Engagement**: Ensuring diverse perspectives are reflected for broader adoption.
+- Immediate Benefits: Start realizing cost savings, reduced carbon footprints, and improved efficiencies.
+- Rapid Technological Advancements: Aligning the framework with current technologies to prevent obsolescence.
+- Increasing Energy Demands: Mitigating the impact of growing energy consumption on costs and sustainability.
+- Regulatory Pressure: Preparing for compliance with existing and anticipated sustainability regulations.
+- Competitive Advantage: Positioning organizations as leaders in sustainability and innovation.
+- Foundational Work Ready: Building on the use cases and requirements established in Phase I.
+- Proactive Risk Management: Minimizing risks associated with energy costs and environmental factors.
+- Facilitate Future Innovations: Creating a platform for continuous improvements and adaptations.
+- Stakeholder Engagement: Ensuring diverse perspectives are reflected for broader adoption.
 
 
 In conclusion, establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
