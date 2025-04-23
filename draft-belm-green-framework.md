@@ -19,22 +19,22 @@
 # Change the file extension to match the format (.xml for XML, etc...)
 #
 ###
-title: "TODO - Your title"
-abbrev: "TODO - Abbreviation"
+title: "draft-belm-green-framework"
+abbrev: "Framework for Energy Efficiency Management"
 category: info
 
-docname: draft-todo-yourname-protocol-latest
-submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
+docname: draft-belm-green-framework-latest
+submissiontype: IETF  
 number:
 date:
 consensus: true
 v: 3
-area: AREA
-workgroup: WG Working Group
+area: "Operations and Management"
+workgroup: "GREEN Working Group"
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - Framework for Energy Efficient
+ - Framework for Energy Saving
+ - Energy Management Framework
 venue:
   group: WG
   type: Working Group
@@ -45,10 +45,22 @@ venue:
 
 author:
  -
-    fullname: Your Name Here
-    organization: Your Organization Here
-    email: your.email@example.com
-
+    fullname: Benoit Claise
+    organization: Huawei
+    email: benoit.claise@huawei.com
+ -
+    fullname: Emile Stephan
+    organization: Orange
+    email: emile.stephan@orange.com
+ -
+    fullname: Luis M. Contreras
+    organization: Telefonica
+    email: luismiguel.contrerasmurillo@telefonica.com
+ -
+    fullname: Marisol Palmero
+    organization: Cisco Systems, Inc.
+    email: mpalmero@cisco.com
+    
 normative:
 
 informative:
