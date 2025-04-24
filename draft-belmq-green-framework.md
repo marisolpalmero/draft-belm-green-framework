@@ -10,18 +10,15 @@ consensus: true
 
 area: "Operations and Management"
 workgroup: "GREEN Working Group"
-keyword:
- - Framework for Energy Efficient
- - Framework for Energy Saving
- - Energy Management Framework
+keyword: Framework, Energy, Efficiency, Savings, Management
 
 venue:
-  group: WG
-  type: Working Group
-  mail: green@ietf.org
-  arch: https://mailarchive.ietf.org/arch/browse/green/
-  github: https://github.com/marisolpalmero/draft-belm-green-framework
-  latest: https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/draft-belmq-green-framework.html
+  group: "Getting Ready for Energy-Efficient Networking"
+  type: "Working Group"
+  mail: "green@ietf.org"
+  arch: "https://mailarchive.ietf.org/arch/browse/green/"
+  github: "marisolpalmero/draft-belm-green-framework"
+  latest: "https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/draft-belmq-green-framework.html"
 
 v: 3
 
@@ -108,11 +105,7 @@ In conclusion, establishing the framework for energy efficiency management now i
 
 # Architecture Overview
  
-###
-# 
-# proposal to be extracted from philatelist, adding Jan Lindblad as a co-author
-#
-###
+<< TO_DO: proposal to be extracted from philatelist, adding Jan Lindblad as a co-author >>
 
 # Conventions and Definitions
 
@@ -121,30 +114,30 @@ In conclusion, establishing the framework for energy efficiency management now i
 
 # Security Considerations
 
-   Resiliency is an implicit use case of energy efficiency management
-   which comes with numerous security considerations :
+Resiliency is an implicit use case of energy efficiency management
+which comes with numerous security considerations :
 
-   Controlling Power State and power supply of entities are considered
-   highly sensitive actions, since they can significantly affect the
-   operation of directly and indirectly connected devices.  Therefore,
-   all control actions must be sufficiently protected through
-   authentication, authorization, and integrity protection mechanisms.
+Controlling Power State and power supply of entities are considered
+highly sensitive actions, since they can significantly affect the
+operation of directly and indirectly connected devices.  Therefore,
+all control actions must be sufficiently protected through
+authentication, authorization, and integrity protection mechanisms.
 
-   Entities that are not sufficiently secure to operate directly on the
-   public Internet do exist and can be a significant cause of risk, for
-   example, if the remote control functions can be exercised on those
-   devices from anywhere on the Internet.
+Entities that are not sufficiently secure to operate directly on the
+public Internet do exist and can be a significant cause of risk, for
+example, if the remote control functions can be exercised on those
+devices from anywhere on the Internet.
 
-   The monitoring of energy-related quantities of an entity as addressed
-   can be used to derive more information than just the received and
-   provided energy; therefore, monitored data requires protection.  This
-   protection includes authentication and authorization of entities
-   requesting access to monitored data as well as confidentiality
-   protection during transmission of monitored data.  Privacy of stored
-   data in an entity must be taken into account.  Monitored data may be
-   used as input to control, accounting, and other actions, so integrity
-   of transmitted information and authentication of the origin may be
-   needed.
+The monitoring of energy-related quantities of an entity as addressed
+can be used to derive more information than just the received and
+provided energy; therefore, monitored data requires protection.  This
+protection includes authentication and authorization of entities
+requesting access to monitored data as well as confidentiality
+protection during transmission of monitored data.  Privacy of stored
+data in an entity must be taken into account.  Monitored data may be
+used as input to control, accounting, and other actions, so integrity
+of transmitted information and authentication of the origin may be
+needed.
 
 
 # IANA Considerations
@@ -157,4 +150,4 @@ This document has no IANA actions.
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+<< TODO acknowledge. >>
