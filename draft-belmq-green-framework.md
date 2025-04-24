@@ -1,19 +1,20 @@
-title: "draft-belmq-green-framework"
+---
+title: "Framework for Energy Efficiency Management"
 abbrev: "Framework for Energy Efficiency Management"
-category: info
-
 docname: draft-belmq-green-framework-latest
+category: info
+stand_alone: true
+
 submissiontype: IETF  
-number:
-date:
 consensus: true
-v: 3
+
 area: "Operations and Management"
 workgroup: "GREEN Working Group"
 keyword:
  - Framework for Energy Efficient
  - Framework for Energy Saving
  - Energy Management Framework
+
 venue:
   group: WG
   type: Working Group
@@ -22,7 +23,10 @@ venue:
   github: https://github.com/marisolpalmero/draft-belm-green-framework
   latest: https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/draft-belmq-green-framework.html
 
+v: 3
+
 author:
+
  -
     fullname: Benoit Claise
     organization: Huawei
