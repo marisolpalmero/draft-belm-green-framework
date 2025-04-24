@@ -5,7 +5,7 @@ docname: draft-belmq-green-framework-latest
 category: info
 stand_alone: true
 
-submissiontype: IETF  
+submissiontype: IETF
 consensus: true
 
 area: "Operations and Management"
@@ -104,7 +104,7 @@ The decision to define the framework now, rather than later, is driven by:
 In conclusion, establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
 
 # Architecture Overview
- 
+
 << TO_DO: proposal to be extracted from philatelist, adding Jan Lindblad as a co-author >>
 
 # Conventions and Definitions
