@@ -8,17 +8,17 @@ stand_alone: true
 submissiontype: IETF
 consensus: true
 
-area: "Operations and Management"
-workgroup: "GREEN Working Group"
+area: ""
+workgroup: "Getting Ready for Energy-Efficient Networking"
 keyword: Framework, Energy, Efficiency, Savings, Management
 
 venue:
   group: "Getting Ready for Energy-Efficient Networking"
-  type: "Working Group"
+  type: ""
   mail: "green@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/green/"
   github: "marisolpalmero/draft-belm-green-framework"
-  latest: "https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/draft-belmq-green-framework.html"
+  latest: "https://marisolpalmero.github.io/draft-belm-green-framework/draft-belmq-green-framework.html"
 
 v: 3
 
