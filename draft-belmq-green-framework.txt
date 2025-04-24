@@ -40,14 +40,14 @@ About This Document
    information for this document may be found at
    https://datatracker.ietf.org/doc/draft-belmq-green-framework/.
 
-   Discussion of this document takes place on the WG Working Group
-   mailing list (mailto:green@ietf.org), which is archived at
+   Discussion of this document takes place on the Getting Ready for
+   Energy-Efficient Networking Working Group mailing list
+   (mailto:green@ietf.org), which is archived at
    https://mailarchive.ietf.org/arch/browse/green/.  Subscribe at
    https://www.ietf.org/mailman/listinfo/green/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/https://github.com/marisolpalmero/draft-belm-
-   green-framework.
+   https://github.com/marisolpalmero/draft-belm-green-framework.
 
 Status of This Memo
 
@@ -200,8 +200,8 @@ Table of Contents
 
 3.  Architecture Overview
 
-   ### # # proposal to be extracted from philatelist, adding Jan
-   Lindblad as a co-author # ###
+   << TO_DO: proposal to be extracted from philatelist, adding Jan
+   Lindblad as a co-author >>
 
 4.  Conventions and Definitions
 
@@ -255,7 +255,7 @@ Table of Contents
 
 Acknowledgments
 
-   TODO acknowledge.
+   << TODO acknowledge. >>
 
 Authors' Addresses
 
