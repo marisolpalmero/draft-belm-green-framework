@@ -28,8 +28,6 @@ venue:
   github: "marisolpalmero/draft-belm-green-framework"
   latest: "https://marisolpalmero.github.io/draft-belm-green-framework/draft-belmq-green-framework.html"
 
-v: 0
-
 author:
 
  -
@@ -93,7 +91,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # TO DO
 
-- What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
+- What we miss is the 4 reference examples rfc7326 section 4 
 - Improve the abstract more in line with RFC 7326
 - Add a link to the use case 2.5 (PoE)
 - IEC60050 reference needs a new URL
@@ -253,15 +251,6 @@ In conclusion, establishing the framework for energy efficiency management now i
    is not measured by the device itself but is measured upstream in the
    power distribution tree.  For example, a Power Distribution Unit
    (PDU) may measure the energy it supplies to attached devices and
-
-
-
-Parello, et al.               Informational                     [Page 3]
-
-
-RFC 7326                     EMAN Framework               September 2014
-
-
    report this to an Energy Management System.  Therefore, devices often
    have relationships to other devices or components in the power
    network.  An Energy Management System (EnMS) generally requires an
