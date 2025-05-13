@@ -279,8 +279,7 @@ needed.
 
 This document has no IANA actions.
 
---- back
-
 # Acknowledgments
 
 This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
+
