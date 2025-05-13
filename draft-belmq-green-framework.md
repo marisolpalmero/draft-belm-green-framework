@@ -12,6 +12,7 @@ area: ""
 workgroup: "Getting Ready for Energy-Efficient Networking"
 keyword: Framework, Energy, Efficiency, Savings, Management
 
+
 venue:
   group: "Getting Ready for Energy-Efficient Networking"
   type: ""
@@ -52,9 +53,20 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document emphasizes the establishment of a management framework within the GREEN Working Group to standardize processes, optimize energy usage, and ensure interoperability. This framework will leverage collected data from existing use cases to deliver actionable metrics for optimized energy management and informed decision-making. Furthermore, the document proposes a framework for collecting timestamped telemetry data across domains, using YANG, metadata, and Time Series Databases for transparent and dependable results.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework within the GREEN Working Group to standardize processes, optimize energy usage, and ensure interoperability. This framework leverages collected data from existing use cases to deliver actionable metrics for optimized energy management and informed decision-making. Furthermore, the document proposes a framework for collecting timestamped telemetry data across domains, using YANG, metadata, and Time Series Databases for transparent and dependable results.
 
 --- middle
+
+# TO DO
+
+- What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
+- Populate the terminology according to the terminology draft and from RFC7326
+   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
+- Improve the abstract more in line with RFC 7326
+- Add a link to the use case 2.5 (PoE)
+- Nits: should this have its own rectangle? "(3) Network Domain Level :"
+
+
 
 # Introduction
 
@@ -69,6 +81,70 @@ In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/,
 - Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints.
 - Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
 - Security: Protecting sensitive operations related to power states and consumption.
+
+   This document defines an Energy Management framework for devices
+   within, or connected to, communication networks, for the use cases
+   described in https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/.
+   The devices, or the components of these devices (such as line cards, fans, and
+   disks), can then be monitored and controlled. Monitoring includes measuring
+   power, energy, demand, and attributes of power.  Energy Control can
+   be performed by setting a device's or component's state.  The devices
+   monitored by this framework can be either of the following:
+
+   - consumers of energy (such as routers and computer systems) and
+      components of such devices (such as line cards, fans, and disks)
+
+   - producers of energy (like an uninterruptible power supply or
+      renewable energy system) and their associated components (such as
+      battery cells, inverters, or photovoltaic panels)
+
+## Terminology
+
+Energy Control
+      Energy Control is a part of Energy Management that deals with
+      directing influence over devices.
+
+Device
+      A device is a piece of electrical or non-electrical equipment.
+
+      Reference: Adapted from [IEEE100].
+
+Component
+      A component is a part of electrical or non-electrical equipment
+      (device).
+
+      Reference: Adapted from [TMN].
+
+Meter (Energy Meter)
+      A meter is a device intended to measure electrical energy by
+      integrating power with respect to time.
+
+      Reference: Adapted from [IEC60050].
+
+Power Inlet
+      A power inlet (or simply "inlet") is an interface at which a
+      device or component receives energy from another device or
+      component.
+
+Power Outlet
+      A power outlet (or simply "outlet") is an interface at which a
+      device or component provides energy to another device or
+      component.
+
+Power Interface
+      A Power Interface is a power inlet, outlet, or both.
+
+
+Power State
+      A Power State is a condition or mode of a device (or component)
+      that broadly characterizes its capabilities, power, and
+      responsiveness to input.
+
+      Reference: Adapted from [IEEE1621].
+
+Power State Set
+      A Power State Set is a collection of Power States that comprises a
+      named or logical control grouping.
 
 # Motivation
 
@@ -105,7 +181,69 @@ In conclusion, establishing the framework for energy efficiency management now i
 
 # Architecture Overview
 
-<< TO_DO: proposal to be extracted from philatelist, adding Jan Lindblad as a co-author >>
+ ~~~~
+
+
+(3) Network Domain Level :
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                   *                                                |
+|     (2) controller   (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+             ^              ^                   ^ |
+  (d)        |  (e)         |  (f)              | |(g)
+  Inventory  |  Monitor     |  GREEN WG:        | |GREEN WG: Control
+  Capability |  Traffic     |  Monitor power    | |(Energy saving
+             |  & power     |  Proportion,      | |Functionality
+             |  consumption |  Energy efficiency| |Localized mgmt/
+             |              |  ratio, etc)      | |network wide mgmt)
+             |              |                   | |
+             |              |                   | |
+             |              |                   | v
++--------------------------------------------------------------------+
+|                                            *                       |
+|                       (1) Entities                                 |
+|                                                                    |
+| +---------+  +-----------+  +----------------+  +----------------+ |
+| | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
+| | Network |  | Device    |  | Legacy Network |  | 'Attached'(PoE | |
+| | Device  |  | Component |  | Device         |  | kind) Device   | |
+| |         |  |           |  |                |  |                | |
+| +---------+  +-----------+  +----------------+  +----------------+ |
++--------------------------------------------------------------------+
+
+(*) Energy Efficiency Management Function is implemented inside the
+device or in a controller
+
+~~~~
+{: #green-framework title="Framework discussed during the BoF"}
+
+The main elements in the framework are as follows:
+
+(a),(d) Discovery and Inventory
+
+(b),(c) GREEN Metrics
+
+(b),(f) Monitor energy efficiency
+
+(e) Monitor power consumption and traffic (IPPM WG throughput, traffic load, etc)
+
+(g) Control Energy Saving
+
 
 # Conventions and Definitions
 
@@ -148,6 +286,8 @@ This document has no IANA actions.
 --- back
 
 # Acknowledgments
+
+This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
+
 {:numbered="false"}
 
-<< TODO acknowledge. >>
