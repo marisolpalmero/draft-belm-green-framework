@@ -59,7 +59,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # TO DO
 
-- What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
+- What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4
 - Populate the terminology according to the terminology draft and from RFC7326
    EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
 - Improve the abstract more in line with RFC 7326
