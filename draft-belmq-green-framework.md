@@ -228,7 +228,7 @@ device or in a controller
 
 ~~~~
 {: #green-framework title="Framework discussed during the BoF"}
- 
+
 The main elements in the framework are as follows:
 
 (a),(d) Discovery and Inventory
