@@ -177,7 +177,7 @@ The decision to define the framework now, rather than later, is driven by:
 In conclusion, establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
 
 # Architecture Overview
- 
+
  ~~~~
 
 
@@ -228,7 +228,7 @@ device or in a controller
 
 ~~~~
 {: #green-framework title="Framework discussed during the BoF"}
-
+ 
 The main elements in the framework are as follows:
 
 (a),(d) Discovery and Inventory
