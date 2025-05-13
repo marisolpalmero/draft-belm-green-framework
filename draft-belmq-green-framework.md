@@ -100,9 +100,38 @@ In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/,
 
 ## Terminology
 
-Energy Control
-      Energy Control is a part of Energy Management that deals with
-      directing influence over devices.
+The following terms are defined in {{!I-D.draft-bclp-green-terminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
+
+The following terms are defined in EMAN Framework {{?RFC7326}}, and cut/paste here for completeness:
+
+Energy Management System (EnMS)
+      An Energy Management System is a combination of hardware and
+      software used to administer a network, with the primary purpose of
+      Energy Management.
+
+      NOTES:
+
+      1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+         is a set of systems or procedures upon which organizations can
+         develop and implement an energy policy, set targets and action
+         plans, and take into account legal requirements related to
+         energy use.  An ISO-EnMS allows organizations to improve energy
+         performance and demonstrate conformity to requirements,
+         standards, and/or legal requirements.
+
+      2. Example ISO-EnMS: Company A defines a set of policies and
+         procedures indicating that there should exist multiple
+         computerized systems that will poll energy measurements from
+         their meters and pricing / source data from their local
+         utility.  Company A specifies that their CFO (Chief Financial
+         Officer) should collect information and summarize it quarterly
+         to be sent to an accounting firm to produce carbon accounting
+         reporting as required by their local government.
+
+      3. For the purposes of EMAN, the definition herein is the
+         preferred meaning of an EnMS.  The definition from [ISO50001]
+         can be referred to as an ISO Energy Management System
+         (ISO-EnMS).
 
 Device
       A device is a piece of electrical or non-electrical equipment.
@@ -181,10 +210,48 @@ In conclusion, establishing the framework for energy efficiency management now i
 
 # Architecture Overview
 
+   The framework introduces the concept of a Power Interface that is
+   analogous to a network interface.  A Power Interface is defined as an
+   interconnection among devices where energy can be provided, received,
+   or both.
+
+   The most basic example of Energy Management is a single device
+   reporting information about itself.  In many cases, however, energy
+   is not measured by the device itself but is measured upstream in the
+   power distribution tree.  For example, a Power Distribution Unit
+   (PDU) may measure the energy it supplies to attached devices and
+
+
+
+Parello, et al.               Informational                     [Page 3]
+
+
+RFC 7326                     EMAN Framework               September 2014
+
+
+   report this to an Energy Management System.  Therefore, devices often
+   have relationships to other devices or components in the power
+   network.  An Energy Management System (EnMS) generally requires an
+   understanding of the power topology (who provides power to whom), the
+   Metering topology (who meters whom), and the potential Aggregation
+   (who aggregates values of others).
+
+   The relationships build on the Power Interface concept.  The
+   different relationships among devices and components, as specified in
+   this document, include power source, Metering, and Aggregation
+   Relationships.
+
+   The framework does not cover non-electrical equipment, nor does it
+   cover energy procurement and manufacturing.
+
  ~~~~
 
 
-(3) Network Domain Level :
++--------------------------------------------------------------------+
+|                   *                                                |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
 
 (a)              (b)              (c)
 Inventory        Monitor       +- DataSheets/DataBase and/or via API
