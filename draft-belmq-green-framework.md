@@ -30,17 +30,21 @@ author:
     organization: Huawei
     email: benoit.claise@huawei.com
  -
-    fullname: Emile Stephan
-    organization: Orange
-    email: emile.stephan@orange.com
- -
     fullname: Luis M. Contreras
     organization: Telefonica
     email: luismiguel.contrerasmurillo@telefonica.com
  -
+    fullname: Jan Lindblad
+    organization: For.Eco
+    email: jan.lindblad+ietf@for.eco
+ -
     fullname: Marisol Palmero
     organization: Cisco Systems, Inc.
     email: mpalmero@cisco.com
+ -
+    fullname: Emile Stephan
+    organization: Orange
+    email: emile.stephan@orange.com
  -
     fullname: Qin Wu
     organization: Huawei
@@ -53,7 +57,7 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document specifies a management framework within the GREEN Working Group to standardize processes, optimize energy usage, and ensure interoperability. This framework leverages collected data from existing use cases to deliver actionable metrics for optimized energy management and informed decision-making. Furthermore, the document proposes a framework for collecting timestamped telemetry data across domains, using YANG, metadata, and Time Series Databases for transparent and dependable results.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to optimize energy usage and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models, metadata, and Time Series Databases, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
 
 --- middle
 
@@ -62,7 +66,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 - What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
 - Populate the terminology according to the terminology draft and from RFC7326
    EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
-- Improve the abstract more in line with RFC 7326
+- Improve the abstract more in line with RFC 7326. DONE
 - Add a link to the use case 2.5 (PoE)
 - Nits: should this have its own rectangle? "(3) Network Domain Level :"
 
