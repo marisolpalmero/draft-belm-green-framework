@@ -66,10 +66,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 - Add a link to the use case 2.5 (PoE)
 - Nits: should this have its own rectangle? "(3) Network Domain Level :"
 
-
-
 # Introduction
-
 
 In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices towards energy-efficient operations. The framework is essential for:
 
@@ -180,7 +177,7 @@ The decision to define the framework now, rather than later, is driven by:
 In conclusion, establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
 
 # Architecture Overview
-
+ 
  ~~~~
 
 
