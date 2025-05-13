@@ -244,11 +244,9 @@ The main elements in the framework are as follows:
 
 (g) Control Energy Saving
 
-
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
-
 
 # Security Considerations
 
@@ -277,11 +275,9 @@ used as input to control, accounting, and other actions, so integrity
 of transmitted information and authentication of the origin may be
 needed.
 
-
 # IANA Considerations
 
 This document has no IANA actions.
-
 
 --- back
 
@@ -290,4 +286,3 @@ This document has no IANA actions.
 This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
 
 {:numbered="false"}
-
