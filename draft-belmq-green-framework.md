@@ -244,10 +244,6 @@ The main elements in the framework are as follows:
 
 (g) Control Energy Saving
 
-# Conventions and Definitions
-
-{::boilerplate bcp14-tagged}
-
 # Security Considerations
 
 Resiliency is an implicit use case of energy efficiency management
