@@ -5,13 +5,20 @@ docname: draft-belmq-green-framework-latest
 category: info
 stand_alone: true
 
+ipr: trust200902
+area: "Operations and Management"
+wg: "Getting Ready for Energy-Efficient Networking"
+kw:
+  - framework
+  - energy
+  - efficiency
+  - savings
+  - management
 submissiontype: IETF
 consensus: true
 
-area: ""
-workgroup: "Getting Ready for Energy-Efficient Networking"
-keyword: Framework, Energy, Efficiency, Savings, Management
-
+coding: utf-8
+pi: [toc, sortrefs, symrefs]
 
 venue:
   group: "Getting Ready for Energy-Efficient Networking"
@@ -21,7 +28,7 @@ venue:
   github: "marisolpalmero/draft-belm-green-framework"
   latest: "https://marisolpalmero.github.io/draft-belm-green-framework/draft-belmq-green-framework.html"
 
-v: 3
+v: 0
 
 author:
 
@@ -49,6 +56,33 @@ author:
 normative:
 
 informative:
+   TMN:
+    title: International Telecommunication Union, "TMN management functions"
+    date: 2000-02
+    target: ITU-T Recommendation M.3400
+
+
+   IEEE100:
+    target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
+    title: The Authoritative Dictionary of IEEE Standards Terms
+    author:
+    - org: IEEE
+    date: 2000-12-11
+
+   IEEE1621: 
+    title: Standard for User Interface Elements in Power Control of Electronic
+     Devices Employed in Office/Consumer Environments, IEEE 1621
+    author:
+    - org: IEEE
+    date: 2004-12
+
+
+   IEC60050:
+    target: http://www.iec.ch/smartgrid/standards/
+    title: Power Utility Automation
+    author:
+    - org: IEC
+    date: 2000-12-11
 
 
 --- abstract
@@ -60,10 +94,9 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 # TO DO
 
 - What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
-- Populate the terminology according to the terminology draft and from RFC7326
-   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
 - Improve the abstract more in line with RFC 7326
 - Add a link to the use case 2.5 (PoE)
+- IEC60050 reference needs a new URL
 - Nits: should this have its own rectangle? "(3) Network Domain Level :"
 
 
@@ -248,7 +281,7 @@ RFC 7326                     EMAN Framework               September 2014
 
 
 +--------------------------------------------------------------------+
-|                   *                                                |
+|                                                                    |
 |                  (3) Network Domain Level                          |
 |                                                                    |
 +--------------------------------------------------------------------+
@@ -273,11 +306,11 @@ and Capability   Efficiency    |  /network related information:
 +--------------------------------------------------------------------+
              ^              ^                   ^ |
   (d)        |  (e)         |  (f)              | |(g)
-  Inventory  |  Monitor     |  GREEN WG:        | |GREEN WG: Control
-  Capability |  Traffic     |  Monitor power    | |(Energy saving
-             |  & power     |  Proportion,      | |Functionality
-             |  consumption |  Energy efficiency| |Localized mgmt/
-             |              |  ratio, etc)      | |network wide mgmt)
+  Inventory  |  Monitor     |  GREEN WG:        | | Control
+  Capability |  Traffic     |  Monitor power    | | (Energy saving
+             |  & power     |  Proportion,      | | Functionality
+             |  consumption |  Energy efficiency| | Localized mgmt/
+             |              |  ratio, etc)      | | network wide mgmt)
              |              |                   | |
              |              |                   | |
              |              |                   | v
@@ -287,7 +320,7 @@ and Capability   Efficiency    |  /network related information:
 |                                                                    |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
-| | Network |  | Device    |  | Legacy Network |  | 'Attached'(PoE | |
+| |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
 | | Device  |  | Component |  | Device         |  | kind) Device   | |
 | |         |  |           |  |                |  |                | |
 | +---------+  +-----------+  +----------------+  +----------------+ |
@@ -311,6 +344,19 @@ The main elements in the framework are as follows:
 
 (g) Control Energy Saving
 
+
+## Typical Power Topologies
+
+
+
+
+# Monitoring
+
+to do
+
+# Control
+
+to do
 
 # Conventions and Definitions
 
