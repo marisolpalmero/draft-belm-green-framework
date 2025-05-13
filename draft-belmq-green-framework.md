@@ -28,6 +28,8 @@ venue:
   github: "marisolpalmero/draft-belm-green-framework"
   latest: "https://marisolpalmero.github.io/draft-belm-green-framework/draft-belmq-green-framework.html"
 
+v: 3
+
 author:
 
  -
@@ -91,7 +93,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # TO DO
 
-- What we miss is the 4 reference examples rfc7326 section 4 
+- What we miss is the 4 reference examples of https://www.rfc-editor.org/rfc/rfc7326.html#section-4 
 - Improve the abstract more in line with RFC 7326
 - Add a link to the use case 2.5 (PoE)
 - IEC60050 reference needs a new URL
