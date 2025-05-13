@@ -279,3 +279,24 @@ This document has no IANA actions.
 
 This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
 
+
+# References
+
+## Normative References
+
+   [IEC.61850-7-4]
+              International Electrotechnical Commission, "Communication
+              networks and systems for power utility automation --
+              Part 7-4: Basic communication structure -- Compatible
+              logical node classes and data object classes", March 2010.
+
+## Informative References
+
+   [IEC.60050] International Electrotechnical Commission, "Electropedia:
+   The World's Online Electrotechnical Vocabulary", 2013,
+   <http://www.electropedia.org/iev/iev.nsf/welcome?openform>.
+
+# Appendix
+
+This appendix should be removed when the initial set of GREEN WG documents will be stable
+
