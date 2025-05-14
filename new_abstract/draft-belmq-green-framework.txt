@@ -1,0 +1,548 @@
+
+
+
+
+Getting Ready for Energy-Efficient Networking                  B. Claise
+Internet-Draft                                                    Huawei
+Intended status: Informational                           L. M. Contreras
+Expires: 15 November 2025                                     Telefonica
+                                                             J. Lindblad
+                                                                 For.Eco
+                                                              M. Palmero
+                                                     Cisco Systems, Inc.
+                                                              E. Stephan
+                                                                  Orange
+                                                                   Q. Wu
+                                                                  Huawei
+                                                             14 May 2025
+
+
+               Framework for Energy Efficiency Management
+                   draft-belmq-green-framework-latest
+
+Abstract
+
+   Recognizing the urgent need for energy efficiency, this document
+   specifies a management framework focused on devices and device
+   components within, or connected to, interconnected systems.  The
+   framework aims to optimize energy usage and ensure interoperability
+   across diverse systems.  Leveraging data from existing use cases, it
+   delivers actionable metrics to support effective energy management
+   and informed decision-making.  Furthermore, the framework proposes
+   mechanisms for representing and organizing timestamped telemetry data
+   using YANG models and metadata, enabling transparent and reliable
+   monitoring.  This structured approach facilitates improved energy
+   efficiency through consistent energy management practices.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   The latest revision of this draft can be found at
+   https://marisolpalmero.github.io/draft-belm-green-framework/draft-
+   belmq-green-framework.html.  Status information for this document may
+   be found at https://datatracker.ietf.org/doc/draft-belmq-green-
+   framework/.
+
+   Discussion of this document takes place on the Getting Ready for
+   Energy-Efficient Networking mailing list (mailto:green@ietf.org),
+   which is archived at https://mailarchive.ietf.org/arch/browse/green/.
+   Subscribe at https://www.ietf.org/mailman/listinfo/green/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/marisolpalmero/draft-belm-green-framework.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 15 November 2025.
+
+Copyright Notice
+
+   Copyright (c) 2025 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  TO DO
+   2.  Introduction
+     2.1.  Terminology
+   3.  Motivation
+     3.1.  Impact on Energy Metrics
+     3.2.  Current Device Readiness
+     3.3.  Why Now?
+   4.  Architecture Overview
+     4.1.  Typical Power Topologies
+   5.  Monitoring
+   6.  Control
+   7.  Conventions and Definitions
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. Acknowledgments
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
+   12. Appendix
+   13. References
+     13.1.  Normative References
+     13.2.  Informative References
+   Authors' Addresses
+
+1.  TO DO
+
+   *  What we miss is the 4 reference examples rfc7326 section 4
+
+   *  Populate the terminology according to the terminology draft and
+      from RFC7326 EMAN REQ RFC 6988 speaks of Entities, while RFC7326
+      speaks of device & components
+
+   *  Improve the abstract more in line with RFC 7326 >>> DONE
+
+   *  Add a link to the use case 2.5 (PoE)
+
+   *  IEC60050 reference needs a new URL
+
+   *  Nits: should this have its own rectangle? "(3) Network Domain
+      Level :"
+
+2.  Introduction
+
+   In reference to https://datatracker.ietf.org/doc/draft-stephan-green-
+   use-cases/, analyzing use cases such as the "Incremental Application
+   of the GREEN Framework" and "Consideration of other domains for
+   obtention of end-to-end metrics", it reveals the critical need for a
+   structured approach to transitioning network devices towards energy-
+   efficient operations.  The framework is essential for:
+
+   *  Standardization: Ensuring consistent practices across different
+      devices and network segments to facilitate interoperability.
+
+   *  Efficient Energy Management: Providing guidelines to identify
+      inefficiencies and implement improvements.
+
+   *  Scalability: Offering solutions that accommodate growing network
+      demands and complexity.
+
+   *  Cost Reduction: Optimizing energy usage to lower operational costs
+      and extend equipment lifecycles.
+
+   *  Competitiveness: Enabling organizations to maintain a competitive
+      edge through enhanced sustainability.
+
+   *  Environmental Impact: Supporting broader sustainability
+      initiatives by reducing carbon footprints.
+
+   *  Simplified Implementation: Streamlining the deployment of energy-
+      efficient measures to minimize service disruptions.
+
+   *  Security: Protecting sensitive operations related to power states
+      and consumption.
+
+      This document defines an Energy Management framework for devices
+      within, or connected to, communication networks, for the use cases
+      described in https://datatracker.ietf.org/doc/draft-stephan-green-
+      use-cases/.  The devices, or the components of these devices (such
+      as line cards, fans, and disks), can then be monitored and
+      controlled.  Monitoring includes measuring power, energy, demand,
+      and attributes of power.  Energy Control can be performed by
+      setting a device's or component's state.  The devices monitored by
+      this framework can be either of the following:
+
+      -  consumers of energy (such as routers and computer systems) and
+         components of such devices (such as line cards, fans, and
+         disks)
+
+      -  producers of energy (like an uninterruptible power supply or
+         renewable energy system) and their associated components (such
+         as battery cells, inverters, or photovoltaic panels)
+
+2.1.  Terminology
+
+   The following terms are defined in [I-D.draft-bclp-green-terminology]
+   and EMAN Framework [RFC7326]: Energy, Power, Energy Management,
+   Energy Monitoring, Energy Control.
+
+   The following terms are defined in EMAN Framework [RFC7326], and cut/
+   paste here for completeness:
+
+   Energy Management System (EnMS) An Energy Management System is a
+   combination of hardware and software used to administer a network,
+   with the primary purpose of Energy Management.
+
+     NOTES:
+
+     1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+        is a set of systems or procedures upon which organizations can
+        develop and implement an energy policy, set targets and action
+        plans, and take into account legal requirements related to
+        energy use.  An ISO-EnMS allows organizations to improve energy
+        performance and demonstrate conformity to requirements,
+        standards, and/or legal requirements.
+
+     2. Example ISO-EnMS: Company A defines a set of policies and
+        procedures indicating that there should exist multiple
+        computerized systems that will poll energy measurements from
+        their meters and pricing / source data from their local
+        utility.  Company A specifies that their CFO (Chief Financial
+        Officer) should collect information and summarize it quarterly
+        to be sent to an accounting firm to produce carbon accounting
+        reporting as required by their local government.
+
+     3. For the purposes of EMAN, the definition herein is the
+        preferred meaning of an EnMS.  The definition from [ISO50001]
+        can be referred to as an ISO Energy Management System
+        (ISO-EnMS).
+
+   Device A device is a piece of electrical or non-electrical equipment.
+
+     Reference: Adapted from [IEEE100].
+
+   Component A component is a part of electrical or non-electrical
+   equipment (device).
+
+     Reference: Adapted from [TMN].
+
+   Meter (Energy Meter) A meter is a device intended to measure
+   electrical energy by integrating power with respect to time.
+
+     Reference: Adapted from [IEC60050].
+
+   Power Inlet A power inlet (or simply "inlet") is an interface at
+   which a device or component receives energy from another device or
+   component.
+
+   Power Outlet A power outlet (or simply "outlet") is an interface at
+   which a device or component provides energy to another device or
+   component.
+
+   Power Interface A Power Interface is a power inlet, outlet, or both.
+
+   Power State A Power State is a condition or mode of a device (or
+   component) that broadly characterizes its capabilities, power, and
+   responsiveness to input.
+
+     Reference: Adapted from [IEEE1621].
+
+   Power State Set A Power State Set is a collection of Power States
+   that comprises a named or logical control grouping.
+
+3.  Motivation
+
+3.1.  Impact on Energy Metrics
+
+   The framework will significantly enhance the creation of energy
+   metrics with actionable insights by:
+
+   *  Standardizing Metrics: Establishing consistent measurement
+      protocols for energy consumption and efficiency.
+
+   *  Enhancing Data Collection: Facilitating comprehensive monitoring
+      and data aggregation across devices.
+
+   *  Supporting Real-time Monitoring: Enabling dynamic tracking and
+      immediate optimization of energy usage.
+
+   *  Integration Across Devices: Ensuring interoperability for network-
+      wide data analysis.
+
+   *  Providing Actionable Insights: Translating raw data into
+      meaningful information for decision-making.
+
+3.2.  Current Device Readiness
+
+   While many modern networking devices have basic energy monitoring
+   capabilities, these are often proprietary.  The framework will define
+   requirements to enhance these capabilities, enabling standardized
+   metric production and meaningful data contributions for energy
+   management goals.
+
+3.3.  Why Now?
+
+   The decision to define the framework now, rather than later, is
+   driven by:
+
+   *  Immediate Benefits: Start realizing cost savings, reduced carbon
+      footprints, and improved efficiencies.
+
+   *  Rapid Technological Advancements: Aligning the framework with
+      current technologies to prevent obsolescence.
+
+   *  Increasing Energy Demands: Mitigating the impact of growing energy
+      consumption on costs and sustainability.
+
+   *  Regulatory Pressure: Preparing for compliance with existing and
+      anticipated sustainability regulations.
+
+   *  Competitive Advantage: Positioning organizations as leaders in
+      sustainability and innovation.
+
+   *  Foundational Work Ready: Building on the use cases and
+      requirements established in Phase I.
+
+   *  Proactive Risk Management: Minimizing risks associated with energy
+      costs and environmental factors.
+
+   *  Facilitate Future Innovations: Creating a platform for continuous
+      improvements and adaptations.
+
+   *  Stakeholder Engagement: Ensuring diverse perspectives are
+      reflected for broader adoption.
+
+   In conclusion, establishing the framework for energy efficiency
+   management now is strategic and timely, leveraging the current
+   momentum of use cases and requirements to drive meaningful progress
+   in energy efficiency management.  Delaying its development could
+   result in missed opportunities for immediate benefits, increased
+   costs, and challenges in adapting to future technological and
+   regulatory landscapes.
+
+4.  Architecture Overview
+
+   The framework introduces the concept of a Power Interface that is
+   analogous to a network interface.  A Power Interface is defined as an
+   interconnection among devices where energy can be provided, received,
+   or both.
+
+   The most basic example of Energy Management is a single device
+   reporting information about itself.  In many cases, however, energy
+   is not measured by the device itself but is measured upstream in the
+   power distribution tree.  For example, a Power Distribution Unit
+   (PDU) may measure the energy it supplies to attached devices and
+   report this to an Energy Management System.  Therefore, devices often
+   have relationships to other devices or components in the power
+   network.  An Energy Management System (EnMS) generally requires an
+   understanding of the power topology (who provides power to whom), the
+   Metering topology (who meters whom), and the potential Aggregation
+   (who aggregates values of others).
+
+   The relationships build on the Power Interface concept.  The
+   different relationships among devices and components, as specified in
+   this document, include power source, Metering, and Aggregation
+   Relationships.
+
+   The framework does not cover non-electrical equipment, nor does it
+   cover energy procurement and manufacturing.
+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |                  (3) Network Domain Level                          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+
+  (a)              (b)              (c)
+  Inventory        Monitor       +- DataSheets/DataBase and/or via API
+  Of identity      Energy        |  Metadata and other device/component
+  and Capability   Efficiency    |  /network related information:
+       ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |  .information
+       |               |         |  .origin of Energy Mix
+       |               |         |  .carbon aware based on location
+       |               |         |
+       |               |         |
+       |               |         |
+       |               |         v
+  +--------------------------------------------------------------------+
+  |                   *                                                |
+  |     (2) controller   (collection, compute and aggregate?)          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+               ^              ^                   ^ |
+    (d)        |  (e)         |  (f)              | |(g)
+    Inventory  |  Monitor     |  GREEN WG:        | | Control
+    Capability |  Traffic     |  Monitor power    | | (Energy saving
+               |  & power     |  Proportion,      | | Functionality
+               |  consumption |  Energy efficiency| | Localized mgmt/
+               |              |  ratio, etc)      | | network wide mgmt)
+               |              |                   | |
+               |              |                   | |
+               |              |                   | v
+  +--------------------------------------------------------------------+
+  |                                            *                       |
+  |                       (1) Entities                                 |
+  |                                                                    |
+  | +---------+  +-----------+  +----------------+  +----------------+ |
+  | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
+  | |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
+  | | Device  |  | Component |  | Device         |  | kind) Device   | |
+  | |         |  |           |  |                |  |                | |
+  | +---------+  +-----------+  +----------------+  +----------------+ |
+  +--------------------------------------------------------------------+
+
+  (*) Energy Efficiency Management Function is implemented inside the
+  device or in a controller
+
+               Figure 1: Framework discussed during the BoF
+
+   The main elements in the framework are as follows:
+
+   (a),(d) Discovery and Inventory
+
+   (b),(c) GREEN Metrics
+
+   (b),(f) Monitor energy efficiency
+
+   (e) Monitor power consumption and traffic (IPPM WG throughput,
+   traffic load, etc)
+
+   (g) Control Energy Saving
+
+4.1.  Typical Power Topologies
+
+5.  Monitoring
+
+   to do
+
+6.  Control
+
+   to do
+
+7.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+8.  Security Considerations
+
+   Resiliency is an implicit use case of energy efficiency management
+   which comes with numerous security considerations :
+
+   Controlling Power State and power supply of entities are considered
+   highly sensitive actions, since they can significantly affect the
+   operation of directly and indirectly connected devices.  Therefore,
+   all control actions must be sufficiently protected through
+   authentication, authorization, and integrity protection mechanisms.
+
+   Entities that are not sufficiently secure to operate directly on the
+   public Internet do exist and can be a significant cause of risk, for
+   example, if the remote control functions can be exercised on those
+   devices from anywhere on the Internet.
+
+   The monitoring of energy-related quantities of an entity as addressed
+   can be used to derive more information than just the received and
+   provided energy; therefore, monitored data requires protection.  This
+   protection includes authentication and authorization of entities
+   requesting access to monitored data as well as confidentiality
+   protection during transmission of monitored data.  Privacy of stored
+   data in an entity must be taken into account.  Monitored data may be
+   used as input to control, accounting, and other actions, so integrity
+   of transmitted information and authentication of the origin may be
+   needed.
+
+9.  IANA Considerations
+
+   This document has no IANA actions.
+
+10.  Acknowledgments
+
+   This framework takes into account concepts from the Energy MANagement
+   (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
+   Brad Schoening, and Juergen Quittek.
+
+11.  References
+
+11.1.  Normative References
+
+11.2.  Informative References
+
+12.  Appendix
+
+   This appendix should be removed when the initial set of GREEN WG
+   documents will be stable
+
+13.  References
+
+13.1.  Normative References
+
+   [I-D.draft-bclp-green-terminology]
+              Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
+              M. Palmero, "Terminology for Energy Efficiency Network
+              Management", Work in Progress, Internet-Draft, draft-bclp-
+              green-terminology-01, 23 April 2025,
+              <https://datatracker.ietf.org/doc/html/draft-bclp-green-
+              terminology-01>.
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+13.2.  Informative References
+
+   [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
+              <http://www.iec.ch/smartgrid/standards/>.
+
+   [IEEE100]  IEEE, "The Authoritative Dictionary of IEEE Standards
+              Terms", 11 December 2000, <http://ieeexplore.ieee.org/xpl/
+              mostRecentIssue.jsp?punumber=4116785>.
+
+   [IEEE1621] IEEE, "Standard for User Interface Elements in Power
+              Control of Electronic Devices Employed in Office/Consumer
+              Environments, IEEE 1621", December 2004.
+
+   [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
+              "Energy Management Framework", RFC 7326,
+              DOI 10.17487/RFC7326, September 2014,
+              <https://www.rfc-editor.org/rfc/rfc7326>.
+
+   [TMN]      "International Telecommunication Union, "TMN management
+              functions"", February 2000, <ITU-T Recommendation M.3400>.
+
+Authors' Addresses
+
+   Benoit Claise
+   Huawei
+   Email: benoit.claise@huawei.com
+
+
+   Luis M. Contreras
+   Telefonica
+   Email: luismiguel.contrerasmurillo@telefonica.com
+
+
+   Jan Lindblad
+   For.Eco
+   Email: jan.lindblad+ietf@for.eco
+
+
+   Marisol Palmero
+   Cisco Systems, Inc.
+   Email: mpalmero@cisco.com
+
+
+   Emile Stephan
+   Orange
+   Email: emile.stephan@orange.com
+
+
+   Qin Wu
+   Huawei
+   Email: bill.wu@huawei.com
