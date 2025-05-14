@@ -4,12 +4,14 @@
 
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
-Intended status: Informational                                E. Stephan
-Expires: 15 November 2025                                         Orange
-                                                         L. M. Contreras
-                                                              Telefonica
+Intended status: Informational                           L. M. Contreras
+Expires: 15 November 2025                                     Telefonica
+                                                             J. Lindblad
+                                                                 For.Eco
                                                               M. Palmero
                                                      Cisco Systems, Inc.
+                                                              E. Stephan
+                                                                  Orange
                                                                    Q. Wu
                                                                   Huawei
                                                              14 May 2025
@@ -21,14 +23,16 @@ Expires: 15 November 2025                                         Orange
 Abstract
 
    Recognizing the urgent need for energy efficiency, this document
-   specifies a management framework within the GREEN Working Group to
-   standardize processes, optimize energy usage, and ensure
-   interoperability.  This framework leverages collected data from
-   existing use cases to deliver actionable metrics for optimized energy
-   management and informed decision-making.  Furthermore, the document
-   proposes a framework for collecting timestamped telemetry data across
-   domains, using YANG, metadata, and Time Series Databases for
-   transparent and dependable results.
+   specifies a management framework focused on devices and device
+   components within, or connected to, interconnected systems.  The
+   framework aims to optimize energy usage and ensure interoperability
+   across diverse systems.  Leveraging data from existing use cases, it
+   delivers actionable metrics to support effective energy management
+   and informed decision-making.  Furthermore, the framework proposes
+   mechanisms for representing and organizing timestamped telemetry data
+   using YANG models and metadata, enabling transparent and reliable
+   monitoring.  This structured approach facilitates improved energy
+   efficiency through consistent energy management practices.
 
 About This Document
 
@@ -113,7 +117,7 @@ Table of Contents
       from RFC7326 EMAN REQ RFC 6988 speaks of Entities, while RFC7326
       speaks of device & components
 
-   *  Improve the abstract more in line with RFC 7326
+   *  Improve the abstract more in line with RFC 7326 >>> DONE
 
    *  Add a link to the use case 2.5 (PoE)
 
@@ -519,19 +523,24 @@ Authors' Addresses
    Email: benoit.claise@huawei.com
 
 
-   Emile Stephan
-   Orange
-   Email: emile.stephan@orange.com
-
-
    Luis M. Contreras
    Telefonica
    Email: luismiguel.contrerasmurillo@telefonica.com
 
 
+   Jan Lindblad
+   For.Eco
+   Email: jan.lindblad+ietf@for.eco
+
+
    Marisol Palmero
    Cisco Systems, Inc.
    Email: mpalmero@cisco.com
+
+
+   Emile Stephan
+   Orange
+   Email: emile.stephan@orange.com
 
 
    Qin Wu

@@ -6,12 +6,13 @@
 <meta content="initial-scale=1.0" name="viewport">
 <title>Framework for Energy Efficiency Management</title>
 <meta content="Benoit Claise" name="author">
-<meta content="Emile Stephan" name="author">
 <meta content="Luis M. Contreras" name="author">
+<meta content="Jan Lindblad" name="author">
 <meta content="Marisol Palmero" name="author">
+<meta content="Emile Stephan" name="author">
 <meta content="Qin Wu" name="author">
 <meta content="
-       Recognizing the urgent need for energy efficiency, this document specifies a management framework within the GREEN Working Group to standardize processes, optimize energy usage, and ensure interoperability. This framework leverages collected data from existing use cases to deliver actionable metrics for optimized energy management and informed decision-making. Furthermore, the document proposes a framework for collecting timestamped telemetry data across domains, using YANG, metadata, and Time Series Databases for transparent and dependable results. 
+       Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to optimize energy usage and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices. 
     " name="description">
 <meta content="xml2rfc 3.28.1" name="generator">
 <meta content="framework" name="keyword">
@@ -1082,16 +1083,20 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div class="org">Huawei</div>
 </div>
 <div class="author">
-      <div class="author-name">E. Stephan</div>
-<div class="org">Orange</div>
-</div>
-<div class="author">
       <div class="author-name">L. M. Contreras</div>
 <div class="org">Telefonica</div>
 </div>
 <div class="author">
+      <div class="author-name">J. Lindblad</div>
+<div class="org">For.Eco</div>
+</div>
+<div class="author">
       <div class="author-name">M. Palmero</div>
 <div class="org">Cisco Systems, Inc.</div>
+</div>
+<div class="author">
+      <div class="author-name">E. Stephan</div>
+<div class="org">Orange</div>
 </div>
 <div class="author">
       <div class="author-name">Q. Wu</div>
@@ -1103,7 +1108,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Framework for Energy Efficiency Management</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Recognizing the urgent need for energy efficiency, this document specifies a management framework within the GREEN Working Group to standardize processes, optimize energy usage, and ensure interoperability. This framework leverages collected data from existing use cases to deliver actionable metrics for optimized energy management and informed decision-making. Furthermore, the document proposes a framework for collecting timestamped telemetry data across domains, using YANG, metadata, and Time Series Databases for transparent and dependable results.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to optimize energy usage and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1266,7 +1271,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
  EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device &amp; components<a href="#section-1-1.2.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-1.3">
-          <p id="section-1-1.3.1">Improve the abstract more in line with RFC 7326<a href="#section-1-1.3.1" class="pilcrow">¶</a></p>
+          <p id="section-1-1.3.1">Improve the abstract more in line with RFC 7326 &gt;&gt;&gt; DONE<a href="#section-1-1.3.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-1-1.4">
           <p id="section-1-1.4.1">Add a link to the use case 2.5 (PoE)<a href="#section-1-1.4.1" class="pilcrow">¶</a></p>
@@ -1769,14 +1774,6 @@ needed.<a href="#section-8-4" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
-<div dir="auto" class="left"><span class="org">Orange</span></div>
-<div class="email">
-<span>Email:</span>
-<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
-</div>
-</address>
-<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Luis M. Contreras</span></div>
 <div dir="auto" class="left"><span class="org">Telefonica</span></div>
 <div class="email">
@@ -1785,11 +1782,27 @@ needed.<a href="#section-8-4" class="pilcrow">¶</a></p>
 </div>
 </address>
 <address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Jan Lindblad</span></div>
+<div dir="auto" class="left"><span class="org">For.Eco</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:jan.lindblad+ietf@for.eco" class="email">jan.lindblad+ietf@for.eco</a>
+</div>
+</address>
+<address class="vcard">
         <div dir="auto" class="left"><span class="fn nameRole">Marisol Palmero</span></div>
 <div dir="auto" class="left"><span class="org">Cisco Systems, Inc.</span></div>
 <div class="email">
 <span>Email:</span>
 <a href="mailto:mpalmero@cisco.com" class="email">mpalmero@cisco.com</a>
+</div>
+</address>
+<address class="vcard">
+        <div dir="auto" class="left"><span class="fn nameRole">Emile Stephan</span></div>
+<div dir="auto" class="left"><span class="org">Orange</span></div>
+<div class="email">
+<span>Email:</span>
+<a href="mailto:emile.stephan@orange.com" class="email">emile.stephan@orange.com</a>
 </div>
 </address>
 <address class="vcard">
