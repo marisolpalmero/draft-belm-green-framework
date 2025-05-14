@@ -93,15 +93,15 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # TO DO
 
-* What we miss is the 4 reference examples rfc7326 section 4 
+* What we miss is the 4 reference examples rfc7326 section 4
+* Populate the terminology according to the terminology draft and from RFC7326
+   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components 
 * Improve the abstract more in line with RFC 7326
 * Add a link to the use case 2.5 (PoE)
 * IEC60050 reference needs a new URL
 * Nits: should this have its own rectangle? "(3) Network Domain Level :"
 
-
 # Introduction
-
 
 In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices towards energy-efficient operations. The framework is essential for:
 
@@ -267,7 +267,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    The framework does not cover non-electrical equipment, nor does it
    cover energy procurement and manufacturing.
 
- ~~~~
+~~~~
 
 
 +--------------------------------------------------------------------+
@@ -334,11 +334,7 @@ The main elements in the framework are as follows:
 
 (g) Control Energy Saving
 
-
 ## Typical Power Topologies
-
-
-
 
 # Monitoring
 
@@ -351,7 +347,6 @@ to do
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
-
 
 # Security Considerations
 
@@ -380,17 +375,21 @@ used as input to control, accounting, and other actions, so integrity
 of transmitted information and authentication of the origin may be
 needed.
 
-
 # IANA Considerations
 
 This document has no IANA actions.
-
-
---- back
 
 # Acknowledgments
 
 This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
 
-{:numbered="false"}
+# References
+
+## Normative References
+
+## Informative References
+
+# Appendix
+
+This appendix should be removed when the initial set of GREEN WG documents will be stable
 
