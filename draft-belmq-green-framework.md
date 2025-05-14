@@ -69,7 +69,7 @@ informative:
     - org: IEEE
     date: 2000-12-11
 
-   IEEE1621: 
+   IEEE1621:
     title: Standard for User Interface Elements in Power Control of Electronic
      Devices Employed in Office/Consumer Environments, IEEE 1621
     author:
@@ -95,7 +95,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 * What we miss is the 4 reference examples rfc7326 section 4
 * Populate the terminology according to the terminology draft and from RFC7326
-   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components 
+   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
 * Improve the abstract more in line with RFC 7326
 * Add a link to the use case 2.5 (PoE)
 * IEC60050 reference needs a new URL
