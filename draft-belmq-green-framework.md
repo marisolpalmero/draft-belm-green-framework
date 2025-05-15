@@ -60,11 +60,11 @@ author:
 normative:
 
 informative:
+
    TMN:
     title: International Telecommunication Union, "TMN management functions"
     date: 2000-02
     target: ITU-T Recommendation M.3400
-
 
    IEEE100:
     target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
@@ -80,14 +80,12 @@ informative:
     - org: IEEE
     date: 2004-12
 
-
    IEC60050:
     target: http://www.iec.ch/smartgrid/standards/
     title: Power Utility Automation
     author:
     - org: IEC
     date: 2000-12-11
-
 
 --- abstract
 
@@ -265,8 +263,8 @@ In conclusion, establishing the framework for energy efficiency management now i
    The framework does not cover non-electrical equipment, nor does it
    cover energy procurement and manufacturing.
 
-~~~~
 
+~~~~
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -312,8 +310,6 @@ and Capability   Efficiency    |  /network related information:
 | |         |  |           |  |                |  |                | |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 +--------------------------------------------------------------------+
-
-
 
 ~~~~
 {: #green-framework title="GREEN Reference Model"}
