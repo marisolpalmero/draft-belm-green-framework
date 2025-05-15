@@ -412,97 +412,94 @@ Table of Contents
 
 4.1.1.  Basic Power Supply
 
- +--------------------------------------------------------------------+
- |                                                                    |
- |                  (3) Network Domain Level                          |
- |                                                                    |
- +--------------------------------------------------------------------+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |                  (3) Network Domain Level                          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
 
- (a)              (b)              (c)
- Inventory        Monitor       +- DataSheets/DataBase and/or via API
- Of identity      Energy        |  Metadata and other device/component
- and Capability   Efficiency    |  /network related information:
-      ^               ^         |
-      |               |         |  .Power/Energy related metrics
-      |               |         |  .information
-      |               |         |  .origin of Energy Mix
-      |               |         |  .carbon aware based on location
-      |               |         |
-      |               |         |
-      |               |         |
-      |               |         v
- +--------------------------------------------------------------------+
- |                                                                    |
- |       (2) controller (collection, compute and aggregate?)          |
- |                                                                    |
- +--------------------------------------------------------------------+
-               ^   ^   ^ |                   ^   ^   ^ |
-               |   |   | |                   |   |   | |
-              (d) (e)  (f)                  (d) (e)  (f)
-               |   |   | |                   |   |   | |
-               |   |     v                   |   |     v
-             +--------------+            +------------------+
-             |              |            |                  |
-             | Power Supply |############| Device/Component |
-             |              |            |                  |
-             +--------------+            +------------------+
- #basic-power-supply title="Reference Model Example: Basic Power Supply"
+  (a)              (b)              (c)
+  Inventory        Monitor       +- DataSheets/DataBase and/or via API
+  Of identity      Energy        |  Metadata and other device/component
+  and Capability   Efficiency    |  /network related information:
+       ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |  .information
+       |               |         |  .origin of Energy Mix
+       |               |         |  .carbon aware based on location
+       |               |         |
+       |               |         |
+       |               |         |
+       |               |         v
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |       (2) controller (collection, compute and aggregate?)          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+                ^   ^   ^ |                   ^   ^   ^ |
+                |   |   | |                   |   |   | |
+               (d) (e)  (f)                  (d) (e)  (f)
+                |   |   | |                   |   |   | |
+                |   |     v                   |   |     v
+              +--------------+            +------------------+
+              |              |            |                  |
+              | Power Supply |############| Device/Component |
+              |              |            |                  |
+              +--------------+            +------------------+
 
-         Figure 2: Reference Model Example: Basic Power Supply
+          Figure 2: Reference Model Example: Basic Power Supply
 
 4.1.2.  Single Power Supply with Multiple Devices
 
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |                  (3) Network Domain Level                          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
 
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-              ^   ^   ^ |                   ^   ^   ^ |
-              |   |   | |                   |   |   | |
-             (d) (e)  (f)                  (d) (e)  (f) ... N
-              |   |   | |                   |   |   | |
-              |   |     v                   |   |     v
-            +--------------+            +--------------------+
-            |              |            |                    |
-            | Power Supply |############| Device/Component 1 |
-            |              |  #         |                    |
-            +--------------+  #         +--------------------+
-                              #
-                              #         +--------------------+
-                              #         |                    |
-                              ##########| Device/Component 2 |
-                                 #      |                    |
-                                 #      +--------------------+
-                                 #
-                                 #      +--------------------+
-                                 #      |                    |
-                                 #######| Device/Component N |
-                                        |                    |
-                                        +--------------------+
-#single-power-supply-with-multiple-devices
-title="Reference Model Example: Single Power Supply with Multiple Devices"
+  (a)              (b)              (c)
+  Inventory        Monitor       +- DataSheets/DataBase and/or via API
+  Of identity      Energy        |  Metadata and other device/component
+  and Capability   Efficiency    |  /network related information:
+       ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |  .information
+       |               |         |  .origin of Energy Mix
+       |               |         |  .carbon aware based on location
+       |               |         |
+       |               |         |
+       |               |         |
+       |               |         v
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |       (2) controller (collection, compute and aggregate?)          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+                ^   ^   ^ |                   ^   ^   ^ |
+                |   |   | |                   |   |   | |
+               (d) (e)  (f)                  (d) (e)  (f) ... N
+                |   |   | |                   |   |   | |
+                |   |     v                   |   |     v
+              +--------------+            +--------------------+
+              |              |            |                    |
+              | Power Supply |############| Device/Component 1 |
+              |              |  #         |                    |
+              +--------------+  #         +--------------------+
+                                #
+                                #         +--------------------+
+                                #         |                    |
+                                ##########| Device/Component 2 |
+                                   #      |                    |
+                                   #      +--------------------+
+                                   #
+                                   #      +--------------------+
+                                   #      |                    |
+                                   #######| Device/Component N |
+                                          |                    |
+                                          +--------------------+
 
-     Figure 3: Reference Model Example: Single Power Supply with
-                           Multiple Devices
+       Figure 3: Reference Model Example: Single Power Supply with
+                             Multiple Devices
 
 4.1.3.  Multiple Power Supplies with Single Device
 
