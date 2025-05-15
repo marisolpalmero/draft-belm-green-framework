@@ -337,7 +337,7 @@ Function might be implemented inside the device or in the controller.
    more topologies can be created with a combination of devices, the
    following are some basic ones that show how Energy Management
    topologies differ from Network Management topologies. Only the controller,
-   devices & components, are depicted here, as the Network Domain Level
+   devices and components, are depicted here, as the Network Domain Level
    remains identical.
 
  NOTE: "###" is used to denote a transfer of energy.
@@ -385,7 +385,6 @@ and Capability   Efficiency    |  /network related information:
 
 ~~~~
 {: #basic-power-supply title="Reference Model Example: Basic Power Supply"}
-
 
 ### Single Power Supply with Multiple Devices
 
