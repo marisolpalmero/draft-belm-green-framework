@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 15 November 2025                                     Telefonica
+Expires: 16 November 2025                                     Telefonica
                                                              J. Lindblad
                                                                  For.Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 15 November 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             14 May 2025
+                                                             15 May 2025
 
 
                Framework for Energy Efficiency Management
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 November 2025.
+   This Internet-Draft will expire on 16 November 2025.
 
 Copyright Notice
 
@@ -92,39 +92,27 @@ Table of Contents
      3.1.  Impact on Energy Metrics
      3.2.  Current Device Readiness
      3.3.  Why Now?
-   4.  Architecture Overview
+   4.  Reference Model
      4.1.  Typical Power Topologies
-   5.  Monitoring
-   6.  Control
-   7.  Conventions and Definitions
-   8.  Security Considerations
-   9.  IANA Considerations
-   10. Acknowledgments
+       4.1.1.  Basic Power Supply
+       4.1.2.  Single Power Supply with Multiple Devices
+       4.1.3.  Multiple Power Supplies with Single Device
+   5.  Conventions and Definitions
+   6.  Security Considerations
+   7.  IANA Considerations
+   8.  Acknowledgments
+   9.  References
+     9.1.  Normative References
+     9.2.  Informative References
+   10. Appendix
    11. References
      11.1.  Normative References
      11.2.  Informative References
-   12. Appendix
-   13. References
-     13.1.  Normative References
-     13.2.  Informative References
    Authors' Addresses
 
 1.  TO DO
 
-   *  What we miss is the 4 reference examples rfc7326 section 4
-
-   *  Populate the terminology according to the terminology draft and
-      from RFC7326 EMAN REQ RFC 6988 speaks of Entities, while RFC7326
-      speaks of device & components
-
-   *  Improve the abstract more in line with RFC 7326 >>> DONE
-
-   *  Add a link to the use case 2.5 (PoE)
-
    *  IEC60050 reference needs a new URL
-
-   *  Nits: should this have its own rectangle? "(3) Network Domain
-      Level :"
 
 2.  Introduction
 
@@ -317,7 +305,7 @@ Table of Contents
    costs, and challenges in adapting to future technological and
    regulatory landscapes.
 
-4.  Architecture Overview
+4.  Reference Model
 
    The framework introduces the concept of a Power Interface that is
    analogous to a network interface.  A Power Interface is defined as an
@@ -364,23 +352,22 @@ Table of Contents
        |               |         |
        |               |         v
   +--------------------------------------------------------------------+
-  |                   *                                                |
-  |     (2) controller   (collection, compute and aggregate?)          |
+  |                                                                    |
+  |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-               ^              ^                   ^ |
-    (d)        |  (e)         |  (f)              | |(g)
-    Inventory  |  Monitor     |  GREEN WG:        | | Control
-    Capability |  Traffic     |  Monitor power    | | (Energy saving
-               |  & power     |  Proportion,      | | Functionality
-               |  consumption |  Energy efficiency| | Localized mgmt/
-               |              |  ratio, etc)      | | network wide mgmt)
-               |              |                   | |
-               |              |                   | |
-               |              |                   | v
+                  ^                      ^                      ^ |
+       (d)        |     (e)              |   (f)                | |
+       Inventory  |     Monitor power    |   Control            | |
+       Capability |     Proportion       |   (Energy saving     | |
+                  |     Energy efficiency|   Functionality      | |
+                  |     ratio, power     |   Localized mgmt/    | |
+                  |     consumption,     |   network wide mgmt) | |
+                  |     etc)             |                      | |
+                  |                      |                      | v
   +--------------------------------------------------------------------+
-  |                                            *                       |
-  |                       (1) Entities                                 |
+  |                                                                    |
+  |                       (1) Device/Component                         |
   |                                                                    |
   | +---------+  +-----------+  +----------------+  +----------------+ |
   | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
@@ -390,10 +377,7 @@ Table of Contents
   | +---------+  +-----------+  +----------------+  +----------------+ |
   +--------------------------------------------------------------------+
 
-  (*) Energy Efficiency Management Function is implemented inside the
-  device or in a controller
-
-               Figure 1: Framework discussed during the BoF
+                     Figure 1: GREEN Reference Model
 
    The main elements in the framework are as follows:
 
@@ -401,24 +385,166 @@ Table of Contents
 
    (b),(c) GREEN Metrics
 
-   (b),(f) Monitor energy efficiency
+   (b),(e) Monitor energy efficiency
 
-   (e) Monitor power consumption and traffic (IPPM WG throughput,
-   traffic load, etc)
+   (f) Control Energy Saving
 
-   (g) Control Energy Saving
+   The monitoring interface (e) obviously monitor more aspects than just
+   power and energy, (for example traffic monitoring) but this is not
+   covered in the framework.
+
+   Note that this framework specificies logical blocks, however, the
+   Energy Efficiency Management Function might be implemented inside the
+   device or in the controller.
 
 4.1.  Typical Power Topologies
 
-5.  Monitoring
+   The following reference model describes physical power topologies
+   that exist in parallel with a communication topology.  While many
+   more topologies can be created with a combination of devices, the
+   following are some basic ones that show how Energy Management
+   topologies differ from Network Management topologies.  Only the
+   controller, devices and components, are depicted here, as the Network
+   Domain Level remains identical.
 
-   to do
+   NOTE: "###" is used to denote a transfer of energy.  "- >" is used to
+   denote a transfer of information.
 
-6.  Control
+4.1.1.  Basic Power Supply
 
-   to do
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                  (3) Network Domain Level                          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
 
-7.  Conventions and Definitions
+ (a)              (b)              (c)
+ Inventory        Monitor       +- DataSheets/DataBase and/or via API
+ Of identity      Energy        |  Metadata and other device/component
+ and Capability   Efficiency    |  /network related information:
+      ^               ^         |
+      |               |         |  .Power/Energy related metrics
+      |               |         |  .information
+      |               |         |  .origin of Energy Mix
+      |               |         |  .carbon aware based on location
+      |               |         |
+      |               |         |
+      |               |         |
+      |               |         v
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |       (2) controller (collection, compute and aggregate?)          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+               ^   ^   ^ |                   ^   ^   ^ |
+               |   |   | |                   |   |   | |
+              (d) (e)  (f)                  (d) (e)  (f)
+               |   |   | |                   |   |   | |
+               |   |     v                   |   |     v
+             +--------------+            +------------------+
+             |              |            |                  |
+             | Power Supply |############| Device/Component |
+             |              |            |                  |
+             +--------------+            +------------------+
+ #basic-power-supply title="Reference Model Example: Basic Power Supply"
+
+         Figure 2: Reference Model Example: Basic Power Supply
+
+4.1.2.  Single Power Supply with Multiple Devices
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+              ^   ^   ^ |                   ^   ^   ^ |
+              |   |   | |                   |   |   | |
+             (d) (e)  (f)                  (d) (e)  (f) ... N
+              |   |   | |                   |   |   | |
+              |   |     v                   |   |     v
+            +--------------+            +--------------------+
+            |              |            |                    |
+            | Power Supply |############| Device/Component 1 |
+            |              |  #         |                    |
+            +--------------+  #         +--------------------+
+                              #
+                              #         +--------------------+
+                              #         |                    |
+                              ##########| Device/Component 2 |
+                                 #      |                    |
+                                 #      +--------------------+
+                                 #
+                                 #      +--------------------+
+                                 #      |                    |
+                                 #######| Device/Component N |
+                                        |                    |
+                                        +--------------------+
+#single-power-supply-with-multiple-devices
+title="Reference Model Example: Single Power Supply with Multiple Devices"
+
+     Figure 3: Reference Model Example: Single Power Supply with
+                           Multiple Devices
+
+4.1.3.  Multiple Power Supplies with Single Device
+
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                  (3) Network Domain Level                          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+
+ (a)              (b)              (c)
+ Inventory        Monitor       +- DataSheets/DataBase and/or via API
+ Of identity      Energy        |  Metadata and other device/component
+ and Capability   Efficiency    |  /network related information:
+      ^               ^         |
+      |               |         |  .Power/Energy related metrics
+      |               |         |  .information
+      |               |         |  .origin of Energy Mix
+      |               |         |  .carbon aware based on location
+      |               |         |
+      |               |         |
+      |               |         |
+      |               |         v
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |       (2) controller (collection, compute and aggregate?)          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+       ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+       |   |   | |              |   |   | |               |   |   | |
+      (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+       |   |   | |              |   |   | |               |   |   | |
+       |   |     v              |   |     v               |   |     v
+    +----------------+      +------------------+      +----------------+
+    |                |      |                  |      |                |
+    | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
+    |                |      |                  |      |                |
+    +----------------+      +------------------+      +----------------+
+
+    Figure 4: Reference Model Example: Multiple Power Supplies with
+                             Single Device
+
+5.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -426,7 +552,7 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-8.  Security Considerations
+6.  Security Considerations
 
    Resiliency is an implicit use case of energy efficiency management
    which comes with numerous security considerations :
@@ -453,30 +579,30 @@ Table of Contents
    of transmitted information and authentication of the origin may be
    needed.
 
-9.  IANA Considerations
+7.  IANA Considerations
 
    This document has no IANA actions.
 
-10.  Acknowledgments
+8.  Acknowledgments
 
    This framework takes into account concepts from the Energy MANagement
    (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
    Brad Schoening, and Juergen Quittek.
 
-11.  References
+9.  References
 
-11.1.  Normative References
+9.1.  Normative References
 
-11.2.  Informative References
+9.2.  Informative References
 
-12.  Appendix
+10.  Appendix
 
    This appendix should be removed when the initial set of GREEN WG
    documents will be stable
 
-13.  References
+11.  References
 
-13.1.  Normative References
+11.1.  Normative References
 
    [I-D.draft-bclp-green-terminology]
               Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
@@ -495,7 +621,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-13.2.  Informative References
+11.2.  Informative References
 
    [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
               <http://www.iec.ch/smartgrid/standards/>.
