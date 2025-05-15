@@ -96,13 +96,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # TO DO
 
-* What we miss is the 4 reference examples rfc7326 section 4
-* Populate the terminology according to the terminology draft and from RFC7326
-   EMAN REQ RFC 6988 speaks of Entities, while RFC7326 speaks of device & components
-* Improve the abstract more in line with RFC 7326 >>> DONE
-* Add a link to the use case 2.5 (PoE)
 * IEC60050 reference needs a new URL
-* Nits: should this have its own rectangle? "(3) Network Domain Level :"
 
 # Introduction
 
@@ -243,7 +237,7 @@ The decision to define the framework now, rather than later, is driven by:
 
 In conclusion, establishing the framework for energy efficiency management now is strategic and timely, leveraging the current momentum of use cases and requirements to drive meaningful progress in energy efficiency management. Delaying its development could result in missed opportunities for immediate benefits, increased costs, and challenges in adapting to future technological and regulatory landscapes.
 
-# Architecture Overview
+# Reference Model
 
    The framework introduces the concept of a Power Interface that is
    analogous to a network interface.  A Power Interface is defined as an
@@ -293,23 +287,22 @@ and Capability   Efficiency    |  /network related information:
      |               |         |
      |               |         v
 +--------------------------------------------------------------------+
-|                   *                                                |
-|     (2) controller   (collection, compute and aggregate?)          |
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-             ^              ^                   ^ |
-  (d)        |  (e)         |  (f)              | |(g)
-  Inventory  |  Monitor     |  GREEN WG:        | | Control
-  Capability |  Traffic     |  Monitor power    | | (Energy saving
-             |  & power     |  Proportion,      | | Functionality
-             |  consumption |  Energy efficiency| | Localized mgmt/
-             |              |  ratio, etc)      | | network wide mgmt)
-             |              |                   | |
-             |              |                   | |
-             |              |                   | v
+                ^                      ^                      ^ |
+     (d)        |     (e)              |   (f)                | |
+     Inventory  |     Monitor power    |   Control            | |
+     Capability |     Proportion       |   (Energy saving     | |
+                |     Energy efficiency|   Functionality      | |
+                |     ratio, power     |   Localized mgmt/    | |
+                |     consumption,     |   network wide mgmt) | |
+                |     etc)             |                      | |
+                |                      |                      | v
 +--------------------------------------------------------------------+
-|                                            *                       |
-|                       (1) Entities                                 |
+|                                                                    |
+|                       (1) Device/Component                         |
 |                                                                    |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
@@ -319,11 +312,10 @@ and Capability   Efficiency    |  /network related information:
 | +---------+  +-----------+  +----------------+  +----------------+ |
 +--------------------------------------------------------------------+
 
-(*) Energy Efficiency Management Function is implemented inside the
-device or in a controller
+
 
 ~~~~
-{: #green-framework title="Framework discussed during the BoF"}
+{: #green-framework title="GREEN Reference Model"}
 
 The main elements in the framework are as follows:
 
@@ -331,21 +323,169 @@ The main elements in the framework are as follows:
 
 (b),(c) GREEN Metrics
 
-(b),(f) Monitor energy efficiency
+(b),(e) Monitor energy efficiency
 
-(e) Monitor power consumption and traffic (IPPM WG throughput, traffic load, etc)
+(f) Control Energy Saving
 
-(g) Control Energy Saving
+The monitoring nterface (e) obviously monitor more aspects than just power and energy,
+for example traffic monitoring) but this is not covered in the framework.
+
+Note that this framework specificies logical blocks, however, the Energy Efficiency Management
+Function might be  implemented inside the device or in the controller.
 
 ## Typical Power Topologies
 
-# Monitoring
+   The following reference model describes physical power topologies
+   that exist in parallel with a communication topology. While many
+   more topologies can be created with a combination of devices, the
+   following are some basic ones that show how Energy Management
+   topologies differ from Network Management topologies. Only the controller,
+   devices & components, are depicted here, as the Network Domain Level
+   remains identical.
 
-to do
+ NOTE: "###" is used to denote a transfer of energy.
+       "- >" is used to denote a transfer of information.
 
-# Control
 
-to do
+### Basic Power Supply
+
+~~~~
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+              ^   ^   ^ |                   ^   ^   ^ |
+              |   |   | |                   |   |   | |
+             (d) (e)  (f)                  (d) (e)  (f)
+              |   |   | |                   |   |   | |
+              |   |     v                   |   |     v
+            +--------------+            +------------------+
+            |              |            |                  |
+            | Power Supply |############| Device/Component |
+            |              |            |                  |
+            +--------------+            +------------------+
+
+~~~~
+{: #basic-power-supply title="Reference Model Example: Basic Power Supply"}
+
+
+### Single Power Supply with Multiple Devices
+
+~~~~
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+              ^   ^   ^ |                   ^   ^   ^ |
+              |   |   | |                   |   |   | |
+             (d) (e)  (f)                  (d) (e)  (f) ... N
+              |   |   | |                   |   |   | |
+              |   |     v                   |   |     v
+            +--------------+            +--------------------+
+            |              |            |                    |
+            | Power Supply |############| Device/Component 1 |
+            |              |  #         |                    |
+            +--------------+  #         +--------------------+
+                              #
+                              #         +--------------------+
+                              #         |                    |
+                              ##########| Device/Component 2 |
+                                 #      |                    |
+                                 #      +--------------------+
+                                 #
+                                 #      +--------------------+
+                                 #      |                    |
+                                 #######| Device/Component N |
+                                        |                    |
+                                        +--------------------+
+
+~~~~
+{: #single-power-supply-with-multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
+
+### Multiple Power Supplies with Single Device
+
+~~~~
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+      ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+      |   |   | |              |   |   | |               |   |   | |
+     (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+      |   |   | |              |   |   | |               |   |   | |
+      |   |     v              |   |     v               |   |     v
+   +----------------+      +------------------+      +----------------+
+   |                |      |                  |      |                |
+   | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
+   |                |      |                  |      |                |
+   +----------------+      +------------------+      +----------------+
+
+~~~~
+{: #multiple-power-supply-with-single-device title="Reference Model Example: Multiple Power Supplies with Single Device"}
+
 
 # Conventions and Definitions
 
