@@ -92,6 +92,7 @@ informative:
 --- abstract
 
 Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to optimize energy usage and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
+
 --- middle
 
 # TO DO
@@ -327,11 +328,11 @@ The main elements in the framework are as follows:
 
 (f) Control Energy Saving
 
-The monitoring nterface (e) obviously monitor more aspects than just power and energy,
-for example traffic monitoring) but this is not covered in the framework.
+The monitoring interface (e) obviously monitor more aspects than just power and energy,
+(for example traffic monitoring) but this is not covered in the framework.
 
 Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be  implemented inside the device or in the controller.
+Function might be implemented inside the device or in the controller.
 
 ## Typical Power Topologies
 
