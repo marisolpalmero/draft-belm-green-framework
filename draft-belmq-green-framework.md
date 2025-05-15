@@ -440,7 +440,7 @@ and Capability   Efficiency    |  /network related information:
 title="Reference Model Example: Single Power Supply with Multiple Devices"
 
 ~~~~
-{: #single-power-supply-with-multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
+{: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 
 ### Multiple Power Supplies with Single Device
 
