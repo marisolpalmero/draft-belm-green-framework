@@ -382,7 +382,6 @@ and Capability   Efficiency    |  /network related information:
             | Power Supply |############| Device/Component |
             |              |            |                  |
             +--------------+            +------------------+
-#basic-power-supply title="Reference Model Example: Basic Power Supply"
 ~~~~
 {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
@@ -436,8 +435,6 @@ and Capability   Efficiency    |  /network related information:
                                  #######| Device/Component N |
                                         |                    |
                                         +--------------------+
-#single-power-supply-with-multiple-devices
-title="Reference Model Example: Single Power Supply with Multiple Devices"
 
 ~~~~
 {: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
