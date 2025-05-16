@@ -306,7 +306,7 @@ and Capability   Efficiency    |  /network related information:
 | +---------+  +-----------+  +----------------+  +----------------+ |
 | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
 | |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
-| | Device  |  | Component |  | Device         |  | kind) Device   | |
+| | Device  |  | Component |  | Device         |  | end Point)     | |
 | |         |  |           |  |                |  |                | |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 +--------------------------------------------------------------------+
@@ -346,6 +346,10 @@ Function might be implemented inside the device or in the controller.
 
 ### Basic Power Supply
 
+This covers the basic example of router connected to Power Outlet in the wall.
+Note that in typical deployements, there are no interface (d), (e), and (f) for
+that Power Outlet. 
+
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -377,16 +381,71 @@ and Capability   Efficiency    |  /network related information:
              (d) (e)  (f)                   (d) (e)  (f)
               |   |   | |                    |   |   | |
               |   |     v                    |   |     v
-            +--------------+            +-------------------+
-            |              |            |                   |
-            | Power Supply |############| Device/Component/ |
-            |              |            | Attached PoE      |
-            |              |            |                   |
-            +--------------+            +-------------------+
+            +--------------+            +------------------+
+            |              |            |                  |
+            | Power Supply |############| Device/Component |
+            |              |            |                  |
+            +--------------+            +------------------+
 ~~~~
 {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
+### Power over Ethernet
+
+This covers the example of a switch port (Power Outlet) the provides energy
+with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.) 
+
+
+~~~~
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+              ^   ^   ^ |                  ^   ^   ^ |
+              |   |   | |                  |   |   | |
+             (d) (e)  (f)                 (d) (e)  (f)
+              |   |   | |                  |   |   | |
+              |   |     v                  |   |     v
+            +--------------+            +----------------+
+            |              |            |                |
+            | Device       |############| PoE End Point  |
+            | (switch)     |            |                |
+            |              |            |                |
+            +--------------+            +----------------+
+~~~~
+{: #power-over-ethernt title="Reference Model Example: Power over Ethernet"}
+
+The most important issue in such a topology is to avoid the double-counting
+in the Energy Management System (EnMS). The switch port, via its Power Outlet,
+reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
+reports its Energy consumed. Those two values are identical. Without the knowledge
+of this Power Source Relationship between the two entities, the EnMS will
+double-count the Energy consumed by those two devices.
+
 ### Single Power Supply with Multiple Devices
+
+This covers the example of a smart PDU that provides energy to a series
+of routers in a rack.
 
 ~~~~
 
