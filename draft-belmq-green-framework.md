@@ -203,6 +203,13 @@ Power State Set
       A Power State Set is a collection of Power States that comprises a
       named or logical control grouping.
 
+Energy Object
+
+   An Energy Object represents a piece of equipment that is
+   part of, or attached to, a communications network that is monitored
+   or controlled or that aids in the management of another device for
+   Energy Management.
+
 # Motivation
 
 ## Impact on Energy Metrics
@@ -264,7 +271,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    cover energy procurement and manufacturing.
 
 
-~~~~
+~~~~ {: #reference-model title="GREEN Reference Model"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -306,13 +313,12 @@ and Capability   Efficiency    |  /network related information:
 | +---------+  +-----------+  +----------------+  +----------------+ |
 | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
 | |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
-| | Device  |  | Component |  | Device         |  | kind) Device   | |
+| | Device  |  | Component |  | Device         |  | end Point)     | |
 | |         |  |           |  |                |  |                | |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 +--------------------------------------------------------------------+
 
 ~~~~
-{: #green-framework title="GREEN Reference Model"}
 
 The main elements in the framework are as follows:
 
@@ -346,7 +352,12 @@ Function might be implemented inside the device or in the controller.
 
 ### Basic Power Supply
 
-~~~~
+This covers the basic example of router connected to Power Outlet in the wall.
+Note that in typical deployements, there are no interface (d), (e), and (f) for
+that Power Outlet. If the router can not monitor its power, energy, demand, a
+physical meter is required (see next section).
+
+~~~~ {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -377,18 +388,138 @@ and Capability   Efficiency    |  /network related information:
              (d) (e)  (f)                   (d) (e)  (f)
               |   |   | |                    |   |   | |
               |   |     v                    |   |     v
-            +--------------+            +-------------------+
-            |              |            |                   |
-            | Power Supply |############| Device/Component/ |
-            |              |            | Attached PoE      |
-            |              |            |                   |
-            +--------------+            +-------------------+
+            +--------------+            +------------------+
+            |              |            |                  |
+            | Power Supply |############| Device/Component |
+            |              |            |                  |
+            +--------------+            +------------------+
+
 ~~~~
-{: #basic-power title="Reference Model Example: Basic Power Supply"}
+
+
+### Power over Ethernet
+
+This covers the example of a switch port (Power Outlet) the provides energy
+with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
+
+
+~~~~ {: #power-ethernet title="Reference Model Example: Power over Ethernet"}
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+              ^   ^   ^ |                  ^   ^   ^ |
+              |   |   | |                  |   |   | |
+             (d) (e)  (f)                 (d) (e)  (f)
+              |   |   | |                  |   |   | |
+              |   |     v                  |   |     v
+            +--------------+            +----------------+
+            |              |            |                |
+            | Device       |############| PoE End Point  |
+            | (switch)     |            |                |
+            |              |            |                |
+            +--------------+            +----------------+
+
+~~~~
+
+The most important issue in such a topology is to avoid the double-counting
+in the Energy Management System (EnMS). The switch port, via its Power Outlet,
+reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
+reports its Energy consumed. Those two values are identical. Without the knowledge
+of this specific topology, that is the Power Source Relationship between the two
+Energy Objects, the EnMS will double-count the Energy consumed by those two devices.
+
+A Power Source Relationship is a relationship where one Energy Object provides
+power to one or more Energy Objects.
+
+
+### Physical Meter
+
+This covers the basic example of device connected to wall Power Outlet,
+with a Physical Meter placed in the wall Power Outlet, because the device
+can not monitor its power, energy, demand.
+
+~~~~ {: #physical-meter title="Reference Model Example: Physical Meter"}
+
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                          ^   ^   ^ |           ^   ^   ^ |
+                          |   |   | |           |   |   | |
+                         (d) (e)  (f)          (d) (e)  (f)
+                          |   |   | |           |   |   | |
+                          |   |     v           |   |     v
+    +--------------+   +----------------+   +------------------+
+    |              |   |                |   |                  |
+    | Power Supply |###| Physical Meter |###| Device/Component |
+    |              |   |                |   |                  |
+    +--------------+   +----------------+   +------------------+
+
+~~~~
+
+When the EnMS discovers the physical meter, it must know which for
+which Energy Object(s) it measures power or energy. This is the
+Metering Relatonship.
+
+A Metering Relationship is a relationship where one Energy Object
+measures power, energy, demand, or Power Attributes of one or more
+other Energy Objects.  The Metering Relationship gives the view of
+the Metering topology.  Physical meters can be placed anywhere in
+a power distribution tree.  For example, utility meters monitor
+and report accumulated power consumption of the entire building.
+Logically, the Metering topology overlaps with the wiring
+topology, as meters are connected to the wiring topology.  A
+typical example is meters that clamp onto the existing wiring.
+
 
 ### Single Power Supply with Multiple Devices
 
-~~~~
+This covers the example of a smart PDU that provides energy to a series
+of routers in a rack.
+
+~~~~ {: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -439,11 +570,10 @@ and Capability   Efficiency    |  /network related information:
                                         +--------------------+
 
 ~~~~
-{: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 
 ### Multiple Power Supplies with Single Device
 
-~~~~
+~~~~ {: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -481,8 +611,6 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 
 ~~~~
-{: #multiple-power-supply-with-single-device title="Reference Model Example: Multiple Power Supplies with Single Device"}
-
 
 # Conventions and Definitions
 
