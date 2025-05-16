@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 16 November 2025                                     Telefonica
+Expires: 17 November 2025                                     Telefonica
                                                              J. Lindblad
                                                                  For.Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 16 November 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             15 May 2025
+                                                             16 May 2025
 
 
                Framework for Energy Efficiency Management
@@ -67,7 +67,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 November 2025.
+   This Internet-Draft will expire on 17 November 2025.
 
 Copyright Notice
 
@@ -436,16 +436,17 @@ Table of Contents
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^ |                   ^   ^   ^ |
-                |   |   | |                   |   |   | |
-               (d) (e)  (f)                  (d) (e)  (f)
-                |   |   | |                   |   |   | |
-                |   |     v                   |   |     v
-              +--------------+            +------------------+
-              |              |            |                  |
-              | Power Supply |############| Device/Component |
-              |              |            |                  |
-              +--------------+            +------------------+
+                ^   ^   ^ |                    ^   ^   ^ |
+                |   |   | |                    |   |   | |
+               (d) (e)  (f)                   (d) (e)  (f)
+                |   |   | |                    |   |   | |
+                |   |     v                    |   |     v
+              +--------------+            +-------------------+
+              |              |            |                   |
+              | Power Supply |############| Device/Component/ |
+              |              |            | Attached PoE      |
+              |              |            |                   |
+              +--------------+            +-------------------+
 
           Figure 2: Reference Model Example: Basic Power Supply
 
@@ -483,8 +484,9 @@ Table of Contents
               +--------------+            +--------------------+
               |              |            |                    |
               | Power Supply |############| Device/Component 1 |
-              |              |  #         |                    |
-              +--------------+  #         +--------------------+
+              | (Smart PDU)  |  #         |                    |
+              |              |  #         +--------------------+
+              +--------------+  #
                                 #
                                 #         +--------------------+
                                 #         |                    |
