@@ -348,7 +348,7 @@ Function might be implemented inside the device or in the controller.
 
 This covers the basic example of router connected to Power Outlet in the wall.
 Note that in typical deployements, there are no interface (d), (e), and (f) for
-that Power Outlet. 
+that Power Outlet.
 
 ~~~~
 
@@ -392,7 +392,7 @@ and Capability   Efficiency    |  /network related information:
 ### Power over Ethernet
 
 This covers the example of a switch port (Power Outlet) the provides energy
-with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.) 
+with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
 
 ~~~~
