@@ -276,8 +276,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    The framework does not cover non-electrical equipment, nor does it
    cover energy procurement and manufacturing.
 
-{: #reference-model title="GREEN Reference Model"}
-~~~~
+~~~~ {: #reference-model title="GREEN Reference Model"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -363,8 +362,7 @@ Note that in typical deployements, there are no interface (d), (e), and (f) for
 that Power Outlet. If the router can not monitor its power, energy, demand, a
 physical meter is required (see next section).
 
-{: #basic-power title="Reference Model Example: Basic Power Supply"}
-~~~~
+~~~~ {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -411,8 +409,7 @@ This covers the example of a switch port (Power Outlet) the provides energy
 with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
 
-{: #power-ethernet title="Reference Model Example: Power over Ethernet"}
-~~~~
+~~~~ {: #power-ethernet title="Reference Model Example: Power over Ethernet"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -469,8 +466,8 @@ This covers the basic example of device connected to wall Power Outlet,
 with a Physical Meter placed in the wall Power Outlet, because the device
 can not monitor its power, energy, demand.
 
-{: #physical-meter title="Reference Model Example: Physical Meter"}
-~~~~
+~~~~ {: #physical-meter title="Reference Model Example: Physical Meter"}
+
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -530,8 +527,8 @@ typical example is meters that clamp onto the existing wiring.
 This covers the example of a smart PDU that provides energy to a series
 of routers in a rack.
 
-{: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
-~~~~
+~~~~ {: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
+
 
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -586,8 +583,7 @@ and Capability   Efficiency    |  /network related information:
 
 ### Multiple Power Supplies with Single Device
 
-{: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
-~~~~
+~~~~ {: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
 
 +--------------------------------------------------------------------+
 |                                                                    |
