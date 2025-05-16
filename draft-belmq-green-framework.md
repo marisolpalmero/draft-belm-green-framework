@@ -319,7 +319,6 @@ and Capability   Efficiency    |  /network related information:
 +--------------------------------------------------------------------+
 
 ~~~~
-
 {: #reference-model title="GREEN Reference Model"}
 
 The main elements in the framework are as follows:
@@ -395,9 +394,8 @@ and Capability   Efficiency    |  /network related information:
             | Power Supply |############| Device/Component |
             |              |            |                  |
             +--------------+            +------------------+
-            
-~~~~
 
+~~~~
 {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
 
@@ -447,7 +445,6 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +----------------+
 
 ~~~~
-
 {: #power-over-ethernet title="Reference Model Example: Power over Ethernet"}
 
 
@@ -506,7 +503,6 @@ and Capability   Efficiency    |  /network related information:
     +--------------+   +----------------+   +------------------+
 
 ~~~~
-
 {: #physical-meter title="Reference Model Example: Physical Meter"}
 
 
@@ -581,7 +577,6 @@ and Capability   Efficiency    |  /network related information:
                                         +--------------------+
 
 ~~~~
-
 {: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 
 ### Multiple Power Supplies with Single Device
@@ -624,7 +619,6 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 
 ~~~~
-
 {: #multiple-power-supply-with-single-device title="Reference Model Example: Multiple Power Supplies with Single Device"}
 
 
