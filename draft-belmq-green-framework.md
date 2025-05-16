@@ -58,13 +58,19 @@ author:
     email: bill.wu@huawei.com
 
 normative:
+  # Add any actual normative references here or remove this block if unnecessary
+  # RFC2119:
+  #   title: "Key words for use in RFCs to Indicate Requirement Levels"
+  #   author:
+  #     - org: "IETF"
+  #   date: 1997
+  #   target: https://www.rfc-editor.org/info/rfc2119
 
 informative:
-
-   TMN:
+  TMN:
     title: International Telecommunication Union, "TMN management functions"
     date: 2000-02
-    target: ITU-T Recommendation M.3400
+    target: https://www.itu.int/rec/T-REC-M.3400ecommendation M.3400
 
    IEEE100:
     target: http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4116785
@@ -669,4 +675,3 @@ This framework takes into account concepts from the Energy MANagement (EMAN) Fra
 # Appendix
 
 This appendix should be removed when the initial set of GREEN WG documents will be stable
-
