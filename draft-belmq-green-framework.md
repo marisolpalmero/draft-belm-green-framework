@@ -319,7 +319,8 @@ and Capability   Efficiency    |  /network related information:
 +--------------------------------------------------------------------+
 
 ~~~~
-{: #green-framework title="GREEN Reference Model"}
+
+{: #reference-model title="GREEN Reference Model"}
 
 The main elements in the framework are as follows:
 
@@ -394,8 +395,11 @@ and Capability   Efficiency    |  /network related information:
             | Power Supply |############| Device/Component |
             |              |            |                  |
             +--------------+            +------------------+
+            
 ~~~~
+
 {: #basic-power title="Reference Model Example: Basic Power Supply"}
+
 
 
 ### Power over Ethernet
@@ -441,8 +445,11 @@ and Capability   Efficiency    |  /network related information:
             | (switch)     |            |                |
             |              |            |                |
             +--------------+            +----------------+
+
 ~~~~
+
 {: #power-over-ethernet title="Reference Model Example: Power over Ethernet"}
+
 
 The most important issue in such a topology is to avoid the double-counting
 in the Energy Management System (EnMS). The switch port, via its Power Outlet,
@@ -453,9 +460,6 @@ Energy Objects, the EnMS will double-count the Energy consumed by those two devi
 
 A Power Source Relationship is a relationship where one Energy Object provides
 power to one or more Energy Objects.
-
-Knowing this Power Source Relationship is required but not sufficient. To avoid the
-double-counting, only the switch port (Power Outlet) will report
 
 
 ### Physical Meter
@@ -500,12 +504,14 @@ and Capability   Efficiency    |  /network related information:
     | Power Supply |###| Physical Meter |###| Device/Component |
     |              |   |                |   |                  |
     +--------------+   +----------------+   +------------------+
+
 ~~~~
+
 {: #physical-meter title="Reference Model Example: Physical Meter"}
 
 
 When the EnMS discovers the physical meter, it must know which for
-which Energy Object(s) it measures power or energy: this is the
+which Energy Object(s) it measures power or energy. This is the
 Metering Relatonship.
 
 A Metering Relationship is a relationship where one Energy Object
@@ -575,6 +581,7 @@ and Capability   Efficiency    |  /network related information:
                                         +--------------------+
 
 ~~~~
+
 {: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 
 ### Multiple Power Supplies with Single Device
@@ -617,6 +624,7 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 
 ~~~~
+
 {: #multiple-power-supply-with-single-device title="Reference Model Example: Multiple Power Supplies with Single Device"}
 
 
