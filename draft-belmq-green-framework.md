@@ -276,7 +276,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    The framework does not cover non-electrical equipment, nor does it
    cover energy procurement and manufacturing.
 
-
+{: #reference-model title="GREEN Reference Model"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -325,7 +325,6 @@ and Capability   Efficiency    |  /network related information:
 +--------------------------------------------------------------------+
 
 ~~~~
-{: #reference-model title="GREEN Reference Model"}
 
 The main elements in the framework are as follows:
 
@@ -364,6 +363,7 @@ Note that in typical deployements, there are no interface (d), (e), and (f) for
 that Power Outlet. If the router can not monitor its power, energy, demand, a
 physical meter is required (see next section).
 
+{: #basic-power title="Reference Model Example: Basic Power Supply"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -402,7 +402,6 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +------------------+
 
 ~~~~
-{: #basic-power title="Reference Model Example: Basic Power Supply"}
 
 
 
@@ -412,6 +411,7 @@ This covers the example of a switch port (Power Outlet) the provides energy
 with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
 
+{: #power-ethernet title="Reference Model Example: Power over Ethernet"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -451,7 +451,6 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +----------------+
 
 ~~~~
-{: #power-ethernet title="Reference Model Example: Power over Ethernet"}
 
 The most important issue in such a topology is to avoid the double-counting
 in the Energy Management System (EnMS). The switch port, via its Power Outlet,
@@ -470,6 +469,7 @@ This covers the basic example of device connected to wall Power Outlet,
 with a Physical Meter placed in the wall Power Outlet, because the device
 can not monitor its power, energy, demand.
 
+{: #physical-meter title="Reference Model Example: Physical Meter"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -508,7 +508,6 @@ and Capability   Efficiency    |  /network related information:
     +--------------+   +----------------+   +------------------+
 
 ~~~~
-{: #physical-meter title="Reference Model Example: Physical Meter"}
 
 
 When the EnMS discovers the physical meter, it must know which for
@@ -531,6 +530,7 @@ typical example is meters that clamp onto the existing wiring.
 This covers the example of a smart PDU that provides energy to a series
 of routers in a rack.
 
+{: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -582,10 +582,11 @@ and Capability   Efficiency    |  /network related information:
                                         +--------------------+
 
 ~~~~
-{: #multiple-devices title="Reference Model Example: Single Power Supply with Multiple Devices"}
+
 
 ### Multiple Power Supplies with Single Device
 
+{: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
 ~~~~
 
 +--------------------------------------------------------------------+
@@ -624,7 +625,7 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 
 ~~~~
-{: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
+
 
 
 # Conventions and Definitions
