@@ -424,7 +424,7 @@ and Capability   Efficiency    |  /network related information:
             | Power Supply |############| Device/Component 1 |
             | (Smart PDU)  |  #         |                    |
             |              |  #         +--------------------+
-            +--------------+  #         
+            +--------------+  #
                               #
                               #         +--------------------+
                               #         |                    |
