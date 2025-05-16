@@ -67,7 +67,7 @@ normative:
   #   target: https://www.rfc-editor.org/info/rfc2119
 
 informative:
-  TMN:
+   TMN:
     title: International Telecommunication Union, "TMN management functions"
     date: 2000-02
     target: https://www.itu.int/rec/T-REC-M.3400ecommendation M.3400
