@@ -445,8 +445,6 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +----------------+
 
 ~~~~
-{: #power-over-ethernet title="Reference Model Example: Power over Ethernet"}
-
 
 The most important issue in such a topology is to avoid the double-counting
 in the Energy Management System (EnMS). The switch port, via its Power Outlet,
