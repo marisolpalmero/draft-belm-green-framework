@@ -372,16 +372,17 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-              ^   ^   ^ |                   ^   ^   ^ |
-              |   |   | |                   |   |   | |
-             (d) (e)  (f)                  (d) (e)  (f)
-              |   |   | |                   |   |   | |
-              |   |     v                   |   |     v
-            +--------------+            +------------------+
-            |              |            |                  |
-            | Power Supply |############| Device/Component |
-            |              |            |                  |
-            +--------------+            +------------------+
+              ^   ^   ^ |                    ^   ^   ^ |
+              |   |   | |                    |   |   | |
+             (d) (e)  (f)                   (d) (e)  (f)
+              |   |   | |                    |   |   | |
+              |   |     v                    |   |     v
+            +--------------+            +-------------------+
+            |              |            |                   |
+            | Power Supply |############| Device/Component/ |
+            |              |            | Attached PoE      |
+            |              |            |                   |
+            +--------------+            +-------------------+
 ~~~~
 {: #basic-power title="Reference Model Example: Basic Power Supply"}
 
