@@ -618,7 +618,7 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 
 ~~~~
-{: #multiple-power-supply-with-single-device title="Reference Model Example: Multiple Power Supplies with Single Device"}
+{: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
 
 
 # Conventions and Definitions
