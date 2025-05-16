@@ -442,7 +442,7 @@ and Capability   Efficiency    |  /network related information:
             |              |            |                |
             +--------------+            +----------------+
 ~~~~
-{: #power-over-ethernt title="Reference Model Example: Power over Ethernet"}
+{: #power-over-ethernet title="Reference Model Example: Power over Ethernet"}
 
 The most important issue in such a topology is to avoid the double-counting
 in the Energy Management System (EnMS). The switch port, via its Power Outlet,
@@ -502,6 +502,7 @@ and Capability   Efficiency    |  /network related information:
     +--------------+   +----------------+   +------------------+
 ~~~~
 {: #physical-meter title="Reference Model Example: Physical Meter"}
+
 
 When the EnMS discovers the physical meter, it must know which for
 which Energy Object(s) it measures power or energy: this is the
