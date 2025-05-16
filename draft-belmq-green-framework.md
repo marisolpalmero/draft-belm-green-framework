@@ -356,7 +356,7 @@ Function might be implemented inside the device or in the controller.
 This covers the basic example of router connected to Power Outlet in the wall.
 Note that in typical deployements, there are no interface (d), (e), and (f) for
 that Power Outlet. If the router can not monitor its power, energy, demand, a
-physical meter is required (see next section). 
+physical meter is required (see next section).
 
 ~~~~
 
@@ -452,7 +452,7 @@ of this specific topology, that is the Power Source Relationship between the two
 Energy Objects, the EnMS will double-count the Energy consumed by those two devices.
 
 A Power Source Relationship is a relationship where one Energy Object provides
-power to one or more Energy Objects. 
+power to one or more Energy Objects.
 
 Knowing this Power Source Relationship is required but not sufficient. To avoid the
 double-counting, only the switch port (Power Outlet) will report
