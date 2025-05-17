@@ -89,7 +89,7 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to optimize energy usage and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
 
 --- middle
 
@@ -99,20 +99,20 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # Introduction
 
-In reference to https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices towards energy-efficient operations. The framework is essential for:
+In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:
 
 * Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
 * Efficient Energy Management: Providing guidelines to identify inefficiencies and implement improvements.
 * Scalability: Offering solutions that accommodate growing network demands and complexity.
 * Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
-* Competitiveness: Enabling organizations to maintain a competitive edge through enhanced sustainability.
+* Competitiveness: Enabling organizations to maintain a competitive infrastructure through enhanced sustainability.
 * Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints.
 * Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
 * Security: Protecting sensitive operations related to power states and consumption.
 
    This document defines an Energy Management framework for devices
    within, or connected to, communication networks, for the use cases
-   described in https://datatracker.ietf.org/doc/draft-stephan-green-use-cases/.
+   described in {{!I-D.stephan-green-use-cases}}.
    The devices, or the components of these devices (such as line cards, fans, and
    disks), can then be monitored and controlled. Monitoring includes measuring
    power, energy, demand, and attributes of power.  Energy Control can
@@ -334,7 +334,7 @@ The monitoring interface (e) obviously monitor more aspects than just power and 
 (for example traffic monitoring) but this is not covered in the framework.
 
 Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be implemented inside the device or in the controller.
+Function might be implemented inside the device or in the controller or a combination of both.
 
 ## Typical Power Topologies
 
@@ -649,7 +649,7 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek.
+This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek. The contribution of Luis M. Contreras to this document has been supported by the Smart Networks and Services Joint Undertaking (SNS JU) under the European Union's Horizon Europe research and innovation projects 6Green (Grant Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
 
 # References
 
