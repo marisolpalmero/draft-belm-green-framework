@@ -1,7 +1,7 @@
 ---
 title: "Framework for Energy Efficiency Management"
 abbrev: "Framework for Energy Efficiency Management"
-docname: draft-belmq-green-framework-01
+docname: draft-belmq-green-framework
 category: info
 stand_alone: true
 
