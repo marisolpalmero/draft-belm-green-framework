@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 17 November 2025                                     Telefonica
+Expires: 18 November 2025                                     Telefonica
                                                              J. Lindblad
                                                                  For.Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 17 November 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             16 May 2025
+                                                             17 May 2025
 
 
                Framework for Energy Efficiency Management
@@ -25,14 +25,15 @@ Abstract
    Recognizing the urgent need for energy efficiency, this document
    specifies a management framework focused on devices and device
    components within, or connected to, interconnected systems.  The
-   framework aims to optimize energy usage and ensure interoperability
-   across diverse systems.  Leveraging data from existing use cases, it
-   delivers actionable metrics to support effective energy management
-   and informed decision-making.  Furthermore, the framework proposes
-   mechanisms for representing and organizing timestamped telemetry data
-   using YANG models and metadata, enabling transparent and reliable
-   monitoring.  This structured approach facilitates improved energy
-   efficiency through consistent energy management practices.
+   framework aims to enable energy usage optimization and ensure
+   interoperability across diverse systems.  Leveraging data from
+   existing use cases, it delivers actionable metrics to support
+   effective energy management and informed decision-making.
+   Furthermore, the framework proposes mechanisms for representing and
+   organizing timestamped telemetry data using YANG models and metadata,
+   enabling transparent and reliable monitoring.  This structured
+   approach facilitates improved energy efficiency through consistent
+   energy management practices.
 
 About This Document
 
@@ -67,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 17 November 2025.
+   This Internet-Draft will expire on 18 November 2025.
 
 Copyright Notice
 
@@ -114,12 +115,12 @@ Table of Contents
 
 2.  Introduction
 
-   In reference to https://datatracker.ietf.org/doc/draft-stephan-green-
-   use-cases/, analyzing use cases such as the "Incremental Application
-   of the GREEN Framework" and "Consideration of other domains for
-   obtention of end-to-end metrics", it reveals the critical need for a
-   structured approach to transitioning network devices towards energy-
-   efficient operations.  The framework is essential for:
+   In reference to [I-D.stephan-green-use-cases], analyzing use cases
+   such as the "Incremental Application of the GREEN Framework" and
+   "Consideration of other domains for obtention of end-to-end metrics",
+   it reveals the critical need for a structured approach to
+   transitioning network devices' management towards energy-efficient
+   operations.  The framework is essential for:
 
    *  Standardization: Ensuring consistent practices across different
       devices and network segments to facilitate interoperability.
@@ -134,7 +135,7 @@ Table of Contents
       and extend equipment lifecycles.
 
    *  Competitiveness: Enabling organizations to maintain a competitive
-      edge through enhanced sustainability.
+      infrastructure through enhanced sustainability.
 
    *  Environmental Impact: Supporting broader sustainability
       initiatives by reducing carbon footprints.
@@ -147,13 +148,13 @@ Table of Contents
 
       This document defines an Energy Management framework for devices
       within, or connected to, communication networks, for the use cases
-      described in https://datatracker.ietf.org/doc/draft-stephan-green-
-      use-cases/.  The devices, or the components of these devices (such
-      as line cards, fans, and disks), can then be monitored and
-      controlled.  Monitoring includes measuring power, energy, demand,
-      and attributes of power.  Energy Control can be performed by
-      setting a device's or component's state.  The devices monitored by
-      this framework can be either of the following:
+      described in [I-D.stephan-green-use-cases].  The devices, or the
+      components of these devices (such as line cards, fans, and disks),
+      can then be monitored and controlled.  Monitoring includes
+      measuring power, energy, demand, and attributes of power.  Energy
+      Control can be performed by setting a device's or component's
+      state.  The devices monitored by this framework can be either of
+      the following:
 
       -  consumers of energy (such as routers and computer systems) and
          components of such devices (such as line cards, fans, and
@@ -378,7 +379,7 @@ The monitoring interface (e) obviously monitor more aspects than just power and 
 (for example traffic monitoring) but this is not covered in the framework.
 
 Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be implemented inside the device or in the controller.
+Function might be implemented inside the device or in the controller or a combination of both.
 
 ## Typical Power Topologies
 
@@ -643,7 +644,12 @@ and Capability   Efficiency    |  /network related information:
 
    This framework takes into account concepts from the Energy MANagement
    (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
-   Brad Schoening, and Juergen Quittek.
+   Brad Schoening, and Juergen Quittek.  The contribution of Luis M.
+   Contreras to this document has been supported by the Smart Networks
+   and Services Joint Undertaking (SNS JU) under the European Union's
+   Horizon Europe research and innovation projects 6Green (Grant
+   Agreement no. 101096925) and Exigence (Grant Agreement no.
+   101139120).
 
 9.  References
 
@@ -667,6 +673,14 @@ and Capability   Efficiency    |  /network related information:
               green-terminology-01, 23 April 2025,
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
               terminology-01>.
+
+   [I-D.stephan-green-use-cases]
+              Stephan, E., Palmero, M., Claise, B., Wu, Q., Contreras,
+              L. M., and C. J. Bernardos, "Use Cases for Energy
+              Efficiency Management", Work in Progress, Internet-Draft,
+              draft-stephan-green-use-cases-01, 16 May 2025,
+              <https://datatracker.ietf.org/doc/html/draft-stephan-
+              green-use-cases-01>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
