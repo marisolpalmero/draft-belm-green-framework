@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-15T00:53:48.628150+00:00",
+  "timestamp": "2025-05-18T00:59:14.640704+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -177,6 +177,258 @@
         }
       ],
       "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "PR_kwDOOVf21s6WSkXI",
+      "title": "update the reference model + examples",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/4",
+      "state": "MERGED",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-15T09:07:15Z",
+      "updatedAt": "2025-05-15T14:47:07Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "11398d06839d85fbd4a9fafdd3d4351562d67e7d",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "ffd4c5f8d0bfbfb6f4e7c3745729b4f9cf03a556",
+      "closedAt": "2025-05-15T14:47:07Z",
+      "mergedAt": "2025-05-15T14:47:07Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "2773b670723d49606c5fdfdf8e94e841cd30e2ee"
+      },
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "Im good with the proposed changes. @luis, @emile22, @jan, are you good to get it approve?",
+          "createdAt": "2025-05-15T10:07:42Z",
+          "updatedAt": "2025-05-15T10:07:42Z"
+        },
+        {
+          "author": "jan",
+          "authorAssociation": "NONE",
+          "body": "@marisolpalmero I'm quite indifferent about this.",
+          "createdAt": "2025-05-15T12:57:03Z",
+          "updatedAt": "2025-05-15T12:57:03Z"
+        },
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "approving it, to progress the draft and still submit today if possible",
+          "createdAt": "2025-05-15T14:44:12Z",
+          "updatedAt": "2025-05-15T14:44:12Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6phBI-",
+          "commit": {
+            "abbreviatedOid": "ffd4c5f"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-15T14:43:51Z",
+          "updatedAt": "2025-05-15T14:43:51Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOVf21s6phB-F",
+          "commit": {
+            "abbreviatedOid": "ffd4c5f"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-15T14:44:45Z",
+          "updatedAt": "2025-05-15T14:44:45Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOVf21s6phETq",
+          "commit": {
+            "abbreviatedOid": "ffd4c5f"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-15T14:46:33Z",
+          "updatedAt": "2025-05-15T14:46:33Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "id": "PR_kwDOOVf21s6WbnMx",
+      "title": "2 minor updates about PoE and Smart PDU in the reference model",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/5",
+      "state": "MERGED",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-16T07:30:22Z",
+      "updatedAt": "2025-05-16T12:45:02Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "1f0e5a192325a46dbd7c8624364cb63b55cff038",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "ca7b40d18df120bb2a36d197a336faf85c281484",
+      "closedAt": "2025-05-16T09:25:44Z",
+      "mergedAt": "2025-05-16T09:25:44Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "7133d6690b42c9ab68f3d8cd848ac202ee303e9d"
+      },
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "I think the link to the POE should still come through the device,/component box, but we can discuss after...",
+          "createdAt": "2025-05-16T09:25:40Z",
+          "updatedAt": "2025-05-16T09:25:40Z"
+        },
+        {
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Marisol, you are right. This is not clear. Let me update now",
+          "createdAt": "2025-05-16T12:45:01Z",
+          "updatedAt": "2025-05-16T12:45:01Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6po4fo",
+          "commit": {
+            "abbreviatedOid": "ca7b40d"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-16T09:23:32Z",
+          "updatedAt": "2025-05-16T09:23:32Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "id": "PR_kwDOOVf21s6WeNSc",
+      "title": "clarify the PoE and mention the double-counting",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/6",
+      "state": "MERGED",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-16T13:04:34Z",
+      "updatedAt": "2025-05-16T22:47:02Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "7133d6690b42c9ab68f3d8cd848ac202ee303e9d",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "b9644a560818c1ff864b5a013828599041bcb5a9",
+      "closedAt": "2025-05-16T22:47:02Z",
+      "mergedAt": "2025-05-16T22:47:02Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "74df936442de04f1e2153a7a90c501b977c8203d"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6pvPAa",
+          "commit": {
+            "abbreviatedOid": "b9644a5"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-16T22:46:49Z",
+          "updatedAt": "2025-05-16T22:46:49Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "id": "PR_kwDOOVf21s6WjyfT",
+      "title": "Luis updates to draft-belmq-green-framework.md",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/7",
+      "state": "MERGED",
+      "author": "luismcontreras",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Suggestions and changes from my side for -01 version.",
+      "createdAt": "2025-05-17T09:58:55Z",
+      "updatedAt": "2025-05-17T19:50:45Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "74df936442de04f1e2153a7a90c501b977c8203d",
+      "headRepository": "luismcontreras/draft-belm-green-framework",
+      "headRefName": "patch-2",
+      "headRefOid": "c3bfe1bddc341def8d1260e0b6c1f7e974558620",
+      "closedAt": "2025-05-17T19:50:45Z",
+      "mergedAt": "2025-05-17T19:50:45Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "492dff6ab52bd9e29bc555827ed815e523793883"
+      },
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "approving PR",
+          "createdAt": "2025-05-17T19:50:33Z",
+          "updatedAt": "2025-05-17T19:50:33Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6pxUx4",
+          "commit": {
+            "abbreviatedOid": "c3bfe1b"
+          },
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "All looks to me.",
+          "createdAt": "2025-05-17T13:18:20Z",
+          "updatedAt": "2025-05-17T13:18:20Z",
+          "comments": []
+        },
+        {
+          "id": "PRR_kwDOOVf21s6pxuS2",
+          "commit": {
+            "abbreviatedOid": "c3bfe1b"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-05-17T19:49:42Z",
+          "updatedAt": "2025-05-17T19:49:42Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
