@@ -433,12 +433,12 @@ and Capability   Efficiency    |  /network related information:
 ~~~
 {: #power_ethernet title="Reference Model Example: Power over Ethernet"}
 
-The most important issue in such a topology is to avoid the double-counting
+The most important issue in such a topology is to avoid the double counting
 in the Energy Management System (EnMS). The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
 reports its Energy consumed. Those two values are identical. Without the knowledge
 of this specific topology, that is the Power Source Relationship between the two
-Energy Objects, the EnMS will double-count the Energy consumed by those two devices.
+Energy Objects, the EnMS will double count the Energy consumed by those two devices.
 
 A Power Source Relationship is a relationship where one Energy Object provides
 power to one or more Energy Objects.
