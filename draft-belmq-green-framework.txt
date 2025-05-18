@@ -5,16 +5,16 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 18 November 2025                                     Telefonica
+Expires: 19 November 2025                                     Telefonica
                                                              J. Lindblad
-                                                                 For.Eco
+                                                             All For Eco
                                                               M. Palmero
                                                      Cisco Systems, Inc.
                                                               E. Stephan
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             17 May 2025
+                                                             18 May 2025
 
 
                Framework for Energy Efficiency Management
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 November 2025.
+   This Internet-Draft will expire on 19 November 2025.
 
 Copyright Notice
 
@@ -94,8 +94,12 @@ Table of Contents
      3.2.  Current Device Readiness
      3.3.  Why Now?
    4.  Reference Model
-     4.1.  Power over Ethernet
-       4.1.1.  Single Power Supply with Multiple Devices
+     4.1.  Typical Power Topologies
+       4.1.1.  Basic Power Supply
+       4.1.2.  Power over Ethernet
+       4.1.3.  Physical Meter
+       4.1.4.  Single Power Supply with Multiple Devices
+       4.1.5.  Multiple Power Supplies with Single Device
    5.  Conventions and Definitions
    6.  Security Considerations
    7.  IANA Considerations
@@ -173,73 +177,65 @@ Table of Contents
    The following terms are defined in EMAN Framework [RFC7326], and cut/
    paste here for completeness:
 
-   Energy Management System (EnMS) An Energy Management System is a
-   combination of hardware and software used to administer a network,
-   with the primary purpose of Energy Management.
+   Energy Management System (EnMS)  An Energy Management System is a
+      combination of hardware and software used to administer a network,
+      with the primary purpose of Energy Management.
 
-     NOTES:
+      NOTES:
 
-     1. An Energy Management System according to [ISO50001] (ISO-EnMS)
-        is a set of systems or procedures upon which organizations can
-        develop and implement an energy policy, set targets and action
-        plans, and take into account legal requirements related to
-        energy use.  An ISO-EnMS allows organizations to improve energy
-        performance and demonstrate conformity to requirements,
-        standards, and/or legal requirements.
+      1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+         is a set of systems or procedures upon which organizations can
+         develop and implement an energy policy, set targets and action
+         plans, and take into account legal requirements related to
+         energy use.  An ISO-EnMS allows organizations to improve energy
+         performance and demonstrate conformity to requirements,
+         standards, and/or legal requirements.
 
-     2. Example ISO-EnMS: Company A defines a set of policies and
-        procedures indicating that there should exist multiple
-        computerized systems that will poll energy measurements from
-        their meters and pricing / source data from their local
-        utility.  Company A specifies that their CFO (Chief Financial
-        Officer) should collect information and summarize it quarterly
-        to be sent to an accounting firm to produce carbon accounting
-        reporting as required by their local government.
+      2. Example ISO-EnMS: Company A defines a set of policies and
+         procedures indicating that there should exist multiple
+         computerized systems that will poll energy measurements from
+         their meters and pricing / source data from their local
+         utility.  Company A specifies that their CFO (Chief Financial
+         Officer) should collect information and summarize it quarterly
+         to be sent to an accounting firm to produce carbon accounting
+         reporting as required by their local government.
 
-     3. For the purposes of EMAN, the definition herein is the
-        preferred meaning of an EnMS.  The definition from [ISO50001]
-        can be referred to as an ISO Energy Management System
-        (ISO-EnMS).
+      3. For the purposes of EMAN, the definition herein is the
+         preferred meaning of an EnMS.  The definition from [ISO50001]
+         can be referred to as an ISO Energy Management System
+         (ISO-EnMS).
 
-   Device A device is a piece of electrical or non-electrical equipment.
+   Device  A device is a piece of electrical or non-electrical
+      equipment. _Reference: Adapted from [IEEE100]._
 
-     Reference: Adapted from [IEEE100].
+   Component  A component is a part of electrical or non-electrical
+      equipment (device). _Reference: Adapted from [TMN]._
 
-   Component A component is a part of electrical or non-electrical
-   equipment (device).
+   Meter (Energy Meter)  A meter is a device intended to measure
+      electrical energy by integrating power with respect to time.
+      _Reference: Adapted from [IEC60050]._
 
-     Reference: Adapted from [TMN].
+   Power Inlet  A power inlet (or simply "inlet") is an interface at
+      which a device or component receives energy from another device or
+      component.
 
-   Meter (Energy Meter) A meter is a device intended to measure
-   electrical energy by integrating power with respect to time.
+   Power Outlet  A power outlet (or simply "outlet") is an interface at
+      which a device or component provides energy to another device or
+      component.
 
-     Reference: Adapted from [IEC60050].
+   Power Interface  A Power Interface is a power inlet, outlet, or both.
 
-   Power Inlet A power inlet (or simply "inlet") is an interface at
-   which a device or component receives energy from another device or
-   component.
+   Power State  A Power State is a condition or mode of a device (or
+      component) that broadly characterizes its capabilities, power, and
+      responsiveness to input. _Reference: Adapted from [IEEE1621]._
 
-   Power Outlet A power outlet (or simply "outlet") is an interface at
-   which a device or component provides energy to another device or
-   component.
+   Power State Set  A Power State Set is a collection of Power States
+      that comprises a named or logical control grouping.
 
-   Power Interface A Power Interface is a power inlet, outlet, or both.
-
-   Power State A Power State is a condition or mode of a device (or
-   component) that broadly characterizes its capabilities, power, and
-   responsiveness to input.
-
-     Reference: Adapted from [IEEE1621].
-
-   Power State Set A Power State Set is a collection of Power States
-   that comprises a named or logical control grouping.
-
-   Energy Object
-
-   An Energy Object represents a piece of equipment that is part of, or
-   attached to, a communications network that is monitored or controlled
-   or that aids in the management of another device for Energy
-   Management.
+   Energy Object  An Energy Object represents a piece of equipment that
+      is part of, or attached to, a communications network that is
+      monitored or controlled or that aids in the management of another
+      device for Energy Management.
 
 3.  Motivation
 
@@ -338,186 +334,230 @@ Table of Contents
    The framework does not cover non-electrical equipment, nor does it
    cover energy procurement and manufacturing.
 
-   ~~~~ {: #reference-model title="GREEN Reference Model"}
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-   +--------------------------------------------------------------------
-   + | | | (3) Network Domain Level | | | +-----------------------------
-   ---------------------------------------+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                   ^                      ^                      ^ |
+        (d)        |     (e)              |   (f)                | |
+        Inventory  |     Monitor power    |   Control            | |
+        Capability |     Proportion       |   (Energy saving     | |
+                   |     Energy efficiency|   Functionality      | |
+                   |     ratio, power     |   Localized mgmt/    | |
+                   |     consumption,     |   network wide mgmt) | |
+                   |     etc)             |                      | |
+                   |                      |                      | v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                       (1) Device/Component                         |
+   |                                                                    |
+   | +---------+  +-----------+  +----------------+  +----------------+ |
+   | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
+   | |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
+   | | Device  |  | Component |  | Device         |  | end Point)     | |
+   | |         |  |           |  |                |  |                | |
+   | +---------+  +-----------+  +----------------+  +----------------+ |
+   +--------------------------------------------------------------------+
 
-   (a) (b) (c) Inventory Monitor +- DataSheets/DataBase and/or via API
-   Of identity Energy | Metadata and other device/component and
-   Capability Efficiency | /network related information: ^ ^ | | | |
-   .Power/Energy related metrics | | | .information | | | .origin of
-   Energy Mix | | | .carbon aware based on
-   location | | | | | | | | | | | v +-----------------------------------
-   ---------------------------------+ | | | (2) controller (collection,
-   compute and aggregate?) | | | +--------------------------------------
-   ------------------------------+ ^ ^ ^ | (d) | (e) | (f) | |
-   Inventory | Monitor power | Control | | Capability | Proportion |
-   (Energy saving | | | Energy efficiency| Functionality | | | ratio,
-   power | Localized mgmt/ | | | consumption, | network wide mgmt) | | |
-   etc) | | | | | | v +-------------------------------------------------
-   -------------------+ | | | (1) Device/Component | | | | +---------+
-   +-----------+ +----------------+ +----------------+ | | | (I) | |
-   (II) | | (III) | | (IV) | | | | | | | | Legacy | |
-   'Attached'(PoE | | | | Device | | Component | | Device | | end
-   Point) | | | | | | | | | | | | | +---------+ +-----------+
-   +----------------+ +----------------+ | +----------------------------
-   ----------------------------------------+
+                      Figure 1: GREEN Reference Model
 
-The main elements in the framework are as follows:
+   The main elements in the framework are as follows:
 
-(a),(d) Discovery and Inventory
+   *  (a), (d) Discovery and Inventory
 
-(b),(c) GREEN Metrics
+   *  (b), (c) GREEN Metrics
 
-(b),(e) Monitor energy efficiency
+   *  (b), (e) Monitor energy efficiency
 
-(f) Control Energy Saving
+   *  (f) Control Energy Saving
 
-The monitoring interface (e) obviously monitor more aspects than just power and energy,
-(for example traffic monitoring) but this is not covered in the framework.
+   The monitoring interface (e) obviously monitor more aspects than just
+   power and energy, (for example traffic monitoring) but this is not
+   covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be implemented inside the device or in the controller or a combination of both.
+   Note that this framework specificies logical blocks, however, the
+   Energy Efficiency Management Function might be implemented inside the
+   device or in the controller or a combination of both.
 
-## Typical Power Topologies
+4.1.  Typical Power Topologies
 
    The following reference model describes physical power topologies
-   that exist in parallel with a communication topology. While many
+   that exist in parallel with a communication topology.  While many
    more topologies can be created with a combination of devices, the
    following are some basic ones that show how Energy Management
-   topologies differ from Network Management topologies. Only the controller,
-   devices and components, are depicted here, as the Network Domain Level
-   remains identical.
+   topologies differ from Network Management topologies.  Only the
+   controller, devices and components, are depicted here, as the Network
+   Domain Level remains identical.
 
- NOTE: "###" is used to denote a transfer of energy.
-       "- >" is used to denote a transfer of information.
+   NOTE:
 
+   *  "###" is used to denote a transfer of energy.
 
-### Basic Power Supply
+   *  "- >" is used to denote a transfer of information.
 
-This covers the basic example of router connected to Power Outlet in the wall.
-Note that in typical deployements, there are no interface (d), (e), and (f) for
-that Power Outlet. If the router can not monitor its power, energy, demand, a
-physical meter is required (see next section).
+4.1.1.  Basic Power Supply
 
-~~~~ {: #basic-power title="Reference Model Example: Basic Power Supply"}
+   This covers the basic example of router connected to Power Outlet in
+   the wall.  Note that in typical deployements, there are no interface
+   (d), (e), and (f) for that Power Outlet.  If the router can not
+   monitor its power, energy, demand, a physical meter is required (see
+   next section).
 
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-              ^   ^   ^ |                    ^   ^   ^ |
-              |   |   | |                    |   |   | |
-             (d) (e)  (f)                   (d) (e)  (f)
-              |   |   | |                    |   |   | |
-              |   |     v                    |   |     v
-            +--------------+            +------------------+
-            |              |            |                  |
-            | Power Supply |############| Device/Component |
-            |              |            |                  |
-            +--------------+            +------------------+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                 ^   ^   ^ |                    ^   ^   ^ |
+                 |   |   | |                    |   |   | |
+                (d) (e)  (f)                   (d) (e)  (f)
+                 |   |   | |                    |   |   | |
+                 |   |     v                    |   |     v
+               +--------------+            +------------------+
+               |              |            |                  |
+               | Power Supply |############| Device/Component |
+               |              |            |                  |
+               +--------------+            +------------------+
 
-4.1.  Power over Ethernet
+           Figure 2: Reference Model Example: Basic Power Supply
+
+4.1.2.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
    access port, etc.).
 
-   ~~~~ {: #power-ethernet title="Reference Model Example: Power over
-   Ethernet"}
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-   +--------------------------------------------------------------------
-   + | | | (3) Network Domain Level | | | +-----------------------------
-   ---------------------------------------+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                 ^   ^   ^ |                  ^   ^   ^ |
+                 |   |   | |                  |   |   | |
+                (d) (e)  (f)                 (d) (e)  (f)
+                 |   |   | |                  |   |   | |
+                 |   |     v                  |   |     v
+               +--------------+            +----------------+
+               |              |            |                |
+               | Device       |############| PoE End Point  |
+               | (switch)     |            |                |
+               |              |            |                |
+               +--------------+            +----------------+
 
-   (a) (b) (c) Inventory Monitor +- DataSheets/DataBase and/or via API
-   Of identity Energy | Metadata and other device/component and
-   Capability Efficiency | /network related information: ^ ^ | | | |
-   .Power/Energy related metrics | | | .information | | | .origin of
-   Energy Mix | | | .carbon aware based on
-   location | | | | | | | | | | | v +-----------------------------------
-   ---------------------------------+ | | | (2) controller (collection,
-   compute and aggregate?) | | | +--------------------------------------
-   ------------------------------+ ^ ^ ^ | ^ ^ ^ | | | | | | | | | (d)
-   (e) (f) (d) (e) (f) | | | | | | | | | | v | | v +--------------+
-   +----------------+ | | | | | Device |############| PoE End Point | |
-   (switch) | | | | | | | +--------------+ +----------------+
+           Figure 3: Reference Model Example: Power over Ethernet
 
-The most important issue in such a topology is to avoid the double-counting
-in the Energy Management System (EnMS). The switch port, via its Power Outlet,
-reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed. Those two values are identical. Without the knowledge
-of this specific topology, that is the Power Source Relationship between the two
-Energy Objects, the EnMS will double-count the Energy consumed by those two devices.
+   The most important issue in such a topology is to avoid the double
+   counting in the Energy Management System (EnMS).  The switch port,
+   via its Power Outlet, reports the Energy transmitted, while the PoE
+   End Point, via its Power Inlet, reports its Energy consumed.  Those
+   two values are identical.  Without the knowledge of this specific
+   topology, that is the Power Source Relationship between the two
+   Energy Objects, the EnMS will double count the Energy consumed by
+   those two devices.
 
-A Power Source Relationship is a relationship where one Energy Object provides
-power to one or more Energy Objects.
+   A Power Source Relationship is a relationship where one Energy Object
+   provides power to one or more Energy Objects.
 
+4.1.3.  Physical Meter
 
-### Physical Meter
+   This covers the basic example of device connected to wall Power
+   Outlet, with a Physical Meter placed in the wall Power Outlet,
+   because the device can not monitor its power, energy, demand.
 
-This covers the basic example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the device
-can not monitor its power, energy, demand.
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-~~~~ {: #physical-meter title="Reference Model Example: Physical Meter"}
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                             ^   ^   ^ |           ^   ^   ^ |
+                             |   |   | |           |   |   | |
+                            (d) (e)  (f)          (d) (e)  (f)
+                             |   |   | |           |   |   | |
+                             |   |     v           |   |     v
+       +--------------+   +----------------+   +------------------+
+       |              |   |                |   |                  |
+       | Power Supply |###| Physical Meter |###| Device/Component |
+       |              |   |                |   |                  |
+       +--------------+   +----------------+   +------------------+
 
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                          ^   ^   ^ |           ^   ^   ^ |
-                          |   |   | |           |   |   | |
-                         (d) (e)  (f)          (d) (e)  (f)
-                          |   |   | |           |   |   | |
-                          |   |     v           |   |     v
-    +--------------+   +----------------+   +------------------+
-    |              |   |                |   |                  |
-    | Power Supply |###| Physical Meter |###| Device/Component |
-    |              |   |                |   |                  |
-    +--------------+   +----------------+   +------------------+
+             Figure 4: Reference Model Example: Physical Meter
 
    When the EnMS discovers the physical meter, it must know which for
    which Energy Object(s) it measures power or energy.  This is the
@@ -533,73 +573,101 @@ and Capability   Efficiency    |  /network related information:
    as meters are connected to the wiring topology.  A typical example is
    meters that clamp onto the existing wiring.
 
-4.1.1.  Single Power Supply with Multiple Devices
+4.1.4.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
 
-   ~~~~ {: #multiple-devices title="Reference Model Example: Single
-   Power Supply with Multiple Devices"}
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-   +--------------------------------------------------------------------
-   + | | | (3) Network Domain Level | | | +-----------------------------
-   ---------------------------------------+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                 ^   ^   ^ |                   ^   ^   ^ |
+                 |   |   | |                   |   |   | |
+                (d) (e)  (f)                  (d) (e)  (f) ... N
+                 |   |   | |                   |   |   | |
+                 |   |     v                   |   |     v
+               +--------------+            +--------------------+
+               |              |            |                    |
+               | Power Supply |############| Device/Component 1 |
+               | (Smart PDU)  |  #         |                    |
+               |              |  #         +--------------------+
+               +--------------+  #
+                                 #
+                                 #         +--------------------+
+                                 #         |                    |
+                                 ##########| Device/Component 2 |
+                                    #      |                    |
+                                    #      +--------------------+
+                                    #
+                                    #      +--------------------+
+                                    #      |                    |
+                                    #######| Device/Component N |
+                                           |                    |
+                                           +--------------------+
 
-   (a) (b) (c) Inventory Monitor +- DataSheets/DataBase and/or via API
-   Of identity Energy | Metadata and other device/component and
-   Capability Efficiency | /network related information: ^ ^ | | | |
-   .Power/Energy related metrics | | | .information | | | .origin of
-   Energy Mix | | | .carbon aware based on
-   location | | | | | | | | | | | v +-----------------------------------
-   ---------------------------------+ | | | (2) controller (collection,
-   compute and aggregate?) | | | +--------------------------------------
-   ------------------------------+ ^ ^ ^ | ^ ^ ^ | | | | | | | | | (d)
-   (e) (f) (d) (e) (f) ... N | | | | | | | | | | v | | v
-   +--------------+ +--------------------+ | | | | | Power
-   Supply |############| Device/Component 1 | | (Smart PDU) | # | | | |
-   # +--------------------+ +--------------+ # # #
-   +--------------------+ # | | ##########| Device/Component 2 | # | | #
-   +--------------------+ # # +--------------------+ # | | #######|
-   Device/Component N | | | +--------------------+
+        Figure 5: Reference Model Example: Single Power Supply with
+                              Multiple Devices
 
-### Multiple Power Supplies with Single Device
+4.1.5.  Multiple Power Supplies with Single Device
 
-~~~~ {: #multiple-power title="Reference Model Example: Multiple Power Supplies with Single Device"}
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
 
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+         ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+         |   |   | |              |   |   | |               |   |   | |
+        (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+         |   |   | |              |   |   | |               |   |   | |
+         |   |     v              |   |     v               |   |     v
+      +----------------+      +------------------+      +----------------+
+      |                |      |                  |      |                |
+      | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
+      |                |      |                  |      |                |
+      +----------------+      +------------------+      +----------------+
 
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-      ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
-      |   |   | |              |   |   | |               |   |   | |
-     (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
-      |   |   | |              |   |   | |               |   |   | |
-      |   |     v              |   |     v               |   |     v
-   +----------------+      +------------------+      +----------------+
-   |                |      |                  |      |                |
-   | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
-   |                |      |                  |      |                |
-   +----------------+      +------------------+      +----------------+
+      Figure 6: Reference Model Example: Multiple Power Supplies with
+                               Single Device
 
 5.  Conventions and Definitions
 
@@ -725,7 +793,7 @@ Authors' Addresses
 
 
    Jan Lindblad
-   For.Eco
+   All For Eco
    Email: jan.lindblad+ietf@for.eco
 
 
