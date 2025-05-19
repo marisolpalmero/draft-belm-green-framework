@@ -1057,7 +1057,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 19 November 2025</td>
+<td class="center">Expires 20 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-05-18" class="published">18 May 2025</time>
+<time datetime="2025-05-19" class="published">19 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-11-19">19 November 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-20">20 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 19 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 20 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1209,16 +1209,21 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.4.2.1.2.1.1"><a href="#section-4.1.1" class="auto internal xref">4.1.1</a>.  <a href="#name-basic-power-supply" class="internal xref">Basic Power Supply</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.2">
-                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-power-over-ethernet" class="internal xref">Power over Ethernet</a></p>
+                    <p id="section-toc.1-1.4.2.1.2.2.1"><a href="#section-4.1.2" class="auto internal xref">4.1.2</a>.  <a href="#name-physical-meter-with-legacy-" class="internal xref">Physical Meter with Legacy Device</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.3">
-                    <p id="section-toc.1-1.4.2.1.2.3.1"><a href="#section-4.1.3" class="auto internal xref">4.1.3</a>.  <a href="#name-physical-meter" class="internal xref">Physical Meter</a></p>
+                </ul>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.4">
-                    <p id="section-toc.1-1.4.2.1.2.4.1"><a href="#section-4.1.4" class="auto internal xref">4.1.4</a>.  <a href="#name-single-power-supply-with-mu" class="internal xref">Single Power Supply with Multiple Devices</a></p>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-physical-meter-with-new-dev" class="internal xref">Physical Meter with New Device</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.1">
+                    <p id="section-toc.1-1.4.2.2.2.1.1"><a href="#section-4.2.1" class="auto internal xref">4.2.1</a>.  <a href="#name-power-over-ethernet" class="internal xref">Power over Ethernet</a></p>
 </li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1.2.5">
-                    <p id="section-toc.1-1.4.2.1.2.5.1"><a href="#section-4.1.5" class="auto internal xref">4.1.5</a>.  <a href="#name-multiple-power-supplies-wit" class="internal xref">Multiple Power Supplies with Single Device</a></p>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.2">
+                    <p id="section-toc.1-1.4.2.2.2.2.1"><a href="#section-4.2.2" class="auto internal xref">4.2.2</a>.  <a href="#name-single-power-supply-with-mu" class="internal xref">Single Power Supply with Multiple Devices</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2.2.3">
+                    <p id="section-toc.1-1.4.2.2.2.3.1"><a href="#section-4.2.3" class="auto internal xref">4.2.3</a>.  <a href="#name-multiple-power-supplies-wit" class="internal xref">Multiple Power Supplies with Single Device</a></p>
 </li>
                 </ul>
 </li>
@@ -1643,10 +1648,7 @@ Function might be implemented inside the device or in the controller or a combin
           <h4 id="name-basic-power-supply">
 <a href="#section-4.1.1" class="section-number selfRef">4.1.1. </a><a href="#name-basic-power-supply" class="section-name selfRef">Basic Power Supply</a>
           </h4>
-<p id="section-4.1.1-1">This covers the basic example of router connected to Power Outlet in the wall.
-Note that in typical deployements, there are no interface (d), (e), and (f) for
-that Power Outlet. If the router can not monitor its power, energy, demand, a
-physical meter is required (see next section).<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1.1-1">This covers the basic example of router connected to Power Outlet in the wall.<a href="#section-4.1.1-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-bas"></span><div id="basic_power">
 <figure id="figure-2">
             <div class="lang-text sourcecode" id="section-4.1.1-2.1">
@@ -1675,11 +1677,11 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-              ^   ^   ^ |                    ^   ^   ^ |
-              |   |   | |                    |   |   | |
-             (d) (e)  (f)                   (d) (e)  (f)
-              |   |   | |                    |   |   | |
-              |   |     v                    |   |     v
+                                             ^   ^   ^ |
+                                             |   |   | |
+                                            (d) (e)  (f)
+                                             |   |   | |
+                                             |   |     v
             +--------------+            +------------------+
             |              |            |                  |
             | Power Supply |############| Device/Component |
@@ -1693,16 +1695,142 @@ and Capability   Efficiency    |  /network related information:
 </div>
 </section>
 </div>
-<div id="power-over-ethernet">
+<div id="physical-meter-with-legacy-device">
 <section id="section-4.1.2">
-          <h4 id="name-power-over-ethernet">
-<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-power-over-ethernet" class="section-name selfRef">Power over Ethernet</a>
+          <h4 id="name-physical-meter-with-legacy-">
+<a href="#section-4.1.2" class="section-number selfRef">4.1.2. </a><a href="#name-physical-meter-with-legacy-" class="section-name selfRef">Physical Meter with Legacy Device</a>
           </h4>
-<p id="section-4.1.2-1">This covers the example of a switch port (Power Outlet) the provides energy
-with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
-<span id="name-reference-model-example-pow"></span><div id="power_ethernet">
+<p id="section-4.1.2-1">This covers the basic example of device connected to wall Power Outlet,
+with a Physical Meter placed in the wall Power Outlet, because the device
+can not monitor its power, energy, demand.<a href="#section-4.1.2-1" class="pilcrow">¶</a></p>
+<span id="name-reference-model-example-phy"></span><div id="physical_meter">
 <figure id="figure-3">
             <div class="lang-text sourcecode" id="section-4.1.2-2.1">
+<pre>
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                              ^
+                              |
+                             (e)
+                              |
+                              |
+    +--------------+   +----------------+   +---------------+
+    |              |   |                |   |               |
+    | Power Supply |###| Physical Meter |###| Legacy Device |
+    |              |   |                |   |               |
+    +--------------+   +----------------+   +---------------+
+</pre>
+</div>
+<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<a href="#name-reference-model-example-phy" class="selfRef">Reference Model Example: Physical Meter</a>
+            </figcaption></figure>
+</div>
+<p id="section-4.1.2-3">When the EnMS discovers the physical meter, it must know for
+which Energy Object(s) it measures power or energy. This is the
+Metering Relatonship.<a href="#section-4.1.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.1.2-4">A Metering Relationship is a relationship where one Energy Object
+measures power, energy, demand, or Power Attributes of one or more
+other Energy Objects.  The Metering Relationship gives the view of
+the Metering topology.  Physical meters can be placed anywhere in
+a power distribution tree.  For example, utility meters monitor
+and report accumulated power consumption of the entire building.
+Logically, the Metering topology overlaps with the wiring
+topology, as meters are connected to the wiring topology.  A
+typical example is meters that clamp onto the existing wiring.<a href="#section-4.1.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="physical-meter-with-new-device">
+<section id="section-4.2">
+        <h3 id="name-physical-meter-with-new-dev">
+<a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-physical-meter-with-new-dev" class="section-name selfRef">Physical Meter with New Device</a>
+        </h3>
+<p id="section-4.2-1">This covers the example of device connected to wall Power Outlet,
+with a Physical Meter placed in the wall Power Outlet, because the device
+can not monitor its power, energy, demand.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<span id="name-reference-model-example-phys"></span><div id="physical_meter_with_new_device">
+<figure id="figure-4">
+          <div class="lang-text sourcecode" id="section-4.2-2.1">
+<pre>
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                              ^                 ^   ^   ^ |
+                              |                 |   |   | |
+                             (e)               (d) (e)  (f)
+                              |                 |   |   | |
+                              |                 |   |     v
+    +--------------+   +----------------+   +------------------+
+    |              |   |                |   |                  |
+    | Power Supply |###| Physical Meter |###| Device/Component |
+    |              |   |                |   |                  |
+    +--------------+   +----------------+   +------------------+
+</pre>
+</div>
+<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
+<a href="#name-reference-model-example-phys" class="selfRef">Reference Model Example: Physical Meter with New Device</a>
+          </figcaption></figure>
+</div>
+<p id="section-4.2-3">The most important issue in such a topology is to avoid the double counting
+in the Energy Management System (EnMS). The physical meter reports the Energy
+transmitted, while the connected Device/Component might also report its consumed
+Energy. Those two values are identical. Without the knowledge
+of this specific topology, that is the Metering Relationship between the two
+Energy Objects, the EnMS will double count the Energy consumed in the network.<a href="#section-4.2-3" class="pilcrow">¶</a></p>
+<div id="power-over-ethernet">
+<section id="section-4.2.1">
+          <h4 id="name-power-over-ethernet">
+<a href="#section-4.2.1" class="section-number selfRef">4.2.1. </a><a href="#name-power-over-ethernet" class="section-name selfRef">Power over Ethernet</a>
+          </h4>
+<p id="section-4.2.1-1">This covers the example of a switch port (Power Outlet) the provides energy
+with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).<a href="#section-4.2.1-1" class="pilcrow">¶</a></p>
+<span id="name-reference-model-example-pow"></span><div id="power_ethernet">
+<figure id="figure-5">
+            <div class="lang-text sourcecode" id="section-4.2.1-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -1741,96 +1869,35 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +----------------+
 </pre>
 </div>
-<figcaption><a href="#figure-3" class="selfRef">Figure 3</a>:
+<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
 <a href="#name-reference-model-example-pow" class="selfRef">Reference Model Example: Power over Ethernet</a>
             </figcaption></figure>
 </div>
-<p id="section-4.1.2-3">The most important issue in such a topology is to avoid the double counting
-in the Energy Management System (EnMS). The switch port, via its Power Outlet,
+<p id="section-4.2.1-3">Double counting is also an issue in such an example. The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed. Those two values are identical. Without the knowledge
-of this specific topology, that is the Power Source Relationship between the two
-Energy Objects, the EnMS will double count the Energy consumed by those two devices.<a href="#section-4.1.2-3" class="pilcrow">¶</a></p>
-<p id="section-4.1.2-4">A Power Source Relationship is a relationship where one Energy Object provides
-power to one or more Energy Objects.<a href="#section-4.1.2-4" class="pilcrow">¶</a></p>
-</section>
-</div>
-<div id="physical-meter">
-<section id="section-4.1.3">
-          <h4 id="name-physical-meter">
-<a href="#section-4.1.3" class="section-number selfRef">4.1.3. </a><a href="#name-physical-meter" class="section-name selfRef">Physical Meter</a>
-          </h4>
-<p id="section-4.1.3-1">This covers the basic example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the device
-can not monitor its power, energy, demand.<a href="#section-4.1.3-1" class="pilcrow">¶</a></p>
-<span id="name-reference-model-example-phy"></span><div id="physical_meter">
-<figure id="figure-4">
-            <div class="lang-text sourcecode" id="section-4.1.3-2.1">
-<pre>
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                          ^   ^   ^ |           ^   ^   ^ |
-                          |   |   | |           |   |   | |
-                         (d) (e)  (f)          (d) (e)  (f)
-                          |   |   | |           |   |   | |
-                          |   |     v           |   |     v
-    +--------------+   +----------------+   +------------------+
-    |              |   |                |   |                  |
-    | Power Supply |###| Physical Meter |###| Device/Component |
-    |              |   |                |   |                  |
-    +--------------+   +----------------+   +------------------+
-</pre>
-</div>
-<figcaption><a href="#figure-4" class="selfRef">Figure 4</a>:
-<a href="#name-reference-model-example-phy" class="selfRef">Reference Model Example: Physical Meter</a>
-            </figcaption></figure>
-</div>
-<p id="section-4.1.3-3">When the EnMS discovers the physical meter, it must know which for
-which Energy Object(s) it measures power or energy. This is the
-Metering Relatonship.<a href="#section-4.1.3-3" class="pilcrow">¶</a></p>
-<p id="section-4.1.3-4">A Metering Relationship is a relationship where one Energy Object
-measures power, energy, demand, or Power Attributes of one or more
-other Energy Objects.  The Metering Relationship gives the view of
-the Metering topology.  Physical meters can be placed anywhere in
-a power distribution tree.  For example, utility meters monitor
-and report accumulated power consumption of the entire building.
-Logically, the Metering topology overlaps with the wiring
-topology, as meters are connected to the wiring topology.  A
-typical example is meters that clamp onto the existing wiring.<a href="#section-4.1.3-4" class="pilcrow">¶</a></p>
+reports its Energy consumed.<a href="#section-4.2.1-3" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-4">A second issue in such an example is the control topology. The controller must have the
+knowledge that, if it shuts down the switch port, it will also switch off the connected
+PoE End Point, as a consequence. This is the Power Source Relationship.<a href="#section-4.2.1-4" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-5">A Power Source Relationship is a relationship where one Energy Object provides power
+to one or more Energy Objects. The Power Source Relationship gives a view of the physical
+wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE
+or a data center server receiving power from two specific Power Interfaces from two different PDUs.<a href="#section-4.2.1-5" class="pilcrow">¶</a></p>
+<p id="section-4.2.1-6">On top of that, there might be two control points for the PoE End Point. First the connected switch
+port but also the controller direct connection to the PoE End Point (f). Via this interface,
+the controller might for example put the PoE End Point to a lower Power State.<a href="#section-4.2.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="single-power-supply-with-multiple-devices">
-<section id="section-4.1.4">
+<section id="section-4.2.2">
           <h4 id="name-single-power-supply-with-mu">
-<a href="#section-4.1.4" class="section-number selfRef">4.1.4. </a><a href="#name-single-power-supply-with-mu" class="section-name selfRef">Single Power Supply with Multiple Devices</a>
+<a href="#section-4.2.2" class="section-number selfRef">4.2.2. </a><a href="#name-single-power-supply-with-mu" class="section-name selfRef">Single Power Supply with Multiple Devices</a>
           </h4>
-<p id="section-4.1.4-1">This covers the example of a smart PDU that provides energy to a series
-of routers in a rack.<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.2.2-1">This covers the example of a smart PDU that provides energy to a series
+of routers in a rack.<a href="#section-4.2.2-1" class="pilcrow">¶</a></p>
 <span id="name-reference-model-example-sin"></span><div id="multiple_devices">
-<figure id="figure-5">
-            <div class="lang-text sourcecode" id="section-4.1.4-2.1">
+<figure id="figure-6">
+            <div class="lang-text sourcecode" id="section-4.2.2-2.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -1881,20 +1948,20 @@ and Capability   Efficiency    |  /network related information:
                                         +--------------------+
 </pre>
 </div>
-<figcaption><a href="#figure-5" class="selfRef">Figure 5</a>:
+<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
 <a href="#name-reference-model-example-sin" class="selfRef">Reference Model Example: Single Power Supply with Multiple Devices</a>
             </figcaption></figure>
 </div>
 </section>
 </div>
 <div id="multiple-power-supplies-with-single-device">
-<section id="section-4.1.5">
+<section id="section-4.2.3">
           <h4 id="name-multiple-power-supplies-wit">
-<a href="#section-4.1.5" class="section-number selfRef">4.1.5. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
+<a href="#section-4.2.3" class="section-number selfRef">4.2.3. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
           </h4>
 <span id="name-reference-model-example-mul"></span><div id="multiple_power">
-<figure id="figure-6">
-            <div class="lang-text sourcecode" id="section-4.1.5-1.1">
+<figure id="figure-7">
+            <div class="lang-text sourcecode" id="section-4.2.3-1.1">
 <pre>
 +--------------------------------------------------------------------+
 |                                                                    |
@@ -1932,7 +1999,7 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 </pre>
 </div>
-<figcaption><a href="#figure-6" class="selfRef">Figure 6</a>:
+<figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
 <a href="#name-reference-model-example-mul" class="selfRef">Reference Model Example: Multiple Power Supplies with Single Device</a>
             </figcaption></figure>
 </div>
