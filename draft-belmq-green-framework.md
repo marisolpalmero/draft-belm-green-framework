@@ -347,9 +347,7 @@ Function might be implemented inside the device or in the controller or a combin
 ### Basic Power Supply
 
 This covers the basic example of router connected to Power Outlet in the wall.
-Note that in typical deployements, there are no interface (d), (e), and (f) for
-that Power Outlet. If the router can not monitor its power, energy, demand, a
-physical meter is required (see next section).
+
 
 ~~~ text
 +--------------------------------------------------------------------+
@@ -376,11 +374,11 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-              ^   ^   ^ |                    ^   ^   ^ |
-              |   |   | |                    |   |   | |
-             (d) (e)  (f)                   (d) (e)  (f)
-              |   |   | |                    |   |   | |
-              |   |     v                    |   |     v
+                                             ^   ^   ^ |
+                                             |   |   | |
+                                            (d) (e)  (f)
+                                             |   |   | |
+                                             |   |     v
             +--------------+            +------------------+
             |              |            |                  |
             | Power Supply |############| Device/Component |
@@ -388,6 +386,118 @@ and Capability   Efficiency    |  /network related information:
             +--------------+            +------------------+
 ~~~
 {: title="Reference Model Example: Basic Power Supply" #basic_power}
+
+### Physical Meter with Legacy Device
+
+This covers the basic example of device connected to wall Power Outlet,
+with a Physical Meter placed in the wall Power Outlet, because the device
+can not monitor its power, energy, demand.
+
+~~~ text
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                              ^
+                              |
+                             (e)
+                              |
+                              |
+    +--------------+   +----------------+   +---------------+
+    |              |   |                |   |               |
+    | Power Supply |###| Physical Meter |###| Legacy Device |
+    |              |   |                |   |               |
+    +--------------+   +----------------+   +---------------+
+~~~
+{: title="Reference Model Example: Physical Meter" #physical_meter}
+
+When the EnMS discovers the physical meter, it must know for
+which Energy Object(s) it measures power or energy. This is the
+Metering Relatonship.
+
+A Metering Relationship is a relationship where one Energy Object
+measures power, energy, demand, or Power Attributes of one or more
+other Energy Objects.  The Metering Relationship gives the view of
+the Metering topology.  Physical meters can be placed anywhere in
+a power distribution tree.  For example, utility meters monitor
+and report accumulated power consumption of the entire building.
+Logically, the Metering topology overlaps with the wiring
+topology, as meters are connected to the wiring topology.  A
+typical example is meters that clamp onto the existing wiring.
+
+
+## Physical Meter with New Device
+
+This covers the example of device connected to wall Power Outlet,
+with a Physical Meter placed in the wall Power Outlet, because the device
+can not monitor its power, energy, demand.
+
+~~~ text
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |  .information
+     |               |         |  .origin of Energy Mix
+     |               |         |  .carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                              ^                 ^   ^   ^ |
+                              |                 |   |   | |
+                             (e)               (d) (e)  (f)
+                              |                 |   |   | |
+                              |                 |   |     v
+    +--------------+   +----------------+   +------------------+
+    |              |   |                |   |                  |
+    | Power Supply |###| Physical Meter |###| Device/Component |
+    |              |   |                |   |                  |
+    +--------------+   +----------------+   +------------------+
+~~~
+{: title="Reference Model Example: Physical Meter with New Device" #physical_meter_with_new_device}
+
+The most important issue in such a topology is to avoid the double counting
+in the Energy Management System (EnMS). The physical meter reports the Energy
+transmitted, while the connected Device/Component might also report its consumed
+Energy. Those two values are identical. Without the knowledge
+of this specific topology, that is the Metering Relationship between the two
+Energy Objects, the EnMS will double count the Energy consumed in the network.
+
+
 
 ### Power over Ethernet
 
@@ -433,74 +543,23 @@ and Capability   Efficiency    |  /network related information:
 ~~~
 {: #power_ethernet title="Reference Model Example: Power over Ethernet"}
 
-The most important issue in such a topology is to avoid the double counting
-in the Energy Management System (EnMS). The switch port, via its Power Outlet,
+Double counting is also an issue in such an example. The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed. Those two values are identical. Without the knowledge
-of this specific topology, that is the Power Source Relationship between the two
-Energy Objects, the EnMS will double count the Energy consumed by those two devices.
+reports its Energy consumed. 
 
-A Power Source Relationship is a relationship where one Energy Object provides
-power to one or more Energy Objects.
+A second issue in such an example is the control topology. The controller must have the
+knowledge that, if it shuts down the switch port, it will also switch off the connected
+PoE End Point, as a consequence. This is the Power Source Relationship.
 
+A Power Source Relationship is a relationship where one Energy Object provides power
+to one or more Energy Objects. The Power Source Relationship gives a view of the physical
+wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE
+or a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
-### Physical Meter
+On top of that, there might be two control points for the PoE End Point. First the connected switch
+port but also the controller direct connection to the PoE End Point (f). Via this interface,
+the controller might for example put the PoE End Point to a lower Power State.
 
-This covers the basic example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the device
-can not monitor its power, energy, demand.
-
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                          ^   ^   ^ |           ^   ^   ^ |
-                          |   |   | |           |   |   | |
-                         (d) (e)  (f)          (d) (e)  (f)
-                          |   |   | |           |   |   | |
-                          |   |     v           |   |     v
-    +--------------+   +----------------+   +------------------+
-    |              |   |                |   |                  |
-    | Power Supply |###| Physical Meter |###| Device/Component |
-    |              |   |                |   |                  |
-    +--------------+   +----------------+   +------------------+
-~~~
-{: title="Reference Model Example: Physical Meter" #physical_meter}
-
-When the EnMS discovers the physical meter, it must know which for
-which Energy Object(s) it measures power or energy. This is the
-Metering Relatonship.
-
-A Metering Relationship is a relationship where one Energy Object
-measures power, energy, demand, or Power Attributes of one or more
-other Energy Objects.  The Metering Relationship gives the view of
-the Metering topology.  Physical meters can be placed anywhere in
-a power distribution tree.  For example, utility meters monitor
-and report accumulated power consumption of the entire building.
-Logically, the Metering topology overlaps with the wiring
-topology, as meters are connected to the wiring topology.  A
-typical example is meters that clamp onto the existing wiring.
 
 
 ### Single Power Supply with Multiple Devices
