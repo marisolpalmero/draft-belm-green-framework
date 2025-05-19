@@ -545,7 +545,7 @@ and Capability   Efficiency    |  /network related information:
 
 Double counting is also an issue in such an example. The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed. 
+reports its Energy consumed.
 
 A second issue in such an example is the control topology. The controller must have the
 knowledge that, if it shuts down the switch port, it will also switch off the connected
