@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-18T00:59:14.640704+00:00",
+  "timestamp": "2025-05-20T00:56:30.976590+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -49,7 +49,32 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 8,
+      "id": "I_kwDOOVf21s63Fp9X",
+      "title": "terminology about double accouting",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/8",
+      "state": "CLOSED",
+      "author": "emile22",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "minor point: write some where that we are using double accouting, double-accouting, double couting or double-couting :-)",
+      "createdAt": "2025-05-18T12:34:09Z",
+      "updatedAt": "2025-05-18T18:01:17Z",
+      "closedAt": "2025-05-18T18:01:17Z",
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "closing the issue, as it fixed through pull request #9 ",
+          "createdAt": "2025-05-18T18:01:14Z",
+          "updatedAt": "2025-05-18T18:01:14Z"
+        }
+      ]
+    }
+  ],
   "pulls": [
     {
       "number": 1,
@@ -426,6 +451,84 @@
           "body": "",
           "createdAt": "2025-05-17T19:49:42Z",
           "updatedAt": "2025-05-17T19:49:42Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "id": "PR_kwDOOVf21s6WoCVW",
+      "title": "Janlindblad",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/9",
+      "state": "MERGED",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Review and addressed issue #8, and also apply the .md from Jan with the formatting diagrams",
+      "createdAt": "2025-05-18T17:26:08Z",
+      "updatedAt": "2025-05-18T17:26:57Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "2381c527e1801c48def6b502f2a01cfeffad632c",
+      "headRepository": "marisolpalmero/draft-belm-green-framework",
+      "headRefName": "janlindblad",
+      "headRefOid": "685df91c258f4181589d80ac624e41e7ec317787",
+      "closedAt": "2025-05-18T17:26:57Z",
+      "mergedAt": "2025-05-18T17:26:57Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "65c3becad2718ac457438255441fdfada8e7b58a"
+      },
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "approving pull request, as this is fixing formatting issues!",
+          "createdAt": "2025-05-18T17:26:51Z",
+          "updatedAt": "2025-05-18T17:26:51Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "PR_kwDOOVf21s6Wrgfm",
+      "title": "more diagrams",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/10",
+      "state": "MERGED",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-19T08:31:45Z",
+      "updatedAt": "2025-05-19T10:04:14Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "65c3becad2718ac457438255441fdfada8e7b58a",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "d005877def138e6fa2ae7281b1f0e57466977b76",
+      "closedAt": "2025-05-19T10:04:14Z",
+      "mergedAt": "2025-05-19T10:04:14Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "a252a838bf6d4c47987054763504066f1bba14f2"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6p4oFJ",
+          "commit": {
+            "abbreviatedOid": "d005877"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "discussed during the collaboration call. approving now! thanks Benoit",
+          "createdAt": "2025-05-19T10:04:07Z",
+          "updatedAt": "2025-05-19T10:04:07Z",
           "comments": []
         }
       ]
