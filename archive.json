@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T00:56:30.976590+00:00",
+  "timestamp": "2025-05-25T01:00:42.116795+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -73,6 +73,110 @@
           "updatedAt": "2025-05-18T18:01:14Z"
         }
       ]
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOOVf21s632wpZ",
+      "title": "interim #1 - Tony's comment to the accuracy",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/11",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "From notes:\nhttps://notes.ietf.org/notes-ietf-interim-2025-green-01-green\n\nTony believes measurement could deviate, and wonder if the framework still works if the measurements might be inaccurate.",
+      "createdAt": "2025-05-22T21:27:07Z",
+      "updatedAt": "2025-05-22T21:59:03Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "include: Link between sensor accuracy and framework validity\nsuggestion:  to specify accuracy field in data model; ",
+          "createdAt": "2025-05-22T21:53:25Z",
+          "updatedAt": "2025-05-22T21:53:25Z"
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "I_kwDOOVf21s632yRN",
+      "title": "From mailer: Roland comment on slicing",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/12",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Concept of proportion in the framework, fig.1, is highlighted as part of the controller.\nI see a need to include some more text to clarify\n\nFrom internal discussion:\nNotes from Luis: \"In my understanding, for the notion of proportion we need the magnitude we are comparing against, same for efficiency. In this case I assume that is the traffic, the capacity, or both, I.e. energy * (traffic \u00f7 capacity)\"\n",
+      "createdAt": "2025-05-22T21:31:35Z",
+      "updatedAt": "2025-05-22T21:31:35Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 13,
+      "id": "I_kwDOOVf21s632z2D",
+      "title": "From mailer: Roland use case slicing",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/13",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Since I see also activities regarding energy efficiency in other standardization bodies e.g.,\nNGMN concerning \u201cslicing\u201d I would like to suggest a discussion regarding a dedicated use case for \u201cslicing\u201d.\nSince a full end-to-end view would be beneficial from operator\u2019s perspective, does the green framework\nintends to provide here a standardized interface to other standards for other sections of a network?\n ",
+      "createdAt": "2025-05-22T21:35:52Z",
+      "updatedAt": "2025-05-22T21:35:52Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 14,
+      "id": "I_kwDOOVf21s6327SU",
+      "title": "interim #1: How to address absence of power meters?",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/14",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://notes.ietf.org/notes-ietf-interim-2025-green-01-green\n\nHow to address absence of power meters?\n\nTony raised concern; framework must be inclusive of non-metered devices.",
+      "createdAt": "2025-05-22T21:54:51Z",
+      "updatedAt": "2025-05-22T21:55:15Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 15,
+      "id": "I_kwDOOVf21s6329un",
+      "title": "interim #1: Should device YANG models depend on framework?",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/15",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "https://notes.ietf.org/notes-ietf-interim-2025-green-01-green",
+      "createdAt": "2025-05-22T21:59:52Z",
+      "updatedAt": "2025-05-22T22:07:18Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOOVf21s632-8Z",
+      "title": "interim #1: Define power source/control topology",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/16",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Needed alongside physical connectivity. \n\nhttps://notes.ietf.org/notes-ietf-interim-2025-green-01-green",
+      "createdAt": "2025-05-22T22:02:53Z",
+      "updatedAt": "2025-05-22T22:06:38Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
