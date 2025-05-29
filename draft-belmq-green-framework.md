@@ -126,6 +126,31 @@ In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as th
       renewable energy system) and their associated components (such as
       battery cells, inverters, or photovoltaic panels)
 
+   The framework introduces the concept of a Power Interface that is
+   analogous to a network interface.  A Power Interface is defined as an
+   interconnection among devices where energy can be provided, received,
+   or both.
+
+   The most basic example of Energy Management is a single device
+   reporting information about itself.  In many cases, however, energy
+   is not measured by the device itself but is measured upstream in the
+   power distribution tree.  For example, a Power Distribution Unit
+   (PDU) may measure the energy it supplies to attached devices and
+   report this to an Energy Management System.  Therefore, devices often
+   have relationships to other devices or components in the power
+   network.  An Energy Management System (EnMS) generally requires an
+   understanding of the power topology (who provides power to whom), the
+   Metering topology (who meters whom), and the potential Aggregation
+   (who aggregates values of others).
+
+   The relationships build on the Power Interface concept.  The
+   different relationships among devices and components, as specified in
+   this document, include power source, Metering, and Aggregation
+   Relationships.
+
+   The framework does not cover non-electrical equipment, nor does it
+   cover energy procurement and manufacturing.
+
 ## Terminology
 
 The following terms are defined in {{!I-D.draft-bclp-green-terminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
@@ -446,7 +471,7 @@ topology, as meters are connected to the wiring topology.  A
 typical example is meters that clamp onto the existing wiring.
 
 
-## Physical Meter with New Device
+### Physical Meter with New Device
 
 This covers the example of device connected to wall Power Outlet,
 with a Physical Meter placed in the wall Power Outlet, because the device
@@ -657,6 +682,57 @@ and Capability   Efficiency    |  /network related information:
    +----------------+      +------------------+      +----------------+
 ~~~
 {: title="Reference Model Example: Multiple Power Supplies with Single Device" #multiple_power}
+
+## Relationships
+
+The framework for Energy Management need to describe a means to monitor
+and control devices and components, and it needs to to describe the
+relationships among, and connections between, devices and components.
+
+Two Energy Objects can establish an Energy Object Relationship to
+model the deployment topology with respect to Energy Management.
+
+Relationships are modeled with a Relationship that contains
+the UUID of the other participant in the relationship, along with
+a Relationship type.
+
+There are three types of relationships are Power Source, Metering,
+and Aggregations.
+
+* A Power Source Relationship is a relationship where one Energy
+  Object provides power to one or more Energy Objects.  The Power
+  Source Relationship gives a view of the physical wiring topology
+  -- for example, a data center server receiving power from two
+  specific Power Interfaces from two different PDUs.
+
+  Note: A Power Source Relationship may or may not change as the
+  direction of power changes between two Energy Objects.  The
+  relationship may remain to indicate that the change of power
+  direction was unintended or an error condition.
+
+* A Metering Relationship is a relationship where one Energy Object
+  measures power, energy, demand, or Power Attributes of one or more
+  other Energy Objects.  The Metering Relationship gives the view of
+  the Metering topology.  Physical meters can be placed anywhere in
+  a power distribution tree.  For example, utility meters monitor
+  and report accumulated power consumption of the entire building.
+  Logically, the Metering topology overlaps with the wiring
+  topology, as meters are connected to the wiring topology.  A
+  typical example is meters that clamp onto the existing wiring.
+
+* An Aggregation Relationship is a relationship where one Energy
+  Object aggregates Energy Management information of one or more
+  other Energy Objects.  The Aggregation Relationship gives a model
+  of devices that may aggregate (sum, average, etc.) values for
+  other devices.  The Aggregation Relationship is slightly different
+  compared to the other relationships, as this refers more to a
+  management function.
+
+In some situations, it is not possible to discover the Energy Object
+Relationships, and an EnMS or administrator must manually set them.  Given
+that relationships can be assigned manually, the following sections
+describe guidelines for use.
+
 
 # Conventions and Definitions
 
