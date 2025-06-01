@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T01:00:42.116795+00:00",
+  "timestamp": "2025-06-01T01:07:11.907617+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -110,9 +110,17 @@
       "labels": [],
       "body": "Concept of proportion in the framework, fig.1, is highlighted as part of the controller.\nI see a need to include some more text to clarify\n\nFrom internal discussion:\nNotes from Luis: \"In my understanding, for the notion of proportion we need the magnitude we are comparing against, same for efficiency. In this case I assume that is the traffic, the capacity, or both, I.e. energy * (traffic \u00f7 capacity)\"\n",
       "createdAt": "2025-05-22T21:31:35Z",
-      "updatedAt": "2025-05-22T21:31:35Z",
+      "updatedAt": "2025-05-31T10:46:41Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "Roland-Schott",
+          "authorAssociation": "NONE",
+          "body": "I think to clarify this with some text is good, but before we add this, I guess an agreed understanding is helpful and needs to be agreed by this WG.\n\u201cenergy * (traffic \u00f7 capacity)\u201d is reasonable. I think the measured time interval and time itself are also relevant.\n When looking into the implementation of slices or 5G-slices these can be temporarily active. Additionally, the slices could be implemented on different parts of a network with different technologies and features, e.g., VLAN, Segment Routing etc.). It maybe that these technologies have different intrinsic energy requirements and are so not directly comparable. This demands an operational effort to ensure observability. In case the slice is active for a dedicated customer I would assume that the end-to-end chain needs to be monitored and reported.\n",
+          "createdAt": "2025-05-31T10:46:40Z",
+          "updatedAt": "2025-05-31T10:46:40Z"
+        }
+      ]
     },
     {
       "number": 13,
@@ -636,6 +644,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 17,
+      "id": "PR_kwDOOVf21s6YF7YS",
+      "title": "add relationship concepts, both in the intro and a new section",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/17",
+      "state": "OPEN",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-29T09:45:11Z",
+      "updatedAt": "2025-05-29T09:45:11Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "a252a838bf6d4c47987054763504066f1bba14f2",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "e8c7b8ee340775a58b781cefc26ebbc970915a07",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
