@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-01T01:07:11.907617+00:00",
+  "timestamp": "2025-06-03T00:57:07.954686+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -134,9 +134,17 @@
       "labels": [],
       "body": "Since I see also activities regarding energy efficiency in other standardization bodies e.g.,\nNGMN concerning \u201cslicing\u201d I would like to suggest a discussion regarding a dedicated use case for \u201cslicing\u201d.\nSince a full end-to-end view would be beneficial from operator\u2019s perspective, does the green framework\nintends to provide here a standardized interface to other standards for other sections of a network?\n ",
       "createdAt": "2025-05-22T21:35:52Z",
-      "updatedAt": "2025-05-22T21:35:52Z",
+      "updatedAt": "2025-06-02T07:56:42Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "Discussions from the group (2nd Jun 2025): \nTwo parts: transport + slicing\nWork in the framework will be addressing to complement 3GPP with the transport network side.\n\nAction: \n- Check current status of 3GPP focus KPI's slicing\n- what about what is left from providing connectiviy to the internet: firewall, CGNAT?",
+          "createdAt": "2025-06-02T07:56:41Z",
+          "updatedAt": "2025-06-02T07:56:41Z"
+        }
+      ]
     },
     {
       "number": 14,
