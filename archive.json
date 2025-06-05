@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-03T00:57:07.954686+00:00",
+  "timestamp": "2025-06-05T00:55:54.034587+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -665,7 +665,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-05-29T09:45:11Z",
-      "updatedAt": "2025-05-29T09:45:11Z",
+      "updatedAt": "2025-06-03T13:39:15Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "a252a838bf6d4c47987054763504066f1bba14f2",
@@ -676,7 +676,15 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "In regards to this point:\r\n\u201cIn some situations, it is not possible to discover the Energy Object\r\nRelationships, and an EnMS or administrator must manually set them.  Given\r\nthat relationships can be assigned manually, the following sections\r\ndescribe guidelines for use.\u201d\r\n \r\n \r\nHow should we cover what we have defined as \u201clegacy\u201d, or even current components that do not have the capability to \u201cset\u201d and you could just read from any static form of information (database or similar) ?\r\n \r\nI think we should also include the iana considerations in the draft:\r\nhttps://www.iana.org/assignments/power-state-sets/power-state-sets.xhtml\r\n \r\nThe way that I see power state to be managed is not with fixed defined modes, but more dynamic based on the usage, more like a gradient\u2026.\r\n ",
+          "createdAt": "2025-06-03T13:39:14Z",
+          "updatedAt": "2025-06-03T13:39:14Z"
+        }
+      ],
       "reviews": []
     }
   ]
