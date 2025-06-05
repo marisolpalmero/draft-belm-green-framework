@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 20 November 2025                                     Telefonica
+Expires: 7 December 2025                                      Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 20 November 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             19 May 2025
+                                                             5 June 2025
 
 
                Framework for Energy Efficiency Management
@@ -68,7 +68,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 November 2025.
+   This Internet-Draft will expire on 7 December 2025.
 
 Copyright Notice
 
@@ -97,10 +97,11 @@ Table of Contents
      4.1.  Typical Power Topologies
        4.1.1.  Basic Power Supply
        4.1.2.  Physical Meter with Legacy Device
-     4.2.  Physical Meter with New Device
-       4.2.1.  Power over Ethernet
-       4.2.2.  Single Power Supply with Multiple Devices
-       4.2.3.  Multiple Power Supplies with Single Device
+       4.1.3.  Physical Meter with New Device
+       4.1.4.  Power over Ethernet
+       4.1.5.  Single Power Supply with Multiple Devices
+       4.1.6.  Multiple Power Supplies with Single Device
+     4.2.  Relationships
    5.  Conventions and Definitions
    6.  Security Considerations
    7.  IANA Considerations
@@ -168,6 +169,32 @@ Table of Contents
       -  producers of energy (like an uninterruptible power supply or
          renewable energy system) and their associated components (such
          as battery cells, inverters, or photovoltaic panels)
+
+      The framework introduces the concept of a Power Interface that is
+      analogous to a network interface.  A Power Interface is defined as
+      an interconnection among devices where energy can be provided,
+      received, or both.
+
+      The most basic example of Energy Management is a single device
+      reporting information about itself.  In many cases, however,
+      energy is not measured by the device itself but is measured
+      upstream in the power distribution tree.  For example, a Power
+      Distribution Unit (PDU) may measure the energy it supplies to
+      attached devices and report this to an Energy Management System.
+      Therefore, devices often have relationships to other devices or
+      components in the power network.  An Energy Management System
+      (EnMS) generally requires an understanding of the power topology
+      (who provides power to whom), the Metering topology (who meters
+      whom), and the potential Aggregation (who aggregates values of
+      others).
+
+      The relationships build on the Power Interface concept.  The
+      different relationships among devices and components, as specified
+      in this document, include power source, Metering, and Aggregation
+      Relationships.
+
+      The framework does not cover non-electrical equipment, nor does it
+      cover energy procurement and manufacturing.
 
 2.1.  Terminology
 
@@ -515,7 +542,7 @@ Table of Contents
    as meters are connected to the wiring topology.  A typical example is
    meters that clamp onto the existing wiring.
 
-4.2.  Physical Meter with New Device
+4.1.3.  Physical Meter with New Device
 
    This covers the example of device connected to wall Power Outlet,
    with a Physical Meter placed in the wall Power Outlet, because the
@@ -566,7 +593,7 @@ Table of Contents
    the Metering Relationship between the two Energy Objects, the EnMS
    will double count the Energy consumed in the network.
 
-4.2.1.  Power over Ethernet
+4.1.4.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
@@ -632,7 +659,7 @@ Table of Contents
    controller might for example put the PoE End Point to a lower Power
    State.
 
-4.2.2.  Single Power Supply with Multiple Devices
+4.1.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
@@ -688,7 +715,7 @@ Table of Contents
         Figure 6: Reference Model Example: Single Power Supply with
                               Multiple Devices
 
-4.2.3.  Multiple Power Supplies with Single Device
+4.1.6.  Multiple Power Supplies with Single Device
 
    +--------------------------------------------------------------------+
    |                                                                    |
@@ -727,6 +754,57 @@ Table of Contents
 
       Figure 7: Reference Model Example: Multiple Power Supplies with
                                Single Device
+
+4.2.  Relationships
+
+   The framework for Energy Management need to describe a means to
+   monitor and control devices and components, and it needs to to
+   describe the relationships among, and connections between, devices
+   and components.
+
+   Two Energy Objects can establish an Energy Object Relationship to
+   model the deployment topology with respect to Energy Management.
+
+   Relationships are modeled with a Relationship that contains the UUID
+   of the other participant in the relationship, along with a
+   Relationship type.
+
+   There are three types of relationships are Power Source, Metering,
+   and Aggregations.
+
+   *  A Power Source Relationship is a relationship where one Energy
+      Object provides power to one or more Energy Objects.  The Power
+      Source Relationship gives a view of the physical wiring topology
+      -- for example, a data center server receiving power from two
+      specific Power Interfaces from two different PDUs.
+
+      Note: A Power Source Relationship may or may not change as the
+      direction of power changes between two Energy Objects.  The
+      relationship may remain to indicate that the change of power
+      direction was unintended or an error condition.
+
+   *  A Metering Relationship is a relationship where one Energy Object
+      measures power, energy, demand, or Power Attributes of one or more
+      other Energy Objects.  The Metering Relationship gives the view of
+      the Metering topology.  Physical meters can be placed anywhere in
+      a power distribution tree.  For example, utility meters monitor
+      and report accumulated power consumption of the entire building.
+      Logically, the Metering topology overlaps with the wiring
+      topology, as meters are connected to the wiring topology.  A
+      typical example is meters that clamp onto the existing wiring.
+
+   *  An Aggregation Relationship is a relationship where one Energy
+      Object aggregates Energy Management information of one or more
+      other Energy Objects.  The Aggregation Relationship gives a model
+      of devices that may aggregate (sum, average, etc.) values for
+      other devices.  The Aggregation Relationship is slightly different
+      compared to the other relationships, as this refers more to a
+      management function.
+
+   In some situations, it is not possible to discover the Energy Object
+   Relationships, and an EnMS or administrator must manually set them.
+   Given that relationships can be assigned manually, the following
+   sections describe guidelines for use.
 
 5.  Conventions and Definitions
 
