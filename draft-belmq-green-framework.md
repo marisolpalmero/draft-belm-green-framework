@@ -89,7 +89,7 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization and ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, base on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
 
 --- middle
 
@@ -102,7 +102,8 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:
 
 * Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
-* Efficient Energy Management: Providing guidelines to identify inefficiencies and implement improvements.
+* Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
+  network utilization and implement improvements.
 * Scalability: Offering solutions that accommodate growing network demands and complexity.
 * Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
 * Competitiveness: Enabling organizations to maintain a competitive infrastructure through enhanced sustainability.
