@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T00:55:54.034587+00:00",
+  "timestamp": "2025-06-08T01:01:37.112720+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -658,24 +658,26 @@
       "id": "PR_kwDOOVf21s6YF7YS",
       "title": "add relationship concepts, both in the intro and a new section",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/17",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bclaise",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-05-29T09:45:11Z",
-      "updatedAt": "2025-06-03T13:39:15Z",
+      "updatedAt": "2025-06-05T09:07:11Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "a252a838bf6d4c47987054763504066f1bba14f2",
       "headRepository": "bclaise/draft-belm-green-framework",
       "headRefName": "main",
       "headRefOid": "e8c7b8ee340775a58b781cefc26ebbc970915a07",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-06-05T09:07:10Z",
+      "mergedAt": "2025-06-05T09:07:10Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "c897f6b3d8a8f255f3cc06d0c19c1df6ee57e6d9"
+      },
       "comments": [
         {
           "author": "marisolpalmero",
@@ -683,8 +685,41 @@
           "body": "In regards to this point:\r\n\u201cIn some situations, it is not possible to discover the Energy Object\r\nRelationships, and an EnMS or administrator must manually set them.  Given\r\nthat relationships can be assigned manually, the following sections\r\ndescribe guidelines for use.\u201d\r\n \r\n \r\nHow should we cover what we have defined as \u201clegacy\u201d, or even current components that do not have the capability to \u201cset\u201d and you could just read from any static form of information (database or similar) ?\r\n \r\nI think we should also include the iana considerations in the draft:\r\nhttps://www.iana.org/assignments/power-state-sets/power-state-sets.xhtml\r\n \r\nThe way that I see power state to be managed is not with fixed defined modes, but more dynamic based on the usage, more like a gradient\u2026.\r\n ",
           "createdAt": "2025-06-03T13:39:14Z",
           "updatedAt": "2025-06-03T13:39:14Z"
+        },
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "approving the PR. There is a need to check the comments and feedback from the GREEN WG mailer, but based on the PR, the PR is for sure a good base to elaborate on it",
+          "createdAt": "2025-06-05T08:47:49Z",
+          "updatedAt": "2025-06-05T09:07:06Z"
         }
       ],
+      "reviews": []
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOOVf21s6ZU71v",
+      "title": "Clarify the difference between Energy effiency management and efficie\u2026",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/18",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026nt energy management",
+      "createdAt": "2025-06-06T04:11:21Z",
+      "updatedAt": "2025-06-06T04:11:22Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "c897f6b3d8a8f255f3cc06d0c19c1df6ee57e6d9",
+      "headRepository": "billwuqin/draft-belm-green-framework",
+      "headRefName": "patch-1",
+      "headRefOid": "f4cbd73a0359b4913d4af8515cc45cc4bc14cbdb",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
       "reviews": []
     }
   ]
