@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 7 December 2025                                      Telefonica
+Expires: 15 December 2025                                     Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 7 December 2025                                      Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             5 June 2025
+                                                            13 June 2025
 
 
                Framework for Energy Efficiency Management
@@ -25,15 +25,17 @@ Abstract
    Recognizing the urgent need for energy efficiency, this document
    specifies a management framework focused on devices and device
    components within, or connected to, interconnected systems.  The
-   framework aims to enable energy usage optimization and ensure
-   interoperability across diverse systems.  Leveraging data from
-   existing use cases, it delivers actionable metrics to support
-   effective energy management and informed decision-making.
-   Furthermore, the framework proposes mechanisms for representing and
-   organizing timestamped telemetry data using YANG models and metadata,
-   enabling transparent and reliable monitoring.  This structured
-   approach facilitates improved energy efficiency through consistent
-   energy management practices.
+   framework aims to enable energy usage optimization, base on the
+   network condition while achieving the network’s functional and
+   performance requirements (e.g., improving overall network
+   utilization) and also ensure interoperability across diverse systems.
+   Leveraging data from existing use cases, it delivers actionable
+   metrics to support effective energy management and informed decision-
+   making.  Furthermore, the framework proposes mechanisms for
+   representing and organizing timestamped telemetry data using YANG
+   models and metadata, enabling transparent and reliable monitoring.
+   This structured approach facilitates improved energy efficiency
+   through consistent energy management practices.
 
 About This Document
 
@@ -68,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 December 2025.
+   This Internet-Draft will expire on 15 December 2025.
 
 Copyright Notice
 
@@ -131,8 +133,9 @@ Table of Contents
    *  Standardization: Ensuring consistent practices across different
       devices and network segments to facilitate interoperability.
 
-   *  Efficient Energy Management: Providing guidelines to identify
-      inefficiencies and implement improvements.
+   *  Energy Efficiency Management: Providing guidelines to identify
+      inefficiencies, look for the balance between energy usage and
+      network utilization and implement improvements.
 
    *  Scalability: Offering solutions that accommodate growing network
       demands and complexity.
@@ -873,17 +876,17 @@ Table of Contents
 
    [I-D.draft-bclp-green-terminology]
               Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
-              M. Palmero, "Terminology for Energy Efficiency Network
+              M. P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-bclp-
               green-terminology-01, 23 April 2025,
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
               terminology-01>.
 
    [I-D.stephan-green-use-cases]
-              Stephan, E., Palmero, M., Claise, B., Wu, Q., Contreras,
-              L. M., and C. J. Bernardos, "Use Cases for Energy
-              Efficiency Management", Work in Progress, Internet-Draft,
-              draft-stephan-green-use-cases-01, 16 May 2025,
+              Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
+              Contreras, L. M., and C. J. Bernardos, "Use Cases for
+              Energy Efficiency Management", Work in Progress, Internet-
+              Draft, draft-stephan-green-use-cases-01, 16 May 2025,
               <https://datatracker.ietf.org/doc/html/draft-stephan-
               green-use-cases-01>.
 
