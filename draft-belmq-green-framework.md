@@ -103,7 +103,7 @@ In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as th
 
 * Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
 * Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
-  network utilization and implement improvements.
+  network/resource/component/capability utilization and implement improvements.
 * Scalability: Offering solutions that accommodate growing network demands and complexity.
 * Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
 * Competitiveness: Enabling organizations to maintain a competitive infrastructure through enhanced sustainability.
