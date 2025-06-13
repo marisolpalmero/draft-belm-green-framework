@@ -136,7 +136,8 @@ Table of Contents
 
    *  Energy Efficiency Management: Providing guidelines to identify
       inefficiencies, look for the balance between energy usage and
-      network utilization and implement improvements.
+      network/resource/component/capability utilization and implement
+      improvements.
 
    *  Scalability: Offering solutions that accommodate growing network
       demands and complexity.
