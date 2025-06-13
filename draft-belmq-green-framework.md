@@ -265,10 +265,13 @@ In conclusion, establishing the framework for energy efficiency management now i
 
 # Reference Model
 
-   The framework introduces the concept of a Power Interface that is
-   analogous to a network interface.  A Power Interface is defined as an
-   interconnection among devices where energy can be provided, received,
-   or both.
+   The framework introduces the concept of a Power Interface.
+   A Power Interface is defined as an interconnection among devices
+   where energy can be provided, received, or both. There are some
+   similarities between Power Interfaces and network interfaces. A
+   network interface can be set to different states, such
+   as sending or receiving data on an attached line. Similarly, a Power
+   Interface can be receiving or providing energy.
 
    The most basic example of Energy Management is a single device
    reporting information about itself.  In many cases, however, energy
@@ -733,6 +736,49 @@ In some situations, it is not possible to discover the Energy Object
 Relationships, and an EnMS or administrator must manually set them.  Given
 that relationships can be assigned manually, the following sections
 describe guidelines for use.
+
+## Power State Set
+
+The Energy Object contains a Power State Set attribute that represents
+the set of Power States a device or component supports.
+
+A Power State describes a condition or mode of a device or component.
+While Power States are typically used for control, they may be used
+for monitoring only.
+
+A device or component is expected to support at least one set of
+Power States consisting of at least two states: an on state and an
+off state.
+
+The semantics of a Power State are specified by:
+
+   * The functionality provided by an Energy Object in this state.
+
+   * A limitation of the power that an Energy Object uses in this
+      state.
+
+   * A combination of the first two.
+
+The semantics of a Power State should be clearly defined.  Limitation
+(curtailment) of the power used by an Energy Object in a state may be
+specified by:
+
+   *  An absolute power value.
+
+   *  A percentage value of power relative to the Energy Object's
+      Nameplate Power.
+
+   *  An indication of power relative to another Power State.  For
+      example, specify that power in state A is less than in state B.
+
+   *  For supporting Power State management, an Energy Object provides
+      statistics on Power States, including the time an Energy Object
+      spent in a certain Power State and the number of times an Energy
+      Object entered a Power State.
+
+
+There are many existing standards describing device and component
+Power States. TO BE COMPLETED
 
 
 # Conventions and Definitions
