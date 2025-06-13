@@ -271,7 +271,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    similarities between Power Interfaces and network interfaces. A
    network interface can be set to different states, such
    as sending or receiving data on an attached line. Similarly, a Power
-   Interface can be receiving or providing energy. 
+   Interface can be receiving or providing energy.
 
    The most basic example of Energy Management is a single device
    reporting information about itself.  In many cases, however, energy
