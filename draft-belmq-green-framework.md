@@ -89,7 +89,7 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, base on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
 
 --- middle
 
@@ -690,7 +690,7 @@ and Capability   Efficiency    |  /network related information:
 ## Relationships
 
 The framework for Energy Management need to describe a means to monitor
-and control devices and components, and it needs to to describe the
+and control devices and components, and it needs to describe the
 relationships among, and connections between, devices and components.
 
 Two Energy Objects can establish an Energy Object Relationship to
