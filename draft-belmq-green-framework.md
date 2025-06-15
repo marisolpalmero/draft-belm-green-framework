@@ -286,12 +286,9 @@ In conclusion, establishing the framework for energy efficiency management now i
    (who aggregates values of others).
 
    The relationships build on the Power Interface concept.  The
-   different relationships among devices and components, as specified in
+   different relationships among device(s)/component(s), as specified in
    this document, include power source, Metering, and Aggregation
    Relationships.
-
-   The framework does not cover non-electrical equipment, nor does it
-   cover energy procurement and manufacturing.
 
 ~~~ text
 +--------------------------------------------------------------------+
