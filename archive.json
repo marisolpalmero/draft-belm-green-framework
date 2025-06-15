@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-08T01:01:37.112720+00:00",
+  "timestamp": "2025-06-15T01:02:43.580924+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -158,9 +158,17 @@
       "labels": [],
       "body": "https://notes.ietf.org/notes-ietf-interim-2025-green-01-green\n\nHow to address absence of power meters?\n\nTony raised concern; framework must be inclusive of non-metered devices.",
       "createdAt": "2025-05-22T21:54:51Z",
-      "updatedAt": "2025-05-22T21:55:15Z",
+      "updatedAt": "2025-06-13T14:42:43Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This is addressed by the Metering Relationship.\nThis is this figure in the draft\n+--------------------------------------------------------------------+\n|                                                                    |\n|                  (3) Network Domain Level                          |\n|                                                                    |\n+--------------------------------------------------------------------+\n\n(a)              (b)              (c)\nInventory        Monitor       +- DataSheets/DataBase and/or via API\nOf identity      Energy        |  Metadata and other device/component\nand Capability   Efficiency    |  /network related information:\n     ^               ^         |\n     |               |         |  .Power/Energy related metrics\n     |               |         |  .information\n     |               |         |  .origin of Energy Mix\n     |               |         |  .carbon aware based on location\n     |               |         |\n     |               |         |\n     |               |         |\n     |               |         v\n+--------------------------------------------------------------------+\n|                                                                    |\n|       (2) controller (collection, compute and aggregate?)          |\n|                                                                    |\n+--------------------------------------------------------------------+\n                              ^\n                              |\n                             (e)\n                              |\n                              |\n    +--------------+   +----------------+   +---------------+\n    |              |   |                |   |               |\n    | Power Supply |###| Physical Meter |###| Legacy Device |\n    |              |   |                |   |               |\n    +--------------+   +----------------+   +---------------+\n",
+          "createdAt": "2025-06-13T14:42:43Z",
+          "updatedAt": "2025-06-13T14:42:43Z"
+        }
+      ]
     },
     {
       "number": 15,
@@ -183,16 +191,62 @@
       "id": "I_kwDOOVf21s632-8Z",
       "title": "interim #1: Define power source/control topology",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/16",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "marisolpalmero",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Needed alongside physical connectivity. \n\nhttps://notes.ietf.org/notes-ietf-interim-2025-green-01-green",
       "createdAt": "2025-05-22T22:02:53Z",
-      "updatedAt": "2025-05-22T22:06:38Z",
+      "updatedAt": "2025-06-13T14:08:12Z",
+      "closedAt": "2025-06-13T14:08:12Z",
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "From the interim 01 notes.... \n\nQ2. Why it is critical to discuss/agree a framework now rather than deferring it to a later task within the WG?\nA2. Because we need power source topology and power control topology, besides the physical networking connectivity topology.",
+          "createdAt": "2025-06-13T13:30:03Z",
+          "updatedAt": "2025-06-13T13:30:03Z"
+        },
+        {
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Hopefully addressed with #17 ",
+          "createdAt": "2025-06-13T13:58:23Z",
+          "updatedAt": "2025-06-13T13:58:23Z"
+        },
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "agreed!",
+          "createdAt": "2025-06-13T14:08:12Z",
+          "updatedAt": "2025-06-13T14:08:12Z"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOOVf21s67WXvn",
+      "title": "add to \"network utilization\" a reference to \"resource/component/capability utilization\".",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/19",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Based in PR #18 \nConsider to include when talking about \"network utilization\" something like \"resource/component/capability utilization\", where resource could be CPU, memory, etc\u2026.; and capability refers to the feature or capability that might be enabled",
+      "createdAt": "2025-06-13T11:04:36Z",
+      "updatedAt": "2025-06-13T14:32:48Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "addressed in PR #20 ",
+          "createdAt": "2025-06-13T14:32:48Z",
+          "updatedAt": "2025-06-13T14:32:48Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -701,20 +755,141 @@
       "id": "PR_kwDOOVf21s6ZU71v",
       "title": "Clarify the difference between Energy effiency management and efficie\u2026",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/18",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "billwuqin",
-      "authorAssociation": "NONE",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026nt energy management",
       "createdAt": "2025-06-06T04:11:21Z",
-      "updatedAt": "2025-06-06T04:11:22Z",
+      "updatedAt": "2025-06-13T11:00:13Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "c897f6b3d8a8f255f3cc06d0c19c1df6ee57e6d9",
       "headRepository": "billwuqin/draft-belm-green-framework",
       "headRefName": "patch-1",
       "headRefOid": "f4cbd73a0359b4913d4af8515cc45cc4bc14cbdb",
+      "closedAt": "2025-06-13T11:00:13Z",
+      "mergedAt": "2025-06-13T11:00:13Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "b4ffa152dc486694070350aaa6246d3aa43b19da"
+      },
+      "comments": [
+        {
+          "author": "bclaise",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The changes make sense",
+          "createdAt": "2025-06-13T10:46:49Z",
+          "updatedAt": "2025-06-13T10:46:49Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6uTcNo",
+          "commit": {
+            "abbreviatedOid": "f4cbd73"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "approving the change, even I will include a request to add to \"network utilization\"  something like \"resource/component/capability\" utilization, where resource could be CPU, memory, etc\u2026.; and capability refers to the feature or capability that might be enabled",
+          "createdAt": "2025-06-13T10:59:48Z",
+          "updatedAt": "2025-06-13T10:59:48Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOOVf21s6aZzPF",
+      "title": "Update draft-belmq-green-framework.md",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/20",
+      "state": "MERGED",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "based on issue #19",
+      "createdAt": "2025-06-13T14:32:02Z",
+      "updatedAt": "2025-06-13T15:19:25Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "b4ffa152dc486694070350aaa6246d3aa43b19da",
+      "headRepository": "marisolpalmero/draft-belm-green-framework",
+      "headRefName": "NetworkUtilization",
+      "headRefOid": "7ccdb918b7db1f479f2ad648da0b52a6ffc5f797",
+      "closedAt": "2025-06-13T15:19:16Z",
+      "mergedAt": "2025-06-13T15:19:16Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOOVf21s6aZ3LM",
+      "title": "some more text on the power state set",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/21",
+      "state": "MERGED",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-13T14:38:50Z",
+      "updatedAt": "2025-06-13T15:18:47Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "b4ffa152dc486694070350aaa6246d3aa43b19da",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "65b4a21b92df4f6e77c5df835ca45e3cbdcd54d2",
+      "closedAt": "2025-06-13T15:18:47Z",
+      "mergedAt": "2025-06-13T15:18:47Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "2f69a31e32f31b3f7b4f90f34d685f18d10a1932"
+      },
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "Im good with the changes",
+          "createdAt": "2025-06-13T14:58:29Z",
+          "updatedAt": "2025-06-13T14:58:29Z"
+        },
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "comments from Luis (email to the group):\r\nChanges are ok to me (there are a couple of typos such as base instead of based, or \"to to\", but that's fine).\r\n\r\nSo ok to me to release the new version and go through it in the interim.\r\n",
+          "createdAt": "2025-06-13T15:18:41Z",
+          "updatedAt": "2025-06-13T15:18:41Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOOVf21s6aad4U",
+      "title": "minor edits ",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/22",
+      "state": "OPEN",
+      "author": "bclaise",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Note: draft already posted, including those idnits fixes",
+      "createdAt": "2025-06-13T15:40:36Z",
+      "updatedAt": "2025-06-13T15:40:37Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
+      "headRepository": "bclaise/draft-belm-green-framework",
+      "headRefName": "main",
+      "headRefOid": "d9e02b711a67e4cec9001a65b071b072942e701a",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
