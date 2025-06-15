@@ -306,9 +306,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -369,9 +369,9 @@ Function might be implemented inside the device or in the controller or a combin
 
  NOTE:
 
-* "###" is used to denote a transfer of energy.
+* "###" is used to denote a transfer of energy using Power Interface.
 
-* "- >" is used to denote a transfer of information.
+* "- >" is used to denote a transfer of information using Network Interface.
 
 ### Basic Power Supply
 
@@ -391,9 +391,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -435,9 +435,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -494,9 +494,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   Information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -546,9 +546,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -609,9 +609,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
@@ -662,9 +662,9 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |  .information
-     |               |         |  .origin of Energy Mix
-     |               |         |  .carbon aware based on location
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
      |               |         |
      |               |         |
      |               |         |
