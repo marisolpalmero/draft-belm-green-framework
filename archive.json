@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-15T01:02:43.580924+00:00",
+  "timestamp": "2025-06-17T00:56:43.601384+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -247,6 +247,22 @@
           "updatedAt": "2025-06-13T14:32:48Z"
         }
       ]
+    },
+    {
+      "number": 25,
+      "id": "I_kwDOOVf21s67lNZH",
+      "title": "Power relationship between device component",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/25",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Can we see power supply as component or smart PDU which is part of network device, if not, Do we need to document internal power relationship between components within one single device? Do we need to document power relationship between device A as a whole and  each component in device B?",
+      "createdAt": "2025-06-15T04:48:09Z",
+      "updatedAt": "2025-06-15T04:48:09Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -762,7 +778,7 @@
       "labels": [],
       "body": "\u2026nt energy management",
       "createdAt": "2025-06-06T04:11:21Z",
-      "updatedAt": "2025-06-13T11:00:13Z",
+      "updatedAt": "2025-06-15T03:49:50Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "c897f6b3d8a8f255f3cc06d0c19c1df6ee57e6d9",
@@ -782,6 +798,13 @@
           "body": "The changes make sense",
           "createdAt": "2025-06-13T10:46:49Z",
           "updatedAt": "2025-06-13T10:46:49Z"
+        },
+        {
+          "author": "billwuqin",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "> approving the change, even I will include a request to add to \"network utilization\" something like \"resource/component/capability\" utilization, where resource could be CPU, memory, etc\u2026.; and capability refers to the feature or capability that might be enabled\r\n\r\nI think utilization is referred to network level utilization, do we need to further expand to device level, component level?\r\nI think we can discuss but I need to be careful not to change original meaning.",
+          "createdAt": "2025-06-15T03:49:50Z",
+          "updatedAt": "2025-06-15T03:49:50Z"
         }
       ],
       "reviews": [
@@ -883,13 +906,73 @@
       "labels": [],
       "body": "Note: draft already posted, including those idnits fixes",
       "createdAt": "2025-06-13T15:40:36Z",
-      "updatedAt": "2025-06-13T15:40:37Z",
+      "updatedAt": "2025-06-15T03:46:05Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
       "headRepository": "bclaise/draft-belm-green-framework",
       "headRefName": "main",
       "headRefOid": "d9e02b711a67e4cec9001a65b071b072942e701a",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "billwuqin",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The proposed edits look good.",
+          "createdAt": "2025-06-15T03:46:05Z",
+          "updatedAt": "2025-06-15T03:46:05Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 23,
+      "id": "PR_kwDOOVf21s6akWy_",
+      "title": "Figure Update and clarify symbol denotation",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/23",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-06-15T04:12:05Z",
+      "updatedAt": "2025-06-15T04:12:06Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
+      "headRepository": "billwuqin/draft-belm-green-framework",
+      "headRefName": "patch-2",
+      "headRefOid": "a1e2760e3f8d7e3497c4992527e78c18b5df1718",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 24,
+      "id": "PR_kwDOOVf21s6akZtk",
+      "title": "delete redundant text from reference model and clarify the power rela\u2026",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/24",
+      "state": "OPEN",
+      "author": "billwuqin",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "\u2026tion between devices/components\r\n\r\nOne thing still not clear whether component is referred to Power supply, if not, it looks we need to document internal power relationship between components within one single device? Do we need to document power relationship between device A as a whole and  each component in device B?",
+      "createdAt": "2025-06-15T04:43:25Z",
+      "updatedAt": "2025-06-15T04:43:26Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
+      "headRepository": "billwuqin/draft-belm-green-framework",
+      "headRefName": "patch-3",
+      "headRefOid": "17f404078f039d1b169d8448022f9fca59190817",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
