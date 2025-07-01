@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 19 November 2025                                     Telefonica
+Expires: 2 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 19 November 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             18 May 2025
+                                                             1 July 2025
 
 
                Framework for Energy Efficiency Management
@@ -25,15 +25,17 @@ Abstract
    Recognizing the urgent need for energy efficiency, this document
    specifies a management framework focused on devices and device
    components within, or connected to, interconnected systems.  The
-   framework aims to enable energy usage optimization and ensure
-   interoperability across diverse systems.  Leveraging data from
-   existing use cases, it delivers actionable metrics to support
-   effective energy management and informed decision-making.
-   Furthermore, the framework proposes mechanisms for representing and
-   organizing timestamped telemetry data using YANG models and metadata,
-   enabling transparent and reliable monitoring.  This structured
-   approach facilitates improved energy efficiency through consistent
-   energy management practices.
+   framework aims to enable energy usage optimization, base on the
+   network condition while achieving the network’s functional and
+   performance requirements (e.g., improving overall network
+   utilization) and also ensure interoperability across diverse systems.
+   Leveraging data from existing use cases, it delivers actionable
+   metrics to support effective energy management and informed decision-
+   making.  Furthermore, the framework proposes mechanisms for
+   representing and organizing timestamped telemetry data using YANG
+   models and metadata, enabling transparent and reliable monitoring.
+   This structured approach facilitates improved energy efficiency
+   through consistent energy management practices.
 
 About This Document
 
@@ -68,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 19 November 2025.
+   This Internet-Draft will expire on 2 January 2026.
 
 Copyright Notice
 
@@ -96,10 +98,13 @@ Table of Contents
    4.  Reference Model
      4.1.  Typical Power Topologies
        4.1.1.  Basic Power Supply
-       4.1.2.  Power over Ethernet
-       4.1.3.  Physical Meter
-       4.1.4.  Single Power Supply with Multiple Devices
-       4.1.5.  Multiple Power Supplies with Single Device
+       4.1.2.  Physical Meter with Legacy Device
+       4.1.3.  Physical Meter with New Device
+       4.1.4.  Power over Ethernet
+       4.1.5.  Single Power Supply with Multiple Devices
+       4.1.6.  Multiple Power Supplies with Single Device
+     4.2.  Relationships
+     4.3.  Power State Set
    5.  Conventions and Definitions
    6.  Security Considerations
    7.  IANA Considerations
@@ -129,8 +134,10 @@ Table of Contents
    *  Standardization: Ensuring consistent practices across different
       devices and network segments to facilitate interoperability.
 
-   *  Efficient Energy Management: Providing guidelines to identify
-      inefficiencies and implement improvements.
+   *  Energy Efficiency Management: Providing guidelines to identify
+      inefficiencies, look for the balance between energy usage and
+      network/resource/component/capability utilization and implement
+      improvements.
 
    *  Scalability: Offering solutions that accommodate growing network
       demands and complexity.
@@ -167,6 +174,32 @@ Table of Contents
       -  producers of energy (like an uninterruptible power supply or
          renewable energy system) and their associated components (such
          as battery cells, inverters, or photovoltaic panels)
+
+      The framework introduces the concept of a Power Interface that is
+      analogous to a network interface.  A Power Interface is defined as
+      an interconnection among devices where energy can be provided,
+      received, or both.
+
+      The most basic example of Energy Management is a single device
+      reporting information about itself.  In many cases, however,
+      energy is not measured by the device itself but is measured
+      upstream in the power distribution tree.  For example, a Power
+      Distribution Unit (PDU) may measure the energy it supplies to
+      attached devices and report this to an Energy Management System.
+      Therefore, devices often have relationships to other devices or
+      components in the power network.  An Energy Management System
+      (EnMS) generally requires an understanding of the power topology
+      (who provides power to whom), the Metering topology (who meters
+      whom), and the potential Aggregation (who aggregates values of
+      others).
+
+      The relationships build on the Power Interface concept.  The
+      different relationships among devices and components, as specified
+      in this document, include power source, Metering, and Aggregation
+      Relationships.
+
+      The framework does not cover non-electrical equipment, nor does it
+      cover energy procurement and manufacturing.
 
 2.1.  Terminology
 
@@ -309,10 +342,13 @@ Table of Contents
 
 4.  Reference Model
 
-   The framework introduces the concept of a Power Interface that is
-   analogous to a network interface.  A Power Interface is defined as an
-   interconnection among devices where energy can be provided, received,
-   or both.
+   The framework introduces the concept of a Power Interface.  A Power
+   Interface is defined as an interconnection among devices where energy
+   can be provided, received, or both.  There are some similarities
+   between Power Interfaces and network interfaces.  A network interface
+   can be set to different states, such as sending or receiving data on
+   an attached line.  Similarly, a Power Interface can be receiving or
+   providing energy.
 
    The most basic example of Energy Management is a single device
    reporting information about itself.  In many cases, however, energy
@@ -418,10 +454,7 @@ Table of Contents
 4.1.1.  Basic Power Supply
 
    This covers the basic example of router connected to Power Outlet in
-   the wall.  Note that in typical deployements, there are no interface
-   (d), (e), and (f) for that Power Outlet.  If the router can not
-   monitor its power, energy, demand, a physical meter is required (see
-   next section).
+   the wall.
 
    +--------------------------------------------------------------------+
    |                                                                    |
@@ -447,11 +480,11 @@ Table of Contents
    |       (2) controller (collection, compute and aggregate?)          |
    |                                                                    |
    +--------------------------------------------------------------------+
-                 ^   ^   ^ |                    ^   ^   ^ |
-                 |   |   | |                    |   |   | |
-                (d) (e)  (f)                   (d) (e)  (f)
-                 |   |   | |                    |   |   | |
-                 |   |     v                    |   |     v
+                                                ^   ^   ^ |
+                                                |   |   | |
+                                               (d) (e)  (f)
+                                                |   |   | |
+                                                |   |     v
                +--------------+            +------------------+
                |              |            |                  |
                | Power Supply |############| Device/Component |
@@ -460,7 +493,115 @@ Table of Contents
 
            Figure 2: Reference Model Example: Basic Power Supply
 
-4.1.2.  Power over Ethernet
+4.1.2.  Physical Meter with Legacy Device
+
+   This covers the basic example of device connected to wall Power
+   Outlet, with a Physical Meter placed in the wall Power Outlet,
+   because the device can not monitor its power, energy, demand.
+
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                                 ^
+                                 |
+                                (e)
+                                 |
+                                 |
+       +--------------+   +----------------+   +---------------+
+       |              |   |                |   |               |
+       | Power Supply |###| Physical Meter |###| Legacy Device |
+       |              |   |                |   |               |
+       +--------------+   +----------------+   +---------------+
+
+             Figure 3: Reference Model Example: Physical Meter
+
+   When the EnMS discovers the physical meter, it must know for which
+   Energy Object(s) it measures power or energy.  This is the Metering
+   Relatonship.
+
+   A Metering Relationship is a relationship where one Energy Object
+   measures power, energy, demand, or Power Attributes of one or more
+   other Energy Objects.  The Metering Relationship gives the view of
+   the Metering topology.  Physical meters can be placed anywhere in a
+   power distribution tree.  For example, utility meters monitor and
+   report accumulated power consumption of the entire building.
+   Logically, the Metering topology overlaps with the wiring topology,
+   as meters are connected to the wiring topology.  A typical example is
+   meters that clamp onto the existing wiring.
+
+4.1.3.  Physical Meter with New Device
+
+   This covers the example of device connected to wall Power Outlet,
+   with a Physical Meter placed in the wall Power Outlet, because the
+   previous device was not able to monitor its power, energy, demand.
+
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                  (3) Network Domain Level                          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+
+   (a)              (b)              (c)
+   Inventory        Monitor       +- DataSheets/DataBase and/or via API
+   Of identity      Energy        |  Metadata and other device/component
+   and Capability   Efficiency    |  /network related information:
+        ^               ^         |
+        |               |         |  .Power/Energy related metrics
+        |               |         |  .information
+        |               |         |  .origin of Energy Mix
+        |               |         |  .carbon aware based on location
+        |               |         |
+        |               |         |
+        |               |         |
+        |               |         v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |       (2) controller (collection, compute and aggregate?)          |
+   |                                                                    |
+   +--------------------------------------------------------------------+
+                                 ^                 ^   ^   ^ |
+                                 |                 |   |   | |
+                                (e)               (d) (e)  (f)
+                                 |                 |   |   | |
+                                 |                 |   |     v
+       +--------------+   +----------------+   +------------------+
+       |              |   |                |   |                  |
+       | Power Supply |###| Physical Meter |###| Device/Component |
+       |              |   |                |   |                  |
+       +--------------+   +----------------+   +------------------+
+
+     Figure 4: Reference Model Example: Physical Meter with New Device
+
+   The most important issue in such a topology is to avoid the double
+   counting in the Energy Management System (EnMS).  The physical meter
+   reports the Energy transmitted, while the connected Device/Component
+   might also report its consumed Energy.  Those two values are
+   identical.  Without the knowledge of this specific topology, that is
+   the Metering Relationship between the two Energy Objects, the EnMS
+   will double count the Energy consumed in the network.
+
+4.1.4.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
@@ -502,78 +643,31 @@ Table of Contents
                |              |            |                |
                +--------------+            +----------------+
 
-           Figure 3: Reference Model Example: Power over Ethernet
+           Figure 5: Reference Model Example: Power over Ethernet
 
-   The most important issue in such a topology is to avoid the double
-   counting in the Energy Management System (EnMS).  The switch port,
-   via its Power Outlet, reports the Energy transmitted, while the PoE
-   End Point, via its Power Inlet, reports its Energy consumed.  Those
-   two values are identical.  Without the knowledge of this specific
-   topology, that is the Power Source Relationship between the two
-   Energy Objects, the EnMS will double count the Energy consumed by
-   those two devices.
+   Double counting is also an issue in such an example.  The switch
+   port, via its Power Outlet, reports the Energy transmitted, while the
+   PoE End Point, via its Power Inlet, reports its Energy consumed.
+
+   A second issue in such an example is the control topology.  The
+   controller must have the knowledge that, if it shuts down the switch
+   port, it will also switch off the connected PoE End Point, as a
+   consequence.  This is the Power Source Relationship.
 
    A Power Source Relationship is a relationship where one Energy Object
-   provides power to one or more Energy Objects.
+   provides power to one or more Energy Objects.  The Power Source
+   Relationship gives a view of the physical wiring topology -- for
+   example, a PoE End Point receiving power from a switch port over PoE
+   or a data center server receiving power from two specific Power
+   Interfaces from two different PDUs.
 
-4.1.3.  Physical Meter
+   On top of that, there might be two control points for the PoE End
+   Point.  First the connected switch port but also the controller
+   direct connection to the PoE End Point (f).  Via this interface, the
+   controller might for example put the PoE End Point to a lower Power
+   State.
 
-   This covers the basic example of device connected to wall Power
-   Outlet, with a Physical Meter placed in the wall Power Outlet,
-   because the device can not monitor its power, energy, demand.
-
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |                  (3) Network Domain Level                          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
-
-   (a)              (b)              (c)
-   Inventory        Monitor       +- DataSheets/DataBase and/or via API
-   Of identity      Energy        |  Metadata and other device/component
-   and Capability   Efficiency    |  /network related information:
-        ^               ^         |
-        |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
-        |               |         |
-        |               |         |
-        |               |         |
-        |               |         v
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |       (2) controller (collection, compute and aggregate?)          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
-                             ^   ^   ^ |           ^   ^   ^ |
-                             |   |   | |           |   |   | |
-                            (d) (e)  (f)          (d) (e)  (f)
-                             |   |   | |           |   |   | |
-                             |   |     v           |   |     v
-       +--------------+   +----------------+   +------------------+
-       |              |   |                |   |                  |
-       | Power Supply |###| Physical Meter |###| Device/Component |
-       |              |   |                |   |                  |
-       +--------------+   +----------------+   +------------------+
-
-             Figure 4: Reference Model Example: Physical Meter
-
-   When the EnMS discovers the physical meter, it must know which for
-   which Energy Object(s) it measures power or energy.  This is the
-   Metering Relatonship.
-
-   A Metering Relationship is a relationship where one Energy Object
-   measures power, energy, demand, or Power Attributes of one or more
-   other Energy Objects.  The Metering Relationship gives the view of
-   the Metering topology.  Physical meters can be placed anywhere in a
-   power distribution tree.  For example, utility meters monitor and
-   report accumulated power consumption of the entire building.
-   Logically, the Metering topology overlaps with the wiring topology,
-   as meters are connected to the wiring topology.  A typical example is
-   meters that clamp onto the existing wiring.
-
-4.1.4.  Single Power Supply with Multiple Devices
+4.1.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
@@ -626,10 +720,10 @@ Table of Contents
                                            |                    |
                                            +--------------------+
 
-        Figure 5: Reference Model Example: Single Power Supply with
+        Figure 6: Reference Model Example: Single Power Supply with
                               Multiple Devices
 
-4.1.5.  Multiple Power Supplies with Single Device
+4.1.6.  Multiple Power Supplies with Single Device
 
    +--------------------------------------------------------------------+
    |                                                                    |
@@ -666,8 +760,101 @@ Table of Contents
       |                |      |                  |      |                |
       +----------------+      +------------------+      +----------------+
 
-      Figure 6: Reference Model Example: Multiple Power Supplies with
+      Figure 7: Reference Model Example: Multiple Power Supplies with
                                Single Device
+
+4.2.  Relationships
+
+   The framework for Energy Management need to describe a means to
+   monitor and control devices and components, and it needs to to
+   describe the relationships among, and connections between, devices
+   and components.
+
+   Two Energy Objects can establish an Energy Object Relationship to
+   model the deployment topology with respect to Energy Management.
+
+   Relationships are modeled with a Relationship that contains the UUID
+   of the other participant in the relationship, along with a
+   Relationship type.
+
+   There are three types of relationships are Power Source, Metering,
+   and Aggregations.
+
+   *  A Power Source Relationship is a relationship where one Energy
+      Object provides power to one or more Energy Objects.  The Power
+      Source Relationship gives a view of the physical wiring topology
+      -- for example, a data center server receiving power from two
+      specific Power Interfaces from two different PDUs.
+
+      Note: A Power Source Relationship may or may not change as the
+      direction of power changes between two Energy Objects.  The
+      relationship may remain to indicate that the change of power
+      direction was unintended or an error condition.
+
+   *  A Metering Relationship is a relationship where one Energy Object
+      measures power, energy, demand, or Power Attributes of one or more
+      other Energy Objects.  The Metering Relationship gives the view of
+      the Metering topology.  Physical meters can be placed anywhere in
+      a power distribution tree.  For example, utility meters monitor
+      and report accumulated power consumption of the entire building.
+      Logically, the Metering topology overlaps with the wiring
+      topology, as meters are connected to the wiring topology.  A
+      typical example is meters that clamp onto the existing wiring.
+
+   *  An Aggregation Relationship is a relationship where one Energy
+      Object aggregates Energy Management information of one or more
+      other Energy Objects.  The Aggregation Relationship gives a model
+      of devices that may aggregate (sum, average, etc.) values for
+      other devices.  The Aggregation Relationship is slightly different
+      compared to the other relationships, as this refers more to a
+      management function.
+
+   In some situations, it is not possible to discover the Energy Object
+   Relationships, and an EnMS or administrator must manually set them.
+   Given that relationships can be assigned manually, the following
+   sections describe guidelines for use.
+
+4.3.  Power State Set
+
+   The Energy Object contains a Power State Set attribute that
+   represents the set of Power States a device or component supports.
+
+   A Power State describes a condition or mode of a device or component.
+   While Power States are typically used for control, they may be used
+   for monitoring only.
+
+   A device or component is expected to support at least one set of
+   Power States consisting of at least two states: an on state and an
+   off state.
+
+   The semantics of a Power State are specified by:
+
+   *  The functionality provided by an Energy Object in this state.
+
+   *  A limitation of the power that an Energy Object uses in this
+      state.
+
+   *  A combination of the first two.
+
+   The semantics of a Power State should be clearly defined.  Limitation
+   (curtailment) of the power used by an Energy Object in a state may be
+   specified by:
+
+   *  An absolute power value.
+
+   *  A percentage value of power relative to the Energy Object's
+      Nameplate Power.
+
+   *  An indication of power relative to another Power State.  For
+      example, specify that power in state A is less than in state B.
+
+   *  For supporting Power State management, an Energy Object provides
+      statistics on Power States, including the time an Energy Object
+      spent in a certain Power State and the number of times an Energy
+      Object entered a Power State.
+
+   There are many existing standards describing device and component
+   Power States.  TO BE COMPLETED
 
 5.  Conventions and Definitions
 
@@ -736,17 +923,17 @@ Table of Contents
 
    [I-D.draft-bclp-green-terminology]
               Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
-              M. Palmero, "Terminology for Energy Efficiency Network
+              M. P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-bclp-
-              green-terminology-01, 23 April 2025,
+              green-terminology-02, 14 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
-              terminology-01>.
+              terminology-02>.
 
    [I-D.stephan-green-use-cases]
-              Stephan, E., Palmero, M., Claise, B., Wu, Q., Contreras,
-              L. M., and C. J. Bernardos, "Use Cases for Energy
-              Efficiency Management", Work in Progress, Internet-Draft,
-              draft-stephan-green-use-cases-01, 16 May 2025,
+              Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
+              Contreras, L. M., and C. J. Bernardos, "Use Cases for
+              Energy Efficiency Management", Work in Progress, Internet-
+              Draft, draft-stephan-green-use-cases-01, 16 May 2025,
               <https://datatracker.ietf.org/doc/html/draft-stephan-
               green-use-cases-01>.
 
