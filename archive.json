@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-17T00:56:43.601384+00:00",
+  "timestamp": "2025-07-03T00:57:19.560769+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -261,6 +261,22 @@
       "body": "Can we see power supply as component or smart PDU which is part of network device, if not, Do we need to document internal power relationship between components within one single device? Do we need to document power relationship between device A as a whole and  each component in device B?",
       "createdAt": "2025-06-15T04:48:09Z",
       "updatedAt": "2025-06-15T04:48:09Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 27,
+      "id": "I_kwDOOVf21s6-Toe8",
+      "title": "Power State Set for power shortage",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/27",
+      "state": "OPEN",
+      "author": "emile22",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "How can we address power shortage states ? must that come from the use case draft ?",
+      "createdAt": "2025-07-01T14:52:38Z",
+      "updatedAt": "2025-07-01T14:52:38Z",
       "closedAt": null,
       "comments": []
     }
@@ -973,6 +989,32 @@
       "headRepository": "billwuqin/draft-belm-green-framework",
       "headRefName": "patch-3",
       "headRefOid": "17f404078f039d1b169d8448022f9fca59190817",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 26,
+      "id": "PR_kwDOOVf21s6c7MQt",
+      "title": "double accouting case",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/26",
+      "state": "OPEN",
+      "author": "emile22",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "just clarifying that the new device reports its consumption",
+      "createdAt": "2025-07-01T14:51:18Z",
+      "updatedAt": "2025-07-01T14:51:19Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
+      "headRepository": "marisolpalmero/draft-belm-green-framework",
+      "headRefName": "emile",
+      "headRefOid": "7f2ae91ad57821e3eb22e84492974e8c7e389890",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
