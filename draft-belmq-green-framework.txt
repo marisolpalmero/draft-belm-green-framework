@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 15 December 2025                                     Telefonica
+Expires: 5 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 15 December 2025                                     Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                            13 June 2025
+                                                             4 July 2025
 
 
                Framework for Energy Efficiency Management
@@ -25,7 +25,7 @@ Abstract
    Recognizing the urgent need for energy efficiency, this document
    specifies a management framework focused on devices and device
    components within, or connected to, interconnected systems.  The
-   framework aims to enable energy usage optimization, base on the
+   framework aims to enable energy usage optimization, based on the
    network condition while achieving the network’s functional and
    performance requirements (e.g., improving overall network
    utilization) and also ensure interoperability across diverse systems.
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 December 2025.
+   This Internet-Draft will expire on 5 January 2026.
 
 Copyright Notice
 
@@ -766,9 +766,9 @@ Table of Contents
 4.2.  Relationships
 
    The framework for Energy Management need to describe a means to
-   monitor and control devices and components, and it needs to to
-   describe the relationships among, and connections between, devices
-   and components.
+   monitor and control devices and components, and it needs to describe
+   the relationships among, and connections between, devices and
+   components.
 
    Two Energy Objects can establish an Energy Object Relationship to
    model the deployment topology with respect to Energy Management.
@@ -925,9 +925,9 @@ Table of Contents
               Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
               M. P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-bclp-
-              green-terminology-01, 23 April 2025,
+              green-terminology-02, 14 June 2025,
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
-              terminology-01>.
+              terminology-02>.
 
    [I-D.stephan-green-use-cases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
