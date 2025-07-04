@@ -382,9 +382,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -447,9 +447,11 @@ Table of Contents
 
    NOTE:
 
-   *  "###" is used to denote a transfer of energy.
+   *  "###" is used to denote a transfer of energy using Power
+      Interface.
 
-   *  "- >" is used to denote a transfer of information.
+   *  "- >" is used to denote a transfer of information using Network
+      Interface.
 
 4.1.1.  Basic Power Supply
 
@@ -468,9 +470,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -511,9 +513,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -568,9 +570,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   Information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -619,9 +621,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -684,9 +686,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
@@ -737,9 +739,9 @@ Table of Contents
    and Capability   Efficiency    |  /network related information:
         ^               ^         |
         |               |         |  .Power/Energy related metrics
-        |               |         |  .information
-        |               |         |  .origin of Energy Mix
-        |               |         |  .carbon aware based on location
+        |               |         |   information
+        |               |         |  .Origin of Energy Mix
+        |               |         |  .Carbon aware based on location
         |               |         |
         |               |         |
         |               |         |
