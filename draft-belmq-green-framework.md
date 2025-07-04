@@ -778,6 +778,62 @@ There are many existing standards describing device and component
 Power States. TO BE COMPLETED
 
 
+## Power State Set Mapping and Intent
+
+Defining and applying Power States can be challenging, especially when trying to align what devices can do with high-level operational goals, energy efficient operations, referred to as intent. This section describes how to connect a device’s power-saving capabilities with these intents, such as running at reduced capacity during low-demand periods or lowering energy use without affecting performance. These goals help determine how a device should behave, for example, by selecting the appropriate power state.
+
+### Capability Discovery
+
+Identifying what power states a device or component supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:
+
+- Whether the device supports multiple Power State Sets.
+- Semantics and limitations of each state (e.g., absolute power, relative power).
+- Transition characteristics, such as the time required to move between states.
+- Device-specific constraints like frequency, which may limit energy-saving measures to avoid damaging the device and accuracy in the metrics.
+
+
+
+### Intent Mapping
+
+The goal of intent mapping is to translate high-level energy-saving intents into specific device configurations. For example:
+
+- An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.
+- Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."
+
+This is comparable to intent mapping in YANG-based systems—from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.
+
+### SLA Considerations
+
+Two kinds of service level expectations (SLAs) are associated with Power State behavior:
+
+- Transition SLAs – e.g., the maximum time allowed to transition between states or the capacity loss tolerated.
+- Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.
+
+### Open Issues
+
+**Action Items:** The following topics remain open for further exploration:
+
+
+### Understanding Device Capabilities
+- Explore if devices can support multiple sets of power states.
+- Make power states clearly described and understandable.
+- Represent these capabilities in a machine-readable format.
+
+### Discovering Capabilities
+- Enable automatic detection of power-saving features.
+- Support legacy devices that may not advertise capabilities.
+- Allow controllers to easily discover device-specific limits like transition time and duty cycle.
+
+### Mapping Intents to Device Settings
+- Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.
+- Create a standard method to describe this mapping across systems.
+
+### Handling Transitions and Ensuring Safety
+- Consider how long it takes for a device to switch power states.
+- Define safe limits on frequency or speed of transitions to avoid accuracy loss and prevent device/component's damage.
+- Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
+
+
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
