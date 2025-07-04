@@ -475,8 +475,8 @@ typical example is meters that clamp onto the existing wiring.
 ### Physical Meter with New Device
 
 This covers the example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the device
-can not monitor its power, energy, demand.
+with a Physical Meter placed in the wall Power Outlet, because the previous device
+was not able to monitor its power, energy, demand.
 
 ~~~ text
 +--------------------------------------------------------------------+
