@@ -1057,7 +1057,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 5 January 2026</td>
+<td class="center">Expires 7 January 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-07-04" class="published">4 July 2025</time>
+<time datetime="2025-07-06" class="published">6 July 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-01-05">5 January 2026</time></dd>
+<dd class="expires"><time datetime="2026-01-07">7 January 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 5 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 7 January 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2179,7 +2179,19 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
         <h3 id="name-power-state-set-mapping-and">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
         </h3>
-<p id="section-4.4-1">Defining and applying Power States can be challenging, especially when trying to align what Energy Objects can do with high-level operational goals, energy efficient operations, referred to as intent. This section describes how to connect a Energy Object's power-saving capabilities with these intents, such as running at reduced capacity during low-demand periods or lowering energy use without affecting performance. These goals help determine how an Energy Object should behave, for example, by selecting the appropriate power state.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">Defining and enforcing power states can be challenging, because each Energy Object’s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object’s power-saving capabilities can be aligned with typical intents:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.4-2.1">
+            <p id="section-4.4-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.2">
+            <p id="section-4.4-2.2.1">lowering energy use while maintaining required performance levels;<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.3">
+            <p id="section-4.4-2.3.1">operating at a reduced service level when the site is on a backup power source during a grid outage.<a href="#section-4.4-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-4.4-3">By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 <div id="capability-discovery">
 <section id="section-4.4.1">
           <h4 id="name-capability-discovery">
@@ -2197,7 +2209,10 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
               <p id="section-4.4.1-2.3.1">Transition characteristics, such as the time required to move between states.<a href="#section-4.4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.1-2.4">
-              <p id="section-4.4.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components and accuracy in the metrics.<a href="#section-4.4.1-2.4.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-4.4.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.4.1-2.5">
+              <p id="section-4.4.1-2.5.1">Impacts on measurement accuracy.<a href="#section-4.4.1-2.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2301,10 +2316,13 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
               <p id="section-4.4.8-1.1.1">Consider how long it takes for an Energy Object to switch power states.<a href="#section-4.4.8-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.8-1.2">
-              <p id="section-4.4.8-1.2.1">Recommendation to standardize a data model for safe limits on frequency or speed of transitions to avoid accuracy loss and prevent device/component's damage.<a href="#section-4.4.8-1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.8-1.2.1">Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.<a href="#section-4.4.8-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.8-1.3">
-              <p id="section-4.4.8-1.3.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#section-4.4.8-1.3.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.8-1.3.1">Recommendation to standardize a data model to preserved measurement accuracy.<a href="#section-4.4.8-1.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.4.8-1.4">
+              <p id="section-4.4.8-1.4.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#section-4.4.8-1.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>

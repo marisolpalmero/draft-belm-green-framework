@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 5 January 2026                                       Telefonica
+Expires: 7 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 5 January 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             4 July 2025
+                                                             6 July 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2026.
+   This Internet-Draft will expire on 7 January 2026.
 
 Copyright Notice
 
@@ -866,15 +866,22 @@ Table of Contents
 
 4.4.  Power State Set Mapping and Intent
 
-   Defining and applying Power States can be challenging, especially
-   when trying to align what Energy Objects can do with high-level
-   operational goals, energy efficient operations, referred to as
-   intent.  This section describes how to connect a Energy Object's
-   power-saving capabilities with these intents, such as running at
-   reduced capacity during low-demand periods or lowering energy use
-   without affecting performance.  These goals help determine how an
-   Energy Object should behave, for example, by selecting the
-   appropriate power state.
+   Defining and enforcing power states can be challenging, because each
+   Energy Object’s technical capabilities must be mapped to high-level
+   operational intents for energy-efficient operation.  The following
+   examples illustrate how an Energy Object’s power-saving capabilities
+   can be aligned with typical intents:
+
+   *  running at reduced capacity during predictable low-demand periods;
+
+   *  lowering energy use while maintaining required performance levels;
+
+   *  operating at a reduced service level when the site is on a backup
+      power source during a grid outage.
+
+   By expressing such intents, a controller can decide which power state
+   an Energy Object should enter at any given time and under what
+   conditions.
 
 4.4.1.  Capability Discovery
 
@@ -892,7 +899,9 @@ Table of Contents
 
    *  Energy Object-specific state transition constraints like
       frequency, which may limit energy-saving measures to avoid
-      damaging the device/components and accuracy in the metrics.
+      damaging the device/components.
+
+   *  Impacts on measurement accuracy.
 
 4.4.2.  Intent Mapping
 
@@ -955,8 +964,11 @@ Table of Contents
       states.
 
    *  Recommendation to standardize a data model for safe limits on
-      frequency or speed of transitions to avoid accuracy loss and
-      prevent device/component's damage.
+      frequency or speed of transitions to prevent device/component's
+      damage.
+
+   *  Recommendation to standardize a data model to preserved
+      measurement accuracy.
 
    *  Model SLAs that include both performance (e.g., transition time)
       and device safety (e.g., cycle limitations).
