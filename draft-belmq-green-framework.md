@@ -780,7 +780,15 @@ Power States. TO BE COMPLETED
 
 ## Power State Set Mapping and Intent
 
-Defining and applying Power States can be challenging, especially when trying to align what Energy Objects can do with high-level operational goals, energy efficient operations, referred to as intent. This section describes how to connect a Energy Object's power-saving capabilities with these intents, such as running at reduced capacity during low-demand periods or lowering energy use without affecting performance. These goals help determine how an Energy Object should behave, for example, by selecting the appropriate power state.
+Defining and enforcing power states can be challenging, because each Energy Object’s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object’s power-saving capabilities can be aligned with typical intents:
+
+- running at reduced capacity during predictable low-demand periods;
+
+- lowering energy use while maintaining required performance levels;
+
+- operating at a reduced service level when the site is on a backup power source during a grid outage.
+
+By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.
 
 ### Capability Discovery
 
@@ -789,7 +797,8 @@ Identifying what power states an Energy Object supports is crucial for onboardin
 - Whether the energy objtect supports multiple Power State Sets.
 - Semantics and limitations of each state (e.g., absolute power, relative power).
 - Transition characteristics, such as the time required to move between states.
-- Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components and accuracy in the metrics.
+- Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.
+- Impacts on measurement accuracy.
 
 
 
@@ -828,7 +837,8 @@ The following topics remain open for further discussion points:
 
 ### Handling Transitions and Ensuring Safety
 - Consider how long it takes for an Energy Object to switch power states.
-- Recommendation to standardize a data model for safe limits on frequency or speed of transitions to avoid accuracy loss and prevent device/component's damage.
+- Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
+- Recommendation to standardize a data model to preserved measurement accuracy.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
 
 
