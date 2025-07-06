@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-03T00:57:19.560769+00:00",
+  "timestamp": "2025-07-06T01:02:41.199193+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -279,6 +279,22 @@
       "updatedAt": "2025-07-01T14:52:38Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 28,
+      "id": "I_kwDOOVf21s6-4MNI",
+      "title": "notes shared by Benoit Claise after the group call on Jul 2nd",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/28",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "AI = Action Item\n\nDifficult to define power state in specific ways\n     Jan: From a controller point is difficult to understand\n     From a controller point of view => it's night, run a half capacity\nbut come back\n         do your best\n     Benoit: in the end, what do you configure?\n\nAI: Emile: what if an energy object support multiple power state set?\n     Benoit: right. I would happy already if we support one.\n\nQuestion: How to discover the energy object capabilities?\nDescribing the power state capabilities on a device will help with the\nonboarding of  the legacy devices\n\nAI: a new section about Power State Set mapping with the intent.\n     1. capability discovery\n     2. intent mapping\nBenoit: it's not different that YANG capabilities discovery and the\nintent mapping from CFS to RFS to network element YANG module\n\nAI: Jan mentioned: what's missing => the time it takes to transition\nbetween states\nAI: Emile mentione:  what's missing => frequency and cycle of energy\nobject itself? There are limitations in what we can do: \"we don't want\nto destroy the device\"\n\nTwo notions of SLA\n     1. ex: the transition time or the capacity reduction\n     2. ex: energy object frequency and cycle\n\nAI: list the open issues in the draft",
+      "createdAt": "2025-07-04T11:38:58Z",
+      "updatedAt": "2025-07-04T15:57:46Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -378,7 +394,7 @@
       "labels": [],
       "body": "new abstract as per #Action Item: \" Improve the abstract more in line with RFC 7326.\"",
       "createdAt": "2025-05-13T20:52:30Z",
-      "updatedAt": "2025-05-14T17:33:55Z",
+      "updatedAt": "2025-07-04T16:44:00Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "6178be36060ca3976962a37011975d56d357a8df",
@@ -673,7 +689,7 @@
       "labels": [],
       "body": "Review and addressed issue #8, and also apply the .md from Jan with the formatting diagrams",
       "createdAt": "2025-05-18T17:26:08Z",
-      "updatedAt": "2025-05-18T17:26:57Z",
+      "updatedAt": "2025-07-04T16:44:19Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "2381c527e1801c48def6b502f2a01cfeffad632c",
@@ -915,24 +931,26 @@
       "id": "PR_kwDOOVf21s6aad4U",
       "title": "minor edits ",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/22",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bclaise",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Note: draft already posted, including those idnits fixes",
       "createdAt": "2025-06-13T15:40:36Z",
-      "updatedAt": "2025-06-15T03:46:05Z",
+      "updatedAt": "2025-07-04T11:35:00Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
       "headRepository": "bclaise/draft-belm-green-framework",
       "headRefName": "main",
       "headRefOid": "d9e02b711a67e4cec9001a65b071b072942e701a",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-04T11:35:00Z",
+      "mergedAt": "2025-07-04T11:34:59Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "97dba1ce6ac77e3861f8d3ac09db753bb0a09a67"
+      },
       "comments": [
         {
           "author": "billwuqin",
@@ -942,59 +960,105 @@
           "updatedAt": "2025-06-15T03:46:05Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yBwAY",
+          "commit": {
+            "abbreviatedOid": "d9e02b7"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "approving changes",
+          "createdAt": "2025-07-04T11:34:50Z",
+          "updatedAt": "2025-07-04T11:34:50Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 23,
       "id": "PR_kwDOOVf21s6akWy_",
       "title": "Figure Update and clarify symbol denotation",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/23",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "billwuqin",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-06-15T04:12:05Z",
-      "updatedAt": "2025-06-15T04:12:06Z",
+      "updatedAt": "2025-07-04T11:35:49Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
       "headRepository": "billwuqin/draft-belm-green-framework",
       "headRefName": "patch-2",
       "headRefOid": "a1e2760e3f8d7e3497c4992527e78c18b5df1718",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-04T11:35:49Z",
+      "mergedAt": "2025-07-04T11:35:49Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "ec39eab3d6e0f67d51d9ba61c93677c7933fcfa0"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yBxDG",
+          "commit": {
+            "abbreviatedOid": "a1e2760"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "approving changes",
+          "createdAt": "2025-07-04T11:35:40Z",
+          "updatedAt": "2025-07-04T11:35:40Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 24,
       "id": "PR_kwDOOVf21s6akZtk",
       "title": "delete redundant text from reference model and clarify the power rela\u2026",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/24",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "billwuqin",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026tion between devices/components\r\n\r\nOne thing still not clear whether component is referred to Power supply, if not, it looks we need to document internal power relationship between components within one single device? Do we need to document power relationship between device A as a whole and  each component in device B?",
       "createdAt": "2025-06-15T04:43:25Z",
-      "updatedAt": "2025-06-15T04:43:26Z",
+      "updatedAt": "2025-07-04T11:36:30Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
       "headRepository": "billwuqin/draft-belm-green-framework",
       "headRefName": "patch-3",
       "headRefOid": "17f404078f039d1b169d8448022f9fca59190817",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-07-04T11:36:29Z",
+      "mergedAt": "2025-07-04T11:36:29Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "c09f9c32430d3a9a0b9d2fc87d48e183c4836182"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yBx8x",
+          "commit": {
+            "abbreviatedOid": "17f4040"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-04T11:36:23Z",
+          "updatedAt": "2025-07-04T11:36:23Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 26,
@@ -1008,7 +1072,7 @@
       "labels": [],
       "body": "just clarifying that the new device reports its consumption",
       "createdAt": "2025-07-01T14:51:18Z",
-      "updatedAt": "2025-07-01T14:51:19Z",
+      "updatedAt": "2025-07-04T11:38:02Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
@@ -1020,7 +1084,80 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yBzt8",
+          "commit": {
+            "abbreviatedOid": "7f2ae91"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "@emile22 when you say previous device, we are referring to migration, but it could also be new device, as added device, without replacing any other device in fact, right?",
+          "createdAt": "2025-07-04T11:38:02Z",
+          "updatedAt": "2025-07-04T11:38:02Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 29,
+      "id": "PR_kwDOOVf21s6deT81",
+      "title": "Update draft-belmq-green-framework.md",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/29",
+      "state": "OPEN",
+      "author": "marisolpalmero",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "Considering  review from Benoit Claise",
+      "createdAt": "2025-07-04T16:44:42Z",
+      "updatedAt": "2025-07-04T22:11:04Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "027af4dc396d1d788c497d1d7df81dd90f346d57",
+      "headRepository": "marisolpalmero/draft-belm-green-framework",
+      "headRefName": "Power-State-Set-mapping-and-intent",
+      "headRefOid": "9d9c306696c9145c6e991868dcb3bdee0cff085c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yHw5e",
+          "commit": {
+            "abbreviatedOid": "9d9c306"
+          },
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-04T21:48:27Z",
+          "updatedAt": "2025-07-04T22:11:04Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "IMo, these are separate points",
+              "createdAt": "2025-07-04T21:48:28Z",
+              "updatedAt": "2025-07-04T22:11:04Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "such as running at reduced capacity during low-demand periods or lowering energy use without affecting performance\r\n+\r\nor reducing capacity when powered by a backup power source during grid outage",
+              "createdAt": "2025-07-04T22:01:18Z",
+              "updatedAt": "2025-07-04T22:11:04Z"
+            },
+            {
+              "originalPosition": 17,
+              "body": "imo, it is prefereble to separate \"avoid damaging the device/components\" and \"accuracy in the metrics\" aspects",
+              "createdAt": "2025-07-04T22:03:22Z",
+              "updatedAt": "2025-07-04T22:11:04Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
