@@ -1247,10 +1247,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                     <p id="section-toc.1-1.4.2.4.2.4.1"><a href="#section-4.4.4" class="auto internal xref">4.4.4</a>.  <a href="#name-open-issues" class="internal xref">Open Issues</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.5">
-                    <p id="section-toc.1-1.4.2.4.2.5.1"><a href="#section-4.4.5" class="auto internal xref">4.4.5</a>.  <a href="#name-understanding-device-capabi" class="internal xref">Understanding Device Capabilities</a></p>
+                    <p id="section-toc.1-1.4.2.4.2.5.1"><a href="#section-4.4.5" class="auto internal xref">4.4.5</a>.  <a href="#name-discovering-capabilities" class="internal xref">Discovering Capabilities</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.6">
-                    <p id="section-toc.1-1.4.2.4.2.6.1"><a href="#section-4.4.6" class="auto internal xref">4.4.6</a>.  <a href="#name-discovering-capabilities" class="internal xref">Discovering Capabilities</a></p>
+                    <p id="section-toc.1-1.4.2.4.2.6.1"><a href="#section-4.4.6" class="auto internal xref">4.4.6</a>.  <a href="#name-understanding-device-capabi" class="internal xref">Understanding Device Capabilities</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4.2.7">
                     <p id="section-toc.1-1.4.2.4.2.7.1"><a href="#section-4.4.7" class="auto internal xref">4.4.7</a>.  <a href="#name-mapping-intents-to-device-s" class="internal xref">Mapping Intents to Device Settings</a></p>
@@ -2179,16 +2179,28 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
         <h3 id="name-power-state-set-mapping-and">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
         </h3>
-<p id="section-4.4-1">Defining and applying Power States can be challenging, especially when trying to align what devices can do with high-level operational goals, energy efficient operations, referred to as intent. This section describes how to connect a device’s power-saving capabilities with these intents, such as running at reduced capacity during low-demand periods or lowering energy use without affecting performance. These goals help determine how a device should behave, for example, by selecting the appropriate power state.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">Defining and enforcing power states can be challenging, because each Energy Object’s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object’s power-saving capabilities can be aligned with typical intents:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-4.4-2.1">
+            <p id="section-4.4-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.2">
+            <p id="section-4.4-2.2.1">lowering energy use while maintaining required performance levels;<a href="#section-4.4-2.2.1" class="pilcrow">¶</a></p>
+</li>
+          <li class="normal" id="section-4.4-2.3">
+            <p id="section-4.4-2.3.1">operating at a reduced service level when the site is on a backup power source during a grid outage.<a href="#section-4.4-2.3.1" class="pilcrow">¶</a></p>
+</li>
+        </ul>
+<p id="section-4.4-3">By expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
 <div id="capability-discovery">
 <section id="section-4.4.1">
           <h4 id="name-capability-discovery">
 <a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-capability-discovery" class="section-name selfRef">Capability Discovery</a>
           </h4>
-<p id="section-4.4.1-1">Identifying what power states a device or component supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:<a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:<a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4.1-2.1">
-              <p id="section-4.4.1-2.1.1">Whether the device supports multiple Power State Sets.<a href="#section-4.4.1-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.1-2.1.1">Whether the energy objtect supports multiple Power State Sets.<a href="#section-4.4.1-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.1-2.2">
               <p id="section-4.4.1-2.2.1">Semantics and limitations of each state (e.g., absolute power, relative power).<a href="#section-4.4.1-2.2.1" class="pilcrow">¶</a></p>
@@ -2197,7 +2209,10 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
               <p id="section-4.4.1-2.3.1">Transition characteristics, such as the time required to move between states.<a href="#section-4.4.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.1-2.4">
-              <p id="section-4.4.1-2.4.1">Device-specific constraints like frequency, which may limit energy-saving measures to avoid damaging the device and accuracy in the metrics.<a href="#section-4.4.1-2.4.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.1-2.4.1">Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.<a href="#section-4.4.1-2.4.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.4.1-2.5">
+              <p id="section-4.4.1-2.5.1">Impacts on measurement accuracy.<a href="#section-4.4.1-2.5.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2207,7 +2222,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           <h4 id="name-intent-mapping">
 <a href="#section-4.4.2" class="section-number selfRef">4.4.2. </a><a href="#name-intent-mapping" class="section-name selfRef">Intent Mapping</a>
           </h4>
-<p id="section-4.4.2-1">The goal of intent mapping is to translate high-level energy-saving intents into specific device configurations. For example:<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.2-1">The goal of intent mapping is to translate high-level energy-saving intents into specific device/component configurations. For example:<a href="#section-4.4.2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4.2-2.1">
               <p id="section-4.4.2-2.1.1">An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.<a href="#section-4.4.2-2.1.1" class="pilcrow">¶</a></p>
@@ -2224,10 +2239,10 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           <h4 id="name-sla-considerations">
 <a href="#section-4.4.3" class="section-number selfRef">4.4.3. </a><a href="#name-sla-considerations" class="section-name selfRef">SLA Considerations</a>
           </h4>
-<p id="section-4.4.3-1">Two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.3-1">Meanwhile saving energy, the device or component shouldn’t drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4.3-2.1">
-              <p id="section-4.4.3-2.1.1">Transition SLAs – e.g., the maximum time allowed to transition between states or the capacity loss tolerated.<a href="#section-4.4.3-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.3-2.1.1">Transition SLAs – e.g., the maximum time allowed to transition between states.<a href="#section-4.4.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.3-2.2">
               <p id="section-4.4.3-2.2.1">Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.<a href="#section-4.4.3-2.2.1" class="pilcrow">¶</a></p>
@@ -2240,41 +2255,38 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           <h4 id="name-open-issues">
 <a href="#section-4.4.4" class="section-number selfRef">4.4.4. </a><a href="#name-open-issues" class="section-name selfRef">Open Issues</a>
           </h4>
-<p id="section-4.4.4-1"><strong>Action Items:</strong> The following topics remain open for further exploration:<a href="#section-4.4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.4-1">The following topics remain open for further discussion points:<a href="#section-4.4.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="understanding-device-capabilities">
+<div id="discovering-capabilities">
 <section id="section-4.4.5">
-          <h4 id="name-understanding-device-capabi">
-<a href="#section-4.4.5" class="section-number selfRef">4.4.5. </a><a href="#name-understanding-device-capabi" class="section-name selfRef">Understanding Device Capabilities</a>
+          <h4 id="name-discovering-capabilities">
+<a href="#section-4.4.5" class="section-number selfRef">4.4.5. </a><a href="#name-discovering-capabilities" class="section-name selfRef">Discovering Capabilities</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-4.4.5-1.1">
-              <p id="section-4.4.5-1.1.1">Explore if devices can support multiple sets of power states.<a href="#section-4.4.5-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.5-1.1.1">Enable automatic detection of power-saving features.<a href="#section-4.4.5-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.5-1.2">
-              <p id="section-4.4.5-1.2.1">Make power states clearly described and understandable.<a href="#section-4.4.5-1.2.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-4.4.5-1.3">
-              <p id="section-4.4.5-1.3.1">Represent these capabilities in a machine-readable format.<a href="#section-4.4.5-1.3.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.5-1.2.1">Allow controllers to easily discover device-specific limits like transition time and duty cycle.<a href="#section-4.4.5-1.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
 </div>
-<div id="discovering-capabilities">
+<div id="understanding-device-capabilities">
 <section id="section-4.4.6">
-          <h4 id="name-discovering-capabilities">
-<a href="#section-4.4.6" class="section-number selfRef">4.4.6. </a><a href="#name-discovering-capabilities" class="section-name selfRef">Discovering Capabilities</a>
+          <h4 id="name-understanding-device-capabi">
+<a href="#section-4.4.6" class="section-number selfRef">4.4.6. </a><a href="#name-understanding-device-capabi" class="section-name selfRef">Understanding Device Capabilities</a>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-4.4.6-1.1">
-              <p id="section-4.4.6-1.1.1">Enable automatic detection of power-saving features.<a href="#section-4.4.6-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.6-1.1.1">Explore if Energy Objects can support multiple sets of power states.<a href="#section-4.4.6-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.6-1.2">
-              <p id="section-4.4.6-1.2.1">Support legacy devices that may not advertise capabilities.<a href="#section-4.4.6-1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.6-1.2.1">Make power states clearly described and understandable.<a href="#section-4.4.6-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.6-1.3">
-              <p id="section-4.4.6-1.3.1">Allow controllers to easily discover device-specific limits like transition time and duty cycle.<a href="#section-4.4.6-1.3.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.6-1.3.1">Represent these capabilities in a machine-readable format.<a href="#section-4.4.6-1.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -2301,13 +2313,16 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           </h4>
 <ul class="normal">
 <li class="normal" id="section-4.4.8-1.1">
-              <p id="section-4.4.8-1.1.1">Consider how long it takes for a device to switch power states.<a href="#section-4.4.8-1.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.8-1.1.1">Consider how long it takes for an Energy Object to switch power states.<a href="#section-4.4.8-1.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.8-1.2">
-              <p id="section-4.4.8-1.2.1">Define safe limits on frequency or speed of transitions to avoid accuracy loss and prevent device/component's damage.<a href="#section-4.4.8-1.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.8-1.2.1">Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.<a href="#section-4.4.8-1.2.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.8-1.3">
-              <p id="section-4.4.8-1.3.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#section-4.4.8-1.3.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.8-1.3.1">Recommendation to standardize a data model to preserved measurement accuracy.<a href="#section-4.4.8-1.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-4.4.8-1.4">
+              <p id="section-4.4.8-1.4.1">Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).<a href="#section-4.4.8-1.4.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
