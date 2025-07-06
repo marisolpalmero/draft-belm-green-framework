@@ -9,7 +9,7 @@ Expires: 7 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
-                                                     Cisco Systems, Inc.
+                                                             Independent
                                                               E. Stephan
                                                                   Orange
                                                                    Q. Wu
@@ -1102,8 +1102,8 @@ Authors' Addresses
 
 
    Marisol Palmero
-   Cisco Systems, Inc.
-   Email: mpalmero@cisco.com
+   Independent
+   Email: marisol.ietf@gmail.com
 
 
    Emile Stephan
