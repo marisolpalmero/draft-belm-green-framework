@@ -46,8 +46,8 @@ author:
     email: jan.lindblad+ietf@for.eco
  -
     fullname: Marisol Palmero
-    organization: Cisco Systems, Inc.
-    email: mpalmero@cisco.com
+    organization: Independent
+    email: marisol.ietf@gmail.com
  -
     fullname: Emile Stephan
     organization: Orange
