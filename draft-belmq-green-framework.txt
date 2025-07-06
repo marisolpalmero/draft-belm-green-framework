@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 5 January 2026                                       Telefonica
+Expires: 7 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 5 January 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             4 July 2025
+                                                             6 July 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 January 2026.
+   This Internet-Draft will expire on 7 January 2026.
 
 Copyright Notice
 
@@ -562,7 +562,7 @@ Table of Contents
 
    This covers the example of device connected to wall Power Outlet,
    with a Physical Meter placed in the wall Power Outlet, because the
-   device can not monitor its power, energy, demand.
+   previous device was not able to monitor its power, energy, demand.
 
    +--------------------------------------------------------------------+
    |                                                                    |
