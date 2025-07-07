@@ -737,7 +737,7 @@ describe guidelines for use.
 ## Power State Set
 
 The Energy Object contains a Power State Set attribute that represents
-the set of Power States a device or component supports.
+a set of Power States a device or component supports.
 
 A Power State describes a condition or mode of a device or component.
 While Power States are typically used for control, they may be used
@@ -794,7 +794,7 @@ By expressing such intents, a controller can decide which power state an Energy 
 
 Identifying what power states an Energy Object supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:
 
-- Whether the energy objtect supports multiple Power State Sets.
+- Whether the energy object supports multiple Power State Sets.
 - Semantics and limitations of each state (e.g., absolute power, relative power).
 - Transition characteristics, such as the time required to move between states.
 - Energy Object-specific state transition constraints like frequency, which may limit energy-saving measures to avoid damaging the device/components.
