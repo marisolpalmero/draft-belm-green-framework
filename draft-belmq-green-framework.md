@@ -822,20 +822,20 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 
 The following topics remain open for further discussion points:
 
-### Discovering Capabilities
+#### Discovering Capabilities
 - Enable automatic detection of power-saving features.
 - Allow controllers to easily discover device-specific limits like transition time and duty cycle.
 
-### Understanding Device Capabilities
+#### Understanding Device Capabilities
 - Explore if Energy Objects can support multiple sets of power states.
 - Make power states clearly described and understandable.
 - Represent these capabilities in a machine-readable format.
 
-### Mapping Intents to Device Settings
+#### Mapping Intents to Device Settings
 - Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.
 - Create a standard method to describe this mapping across systems.
 
-### Handling Transitions and Ensuring Safety
+#### Handling Transitions and Ensuring Safety
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Recommendation to standardize a data model to preserved measurement accuracy.
