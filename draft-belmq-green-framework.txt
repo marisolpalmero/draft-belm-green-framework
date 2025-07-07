@@ -110,10 +110,6 @@ Table of Contents
        4.4.2.  Intent Mapping
        4.4.3.  SLA Considerations
        4.4.4.  Open Issues
-       4.4.5.  Discovering Capabilities
-       4.4.6.  Understanding Device Capabilities
-       4.4.7.  Mapping Intents to Device Settings
-       4.4.8.  Handling Transitions and Ensuring Safety
    5.  Conventions and Definitions
    6.  Security Considerations
    7.  IANA Considerations
@@ -935,14 +931,14 @@ Table of Contents
 
    The following topics remain open for further discussion points:
 
-4.4.5.  Discovering Capabilities
+4.4.4.1.  Discovering Capabilities
 
    *  Enable automatic detection of power-saving features.
 
    *  Allow controllers to easily discover device-specific limits like
       transition time and duty cycle.
 
-4.4.6.  Understanding Device Capabilities
+4.4.4.2.  Understanding Device Capabilities
 
    *  Explore if Energy Objects can support multiple sets of power
       states.
@@ -951,14 +947,14 @@ Table of Contents
 
    *  Represent these capabilities in a machine-readable format.
 
-4.4.7.  Mapping Intents to Device Settings
+4.4.4.3.  Mapping Intents to Device Settings
 
    *  Develop ways to translate high-level energy goals (like “save
       energy at low utilization”) into actual device configurations.
 
    *  Create a standard method to describe this mapping across systems.
 
-4.4.8.  Handling Transitions and Ensuring Safety
+4.4.4.4.  Handling Transitions and Ensuring Safety
 
    *  Consider how long it takes for an Energy Object to switch power
       states.
