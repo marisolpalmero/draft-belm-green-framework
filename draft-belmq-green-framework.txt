@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 7 January 2026                                       Telefonica
+Expires: 8 January 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 7 January 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             6 July 2025
+                                                             7 July 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 7 January 2026.
+   This Internet-Draft will expire on 8 January 2026.
 
 Copyright Notice
 
@@ -825,7 +825,7 @@ Table of Contents
 4.3.  Power State Set
 
    The Energy Object contains a Power State Set attribute that
-   represents the set of Power States a device or component supports.
+   represents a set of Power States a device or component supports.
 
    A Power State describes a condition or mode of a device or component.
    While Power States are typically used for control, they may be used
@@ -889,7 +889,7 @@ Table of Contents
    for onboarding and integration—especially for legacy systems.  Key
    discovery elements include:
 
-   *  Whether the energy objtect supports multiple Power State Sets.
+   *  Whether the energy object supports multiple Power State Sets.
 
    *  Semantics and limitations of each state (e.g., absolute power,
       relative power).
