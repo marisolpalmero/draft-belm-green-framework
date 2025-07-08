@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-07-06T01:02:41.199193+00:00",
+  "timestamp": "2025-07-08T00:57:51.065348+00:00",
   "repo": "marisolpalmero/draft-belm-green-framework",
   "labels": [
     {
@@ -269,15 +269,15 @@
       "id": "I_kwDOOVf21s6-Toe8",
       "title": "Power State Set for power shortage",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/27",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "emile22",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "How can we address power shortage states ? must that come from the use case draft ?",
       "createdAt": "2025-07-01T14:52:38Z",
-      "updatedAt": "2025-07-01T14:52:38Z",
-      "closedAt": null,
+      "updatedAt": "2025-07-07T07:54:38Z",
+      "closedAt": "2025-07-07T07:54:38Z",
       "comments": []
     },
     {
@@ -285,16 +285,24 @@
       "id": "I_kwDOOVf21s6-4MNI",
       "title": "notes shared by Benoit Claise after the group call on Jul 2nd",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/issues/28",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "marisolpalmero",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "AI = Action Item\n\nDifficult to define power state in specific ways\n     Jan: From a controller point is difficult to understand\n     From a controller point of view => it's night, run a half capacity\nbut come back\n         do your best\n     Benoit: in the end, what do you configure?\n\nAI: Emile: what if an energy object support multiple power state set?\n     Benoit: right. I would happy already if we support one.\n\nQuestion: How to discover the energy object capabilities?\nDescribing the power state capabilities on a device will help with the\nonboarding of  the legacy devices\n\nAI: a new section about Power State Set mapping with the intent.\n     1. capability discovery\n     2. intent mapping\nBenoit: it's not different that YANG capabilities discovery and the\nintent mapping from CFS to RFS to network element YANG module\n\nAI: Jan mentioned: what's missing => the time it takes to transition\nbetween states\nAI: Emile mentione:  what's missing => frequency and cycle of energy\nobject itself? There are limitations in what we can do: \"we don't want\nto destroy the device\"\n\nTwo notions of SLA\n     1. ex: the transition time or the capacity reduction\n     2. ex: energy object frequency and cycle\n\nAI: list the open issues in the draft",
       "createdAt": "2025-07-04T11:38:58Z",
-      "updatedAt": "2025-07-04T15:57:46Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-07-06T21:33:18Z",
+      "closedAt": "2025-07-06T21:33:18Z",
+      "comments": [
+        {
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "body": "resolved with PR #29 ",
+          "createdAt": "2025-07-06T21:33:15Z",
+          "updatedAt": "2025-07-06T21:33:15Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -1065,25 +1073,35 @@
       "id": "PR_kwDOOVf21s6c7MQt",
       "title": "double accouting case",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/26",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "emile22",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "just clarifying that the new device reports its consumption",
       "createdAt": "2025-07-01T14:51:18Z",
-      "updatedAt": "2025-07-04T11:38:02Z",
+      "updatedAt": "2025-07-06T21:30:14Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "dc7cec94319b3c0ff58e2366bc95fc6159261f22",
       "headRepository": "marisolpalmero/draft-belm-green-framework",
       "headRefName": "emile",
       "headRefOid": "7f2ae91ad57821e3eb22e84492974e8c7e389890",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
-      "comments": [],
+      "closedAt": "2025-07-06T21:30:14Z",
+      "mergedAt": "2025-07-06T21:30:14Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "0c2a2405129765e0f8d66cd4417aa581c7db729d"
+      },
+      "comments": [
+        {
+          "author": "emile22",
+          "authorAssociation": "COLLABORATOR",
+          "body": "there are many situtations where double counting may occur. This use case focuses only on the replacement of a component or a device. ",
+          "createdAt": "2025-07-06T21:13:59Z",
+          "updatedAt": "2025-07-06T21:13:59Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOOVf21s6yBzt8",
@@ -1105,24 +1123,26 @@
       "id": "PR_kwDOOVf21s6deT81",
       "title": "Update draft-belmq-green-framework.md",
       "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/29",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "marisolpalmero",
       "authorAssociation": "OWNER",
       "assignees": [],
       "labels": [],
       "body": "Considering  review from Benoit Claise",
       "createdAt": "2025-07-04T16:44:42Z",
-      "updatedAt": "2025-07-04T22:11:04Z",
+      "updatedAt": "2025-07-06T21:30:52Z",
       "baseRepository": "marisolpalmero/draft-belm-green-framework",
       "baseRefName": "main",
       "baseRefOid": "027af4dc396d1d788c497d1d7df81dd90f346d57",
       "headRepository": "marisolpalmero/draft-belm-green-framework",
       "headRefName": "Power-State-Set-mapping-and-intent",
-      "headRefOid": "9d9c306696c9145c6e991868dcb3bdee0cff085c",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "041dc0ae9d14d9983f0f908bd7efefae47f37acf",
+      "closedAt": "2025-07-06T21:30:46Z",
+      "mergedAt": "2025-07-06T21:30:46Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "72eb0b8c8e31f05771654ca2d07fb07660fcbb19"
+      },
       "comments": [],
       "reviews": [
         {
@@ -1156,6 +1176,108 @@
               "updatedAt": "2025-07-04T22:11:04Z"
             }
           ]
+        },
+        {
+          "id": "PRR_kwDOOVf21s6yUZth",
+          "commit": {
+            "abbreviatedOid": "9d9c306"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-06T21:20:57Z",
+          "updatedAt": "2025-07-06T21:20:57Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "changed to :\r\nDefining and enforcing power states can be challenging, because each Energy Object\u2019s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object\u2019s power-saving capabilities can be aligned with typical intents:\r\n\r\n- running at reduced capacity during predictable low-demand periods;\r\n\r\n- lowering energy use while maintaining required performance levels;\r\n\r\n- operating at a reduced service level when the site is on a backup power source during a grid outage.\r\n\r\nBy expressing such intents, a controller can decide which power state an Energy Object should enter at any given time and under what conditions.",
+              "createdAt": "2025-07-06T21:20:57Z",
+              "updatedAt": "2025-07-06T21:20:57Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOVf21s6yUblL",
+          "commit": {
+            "abbreviatedOid": "9d9c306"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-06T21:25:09Z",
+          "updatedAt": "2025-07-06T21:25:09Z",
+          "comments": [
+            {
+              "originalPosition": 17,
+              "body": "including a separate point for: - Impacts on measurement accuracy.",
+              "createdAt": "2025-07-06T21:25:09Z",
+              "updatedAt": "2025-07-06T21:25:09Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOOVf21s6yUdCv",
+          "commit": {
+            "abbreviatedOid": "9d9c306"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-07-06T21:28:46Z",
+          "updatedAt": "2025-07-06T21:28:46Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "change: \r\n- Consider how long it takes for an Energy Object to switch power states.\r\n- Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.\r\n- Recommendation to standardize a data model to preserved measurement accuracy.\r\n- Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).\r\n",
+              "createdAt": "2025-07-06T21:28:46Z",
+              "updatedAt": "2025-07-06T21:28:47Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 30,
+      "id": "PR_kwDOOVf21s6duLPr",
+      "title": "Editorial changes",
+      "url": "https://github.com/marisolpalmero/draft-belm-green-framework/pull/30",
+      "state": "MERGED",
+      "author": "billwuqin",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-07-07T09:47:47Z",
+      "updatedAt": "2025-07-07T11:21:45Z",
+      "baseRepository": "marisolpalmero/draft-belm-green-framework",
+      "baseRefName": "main",
+      "baseRefOid": "641fe6150ee342d68a3b3ad7dd4c55e7356c314e",
+      "headRepository": "billwuqin/draft-belm-green-framework",
+      "headRefName": "patch-4",
+      "headRefOid": "fceba9ab9aebd6687e8000ebfe04856fb351af02",
+      "closedAt": "2025-07-07T11:21:45Z",
+      "mergedAt": "2025-07-07T11:21:45Z",
+      "mergedBy": "marisolpalmero",
+      "mergeCommit": {
+        "oid": "8fdf8b326947c4a5546d54c9ecdd8b80d5ef915a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOOVf21s6yayic",
+          "commit": {
+            "abbreviatedOid": "fceba9a"
+          },
+          "author": "marisolpalmero",
+          "authorAssociation": "OWNER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-07-07T11:21:37Z",
+          "updatedAt": "2025-07-07T11:21:37Z",
+          "comments": []
         }
       ]
     }
