@@ -275,6 +275,16 @@ Table of Contents
       monitored or controlled or that aids in the management of another
       device for Energy Management.
 
+   East-West Traffic  Network traffic that flows between servers within
+      a data center or between different components of a distributed
+      system.  This type of traffic is typically characterized by low
+      latency and high bandwidth requirements.
+
+   South-North Traffic  Network traffic that flows between clients and
+      servers, typically traversing the internet or a wide area network
+      (WAN).  This type of traffic is typically characterized by higher
+      latency and more varied bandwidth requirements.
+
 3.  Motivation
 
 3.1.  Impact on Energy Metrics
@@ -296,6 +306,11 @@ Table of Contents
 
    *  Providing Actionable Insights: Translating raw data into
       meaningful information for decision-making.
+
+   *  East-West Traffic Impact: Addressing the growing energy footprint
+      of East-West traffic in data centers and distributed systems by
+      providing a framework for measuring and optimizing energy
+      consumption in these environments.
 
 3.2.  Current Device Readiness
 
@@ -438,6 +453,10 @@ Table of Contents
    Note that this framework specificies logical blocks, however, the
    Energy Efficiency Management Function might be implemented inside the
    device or in the controller or a combination of both.
+
+   Even the current reference model implicitly assume a hierarchical
+   network structure, this assumption acknowledges that modern networks
+   have flatter and anticipate more distributed topologies.
 
 4.1.  Typical Power Topologies
 
@@ -970,6 +989,11 @@ Table of Contents
 
    *  Model SLAs that include both performance (e.g., transition time)
       and device safety (e.g., cycle limitations).
+
+4.4.4.5.  East-West Traffic/Energy Metrics
+
+   *  Recommendation to standardize a data model for new equipment
+      interconnected East-West with optimized energy consumption.
 
 5.  Conventions and Definitions
 
