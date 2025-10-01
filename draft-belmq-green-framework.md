@@ -297,22 +297,22 @@ In conclusion, establishing the framework for energy efficiency management now i
 |                                                                    |
 +--------------------------------------------------------------------+
 
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
+(a)              (b)              (c)                              (g)
+Inventory        Monitor       +- DataSheets/DataBase and/or       PETRA
+Of identity      Energy        |  via API,                         API ^
+and Capability   Efficiency    |  Metadata and other                   |
+     ^               ^         |  device/component/network             |
+     |               |         |  related information:                 |
+     |               |         |                                       |
+     |               |         |  .Power/Energy related metrics        |
+     |               |         |  .Origin of Energy Mix                |
+     |               |         |  .Carbon aware based on location      |
+     |               |         |                                       |
+     |               |         |                                       |
+     |               |         v                                       |
++--------------------------------------------------------------------+ |
+|                                                                    | |
+|       (2) controller (collection, compute and aggregate?)          |-+
 |                                                                    |
 +--------------------------------------------------------------------+
                 ^                      ^                      ^ |
@@ -347,6 +347,8 @@ The main elements in the framework are as follows:
 * (b), (e) Monitor energy efficiency
 
 * (f) Control Energy Saving
+
+* (g) PETRA API {{!I-D.draft-petra-green-api}}
 
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
