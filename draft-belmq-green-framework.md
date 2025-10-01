@@ -230,6 +230,12 @@ part of, or attached to, a communications network that is monitored
 or controlled or that aids in the management of another device for
 Energy Management.
 
+East-West Traffic
+: Network traffic that flows between servers within a data center or between different components of a distributed system. This type of traffic is typically characterized by low latency and high bandwidth requirements.
+
+South-North Traffic
+: Network traffic that flows between clients and servers, typically traversing the internet or a wide area network (WAN). This type of traffic is typically characterized by higher latency and more varied bandwidth requirements.
+
 # Motivation
 
 ## Impact on Energy Metrics
@@ -241,6 +247,7 @@ The framework will significantly enhance the creation of energy metrics with act
 * Supporting Real-time Monitoring: Enabling dynamic tracking and immediate optimization of energy usage.
 * Integration Across Devices: Ensuring interoperability for network-wide data analysis.
 * Providing Actionable Insights: Translating raw data into meaningful information for decision-making.
+* East-West Traffic Impact: Addressing the growing energy footprint of East-West traffic in data centers and distributed systems by providing a framework for measuring and optimizing energy consumption in these environments.
 
 ## Current Device Readiness
 
@@ -355,6 +362,8 @@ The monitoring interface (e) obviously monitor more aspects than just power and 
 
 Note that this framework specificies logical blocks, however, the Energy Efficiency Management
 Function might be implemented inside the device or in the controller or a combination of both.
+
+Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
 ## Typical Power Topologies
 
@@ -842,6 +851,9 @@ The following topics remain open for further discussion points:
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Recommendation to standardize a data model to preserved measurement accuracy.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
+
+#### East-West Traffic/Energy Metrics
+- Recommendation to standardize a data model for new equipment interconnected East-West with optimized energy consumption.
 
 
 # Conventions and Definitions
