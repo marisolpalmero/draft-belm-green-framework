@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                                    Huawei
 Intended status: Informational                           L. M. Contreras
-Expires: 8 January 2026                                       Telefonica
+Expires: 4 April 2026                                         Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 8 January 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                             7 July 2025
+                                                          1 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 January 2026.
+   This Internet-Draft will expire on 4 April 2026.
 
 Copyright Notice
 
@@ -378,22 +378,22 @@ Table of Contents
    |                                                                    |
    +--------------------------------------------------------------------+
 
-   (a)              (b)              (c)
-   Inventory        Monitor       +- DataSheets/DataBase and/or via API
-   Of identity      Energy        |  Metadata and other device/component
-   and Capability   Efficiency    |  /network related information:
-        ^               ^         |
-        |               |         |  .Power/Energy related metrics
-        |               |         |   information
-        |               |         |  .Origin of Energy Mix
-        |               |         |  .Carbon aware based on location
-        |               |         |
-        |               |         |
-        |               |         |
-        |               |         v
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |       (2) controller (collection, compute and aggregate?)          |
+   (a)              (b)              (c)                              (g)
+   Inventory        Monitor       +- DataSheets/DataBase and/or       PETRA
+   Of identity      Energy        |  via API,                         API ^
+   and Capability   Efficiency    |  Metadata and other                   |
+        ^               ^         |  device/component/network             |
+        |               |         |  related information:                 |
+        |               |         |                                       |
+        |               |         |  .Power/Energy related metrics        |
+        |               |         |  .Origin of Energy Mix                |
+        |               |         |  .Carbon aware based on location      |
+        |               |         |                                       |
+        |               |         |                                       |
+        |               |         v                                       |
+   +--------------------------------------------------------------------+ |
+   |                                                                    | |
+   |       (2) controller (collection, compute and aggregate?)          |-+
    |                                                                    |
    +--------------------------------------------------------------------+
                    ^                      ^                      ^ |
@@ -428,6 +428,8 @@ Table of Contents
    *  (b), (e) Monitor energy efficiency
 
    *  (f) Control Energy Saving
+
+   *  (g) PETRA API [I-D.draft-petra-green-api]
 
    The monitoring interface (e) obviously monitor more aspects than just
    power and energy, (for example traffic monitoring) but this is not
@@ -1035,20 +1037,28 @@ Table of Contents
 11.1.  Normative References
 
    [I-D.draft-bclp-green-terminology]
-              Liu, P. C., Boucadair, M., Wu, Q., Contreras, L. M., and
-              M. P. Palmero, "Terminology for Energy Efficiency Network
+              Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
+              P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-bclp-
-              green-terminology-02, 14 June 2025,
+              green-terminology-05, 15 September 2025,
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
-              terminology-02>.
+              terminology-05>.
+
+   [I-D.draft-petra-green-api]
+              Rodriguez-Natal, A., Contreras, L. M., Muniz, A., Palmero,
+              M. P., Munoz, F., and J. Lindblad, "Path Energy Traffic
+              Ratio API (PETRA)", Work in Progress, Internet-Draft,
+              draft-petra-green-api-01, 7 July 2025,
+              <https://datatracker.ietf.org/doc/html/draft-petra-green-
+              api-01>.
 
    [I-D.stephan-green-use-cases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
               Contreras, L. M., and C. J. Bernardos, "Use Cases for
               Energy Efficiency Management", Work in Progress, Internet-
-              Draft, draft-stephan-green-use-cases-01, 16 May 2025,
+              Draft, draft-stephan-green-use-cases-02, 7 July 2025,
               <https://datatracker.ietf.org/doc/html/draft-stephan-
-              green-use-cases-01>.
+              green-use-cases-02>.
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
