@@ -3,9 +3,9 @@
 
 
 Getting Ready for Energy-Efficient Networking                  B. Claise
-Internet-Draft                                                    Huawei
+Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 4 April 2026                                         Telefonica
+Expires: 6 April 2026                                         Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 4 April 2026                                         Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                          1 October 2025
+                                                          3 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 4 April 2026.
+   This Internet-Draft will expire on 6 April 2026.
 
 Copyright Notice
 
@@ -1117,8 +1117,8 @@ Table of Contents
 Authors' Addresses
 
    Benoit Claise
-   Huawei
-   Email: benoit.claise@huawei.com
+   Everything OPS
+   Email: benoit@everything-ops.net
 
 
    Luis M. Contreras
