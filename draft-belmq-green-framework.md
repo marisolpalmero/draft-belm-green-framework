@@ -87,6 +87,11 @@ informative:
     - org: IEC
     date: 2000-12-11
 
+   PetraApi: I-D.draft-petra-green-api
+
+   GreenUseCases: I-D.stephan-green-use-cases
+
+
 --- abstract
 
 Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
@@ -99,7 +104,7 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 # Introduction
 
-In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:
+In reference to {{GreenUseCases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:
 
 * Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
 * Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
@@ -113,7 +118,7 @@ In reference to {{!I-D.stephan-green-use-cases}}, analyzing use cases such as th
 
    This document defines an Energy Management framework for devices
    within, or connected to, communication networks, for the use cases
-   described in {{!I-D.stephan-green-use-cases}}.
+   described in {{GreenUseCases}}.
    The devices, or the components of these devices (such as line cards, fans, and
    disks), can then be monitored and controlled. Monitoring includes measuring
    power, energy, demand, and attributes of power.  Energy Control can
@@ -298,30 +303,30 @@ In conclusion, establishing the framework for energy efficiency management now i
    Relationships.
 
 ~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)                              (g)
-Inventory        Monitor       +- DataSheets/DataBase and/or       PETRA
-Of identity      Energy        |  via API,                         API ^
-and Capability   Efficiency    |  Metadata and other                   |
-     ^               ^         |  device/component/network             |
-     |               |         |  related information:                 |
-     |               |         |                                       |
-     |               |         |  .Power/Energy related metrics        |
-     |               |         |  .Origin of Energy Mix                |
-     |               |         |  .Carbon aware based on location      |
-     |               |         |                                       |
-     |               |         |                                       |
-     |               |         v                                       |
-+--------------------------------------------------------------------+ |
-|                                                                    | |
-|       (2) controller (collection, compute and aggregate?)          |-+
-|                                                                    |
-+--------------------------------------------------------------------+
++------------------------------------------------------------------+
+|                                                                  |
+|                  (3) Network Domain Level                        |-+
+|                                                                  | |
++------------------------------------------------------------------+ |
+                                                                     |
+(a)              (b)          (c)                                    v 
+Inventory        Monitor        DataSheets/DataBase and/or          (g)
+Of identity      Energy        | via API,                           API 
+and Capability   Efficiency    | Metadata and other             Service 
+     ^               ^         | device/component/network     Interface   
+     |               |         | related information to be:          ^
+     |               |         |                                     |
+     |               |         |  .Power/Energy related metrics      |
+     |               |         |  .Origin of Energy Mix              |
+     |               |         |  .Carbon aware based on location    |
+     |               |         |                                     |
+     |               |         |                                     |
+     |               |         v                                     |
++------------------------------------------------------------------+ |
+|                                                                  | |
+|       (2) controller (collection, compute and aggregate?)        |-+
+|                                                                  |
++------------------------------------------------------------------+
                 ^                      ^                      ^ |
      (d)        |     (e)              |   (f)                | |
      Inventory  |     Monitor power    |   Control            | |
@@ -355,7 +360,7 @@ The main elements in the framework are as follows:
 
 * (f) Control Energy Saving
 
-* (g) PETRA API {{!I-D.draft-petra-green-api}}
+* (g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., {{PetraApi}}.
 
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
