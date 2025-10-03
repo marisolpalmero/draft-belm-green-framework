@@ -34,8 +34,8 @@ author:
 
  -
     fullname: Benoit Claise
-    organization: Huawei
-    email: benoit.claise@huawei.com
+    organization: Everything OPS
+    email: benoit@everything-ops.net
  -
     fullname: Luis M. Contreras
     organization: Telefonica
