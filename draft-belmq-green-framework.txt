@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 6 April 2026                                         Telefonica
+Expires: 8 April 2026                                         Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 6 April 2026                                         Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                          3 October 2025
+                                                          5 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 April 2026.
+   This Internet-Draft will expire on 8 April 2026.
 
 Copyright Notice
 
@@ -129,12 +129,12 @@ Table of Contents
 
 2.  Introduction
 
-   In reference to [I-D.stephan-green-use-cases], analyzing use cases
-   such as the "Incremental Application of the GREEN Framework" and
-   "Consideration of other domains for obtention of end-to-end metrics",
-   it reveals the critical need for a structured approach to
-   transitioning network devices' management towards energy-efficient
-   operations.  The framework is essential for:
+   In reference to [GreenUseCases], analyzing use cases such as the
+   "Incremental Application of the GREEN Framework" and "Consideration
+   of other domains for obtention of end-to-end metrics", it reveals the
+   critical need for a structured approach to transitioning network
+   devices' management towards energy-efficient operations.  The
+   framework is essential for:
 
    *  Standardization: Ensuring consistent practices across different
       devices and network segments to facilitate interoperability.
@@ -164,13 +164,12 @@ Table of Contents
 
       This document defines an Energy Management framework for devices
       within, or connected to, communication networks, for the use cases
-      described in [I-D.stephan-green-use-cases].  The devices, or the
-      components of these devices (such as line cards, fans, and disks),
-      can then be monitored and controlled.  Monitoring includes
-      measuring power, energy, demand, and attributes of power.  Energy
-      Control can be performed by setting a device's or component's
-      state.  The devices monitored by this framework can be either of
-      the following:
+      described in [GreenUseCases].  The devices, or the components of
+      these devices (such as line cards, fans, and disks), can then be
+      monitored and controlled.  Monitoring includes measuring power,
+      energy, demand, and attributes of power.  Energy Control can be
+      performed by setting a device's or component's state.  The devices
+      monitored by this framework can be either of the following:
 
       -  consumers of energy (such as routers and computer systems) and
          components of such devices (such as line cards, fans, and
@@ -387,30 +386,30 @@ Table of Contents
    this document, include power source, Metering, and Aggregation
    Relationships.
 
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |                  (3) Network Domain Level                          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
-
-   (a)              (b)              (c)                              (g)
-   Inventory        Monitor       +- DataSheets/DataBase and/or       PETRA
-   Of identity      Energy        |  via API,                         API ^
-   and Capability   Efficiency    |  Metadata and other                   |
-        ^               ^         |  device/component/network             |
-        |               |         |  related information:                 |
-        |               |         |                                       |
-        |               |         |  .Power/Energy related metrics        |
-        |               |         |  .Origin of Energy Mix                |
-        |               |         |  .Carbon aware based on location      |
-        |               |         |                                       |
-        |               |         |                                       |
-        |               |         v                                       |
-   +--------------------------------------------------------------------+ |
-   |                                                                    | |
-   |       (2) controller (collection, compute and aggregate?)          |-+
-   |                                                                    |
-   +--------------------------------------------------------------------+
+   +------------------------------------------------------------------+
+   |                                                                  |
+   |                  (3) Network Domain Level                        |-+
+   |                                                                  | |
+   +------------------------------------------------------------------+ |
+                                                                        |
+   (a)              (b)          (c)                                    v
+   Inventory        Monitor        DataSheets/DataBase and/or          (g)
+   Of identity      Energy        | via API,                           API
+   and Capability   Efficiency    | Metadata and other             Service
+        ^               ^         | device/component/network     Interface
+        |               |         | related information to be:          ^
+        |               |         |                                     |
+        |               |         |  .Power/Energy related metrics      |
+        |               |         |  .Origin of Energy Mix              |
+        |               |         |  .Carbon aware based on location    |
+        |               |         |                                     |
+        |               |         |                                     |
+        |               |         v                                     |
+   +------------------------------------------------------------------+ |
+   |                                                                  | |
+   |       (2) controller (collection, compute and aggregate?)        |-+
+   |                                                                  |
+   +------------------------------------------------------------------+
                    ^                      ^                      ^ |
         (d)        |     (e)              |   (f)                | |
         Inventory  |     Monitor power    |   Control            | |
@@ -444,7 +443,9 @@ Table of Contents
 
    *  (f) Control Energy Saving
 
-   *  (g) PETRA API [I-D.draft-petra-green-api]
+   *  (g) API Service Interface: enables access for service consumption,
+      enabling data retrieval , control, and integration through API,
+      e.g., [PetraApi].
 
    The monitoring interface (e) obviously monitor more aspects than just
    power and energy, (for example traffic monitoring) but this is not
@@ -1068,22 +1069,6 @@ Table of Contents
               <https://datatracker.ietf.org/doc/html/draft-bclp-green-
               terminology-05>.
 
-   [I-D.draft-petra-green-api]
-              Rodriguez-Natal, A., Contreras, L. M., Muniz, A., Palmero,
-              M. P., Munoz, F., and J. Lindblad, "Path Energy Traffic
-              Ratio API (PETRA)", Work in Progress, Internet-Draft,
-              draft-petra-green-api-01, 7 July 2025,
-              <https://datatracker.ietf.org/doc/html/draft-petra-green-
-              api-01>.
-
-   [I-D.stephan-green-use-cases]
-              Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
-              Contreras, L. M., and C. J. Bernardos, "Use Cases for
-              Energy Efficiency Management", Work in Progress, Internet-
-              Draft, draft-stephan-green-use-cases-02, 7 July 2025,
-              <https://datatracker.ietf.org/doc/html/draft-stephan-
-              green-use-cases-02>.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -1095,6 +1080,14 @@ Table of Contents
 
 11.2.  Informative References
 
+   [GreenUseCases]
+              Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
+              Contreras, L. M., and C. J. Bernardos, "Use Cases for
+              Energy Efficiency Management", Work in Progress, Internet-
+              Draft, draft-stephan-green-use-cases-02, 7 July 2025,
+              <https://datatracker.ietf.org/doc/html/draft-stephan-
+              green-use-cases-02>.
+
    [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
               <http://www.iec.ch/smartgrid/standards/>.
 
@@ -1105,6 +1098,13 @@ Table of Contents
    [IEEE1621] IEEE, "Standard for User Interface Elements in Power
               Control of Electronic Devices Employed in Office/Consumer
               Environments, IEEE 1621", December 2004.
+
+   [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Muniz, A., Palmero,
+              M. P., Munoz, F., and J. Lindblad, "Path Energy Traffic
+              Ratio API (PETRA)", Work in Progress, Internet-Draft,
+              draft-petra-green-api-01, 7 July 2025,
+              <https://datatracker.ietf.org/doc/html/draft-petra-green-
+              api-01>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,

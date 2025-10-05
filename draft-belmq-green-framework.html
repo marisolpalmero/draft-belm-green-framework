@@ -1057,7 +1057,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 6 April 2026</td>
+<td class="center">Expires 8 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-03" class="published">3 October 2025</time>
+<time datetime="2025-10-05" class="published">5 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-06">6 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-08">8 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 6 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 8 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1311,7 +1311,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
       <h2 id="name-introduction">
 <a href="#section-2" class="section-number selfRef">2. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-2-1">In reference to <span>[<a href="#I-D.stephan-green-use-cases" class="cite xref">I-D.stephan-green-use-cases</a>]</span>, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">In reference to <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span>, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:<a href="#section-2-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-2-2.1">
           <p id="section-2-2.1.1">Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.<a href="#section-2-2.1.1" class="pilcrow">¶</a></p>
@@ -1340,7 +1340,7 @@ network/resource/component/capability utilization and implement improvements.<a 
 <p id="section-2-2.8.2">
 This document defines an Energy Management framework for devices
  within, or connected to, communication networks, for the use cases
- described in <span>[<a href="#I-D.stephan-green-use-cases" class="cite xref">I-D.stephan-green-use-cases</a>]</span>.
+ described in <span>[<a href="#GreenUseCases" class="cite xref">GreenUseCases</a>]</span>.
  The devices, or the components of these devices (such as line cards, fans, and
  disks), can then be monitored and controlled. Monitoring includes measuring
  power, energy, demand, and attributes of power.  Energy Control can
@@ -1614,30 +1614,30 @@ Energy Management.<a href="#section-2.1-3.20.1" class="pilcrow">¶</a></p>
 <figure id="figure-1">
         <div class="lang-text sourcecode" id="section-4-4.1">
 <pre>
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)                              (g)
-Inventory        Monitor       +- DataSheets/DataBase and/or       PETRA
-Of identity      Energy        |  via API,                         API ^
-and Capability   Efficiency    |  Metadata and other                   |
-     ^               ^         |  device/component/network             |
-     |               |         |  related information:                 |
-     |               |         |                                       |
-     |               |         |  .Power/Energy related metrics        |
-     |               |         |  .Origin of Energy Mix                |
-     |               |         |  .Carbon aware based on location      |
-     |               |         |                                       |
-     |               |         |                                       |
-     |               |         v                                       |
-+--------------------------------------------------------------------+ |
-|                                                                    | |
-|       (2) controller (collection, compute and aggregate?)          |-+
-|                                                                    |
-+--------------------------------------------------------------------+
++------------------------------------------------------------------+
+|                                                                  |
+|                  (3) Network Domain Level                        |-+
+|                                                                  | |
++------------------------------------------------------------------+ |
+                                                                     |
+(a)              (b)          (c)                                    v
+Inventory        Monitor        DataSheets/DataBase and/or          (g)
+Of identity      Energy        | via API,                           API
+and Capability   Efficiency    | Metadata and other             Service
+     ^               ^         | device/component/network     Interface
+     |               |         | related information to be:          ^
+     |               |         |                                     |
+     |               |         |  .Power/Energy related metrics      |
+     |               |         |  .Origin of Energy Mix              |
+     |               |         |  .Carbon aware based on location    |
+     |               |         |                                     |
+     |               |         |                                     |
+     |               |         v                                     |
++------------------------------------------------------------------+ |
+|                                                                  | |
+|       (2) controller (collection, compute and aggregate?)        |-+
+|                                                                  |
++------------------------------------------------------------------+
                 ^                      ^                      ^ |
      (d)        |     (e)              |   (f)                | |
      Inventory  |     Monitor power    |   Control            | |
@@ -1679,7 +1679,7 @@ and Capability   Efficiency    |  Metadata and other                   |
           <p id="section-4-6.4.1">(f) Control Energy Saving<a href="#section-4-6.4.1" class="pilcrow">¶</a></p>
 </li>
         <li class="normal" id="section-4-6.5">
-          <p id="section-4-6.5.1">(g) PETRA API <span>[<a href="#I-D.draft-petra-green-api" class="cite xref">I-D.draft-petra-green-api</a>]</span><a href="#section-4-6.5.1" class="pilcrow">¶</a></p>
+          <p id="section-4-6.5.1">(g) API Service Interface: enables access for service consumption, enabling data retrieval , control, and integration through API, e.g., <span>[<a href="#PetraApi" class="cite xref">PetraApi</a>]</span>.<a href="#section-4-6.5.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
 <p id="section-4-7">The monitoring interface (e) obviously monitor more aspects than just power and energy,
@@ -2447,14 +2447,6 @@ needed.<a href="#section-6-4" class="pilcrow">¶</a></p>
         <dd>
 <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">M. P. Palmero</span>, <span class="refTitle">"Terminology for Energy Efficiency Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-bclp-green-terminology-05</span>, <time datetime="2025-09-15" class="refDate">15 September 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-bclp-green-terminology-05">https://datatracker.ietf.org/doc/html/draft-bclp-green-terminology-05</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.draft-petra-green-api">[I-D.draft-petra-green-api]</dt>
-        <dd>
-<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Muniz, A.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Munoz, F.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-01</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-01">https://datatracker.ietf.org/doc/html/draft-petra-green-api-01</a>&gt;</span>. </dd>
-<dd class="break"></dd>
-<dt id="I-D.stephan-green-use-cases">[I-D.stephan-green-use-cases]</dt>
-        <dd>
-<span class="refAuthor">Stephan, E.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">C. J. Bernardos</span>, <span class="refTitle">"Use Cases for Energy Efficiency Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-stephan-green-use-cases-02</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-stephan-green-use-cases-02">https://datatracker.ietf.org/doc/html/draft-stephan-green-use-cases-02</a>&gt;</span>. </dd>
-<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
@@ -2472,6 +2464,10 @@ needed.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <a href="#section-11.2" class="section-number selfRef">11.2. </a><a href="#name-informative-references-2" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
+<dt id="GreenUseCases">[GreenUseCases]</dt>
+        <dd>
+<span class="refAuthor">Stephan, E.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">C. J. Bernardos</span>, <span class="refTitle">"Use Cases for Energy Efficiency Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-stephan-green-use-cases-02</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-stephan-green-use-cases-02">https://datatracker.ietf.org/doc/html/draft-stephan-green-use-cases-02</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="IEC60050">[IEC60050]</dt>
         <dd>
 <span class="refAuthor">IEC</span>, <span class="refTitle">"Power Utility Automation"</span>, <time datetime="2000-12-11" class="refDate">11 December 2000</time>, <span>&lt;<a href="http://www.iec.ch/smartgrid/standards/">http://www.iec.ch/smartgrid/standards/</a>&gt;</span>. </dd>
@@ -2483,6 +2479,10 @@ needed.<a href="#section-6-4" class="pilcrow">¶</a></p>
 <dt id="IEEE1621">[IEEE1621]</dt>
         <dd>
 <span class="refAuthor">IEEE</span>, <span class="refTitle">"Standard for User Interface Elements in Power Control of Electronic Devices Employed in Office/Consumer Environments, IEEE 1621"</span>, <time datetime="2004-12" class="refDate">December 2004</time>. </dd>
+<dd class="break"></dd>
+<dt id="PetraApi">[PetraApi]</dt>
+        <dd>
+<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Muniz, A.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Munoz, F.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-01</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-01">https://datatracker.ietf.org/doc/html/draft-petra-green-api-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7326">[RFC7326]</dt>
         <dd>
