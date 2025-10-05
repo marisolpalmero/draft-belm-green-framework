@@ -898,12 +898,12 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-This framework takes into account concepts from the Energy MANagement 
-(EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, 
-Brad Schoening, and Juergen Quittek. The contribution of Luis M. 
-Contreras to this document has been supported by the Smart Networks 
-and Services Joint Undertaking (SNS JU) under the European Union's 
-Horizon Europe research and innovation projects 6Green (Grant 
+This framework takes into account concepts from the Energy MANagement
+(EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise,
+Brad Schoening, and Juergen Quittek. The contribution of Luis M.
+Contreras to this document has been supported by the Smart Networks
+and Services Joint Undertaking (SNS JU) under the European Union's
+Horizon Europe research and innovation projects 6Green (Grant
 Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
 
 # References
