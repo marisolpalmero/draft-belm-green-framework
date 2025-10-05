@@ -883,8 +883,8 @@ devices from anywhere on the Internet.
 
 The monitoring of energy-related quantities of an entity as addressed
 can be used to derive more information than just the received and
-provided energy; therefore, monitored data requires protection.  This
-protection includes authentication and authorization of entities
+provided energy; therefore, monitored data requires protection.  
+This protection includes authentication and authorization of entities
 requesting access to monitored data as well as confidentiality
 protection during transmission of monitored data.  Privacy of stored
 data in an entity must be taken into account.  Monitored data may be
@@ -898,7 +898,13 @@ This document has no IANA actions.
 
 # Acknowledgments
 
-This framework takes into account concepts from the Energy MANagement (EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, Brad Schoening, and Juergen Quittek. The contribution of Luis M. Contreras to this document has been supported by the Smart Networks and Services Joint Undertaking (SNS JU) under the European Union's Horizon Europe research and innovation projects 6Green (Grant Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
+This framework takes into account concepts from the Energy MANagement 
+(EMAN) Framework {{?RFC7326}}, authors by John Parello, Benoit Claise, 
+Brad Schoening, and Juergen Quittek. The contribution of Luis M. 
+Contreras to this document has been supported by the Smart Networks 
+and Services Joint Undertaking (SNS JU) under the European Union's 
+Horizon Europe research and innovation projects 6Green (Grant 
+Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
 
 # References
 
@@ -908,5 +914,6 @@ This framework takes into account concepts from the Energy MANagement (EMAN) Fra
 
 # Appendix
 
-This appendix should be removed when the initial set of GREEN WG documents will be stable
+This appendix should be removed when the initial set of GREEN WG 
+documents will be stable
 
