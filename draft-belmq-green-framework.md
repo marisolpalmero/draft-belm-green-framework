@@ -309,7 +309,7 @@ In conclusion, establishing the framework for energy efficiency management now i
 |                                                                  | |
 +------------------------------------------------------------------+ |
                                                                      |
-(a)              (b)          (c)                                    v 
+(a)              (b)          (c)                                    v
 Inventory        Monitor        DataSheets/DataBase and/or          (g)
 Of identity      Energy        | via API,                           API
 and Capability   Efficiency    | Metadata and other             Service
