@@ -152,7 +152,7 @@ monitored by this framework can be either of the following:
 
 - consumers of energy (such as routers and computer systems) and
   components of such devices (such as line cards, fans, and disks)
-  
+
 - producers of energy (like an uninterruptible power supply or
   renewable energy system) and their associated components (such as
   battery cells, inverters, or photovoltaic panels)
