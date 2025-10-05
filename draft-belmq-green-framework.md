@@ -235,11 +235,6 @@ part of, or attached to, a communications network that is monitored
 or controlled or that aids in the management of another device for
 Energy Management.
 
-East-West Traffic
-: Network traffic that flows between servers within a data center or between different components of a distributed system. This type of traffic is typically characterized by low latency and high bandwidth requirements.
-
-South-North Traffic
-: Network traffic that flows between clients and servers, typically traversing the internet or a wide area network (WAN). This type of traffic is typically characterized by higher latency and more varied bandwidth requirements.
 
 # Motivation
 
