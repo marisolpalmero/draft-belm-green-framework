@@ -98,13 +98,38 @@ Recognizing the urgent need for energy efficiency, this document specifies a man
 
 --- middle
 
-# TO DO
+# TO DO and Open Issues
 
 * IEC60050 reference needs a new URL
 
+The following topics remain open for further discussion points:
+
+## Discovering Capabilities
+- Enable automatic detection of power-saving features.
+- Allow controllers to easily discover device-specific limits like transition time and duty cycle.
+
+## Understanding Device Capabilities
+- Explore if Energy Objects can support multiple sets of power states.
+- Make power states clearly described and understandable.
+- Represent these capabilities in a machine-readable format.
+
+## Mapping Intents to Device Settings
+- Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.
+- Create a standard method to describe this mapping across systems.
+
+## Handling Transitions and Ensuring Safety
+- Consider how long it takes for an Energy Object to switch power states.
+- Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
+- Recommendation to standardize a data model to preserved measurement accuracy.
+- Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
+
+## East-West Traffic/Energy Metrics
+- Recommendation to standardize a data model for new equipment interconnected East-West with optimized energy consumption.
+
+
 # Introduction
 
-In reference to {{GreenUseCases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics", it reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations. The framework is essential for:
+{{GreenUseCases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics"  reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations, for:
 
 * Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
 * Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
@@ -116,46 +141,24 @@ In reference to {{GreenUseCases}}, analyzing use cases such as the "Incremental 
 * Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
 * Security: Protecting sensitive operations related to power states and consumption.
 
-   This document defines an Energy Management framework for devices
-   within, or connected to, communication networks, for the use cases
-   described in {{GreenUseCases}}.
-   The devices, or the components of these devices (such as line cards, fans, and
-   disks), can then be monitored and controlled. Monitoring includes measuring
-   power, energy, demand, and attributes of power.  Energy Control can
-   be performed by setting a device's or component's state.  The devices
-   monitored by this framework can be either of the following:
+This document specifies an Energy Management framework for devices
+within, or connected to, communication networks, for the use cases
+described in {{GreenUseCases}}.
+The devices, or the components of these devices (such as line cards, fans, and
+disks), can then be monitored and controlled. Monitoring includes measuring
+power, energy, demand, and attributes of power.  Energy Control can
+be performed by setting a device's or component's state.  The devices
+monitored by this framework can be either of the following:
 
-   - consumers of energy (such as routers and computer systems) and
-      components of such devices (such as line cards, fans, and disks)
+- consumers of energy (such as routers and computer systems) and
+  components of such devices (such as line cards, fans, and disks)
 
-   - producers of energy (like an uninterruptible power supply or
-      renewable energy system) and their associated components (such as
-      battery cells, inverters, or photovoltaic panels)
+- producers of energy (like an uninterruptible power supply or
+  renewable energy system) and their associated components (such as
+  battery cells, inverters, or photovoltaic panels)
 
-   The framework introduces the concept of a Power Interface that is
-   analogous to a network interface.  A Power Interface is defined as an
-   interconnection among devices where energy can be provided, received,
-   or both.
-
-   The most basic example of Energy Management is a single device
-   reporting information about itself.  In many cases, however, energy
-   is not measured by the device itself but is measured upstream in the
-   power distribution tree.  For example, a Power Distribution Unit
-   (PDU) may measure the energy it supplies to attached devices and
-   report this to an Energy Management System.  Therefore, devices often
-   have relationships to other devices or components in the power
-   network.  An Energy Management System (EnMS) generally requires an
-   understanding of the power topology (who provides power to whom), the
-   Metering topology (who meters whom), and the potential Aggregation
-   (who aggregates values of others).
-
-   The relationships build on the Power Interface concept.  The
-   different relationships among devices and components, as specified in
-   this document, include power source, Metering, and Aggregation
-   Relationships.
-
-   The framework does not cover non-electrical equipment, nor does it
-   cover energy procurement and manufacturing.
+The Energy Management framework does not cover non-electrical equipment, nor does it
+cover energy procurement and manufacturing.
 
 ## Terminology
 
@@ -194,17 +197,17 @@ Energy Management.
 
 Device
 : A device is a piece of electrical or non-electrical equipment.
-*Reference: Adapted from [IEEE100].*
+Reference: Adapted from [IEEE100].
 
 Component
 : A component is a part of electrical or non-electrical equipment
 (device).
-*Reference: Adapted from [TMN].*
+Reference: Adapted from [TMN].
 
 Meter (Energy Meter)
 : A meter is a device intended to measure electrical energy by
 integrating power with respect to time.
-*Reference: Adapted from [IEC60050].*
+Reference: Adapted from [IEC60050].
 
 Power Inlet
 : A power inlet (or simply "inlet") is an interface at which a
@@ -223,7 +226,7 @@ Power State
 : A Power State is a condition or mode of a device (or component)
 that broadly characterizes its capabilities, power, and
 responsiveness to input.
-*Reference: Adapted from [IEEE1621].*
+Reference: Adapted from [IEEE1621].
 
 Power State Set
 : A Power State Set is a collection of Power States that comprises a
@@ -829,33 +832,6 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 - Transition SLAs – e.g., the maximum time allowed to transition between states.
 - Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.
 
-### Open Issues
-
-The following topics remain open for further discussion points:
-
-#### Discovering Capabilities
-- Enable automatic detection of power-saving features.
-- Allow controllers to easily discover device-specific limits like transition time and duty cycle.
-
-#### Understanding Device Capabilities
-- Explore if Energy Objects can support multiple sets of power states.
-- Make power states clearly described and understandable.
-- Represent these capabilities in a machine-readable format.
-
-#### Mapping Intents to Device Settings
-- Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.
-- Create a standard method to describe this mapping across systems.
-
-#### Handling Transitions and Ensuring Safety
-- Consider how long it takes for an Energy Object to switch power states.
-- Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
-- Recommendation to standardize a data model to preserved measurement accuracy.
-- Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
-
-#### East-West Traffic/Energy Metrics
-- Recommendation to standardize a data model for new equipment interconnected East-West with optimized energy consumption.
-
-
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
@@ -901,14 +877,4 @@ and Services Joint Undertaking (SNS JU) under the European Union's
 Horizon Europe research and innovation projects 6Green (Grant
 Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).
 
-# References
-
-## Normative References
-
-## Informative References
-
-# Appendix
-
-This appendix should be removed when the initial set of GREEN WG
-documents will be stable
 
