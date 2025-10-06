@@ -114,7 +114,7 @@ Table of Contents
        4.4.1.  Capability Discovery
        4.4.2.  Intent Mapping
        4.4.3.  SLA Considerations
-   5.  Interfaces usage of the Framework
+   5.  Interfaces Usage Of the Framework
    6.  Conventions and Definitions
    7.  Security Considerations
    8.  IANA Considerations
@@ -960,14 +960,14 @@ Table of Contents
    *  Operational SLAs – e.g., device frequency or operational cycle
       limits that ensure long-term hardware health.
 
-5.  Interfaces usage of the Framework
+5.  Interfaces Usage Of the Framework
 
    The table below maps each of the fifteen GREEN use cases to the
    corresponding interfaces.  In addition it proposes the order in which
    interfaces are typically used.
 
   +--+---------------------------+-------------------------------------+
-  |UC| Use Case                  | Interfaces usages                   |
+  |UC| Use Case                  | Interfaces Usages                   |
   +--+---------------------------+-------------------------------------+
   |1 | Incremental Application   | (c) -> . . . -> (f)                 |
   |  | of the GREEN Framework    | initial metrics, later control      |
@@ -1003,7 +1003,7 @@ Table of Contents
   |  | AI Training Workloads     | monitor -> metrics -> control       |
   +--+---------------------------+-------------------------------------+
 
-                   Figure 8: use cases interfaces usage
+                   Figure 8: Use Cases Interfaces Usage
 
 6.  Conventions and Definitions
 
