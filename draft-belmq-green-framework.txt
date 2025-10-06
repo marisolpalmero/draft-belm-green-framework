@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 8 April 2026                                         Telefonica
+Expires: 9 April 2026                                         Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 8 April 2026                                         Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                          5 October 2025
+                                                          6 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 April 2026.
+   This Internet-Draft will expire on 9 April 2026.
 
 Copyright Notice
 
@@ -88,7 +88,12 @@ Copyright Notice
 
 Table of Contents
 
-   1.  TO DO
+   1.  TO DO and Open Issues
+     1.1.  Discovering Capabilities
+     1.2.  Understanding Device Capabilities
+     1.3.  Mapping Intents to Device Settings
+     1.4.  Handling Transitions and Ensuring Safety
+     1.5.  East-West Traffic/Energy Metrics
    2.  Introduction
      2.1.  Terminology
    3.  Motivation
@@ -109,7 +114,6 @@ Table of Contents
        4.4.1.  Capability Discovery
        4.4.2.  Intent Mapping
        4.4.3.  SLA Considerations
-       4.4.4.  Open Issues
    5.  Conventions and Definitions
    6.  Security Considerations
    7.  IANA Considerations
@@ -117,24 +121,64 @@ Table of Contents
    9.  References
      9.1.  Normative References
      9.2.  Informative References
-   10. Appendix
-   11. References
-     11.1.  Normative References
-     11.2.  Informative References
    Authors' Addresses
 
-1.  TO DO
+1.  TO DO and Open Issues
 
    *  IEC60050 reference needs a new URL
 
+   The following topics remain open for further discussion points:
+
+1.1.  Discovering Capabilities
+
+   *  Enable automatic detection of power-saving features.
+
+   *  Allow controllers to easily discover device-specific limits like
+      transition time and duty cycle.
+
+1.2.  Understanding Device Capabilities
+
+   *  Explore if Energy Objects can support multiple sets of power
+      states.
+
+   *  Make power states clearly described and understandable.
+
+   *  Represent these capabilities in a machine-readable format.
+
+1.3.  Mapping Intents to Device Settings
+
+   *  Develop ways to translate high-level energy goals (like “save
+      energy at low utilization”) into actual device configurations.
+
+   *  Create a standard method to describe this mapping across systems.
+
+1.4.  Handling Transitions and Ensuring Safety
+
+   *  Consider how long it takes for an Energy Object to switch power
+      states.
+
+   *  Recommendation to standardize a data model for safe limits on
+      frequency or speed of transitions to prevent device/component's
+      damage.
+
+   *  Recommendation to standardize a data model to preserved
+      measurement accuracy.
+
+   *  Model SLAs that include both performance (e.g., transition time)
+      and device safety (e.g., cycle limitations).
+
+1.5.  East-West Traffic/Energy Metrics
+
+   *  Recommendation to standardize a data model for new equipment
+      interconnected East-West with optimized energy consumption.
+
 2.  Introduction
 
-   In reference to [GreenUseCases], analyzing use cases such as the
-   "Incremental Application of the GREEN Framework" and "Consideration
-   of other domains for obtention of end-to-end metrics", it reveals the
-   critical need for a structured approach to transitioning network
-   devices' management towards energy-efficient operations.  The
-   framework is essential for:
+   [GreenUseCases], analyzing use cases such as the "Incremental
+   Application of the GREEN Framework" and "Consideration of other
+   domains for obtention of end-to-end metrics" reveals the critical
+   need for a structured approach to transitioning network devices'
+   management towards energy-efficient operations, for:
 
    *  Standardization: Ensuring consistent practices across different
       devices and network segments to facilitate interoperability.
@@ -162,48 +206,24 @@ Table of Contents
    *  Security: Protecting sensitive operations related to power states
       and consumption.
 
-      This document defines an Energy Management framework for devices
-      within, or connected to, communication networks, for the use cases
-      described in [GreenUseCases].  The devices, or the components of
-      these devices (such as line cards, fans, and disks), can then be
-      monitored and controlled.  Monitoring includes measuring power,
-      energy, demand, and attributes of power.  Energy Control can be
-      performed by setting a device's or component's state.  The devices
-      monitored by this framework can be either of the following:
+   This document specifies an Energy Management framework for devices
+   within, or connected to, communication networks, for the use cases
+   described in [GreenUseCases].  The devices, or the components of
+   these devices (such as line cards, fans, and disks), can then be
+   monitored and controlled.  Monitoring includes measuring power,
+   energy, demand, and attributes of power.  Energy Control can be
+   performed by setting a device's or component's state.  The devices
+   monitored by this framework can be either of the following:
 
-      -  consumers of energy (such as routers and computer systems) and
-         components of such devices (such as line cards, fans, and
-         disks)
+   *  consumers of energy (such as routers and computer systems) and
+      components of such devices (such as line cards, fans, and disks)
 
-      -  producers of energy (like an uninterruptible power supply or
-         renewable energy system) and their associated components (such
-         as battery cells, inverters, or photovoltaic panels)
+   *  producers of energy (like an uninterruptible power supply or
+      renewable energy system) and their associated components (such as
+      battery cells, inverters, or photovoltaic panels)
 
-      The framework introduces the concept of a Power Interface that is
-      analogous to a network interface.  A Power Interface is defined as
-      an interconnection among devices where energy can be provided,
-      received, or both.
-
-      The most basic example of Energy Management is a single device
-      reporting information about itself.  In many cases, however,
-      energy is not measured by the device itself but is measured
-      upstream in the power distribution tree.  For example, a Power
-      Distribution Unit (PDU) may measure the energy it supplies to
-      attached devices and report this to an Energy Management System.
-      Therefore, devices often have relationships to other devices or
-      components in the power network.  An Energy Management System
-      (EnMS) generally requires an understanding of the power topology
-      (who provides power to whom), the Metering topology (who meters
-      whom), and the potential Aggregation (who aggregates values of
-      others).
-
-      The relationships build on the Power Interface concept.  The
-      different relationships among devices and components, as specified
-      in this document, include power source, Metering, and Aggregation
-      Relationships.
-
-      The framework does not cover non-electrical equipment, nor does it
-      cover energy procurement and manufacturing.
+   The Energy Management framework does not cover non-electrical
+   equipment, nor does it cover energy procurement and manufacturing.
 
 2.1.  Terminology
 
@@ -243,14 +263,14 @@ Table of Contents
          (ISO-EnMS).
 
    Device  A device is a piece of electrical or non-electrical
-      equipment. _Reference: Adapted from [IEEE100]._
+      equipment.  Reference: Adapted from [IEEE100].
 
    Component  A component is a part of electrical or non-electrical
-      equipment (device). _Reference: Adapted from [TMN]._
+      equipment (device).  Reference: Adapted from [TMN].
 
    Meter (Energy Meter)  A meter is a device intended to measure
       electrical energy by integrating power with respect to time.
-      _Reference: Adapted from [IEC60050]._
+      Reference: Adapted from [IEC60050].
 
    Power Inlet  A power inlet (or simply "inlet") is an interface at
       which a device or component receives energy from another device or
@@ -264,7 +284,7 @@ Table of Contents
 
    Power State  A Power State is a condition or mode of a device (or
       component) that broadly characterizes its capabilities, power, and
-      responsiveness to input. _Reference: Adapted from [IEEE1621]._
+      responsiveness to input.  Reference: Adapted from [IEEE1621].
 
    Power State Set  A Power State Set is a collection of Power States
       that comprises a named or logical control grouping.
@@ -939,53 +959,6 @@ Table of Contents
    *  Operational SLAs – e.g., device frequency or operational cycle
       limits that ensure long-term hardware health.
 
-4.4.4.  Open Issues
-
-   The following topics remain open for further discussion points:
-
-4.4.4.1.  Discovering Capabilities
-
-   *  Enable automatic detection of power-saving features.
-
-   *  Allow controllers to easily discover device-specific limits like
-      transition time and duty cycle.
-
-4.4.4.2.  Understanding Device Capabilities
-
-   *  Explore if Energy Objects can support multiple sets of power
-      states.
-
-   *  Make power states clearly described and understandable.
-
-   *  Represent these capabilities in a machine-readable format.
-
-4.4.4.3.  Mapping Intents to Device Settings
-
-   *  Develop ways to translate high-level energy goals (like “save
-      energy at low utilization”) into actual device configurations.
-
-   *  Create a standard method to describe this mapping across systems.
-
-4.4.4.4.  Handling Transitions and Ensuring Safety
-
-   *  Consider how long it takes for an Energy Object to switch power
-      states.
-
-   *  Recommendation to standardize a data model for safe limits on
-      frequency or speed of transitions to prevent device/component's
-      damage.
-
-   *  Recommendation to standardize a data model to preserved
-      measurement accuracy.
-
-   *  Model SLAs that include both performance (e.g., transition time)
-      and device safety (e.g., cycle limitations).
-
-4.4.4.5.  East-West Traffic/Energy Metrics
-
-   *  Recommendation to standardize a data model for new equipment
-      interconnected East-West with optimized energy consumption.
-
 5.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -1040,17 +1013,6 @@ Table of Contents
 
 9.1.  Normative References
 
-9.2.  Informative References
-
-10.  Appendix
-
-   This appendix should be removed when the initial set of GREEN WG
-   documents will be stable
-
-11.  References
-
-11.1.  Normative References
-
    [I-D.draft-bclp-green-terminology]
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
               P. Palmero, "Terminology for Energy Efficiency Network
@@ -1068,7 +1030,7 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-11.2.  Informative References
+9.2.  Informative References
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
