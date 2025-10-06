@@ -832,13 +832,13 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 - Transition SLAs – e.g., the maximum time allowed to transition between states.
 - Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.
 
-# Interfaces usage of the Framework
+# Interfaces Usage Of the Framework
 
 The table below maps each of the fifteen GREEN use cases to the corresponding interfaces. In addition it proposes the order in which interfaces are typically used.
 
 ~~~~
 +--+---------------------------+-------------------------------------+
-|UC| Use Case                  | Interfaces usages                   |
+|UC| Use Case                  | Interfaces Usages                   |
 +--+---------------------------+-------------------------------------+
 |1 | Incremental Application   | (c) -> . . . -> (f)                 |
 |  | of the GREEN Framework    | initial metrics, later control      |
@@ -874,7 +874,7 @@ The table below maps each of the fifteen GREEN use cases to the corresponding in
 |  | AI Training Workloads     | monitor -> metrics -> control       |
 +--+---------------------------+-------------------------------------+
 ~~~~
-{: #green-uc-interfaces-usage title="use cases interfaces usage"}
+{: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
 # Conventions and Definitions
 
