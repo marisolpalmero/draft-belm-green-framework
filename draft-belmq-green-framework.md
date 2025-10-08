@@ -834,14 +834,14 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 
 # Interfaces Usage Of the Framework
 
-The table below maps each of the fifteen GREEN use cases to the corresponding interfaces. In addition it proposes the order in which interfaces are typically used.
+The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.
 
 ~~~~
 +--+---------------------------+-------------------------------------+
 |UC| Use Case                  | Interfaces Usages                   |
 +--+---------------------------+-------------------------------------+
-|1 | Incremental Application   | (c) -> . . . -> (f)                 |
-|  | of the GREEN Framework    | initial metrics, later control      |
+|1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
+|  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
 |2 | Selective Reduction of    | (b) -> (c) -> (f)                   |
 |  | Energy Consumption        | monitor -> metrics -> control       |
 |3 | Reporting on Lifecycle    | (c) -> (g)                          |
