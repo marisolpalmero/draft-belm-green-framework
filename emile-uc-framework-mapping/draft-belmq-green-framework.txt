@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 9 April 2026                                         Telefonica
+Expires: 11 April 2026                                        Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 9 April 2026                                         Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                          6 October 2025
+                                                          8 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 April 2026.
+   This Internet-Draft will expire on 11 April 2026.
 
 Copyright Notice
 
@@ -963,14 +963,13 @@ Table of Contents
 5.  Interfaces Usage Of the Framework
 
    The table below maps each of the fifteen GREEN use cases to the
-   corresponding interfaces.  In addition it proposes the order in which
-   interfaces are typically used.
+   framework and proposes sequences of usage of its interfaces.
 
   +--+---------------------------+-------------------------------------+
   |UC| Use Case                  | Interfaces Usages                   |
   +--+---------------------------+-------------------------------------+
-  |1 | Incremental Application   | (c) -> . . . -> (f)                 |
-  |  | of the GREEN Framework    | initial metrics, later control      |
+  |1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
+  |  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
   |2 | Selective Reduction of    | (b) -> (c) -> (f)                   |
   |  | Energy Consumption        | monitor -> metrics -> control       |
   |3 | Reporting on Lifecycle    | (c) -> (g)                          |

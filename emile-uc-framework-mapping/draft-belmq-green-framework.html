@@ -1057,7 +1057,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 9 April 2026</td>
+<td class="center">Expires 11 April 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1070,12 +1070,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-06" class="published">6 October 2025</time>
+<time datetime="2025-10-08" class="published">8 October 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-09">9 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-04-11">11 April 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1145,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 9 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 11 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2315,7 +2315,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
       <h2 id="name-interfaces-usage-of-the-fra">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-interfaces-usage-of-the-fra" class="section-name selfRef">Interfaces Usage Of the Framework</a>
       </h2>
-<p id="section-5-1">The table below maps each of the fifteen GREEN use cases to the corresponding interfaces. In addition it proposes the order in which interfaces are typically used.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <span id="name-use-cases-interfaces-usage"></span><div id="green-uc-interfaces-usage">
 <figure id="figure-8">
         <div class="alignLeft art-text artwork" id="section-5-2.1">
@@ -2323,8 +2323,8 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 +--+---------------------------+-------------------------------------+
 |UC| Use Case                  | Interfaces Usages                   |
 +--+---------------------------+-------------------------------------+
-|1 | Incremental Application   | (c) -&gt; . . . -&gt; (f)                 |
-|  | of the GREEN Framework    | initial metrics, later control      |
+|1 | Incremental Application   | (c) ; (c)-&gt;(b) ; (a)-&gt;(d)-&gt;(b)-&gt;(e) |
+|  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
 |2 | Selective Reduction of    | (b) -&gt; (c) -&gt; (f)                   |
 |  | Energy Consumption        | monitor -&gt; metrics -&gt; control       |
 |3 | Reporting on Lifecycle    | (c) -&gt; (g)                          |
