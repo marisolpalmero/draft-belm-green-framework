@@ -842,7 +842,7 @@ The table below maps each of the fifteen GREEN use cases to the framework and pr
 +--+---------------------------+-------------------------------------+
 |1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
 |  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
-|2 | Selective Reduction of    | (b) -> (c) -> (f)                   |
+|2 | Selective Reduction of    | (e) -> (b) -> (c) -> (f)            |
 |  | Energy Consumption        | monitor -> metrics -> control       |
 |3 | Reporting on Lifecycle    | (c) -> (g)                          |
 |  | Management                | metrics / metadata -> API or report |
