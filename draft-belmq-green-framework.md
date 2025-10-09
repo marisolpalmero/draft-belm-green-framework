@@ -348,6 +348,8 @@ and Capability   Efficiency    | Metadata and other             Service
 ~~~
 {: title="GREEN Reference Model" #reference_model}
 
+![SVG version of the GREEN Reference Model](green.svg)
+
 The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
