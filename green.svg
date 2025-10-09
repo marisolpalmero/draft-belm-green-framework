@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     version="1.2"
+     width="1000" height="680" viewBox="0 0 1000 680"
+     role="img" aria-labelledby="titleDesc">
+  <title id="titleDesc">Figure 1: GREEN Reference Model</title>
+  <desc id="titleDesc-desc">
+    Reference model showing three logical levels: (3) Network Domain Level with inventory/monitor/API,
+    (2) Controller (collection/compute/aggregate) and (1) Device/Component with example device types.
+    Labels (a)-(g) indicate discovery/inventory, metrics, monitoring, control and API interfaces.
+    Monochrome SVG for RFC embedding.
+  </desc>
+
+  <!-- styles (monochrome only) -->
+  <g stroke="#000000" stroke-width="2" fill="none" font-family="Arial,Helvetica,sans-serif" font-size="14">
+
+    <!-- Top: Network Domain Level box -->
+    <rect x="40" y="30" width="920" height="140" stroke="#000" fill="none"/>
+    <text x="500" y="60" text-anchor="middle" font-weight="bold">(3) Network Domain Level</text>
+
+    <!-- Top internal items left -->
+    <text x="80" y="95">Inventory</text>
+    <line x1="80" y1="100" x2="240" y2="100" />
+    <text x="260" y="95">Monitor</text>
+    <line x1="310" y1="100" x2="470" y2="100" />
+    <text x="490" y="95">DataSheets / Database</text>
+
+    <!-- Top right API / metadata box -->
+    <g>
+      <rect x="720" y="80" width="220" height="70" stroke="#000" fill="none"/>
+      <text x="830" y="105" text-anchor="middle">API Service Interface (g)</text>
+      <text x="830" y="125" text-anchor="middle">Metadata / Energy info</text>
+    </g>
+
+    <!-- Arrow from top down to controller -->
+    <line x1="500" y1="170" x2="500" y2="220" marker-end="url(#arrow)" />
+
+    <!-- Middle: Controller box -->
+    <rect x="120" y="220" width="760" height="120" stroke="#000" fill="none"/>
+    <text x="500" y="250" text-anchor="middle" font-weight="bold">(2) Controller (collection, compute, aggregate?)</text>
+
+    <!-- Small labels above controller to indicate (d)(e)(f) -->
+    <text x="260" y="265">(d) Inventory / Capability</text>
+    <text x="500" y="265">(e) Monitor / Power proportion</text>
+    <text x="740" y="265">(f) Control / Energy saving</text>
+
+    <!-- Three downward arrows from controller to device layer, with labels (d),(e),(f) -->
+    <line x1="260" y1="290" x2="260" y2="360" marker-end="url(#arrow)"/>
+    <line x1="500" y1="290" x2="500" y2="360" marker-end="url(#arrow)"/>
+    <line x1="740" y1="290" x2="740" y2="360" marker-end="url(#arrow)"/>
+
+    <!-- Bottom: Device/Component region -->
+    <rect x="40" y="360" width="920" height="260" stroke="#000" fill="none"/>
+    <text x="500" y="390" text-anchor="middle" font-weight="bold">(1) Device / Component</text>
+
+    <!-- Four example device boxes horizontally -->
+    <g>
+      <!-- I -->
+      <rect x="80" y="420" width="160" height="100" stroke="#000" fill="none"/>
+      <text x="160" y="440" text-anchor="middle" font-weight="bold">(I)</text>
+      <text x="160" y="462" text-anchor="middle">Legacy Device</text>
+
+      <!-- II -->
+      <rect x="280" y="420" width="160" height="100" stroke="#000" fill="none"/>
+      <text x="360" y="440" text-anchor="middle" font-weight="bold">(II)</text>
+      <text x="360" y="462" text-anchor="middle">'Attached' (PoE Component)</text>
+
+      <!-- III -->
+      <rect x="480" y="420" width="160" height="100" stroke="#000" fill="none"/>
+      <text x="560" y="440" text-anchor="middle" font-weight="bold">(III)</text>
+      <text x="560" y="462" text-anchor="middle">Device / Component</text>
+
+      <!-- IV -->
+      <rect x="680" y="420" width="160" height="100" stroke="#000" fill="none"/>
+      <text x="760" y="440" text-anchor="middle" font-weight="bold">(IV)</text>
+      <text x="760" y="462" text-anchor="middle">PoE End Point</text>
+    </g>
+
+    <!-- arrows/lines connecting controller to devices (already drawn down), add labels near arrows -->
+    <text x="260" y="380" text-anchor="middle">(d)</text>
+    <text x="500" y="380" text-anchor="middle">(e)</text>
+    <text x="740" y="380" text-anchor="middle">(f)</text>
+
+    <!-- Left side vertical label group a/b/c near top -->
+    <text x="70" y="55"> (a) Discovery & Inventory</text>
+    <text x="70" y="75"> (b) GREEN Metrics</text>
+    <text x="70" y="95"> (c) Energy Efficiency / Data</text>
+
+    <!-- small connector line from top API box to top left area (g label already shown) -->
+    <line x1="720" y1="115" x2="640" y2="115" stroke="#000" />
+
+    <!-- Footer caption -->
+    <text x="500" y="650" text-anchor="middle" font-size="13">Figure 1: GREEN Reference Model</text>
+
+  </g>
+
+  <!-- marker definition for arrowheads (allowed simple marker) -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#000"/>
+    </marker>
+  </defs>
+</svg>
+
