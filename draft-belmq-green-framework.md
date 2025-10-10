@@ -349,41 +349,9 @@ Even the current reference model implicitly assume a hierarchical network struct
 This covers the basic example of router connected to Power Outlet in the wall.
 
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
 
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                                             ^   ^   ^ |
-                                             |   |   | |
-                                            (d) (e)  (f)
-                                             |   |   | |
-                                             |   |     v
-            +--------------+            +------------------+
-            |              |            |                  |
-            | Power Supply |############| Device/Component |
-            |              |            |                  |
-            +--------------+            +------------------+
+~~~ text
+{::include art/basic_power_ascii.txt}
 ~~~
 {: title="Reference Model Example: Basic Power Supply" #basic_power}
 
