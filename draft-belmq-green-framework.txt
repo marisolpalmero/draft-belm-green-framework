@@ -1038,9 +1038,9 @@ Table of Contents
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
               Contreras, L. M., and C. J. Bernardos, "Use Cases for
               Energy Efficiency Management", Work in Progress, Internet-
-              Draft, draft-stephan-green-use-cases-02, 7 July 2025,
+              Draft, draft-stephan-green-use-cases-03, 6 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-stephan-
-              green-use-cases-02>.
+              green-use-cases-03>.
 
    [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
               <http://www.iec.ch/smartgrid/standards/>.
