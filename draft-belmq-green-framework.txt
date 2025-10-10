@@ -396,6 +396,53 @@ Table of Contents
    this document, include power source, Metering, and Aggregation
    Relationships.
 
+   +------------------------------------------------------------------+
+   |                                                                  |
+   |                  (3) Network Domain Level                        |-+
+   |                                                                  | |
+   +------------------------------------------------------------------+ |
+                                                                        |
+   (a)              (b)          (c)                                    v
+   Inventory        Monitor        DataSheets/DataBase and/or          (g)
+   Of identity      Energy        | via API,                           API
+   and Capability   Efficiency    | Metadata and other             Service
+        ^               ^         | device/component/network     Interface
+        |               |         | related information to be:          ^
+        |               |         |                                     |
+        |               |         |  .Power/Energy related metrics      |
+        |               |         |  .Origin of Energy Mix              |
+        |               |         |  .Carbon aware based on location    |
+        |               |         |                                     |
+        |               |         |                                     |
+        |               |         v                                     |
+   +------------------------------------------------------------------+ |
+   |                                                                  | |
+   |       (2) controller (collection, compute and aggregate?)        |-+
+   |                                                                  |
+   +------------------------------------------------------------------+
+                   ^                      ^                      ^ |
+        (d)        |     (e)              |   (f)                | |
+        Inventory  |     Monitor power    |   Control            | |
+        Capability |     Proportion       |   (Energy saving     | |
+                   |     Energy efficiency|   Functionality      | |
+                   |     ratio, power     |   Localized mgmt/    | |
+                   |     consumption,     |   network wide mgmt) | |
+                   |     etc)             |                      | |
+                   |                      |                      | v
+   +--------------------------------------------------------------------+
+   |                                                                    |
+   |                       (1) Device/Component                         |
+   |                                                                    |
+   | +---------+  +-----------+  +----------------+  +----------------+ |
+   | | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
+   | |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
+   | | Device  |  | Component |  | Device         |  | end Point)     | |
+   | |         |  |           |  |                |  |                | |
+   | +---------+  +-----------+  +----------------+  +----------------+ |
+   +--------------------------------------------------------------------+
+
+                 Figure 1: GREEN Framework Reference Model
+
    The main elements in the framework are as follows:
 
    *  (a), (d) Discovery and Inventory
@@ -480,7 +527,7 @@ Table of Contents
                |              |            |                  |
                +--------------+            +------------------+
 
-           Figure 1: Reference Model Example: Basic Power Supply
+           Figure 2: Reference Model Example: Basic Power Supply
 
 4.1.2.  Physical Meter with Legacy Device
 
@@ -523,7 +570,7 @@ Table of Contents
        |              |   |                |   |               |
        +--------------+   +----------------+   +---------------+
 
-             Figure 2: Reference Model Example: Physical Meter
+             Figure 3: Reference Model Example: Physical Meter
 
    When the EnMS discovers the physical meter, it must know for which
    Energy Object(s) it measures power or energy.  This is the Metering
@@ -580,7 +627,7 @@ Table of Contents
        |              |   |                |   |                  |
        +--------------+   +----------------+   +------------------+
 
-     Figure 3: Reference Model Example: Physical Meter with New Device
+     Figure 4: Reference Model Example: Physical Meter with New Device
 
    The most important issue in such a topology is to avoid the double
    counting in the Energy Management System (EnMS).  The physical meter
@@ -632,7 +679,7 @@ Table of Contents
                |              |            |                |
                +--------------+            +----------------+
 
-           Figure 4: Reference Model Example: Power over Ethernet
+           Figure 5: Reference Model Example: Power over Ethernet
 
    Double counting is also an issue in such an example.  The switch
    port, via its Power Outlet, reports the Energy transmitted, while the
@@ -709,7 +756,7 @@ Table of Contents
                                            |                    |
                                            +--------------------+
 
-        Figure 5: Reference Model Example: Single Power Supply with
+        Figure 6: Reference Model Example: Single Power Supply with
                               Multiple Devices
 
 4.1.6.  Multiple Power Supplies with Single Device
@@ -749,7 +796,7 @@ Table of Contents
       |                |      |                  |      |                |
       +----------------+      +------------------+      +----------------+
 
-      Figure 6: Reference Model Example: Multiple Power Supplies with
+      Figure 7: Reference Model Example: Multiple Power Supplies with
                                Single Device
 
 4.2.  Relationships
