@@ -17,7 +17,6 @@
 /versioned/
 Gemfile.lock
 archive.json
-draft-belmq-green-framework.xml
 package-lock.json
 report.xml
 !requirements.txt
