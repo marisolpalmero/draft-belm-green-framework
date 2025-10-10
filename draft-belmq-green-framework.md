@@ -300,11 +300,6 @@ In conclusion, establishing the framework for energy efficiency management now i
    this document, include power source, Metering, and Aggregation
    Relationships.
 
-{~~~ aasvg
-{::include art/green_ascii.txt}
-~~~
-{: #fig-green-reference-model title="GREEN Reference Model" }
-
 The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
