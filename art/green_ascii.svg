@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="720" width="576" viewBox="0 0 576 720" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+<path d="M 8,16 L 8,80" fill="none" stroke="black"/>
+<path d="M 8,320 L 8,384" fill="none" stroke="black"/>
+<path d="M 8,544 L 8,704" fill="none" stroke="black"/>
+<path d="M 24,608 L 24,688" fill="none" stroke="black"/>
+<path d="M 48,176 L 48,312" fill="none" stroke="black"/>
+<path d="M 104,608 L 104,688" fill="none" stroke="black"/>
+<path d="M 128,608 L 128,688" fill="none" stroke="black"/>
+<path d="M 136,392 L 136,536" fill="none" stroke="black"/>
+<path d="M 176,176 L 176,312" fill="none" stroke="black"/>
+<path d="M 224,608 L 224,688" fill="none" stroke="black"/>
+<path d="M 248,608 L 248,688" fill="none" stroke="black"/>
+<path d="M 256,144 L 256,312" fill="none" stroke="black"/>
+<path d="M 320,392 L 320,536" fill="none" stroke="black"/>
+<path d="M 384,608 L 384,688" fill="none" stroke="black"/>
+<path d="M 408,608 L 408,688" fill="none" stroke="black"/>
+<path d="M 504,392 L 504,536" fill="none" stroke="black"/>
+<path d="M 520,392 L 520,536" fill="none" stroke="black"/>
+<path d="M 544,16 L 544,80" fill="none" stroke="black"/>
+<path d="M 544,320 L 544,384" fill="none" stroke="black"/>
+<path d="M 544,608 L 544,688" fill="none" stroke="black"/>
+<path d="M 560,48 L 560,112" fill="none" stroke="black"/>
+<path d="M 560,192 L 560,352" fill="none" stroke="black"/>
+<path d="M 560,544 L 560,704" fill="none" stroke="black"/>
+<path d="M 8,16 L 544,16" fill="none" stroke="black"/>
+<path d="M 8,80 L 544,80" fill="none" stroke="black"/>
+<path d="M 8,320 L 544,320" fill="none" stroke="black"/>
+<path d="M 8,384 L 544,384" fill="none" stroke="black"/>
+<path d="M 8,544 L 560,544" fill="none" stroke="black"/>
+<path d="M 24,608 L 104,608" fill="none" stroke="black"/>
+<path d="M 128,608 L 224,608" fill="none" stroke="black"/>
+<path d="M 248,608 L 384,608" fill="none" stroke="black"/>
+<path d="M 408,608 L 544,608" fill="none" stroke="black"/>
+<path d="M 24,688 L 104,688" fill="none" stroke="black"/>
+<path d="M 128,688 L 224,688" fill="none" stroke="black"/>
+<path d="M 248,688 L 384,688" fill="none" stroke="black"/>
+<path d="M 408,688 L 544,688" fill="none" stroke="black"/>
+<path d="M 8,704 L 560,704" fill="none" stroke="black"/>
+<polygon class="arrowhead" points="568,192 556,186.4 556,197.6" fill="black" transform="rotate(270,560,192)"/>
+<polygon class="arrowhead" points="568,112 556,106.4 556,117.6" fill="black" transform="rotate(90,560,112)"/>
+<polygon class="arrowhead" points="528,536 516,530.4 516,541.6" fill="black" transform="rotate(90,520,536)"/>
+<polygon class="arrowhead" points="512,392 500,386.4 500,397.6" fill="black" transform="rotate(270,504,392)"/>
+<polygon class="arrowhead" points="328,392 316,386.4 316,397.6" fill="black" transform="rotate(270,320,392)"/>
+<polygon class="arrowhead" points="264,312 252,306.4 252,317.6" fill="black" transform="rotate(90,256,312)"/>
+<polygon class="arrowhead" points="184,176 172,170.4 172,181.6" fill="black" transform="rotate(270,176,176)"/>
+<polygon class="arrowhead" points="144,392 132,386.4 132,397.6" fill="black" transform="rotate(270,136,392)"/>
+<polygon class="arrowhead" points="56,176 44,170.4 44,181.6" fill="black" transform="rotate(270,48,176)"/>
+<g class="text">
+<text x="252" y="52">(3) Network Domain Level</text>
+<text x="552" y="52">-</text>
+<text x="16" y="116">(a)</text>
+<text x="152" y="116">(b)</text>
+<text x="256" y="116">(c)</text>
+<text x="40" y="132">Inventory</text>
+<text x="168" y="132">Monitor</text>
+<text x="364" y="132">DataSheets/DataBase and/or</text>
+<text x="560" y="132">(g)</text>
+<text x="48" y="148">Of identity</text>
+<text x="164" y="148">Energy</text>
+<text x="300" y="148">via API,</text>
+<text x="560" y="148">API</text>
+<text x="60" y="164">and Capability</text>
+<text x="180" y="164">Efficiency</text>
+<text x="340" y="164">Metadata and other</text>
+<text x="544" y="164">Service</text>
+<text x="364" y="180">device/component/network</text>
+<text x="536" y="180">Interface</text>
+<text x="372" y="196">related information to be:</text>
+<text x="392" y="228">.Power/Energy related metrics</text>
+<text x="360" y="244">.Origin of Energy Mix</text>
+<text x="400" y="260">.Carbon aware based on location</text>
+<text x="272" y="356">(2) controller (collection, compute and aggregate?)</text>
+<text x="552" y="356">-</text>
+<text x="56" y="420">(d)</text>
+<text x="192" y="420">(e)</text>
+<text x="360" y="420">(f)</text>
+<text x="80" y="436">Inventory</text>
+<text x="232" y="436">Monitor power</text>
+<text x="376" y="436">Control</text>
+<text x="84" y="452">Capability</text>
+<text x="220" y="452">Proportion</text>
+<text x="404" y="452">(Energy saving</text>
+<text x="248" y="468">Energy efficiency</text>
+<text x="400" y="468">Functionality</text>
+<text x="228" y="484">ratio, power</text>
+<text x="408" y="484">Localized mgmt/</text>
+<text x="228" y="500">consumption,</text>
+<text x="420" y="500">network wide mgmt)</text>
+<text x="196" y="516">etc)</text>
+<text x="276" y="580">(1) Device/Component</text>
+<text x="48" y="628">(I)</text>
+<text x="156" y="628">(II)</text>
+<text x="280" y="628">(III)</text>
+<text x="436" y="628">(IV)</text>
+<text x="284" y="644">Legacy</text>
+<text x="476" y="644">'Attached'(PoE</text>
+<text x="60" y="660">Device</text>
+<text x="176" y="660">Component</text>
+<text x="284" y="660">Device</text>
+<text x="460" y="660">end Point)</text>
+</g>
+</svg>
