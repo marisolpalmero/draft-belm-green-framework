@@ -348,8 +348,6 @@ Even the current reference model implicitly assume a hierarchical network struct
 
 This covers the basic example of router connected to Power Outlet in the wall.
 
-
-
 ~~~ text
 {::include art/basic_power_ascii.txt}
 ~~~
