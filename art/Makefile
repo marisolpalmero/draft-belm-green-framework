@@ -8,7 +8,7 @@ AASVG := $(shell which aasvg)
 
 # Error if aasvg is missing
 ifeq ($(AASVG),)
-$(error aasvg (ASCII art to SVG converter) not found. To install: 'go install github.com/mbndr/aasvg@latest')
+	$(error aasvg (ASCII art to SVG converter) not found. To install: 'go install github.com/mbndr/aasvg@latest')
 endif
 
 # ------------------------------------------------------------
