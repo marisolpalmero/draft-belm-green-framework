@@ -306,57 +306,8 @@ In conclusion, establishing the framework for energy efficiency management now i
 ~~~ aasvg
 {::include art/green_ascii.txt}
 ~~~
-{: #fig-green-reference-model title=GREEN Reference Model" }
+{: #fig-green-reference-model title="GREEN Reference Model" }
 
-
-
-~~~ text
-+------------------------------------------------------------------+
-|                                                                  |
-|                  (3) Network Domain Level                        |-+
-|                                                                  | |
-+------------------------------------------------------------------+ |
-                                                                     |
-(a)              (b)          (c)                                    v
-Inventory        Monitor        DataSheets/DataBase and/or          (g)
-Of identity      Energy        | via API,                           API
-and Capability   Efficiency    | Metadata and other             Service
-     ^               ^         | device/component/network     Interface
-     |               |         | related information to be:          ^
-     |               |         |                                     |
-     |               |         |  .Power/Energy related metrics      |
-     |               |         |  .Origin of Energy Mix              |
-     |               |         |  .Carbon aware based on location    |
-     |               |         |                                     |
-     |               |         |                                     |
-     |               |         v                                     |
-+------------------------------------------------------------------+ |
-|                                                                  | |
-|       (2) controller (collection, compute and aggregate?)        |-+
-|                                                                  |
-+------------------------------------------------------------------+
-                ^                      ^                      ^ |
-     (d)        |     (e)              |   (f)                | |
-     Inventory  |     Monitor power    |   Control            | |
-     Capability |     Proportion       |   (Energy saving     | |
-                |     Energy efficiency|   Functionality      | |
-                |     ratio, power     |   Localized mgmt/    | |
-                |     consumption,     |   network wide mgmt) | |
-                |     etc)             |                      | |
-                |                      |                      | v
-+--------------------------------------------------------------------+
-|                                                                    |
-|                       (1) Device/Component                         |
-|                                                                    |
-| +---------+  +-----------+  +----------------+  +----------------+ |
-| | (I)     |  | (II)      |  | (III)          |  | (IV)           | |
-| |         |  |           |  | Legacy         |  | 'Attached'(PoE | |
-| | Device  |  | Component |  | Device         |  | end Point)     | |
-| |         |  |           |  |                |  |                | |
-| +---------+  +-----------+  +----------------+  +----------------+ |
-+--------------------------------------------------------------------+
-~~~
-{: title="GREEN Reference Model" #reference_model}
 
 
 The main elements in the framework are as follows:
