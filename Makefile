@@ -1,5 +1,5 @@
 .PRECIOUS: draft-belmq-green-framework.xml
-make USE_MD=no
+make USE_MD := no
 LIBDIR := lib
 include $(LIBDIR)/main.mk
 
