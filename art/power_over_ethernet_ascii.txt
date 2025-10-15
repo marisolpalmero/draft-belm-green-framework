@@ -10,7 +10,7 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |   Information
+     |               |         |   information
      |               |         |  .Origin of Energy Mix
      |               |         |  .Carbon aware based on location
      |               |         |
@@ -22,13 +22,14 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-                              ^                 ^   ^   ^ |
-                              |                 |   |   | |
-                             (e)               (d) (e)  (f)
-                              |                 |   |   | |
-                              |                 |   |     v
-    +--------------+   +----------------+   +------------------+
-    |              |   |                |   |                  |
-    | Power Supply |###| Physical Meter |###| Device/Component |
-    |              |   |                |   |                  |
-    +--------------+   +----------------+   +------------------+
+              ^   ^   ^ |                  ^   ^   ^ |
+              |   |   | |                  |   |   | |
+             (d) (e)  (f)                 (d) (e)  (f)
+              |   |   | |                  |   |   | |
+              |   |     v                  |   |     v
+            +--------------+            +----------------+
+            |              |            |                |
+            | Device       |############| PoE End Point  |
+            | (switch)     |            |                |
+            |              |            |                |
+            +--------------+            +----------------+

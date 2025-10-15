@@ -902,10 +902,8 @@ typical example is meters that clamp onto the existing wiring.</t>
         </section>
         <section anchor="physical-meter-with-new-device">
           <name>Physical Meter with New Device</name>
-          <t>This covers the example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the previous device
-was not able to monitor its power, energy, demand.</t>
-          <figure anchor="physical_meter_with_new_device">
+          <t>This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.</t>
+          <figure anchor="fig-new_device">
             <name>Reference Model Example: Physical Meter with New Device</name>
             <artset>
               <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="568" viewBox="0 0 568 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
@@ -1051,26 +1049,129 @@ and Capability   Efficiency    |  /network related information:
 ]]></artwork>
             </artset>
           </figure>
-          <figure anchor="power_ethernet">
+          <t>The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.</t>
+        </section>
+        <section anchor="power-over-ethernet">
+          <name>Power over Ethernet</name>
+          <t>This covers the example of a switch port (Power Outlet) the provides energy
+with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).</t>
+          <figure anchor="fig-power_ethernet">
             <name>Reference Model Example: Power over Ethernet</name>
-            <artwork><![CDATA[
-{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
-
-The most important issue in such a topology is to avoid the double counting
-in the Energy Management System (EnMS). The physical meter reports the Energy
-transmitted, while the connected Device/Component might also report its consumed
-Energy. Those two values are identical. Without the knowledge
-of this specific topology, that is the Metering Relationship between the two
-Energy Objects, the EnMS will double count the Energy consumed in the network.
-
-
-
-### Power over Ethernet
-
-This covers the example of a switch port (Power Outlet) the provides energy
-with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
-
-~~~ text
+            <artset>
+              <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="592" width="568" viewBox="0 0 568 592" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                  <path d="M 8,32 L 8,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 8,400" fill="none" stroke="black"/>
+                  <path d="M 48,192 L 48,328" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 104,576" fill="none" stroke="black"/>
+                  <path d="M 120,408 L 120,432" fill="none" stroke="black"/>
+                  <path d="M 120,464 L 120,488" fill="none" stroke="black"/>
+                  <path d="M 152,408 L 152,432" fill="none" stroke="black"/>
+                  <path d="M 152,464 L 152,488" fill="none" stroke="black"/>
+                  <path d="M 176,192 L 176,328" fill="none" stroke="black"/>
+                  <path d="M 184,408 L 184,440" fill="none" stroke="black"/>
+                  <path d="M 184,456 L 184,464" fill="none" stroke="black"/>
+                  <path d="M 200,408 L 200,440" fill="none" stroke="black"/>
+                  <path d="M 200,456 L 200,488" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 256,144 L 256,328" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 328,576" fill="none" stroke="black"/>
+                  <path d="M 352,408 L 352,432" fill="none" stroke="black"/>
+                  <path d="M 352,464 L 352,488" fill="none" stroke="black"/>
+                  <path d="M 384,408 L 384,432" fill="none" stroke="black"/>
+                  <path d="M 384,464 L 384,488" fill="none" stroke="black"/>
+                  <path d="M 416,408 L 416,440" fill="none" stroke="black"/>
+                  <path d="M 416,456 L 416,464" fill="none" stroke="black"/>
+                  <path d="M 432,408 L 432,440" fill="none" stroke="black"/>
+                  <path d="M 432,456 L 432,488" fill="none" stroke="black"/>
+                  <path d="M 464,496 L 464,576" fill="none" stroke="black"/>
+                  <path d="M 560,32 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 560,336 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 8,32 L 560,32" fill="none" stroke="black"/>
+                  <path d="M 8,96 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 560,336" fill="none" stroke="black"/>
+                  <path d="M 8,400 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 224,496" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 464,496" fill="none" stroke="black"/>
+                  <path d="M 104,576 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 328,576 L 464,576" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="440,488 428,482.4 428,493.6" fill="black" transform="rotate(90,432,488)"/>
+                  <path class="jump" d="M 432,456 C 438,456 438,440 432,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 416,456 C 410,456 410,440 416,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="424,408 412,402.4 412,413.6" fill="black" transform="rotate(270,416,408)"/>
+                  <polygon class="arrowhead" points="392,408 380,402.4 380,413.6" fill="black" transform="rotate(270,384,408)"/>
+                  <polygon class="arrowhead" points="360,408 348,402.4 348,413.6" fill="black" transform="rotate(270,352,408)"/>
+                  <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"/>
+                  <polygon class="arrowhead" points="208,488 196,482.4 196,493.6" fill="black" transform="rotate(90,200,488)"/>
+                  <path class="jump" d="M 200,456 C 206,456 206,440 200,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 184,456 C 178,456 178,440 184,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="192,408 180,402.4 180,413.6" fill="black" transform="rotate(270,184,408)"/>
+                  <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"/>
+                  <polygon class="arrowhead" points="160,408 148,402.4 148,413.6" fill="black" transform="rotate(270,152,408)"/>
+                  <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"/>
+                  <polygon class="arrowhead" points="56,192 44,186.4 44,197.6" fill="black" transform="rotate(270,48,192)"/>
+                  <g class="text">
+                    <text x="168" y="68">(3)</text>
+                    <text x="216" y="68">Network</text>
+                    <text x="276" y="68">Domain</text>
+                    <text x="328" y="68">Level</text>
+                    <text x="16" y="132">(a)</text>
+                    <text x="152" y="132">(b)</text>
+                    <text x="288" y="132">(c)</text>
+                    <text x="40" y="148">Inventory</text>
+                    <text x="168" y="148">Monitor</text>
+                    <text x="264" y="148">-</text>
+                    <text x="352" y="148">DataSheets/DataBase</text>
+                    <text x="460" y="148">and/or</text>
+                    <text x="504" y="148">via</text>
+                    <text x="536" y="148">API</text>
+                    <text x="12" y="164">Of</text>
+                    <text x="60" y="164">identity</text>
+                    <text x="164" y="164">Energy</text>
+                    <text x="308" y="164">Metadata</text>
+                    <text x="360" y="164">and</text>
+                    <text x="400" y="164">other</text>
+                    <text x="492" y="164">device/component</text>
+                    <text x="16" y="180">and</text>
+                    <text x="76" y="180">Capability</text>
+                    <text x="180" y="180">Efficiency</text>
+                    <text x="308" y="180">/network</text>
+                    <text x="376" y="180">related</text>
+                    <text x="460" y="180">information:</text>
+                    <text x="328" y="212">.Power/Energy</text>
+                    <text x="416" y="212">related</text>
+                    <text x="480" y="212">metrics</text>
+                    <text x="328" y="228">information</text>
+                    <text x="304" y="244">.Origin</text>
+                    <text x="348" y="244">of</text>
+                    <text x="388" y="244">Energy</text>
+                    <text x="432" y="244">Mix</text>
+                    <text x="304" y="260">.Carbon</text>
+                    <text x="360" y="260">aware</text>
+                    <text x="408" y="260">based</text>
+                    <text x="444" y="260">on</text>
+                    <text x="492" y="260">location</text>
+                    <text x="80" y="372">(2)</text>
+                    <text x="140" y="372">controller</text>
+                    <text x="236" y="372">(collection,</text>
+                    <text x="320" y="372">compute</text>
+                    <text x="368" y="372">and</text>
+                    <text x="432" y="372">aggregate?)</text>
+                    <text x="120" y="452">(d)</text>
+                    <text x="152" y="452">(e)</text>
+                    <text x="192" y="452">f</text>
+                    <text x="352" y="452">(d)</text>
+                    <text x="384" y="452">(e)</text>
+                    <text x="424" y="452">f</text>
+                    <text x="140" y="532">Device</text>
+                    <text x="276" y="532">############</text>
+                    <text x="352" y="532">PoE</text>
+                    <text x="384" y="532">End</text>
+                    <text x="424" y="532">Point</text>
+                    <text x="148" y="548">(switch)</text>
+                  </g>
+                </svg>
+              </artwork>
+              <artwork type="ascii-art"><![CDATA[
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1107,28 +1208,162 @@ and Capability   Efficiency    |  /network related information:
             |              |            |                |
             +--------------+            +----------------+
 ]]></artwork>
+            </artset>
           </figure>
-          <t>Double counting is also an issue in such an example. The switch port, via its Power Outlet,
-reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed.</t>
-          <t>A second issue in such an example is the control topology. The controller must have the
-knowledge that, if it shuts down the switch port, it will also switch off the connected
-PoE End Point, as a consequence. This is the Power Source Relationship.</t>
-          <t>A Power Source Relationship is a relationship where one Energy Object provides power
-to one or more Energy Objects. The Power Source Relationship gives a view of the physical
-wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE
-or a data center server receiving power from two specific Power Interfaces from two different PDUs.</t>
-          <t>On top of that, there might be two control points for the PoE End Point. First the connected switch
-port but also the controller direct connection to the PoE End Point (f). Via this interface,
-the controller might for example put the PoE End Point to a lower Power State.</t>
+          <t>Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.</t>
+          <t>A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.</t>
+          <t>A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.</t>
+          <t>On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.</t>
         </section>
         <section anchor="single-power-supply-with-multiple-devices">
           <name>Single Power Supply with Multiple Devices</name>
           <t>This covers the example of a smart PDU that provides energy to a series
 of routers in a rack.</t>
-          <figure anchor="multiple_devices">
+          <figure anchor="fig-multiple_devices">
             <name>Reference Model Example: Single Power Supply with Multiple Devices</name>
-            <sourcecode type="text"><![CDATA[
+            <artset>
+              <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="784" width="568" viewBox="0 0 568 784" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                  <path d="M 8,32 L 8,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 8,400" fill="none" stroke="black"/>
+                  <path d="M 48,192 L 48,328" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 104,576" fill="none" stroke="black"/>
+                  <path d="M 120,408 L 120,432" fill="none" stroke="black"/>
+                  <path d="M 120,464 L 120,488" fill="none" stroke="black"/>
+                  <path d="M 152,408 L 152,432" fill="none" stroke="black"/>
+                  <path d="M 152,464 L 152,488" fill="none" stroke="black"/>
+                  <path d="M 176,192 L 176,328" fill="none" stroke="black"/>
+                  <path d="M 184,408 L 184,440" fill="none" stroke="black"/>
+                  <path d="M 184,456 L 184,464" fill="none" stroke="black"/>
+                  <path d="M 200,408 L 200,440" fill="none" stroke="black"/>
+                  <path d="M 200,456 L 200,488" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 256,144 L 256,328" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 328,560" fill="none" stroke="black"/>
+                  <path d="M 328,608 L 328,672" fill="none" stroke="black"/>
+                  <path d="M 328,704 L 328,768" fill="none" stroke="black"/>
+                  <path d="M 360,408 L 360,432" fill="none" stroke="black"/>
+                  <path d="M 360,464 L 360,488" fill="none" stroke="black"/>
+                  <path d="M 392,408 L 392,432" fill="none" stroke="black"/>
+                  <path d="M 392,464 L 392,488" fill="none" stroke="black"/>
+                  <path d="M 424,408 L 424,440" fill="none" stroke="black"/>
+                  <path d="M 424,456 L 424,464" fill="none" stroke="black"/>
+                  <path d="M 440,408 L 440,440" fill="none" stroke="black"/>
+                  <path d="M 440,456 L 440,488" fill="none" stroke="black"/>
+                  <path d="M 496,496 L 496,560" fill="none" stroke="black"/>
+                  <path d="M 496,608 L 496,672" fill="none" stroke="black"/>
+                  <path d="M 496,704 L 496,768" fill="none" stroke="black"/>
+                  <path d="M 560,32 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 560,336 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 8,32 L 560,32" fill="none" stroke="black"/>
+                  <path d="M 8,96 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 560,336" fill="none" stroke="black"/>
+                  <path d="M 8,400 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 224,496" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 496,496" fill="none" stroke="black"/>
+                  <path d="M 328,560 L 496,560" fill="none" stroke="black"/>
+                  <path d="M 104,576 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 328,608 L 496,608" fill="none" stroke="black"/>
+                  <path d="M 328,672 L 496,672" fill="none" stroke="black"/>
+                  <path d="M 328,704 L 496,704" fill="none" stroke="black"/>
+                  <path d="M 328,768 L 496,768" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="448,488 436,482.4 436,493.6" fill="black" transform="rotate(90,440,488)"/>
+                  <path class="jump" d="M 440,456 C 446,456 446,440 440,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 424,456 C 418,456 418,440 424,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="432,408 420,402.4 420,413.6" fill="black" transform="rotate(270,424,408)"/>
+                  <polygon class="arrowhead" points="400,408 388,402.4 388,413.6" fill="black" transform="rotate(270,392,408)"/>
+                  <polygon class="arrowhead" points="368,408 356,402.4 356,413.6" fill="black" transform="rotate(270,360,408)"/>
+                  <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"/>
+                  <polygon class="arrowhead" points="208,488 196,482.4 196,493.6" fill="black" transform="rotate(90,200,488)"/>
+                  <path class="jump" d="M 200,456 C 206,456 206,440 200,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 184,456 C 178,456 178,440 184,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="192,408 180,402.4 180,413.6" fill="black" transform="rotate(270,184,408)"/>
+                  <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"/>
+                  <polygon class="arrowhead" points="160,408 148,402.4 148,413.6" fill="black" transform="rotate(270,152,408)"/>
+                  <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"/>
+                  <polygon class="arrowhead" points="56,192 44,186.4 44,197.6" fill="black" transform="rotate(270,48,192)"/>
+                  <g class="text">
+                    <text x="168" y="68">(3)</text>
+                    <text x="216" y="68">Network</text>
+                    <text x="276" y="68">Domain</text>
+                    <text x="328" y="68">Level</text>
+                    <text x="16" y="132">(a)</text>
+                    <text x="152" y="132">(b)</text>
+                    <text x="288" y="132">(c)</text>
+                    <text x="40" y="148">Inventory</text>
+                    <text x="168" y="148">Monitor</text>
+                    <text x="264" y="148">-</text>
+                    <text x="352" y="148">DataSheets/DataBase</text>
+                    <text x="460" y="148">and/or</text>
+                    <text x="504" y="148">via</text>
+                    <text x="536" y="148">API</text>
+                    <text x="12" y="164">Of</text>
+                    <text x="60" y="164">identity</text>
+                    <text x="164" y="164">Energy</text>
+                    <text x="308" y="164">Metadata</text>
+                    <text x="360" y="164">and</text>
+                    <text x="400" y="164">other</text>
+                    <text x="492" y="164">device/component</text>
+                    <text x="16" y="180">and</text>
+                    <text x="76" y="180">Capability</text>
+                    <text x="180" y="180">Efficiency</text>
+                    <text x="308" y="180">/network</text>
+                    <text x="376" y="180">related</text>
+                    <text x="460" y="180">information:</text>
+                    <text x="328" y="212">.Power/Energy</text>
+                    <text x="416" y="212">related</text>
+                    <text x="480" y="212">metrics</text>
+                    <text x="328" y="228">information</text>
+                    <text x="304" y="244">.Origin</text>
+                    <text x="348" y="244">of</text>
+                    <text x="388" y="244">Energy</text>
+                    <text x="432" y="244">Mix</text>
+                    <text x="304" y="260">.Carbon</text>
+                    <text x="360" y="260">aware</text>
+                    <text x="408" y="260">based</text>
+                    <text x="444" y="260">on</text>
+                    <text x="492" y="260">location</text>
+                    <text x="80" y="372">(2)</text>
+                    <text x="140" y="372">controller</text>
+                    <text x="236" y="372">(collection,</text>
+                    <text x="320" y="372">compute</text>
+                    <text x="368" y="372">and</text>
+                    <text x="432" y="372">aggregate?)</text>
+                    <text x="120" y="452">(d)</text>
+                    <text x="152" y="452">(e)</text>
+                    <text x="192" y="452">f</text>
+                    <text x="360" y="452">(d)</text>
+                    <text x="392" y="452">(e)</text>
+                    <text x="432" y="452">f</text>
+                    <text x="464" y="452">...</text>
+                    <text x="488" y="452">N</text>
+                    <text x="136" y="532">Power</text>
+                    <text x="188" y="532">Supply</text>
+                    <text x="276" y="532">############</text>
+                    <text x="404" y="532">Device/Component</text>
+                    <text x="480" y="532">1</text>
+                    <text x="140" y="548">(Smart</text>
+                    <text x="188" y="548">PDU)</text>
+                    <text x="248" y="548">#</text>
+                    <text x="248" y="564">#</text>
+                    <text x="248" y="580">#</text>
+                    <text x="248" y="596">#</text>
+                    <text x="248" y="612">#</text>
+                    <text x="248" y="628">#</text>
+                    <text x="284" y="644">##########</text>
+                    <text x="404" y="644">Device/Component</text>
+                    <text x="480" y="644">2</text>
+                    <text x="272" y="660">#</text>
+                    <text x="272" y="676">#</text>
+                    <text x="272" y="692">#</text>
+                    <text x="272" y="708">#</text>
+                    <text x="272" y="724">#</text>
+                    <text x="296" y="740">#######</text>
+                    <text x="404" y="740">Device/Component</text>
+                    <text x="480" y="740">N</text>
+                  </g>
+                </svg>
+              </artwork>
+              <artwork type="ascii-art"><![CDATA[
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1176,14 +1411,153 @@ and Capability   Efficiency    |  /network related information:
                                  #######| Device/Component N |
                                         |                    |
                                         +--------------------+
-]]></sourcecode>
+]]></artwork>
+            </artset>
           </figure>
         </section>
         <section anchor="multiple-power-supplies-with-single-device">
           <name>Multiple Power Supplies with Single Device</name>
-          <figure anchor="multiple_power">
+          <figure anchor="fig-multiple_power">
             <name>Reference Model Example: Multiple Power Supplies with Single Device</name>
-            <sourcecode type="text"><![CDATA[
+            <artset>
+              <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="576" viewBox="0 0 576 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                  <path d="M 8,32 L 8,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 8,400" fill="none" stroke="black"/>
+                  <path d="M 32,496 L 32,560" fill="none" stroke="black"/>
+                  <path d="M 48,192 L 48,328" fill="none" stroke="black"/>
+                  <path d="M 56,408 L 56,432" fill="none" stroke="black"/>
+                  <path d="M 56,464 L 56,488" fill="none" stroke="black"/>
+                  <path d="M 88,408 L 88,432" fill="none" stroke="black"/>
+                  <path d="M 88,464 L 88,488" fill="none" stroke="black"/>
+                  <path d="M 120,408 L 120,440" fill="none" stroke="black"/>
+                  <path d="M 120,456 L 120,464" fill="none" stroke="black"/>
+                  <path d="M 136,408 L 136,440" fill="none" stroke="black"/>
+                  <path d="M 136,456 L 136,488" fill="none" stroke="black"/>
+                  <path d="M 168,496 L 168,560" fill="none" stroke="black"/>
+                  <path d="M 176,192 L 176,328" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 224,560" fill="none" stroke="black"/>
+                  <path d="M 256,144 L 256,328" fill="none" stroke="black"/>
+                  <path d="M 256,408 L 256,432" fill="none" stroke="black"/>
+                  <path d="M 256,464 L 256,488" fill="none" stroke="black"/>
+                  <path d="M 288,408 L 288,432" fill="none" stroke="black"/>
+                  <path d="M 288,464 L 288,488" fill="none" stroke="black"/>
+                  <path d="M 320,408 L 320,440" fill="none" stroke="black"/>
+                  <path d="M 320,456 L 320,464" fill="none" stroke="black"/>
+                  <path d="M 336,408 L 336,440" fill="none" stroke="black"/>
+                  <path d="M 336,456 L 336,488" fill="none" stroke="black"/>
+                  <path d="M 376,496 L 376,560" fill="none" stroke="black"/>
+                  <path d="M 432,496 L 432,560" fill="none" stroke="black"/>
+                  <path d="M 464,408 L 464,432" fill="none" stroke="black"/>
+                  <path d="M 464,464 L 464,488" fill="none" stroke="black"/>
+                  <path d="M 496,408 L 496,432" fill="none" stroke="black"/>
+                  <path d="M 496,464 L 496,488" fill="none" stroke="black"/>
+                  <path d="M 528,408 L 528,440" fill="none" stroke="black"/>
+                  <path d="M 528,456 L 528,464" fill="none" stroke="black"/>
+                  <path d="M 544,408 L 544,440" fill="none" stroke="black"/>
+                  <path d="M 544,456 L 544,488" fill="none" stroke="black"/>
+                  <path d="M 560,32 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 560,336 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 568,496 L 568,560" fill="none" stroke="black"/>
+                  <path d="M 8,32 L 560,32" fill="none" stroke="black"/>
+                  <path d="M 8,96 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 560,336" fill="none" stroke="black"/>
+                  <path d="M 8,400 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 32,496 L 168,496" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 376,496" fill="none" stroke="black"/>
+                  <path d="M 432,496 L 568,496" fill="none" stroke="black"/>
+                  <path d="M 32,560 L 168,560" fill="none" stroke="black"/>
+                  <path d="M 224,560 L 376,560" fill="none" stroke="black"/>
+                  <path d="M 432,560 L 568,560" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="552,488 540,482.4 540,493.6" fill="black" transform="rotate(90,544,488)"/>
+                  <path class="jump" d="M 544,456 C 550,456 550,440 544,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 528,456 C 522,456 522,440 528,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="536,408 524,402.4 524,413.6" fill="black" transform="rotate(270,528,408)"/>
+                  <polygon class="arrowhead" points="504,408 492,402.4 492,413.6" fill="black" transform="rotate(270,496,408)"/>
+                  <polygon class="arrowhead" points="472,408 460,402.4 460,413.6" fill="black" transform="rotate(270,464,408)"/>
+                  <polygon class="arrowhead" points="344,488 332,482.4 332,493.6" fill="black" transform="rotate(90,336,488)"/>
+                  <path class="jump" d="M 336,456 C 342,456 342,440 336,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 320,456 C 314,456 314,440 320,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="328,408 316,402.4 316,413.6" fill="black" transform="rotate(270,320,408)"/>
+                  <polygon class="arrowhead" points="296,408 284,402.4 284,413.6" fill="black" transform="rotate(270,288,408)"/>
+                  <polygon class="arrowhead" points="264,408 252,402.4 252,413.6" fill="black" transform="rotate(270,256,408)"/>
+                  <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"/>
+                  <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"/>
+                  <polygon class="arrowhead" points="144,488 132,482.4 132,493.6" fill="black" transform="rotate(90,136,488)"/>
+                  <path class="jump" d="M 136,456 C 142,456 142,440 136,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 120,456 C 114,456 114,440 120,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"/>
+                  <polygon class="arrowhead" points="96,408 84,402.4 84,413.6" fill="black" transform="rotate(270,88,408)"/>
+                  <polygon class="arrowhead" points="64,408 52,402.4 52,413.6" fill="black" transform="rotate(270,56,408)"/>
+                  <polygon class="arrowhead" points="56,192 44,186.4 44,197.6" fill="black" transform="rotate(270,48,192)"/>
+                  <g class="text">
+                    <text x="168" y="68">(3)</text>
+                    <text x="216" y="68">Network</text>
+                    <text x="276" y="68">Domain</text>
+                    <text x="328" y="68">Level</text>
+                    <text x="16" y="132">(a)</text>
+                    <text x="152" y="132">(b)</text>
+                    <text x="288" y="132">(c)</text>
+                    <text x="40" y="148">Inventory</text>
+                    <text x="168" y="148">Monitor</text>
+                    <text x="264" y="148">-</text>
+                    <text x="352" y="148">DataSheets/DataBase</text>
+                    <text x="460" y="148">and/or</text>
+                    <text x="504" y="148">via</text>
+                    <text x="536" y="148">API</text>
+                    <text x="12" y="164">Of</text>
+                    <text x="60" y="164">identity</text>
+                    <text x="164" y="164">Energy</text>
+                    <text x="308" y="164">Metadata</text>
+                    <text x="360" y="164">and</text>
+                    <text x="400" y="164">other</text>
+                    <text x="492" y="164">device/component</text>
+                    <text x="16" y="180">and</text>
+                    <text x="76" y="180">Capability</text>
+                    <text x="180" y="180">Efficiency</text>
+                    <text x="308" y="180">/network</text>
+                    <text x="376" y="180">related</text>
+                    <text x="460" y="180">information:</text>
+                    <text x="328" y="212">.Power/Energy</text>
+                    <text x="416" y="212">related</text>
+                    <text x="480" y="212">metrics</text>
+                    <text x="328" y="228">information</text>
+                    <text x="304" y="244">.Origin</text>
+                    <text x="348" y="244">of</text>
+                    <text x="388" y="244">Energy</text>
+                    <text x="432" y="244">Mix</text>
+                    <text x="304" y="260">.Carbon</text>
+                    <text x="360" y="260">aware</text>
+                    <text x="408" y="260">based</text>
+                    <text x="444" y="260">on</text>
+                    <text x="492" y="260">location</text>
+                    <text x="80" y="372">(2)</text>
+                    <text x="140" y="372">controller</text>
+                    <text x="236" y="372">(collection,</text>
+                    <text x="320" y="372">compute</text>
+                    <text x="368" y="372">and</text>
+                    <text x="432" y="372">aggregate?)</text>
+                    <text x="56" y="452">(d)</text>
+                    <text x="88" y="452">(e)</text>
+                    <text x="128" y="452">f</text>
+                    <text x="256" y="452">(d)</text>
+                    <text x="288" y="452">(e)</text>
+                    <text x="328" y="452">f</text>
+                    <text x="464" y="452">(d)</text>
+                    <text x="496" y="452">(e)</text>
+                    <text x="536" y="452">f</text>
+                    <text x="64" y="532">Power</text>
+                    <text x="116" y="532">Supply</text>
+                    <text x="152" y="532">1</text>
+                    <text x="196" y="532">######</text>
+                    <text x="300" y="532">Device/Component</text>
+                    <text x="404" y="532">######</text>
+                    <text x="464" y="532">Power</text>
+                    <text x="516" y="532">Supply</text>
+                    <text x="552" y="532">2</text>
+                  </g>
+                </svg>
+              </artwork>
+              <artwork type="ascii-art"><![CDATA[
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1218,7 +1592,8 @@ and Capability   Efficiency    |  /network related information:
    | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
    |                |      |                  |      |                |
    +----------------+      +------------------+      +----------------+
-]]></sourcecode>
+]]></artwork>
+            </artset>
           </figure>
         </section>
       </section>
@@ -1383,6 +1758,51 @@ Power States. TO BE COMPLETED</t>
           </ul>
         </section>
       </section>
+    </section>
+    <section anchor="interfaces-usage-of-the-framework">
+      <name>Interfaces Usage Of the Framework</name>
+      <t>The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.</t>
+      <figure anchor="green-uc-interfaces-usage">
+        <name>Use Cases Interfaces Usage</name>
+        <artwork><![CDATA[
++--+---------------------------+-------------------------------------+
+|UC| Use Case                  | Interfaces Usages                   |
++--+---------------------------+-------------------------------------+
+|1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
+|  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
+|2 | Selective Reduction of    | (e) -> (b) -> (c) -> (f)            |
+|  | Energy Consumption        | monitor -> metrics -> control       |
+|3 | Reporting on Lifecycle    | (c) -> (g)                          |
+|  | Management                | metrics / metadata -> API or report |
+|4 | Real-time Energy Metering | (b) -> (c)                          |
+|  | of Virtualised NFs        | monitor -> metrics                  |
+|5 | Indirect Energy Monitoring| (b) -> (f)                          |
+|  | & Control                 | monitor aggregate -> control        |
+|6 | Consideration of Other    | (c) -> (g) -> (b)                   |
+|  | Domains for End-to-End    | metrics -> cross-domain API ->      |
+|  | Metrics                   | monitoring                          |
+|7 | Dynamic Adjustment via    | (b) -> (f) -> (c)                   |
+|  | Traffic Levels            | observe -> control -> update metrics|
+|8 | Video Streaming Use Case  | (b) -> (c) -> (f)                   |
+|  |                           | monitor -> metrics -> control       |
+|9 | WLAN Network Energy Saving| (b) -> (f)                          |
+|  |                           | monitor -> control                  |
+|10| Fixed Network Energy      | (b) -> (f)                          |
+|  | Saving                    | monitor -> control                  |
+|11| Energy Efficiency Network | (a) -> (b) -> (c) -> (f) -> (g)     |
+|  | Management                | discover -> monitor -> metrics ->   |
+|  |                           | control -> API                      |
+|12| ISAC-enabled Energy-Aware | ---                                 |
+|  | Smart City Traffic Mgmt   | not clearly specified               |
+|13| Double Accounting Open    | (c) -> (g)                          |
+|  | Issue                     | metrics / metadata -> API           |
+|14| Energy Efficiency Under   | (b) -> (f)                          |
+|  | Power Shortage            | monitor -> control                  |
+|15| Energy-Efficient Mgmt of  | (b) -> (c) -> (f)                   |
+|  | AI Training Workloads     | monitor -> metrics -> control       |
++--+---------------------------+-------------------------------------+
+]]></artwork>
+      </figure>
     </section>
     <section anchor="conventions-and-definitions">
       <name>Conventions and Definitions</name>
@@ -1625,258 +2045,273 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).</t>
     </references>
   </back>
   <!-- ##markdown-source:
-H4sIAMGi72gAA+1923LcxrXoO76iN/VgMp4ZirLjxNx7x6Yoyqa3KCoitV2p
-lOPqwfTMIMIACBogPZGU8j+c85Kqc6rOt5xP8ZecdesLMDO8iExOHsiKIxJA
-d69eve69utdwOEyarMnNvtp6XuuFuSzrt2pa1uqoMPVsqY6m0yzNTJEu1Yku
-9MwsTNFsJXo8rs3FLRtNyrSAr/fVpNbTZjg2+eIvw1ltTDGcum6GuW6MbZIU
-/pmV9XJfZcW0TGyji8mPOi8LaN7UrUmSrKrpV9s8efz4y8dPEl0bDRCdVqbW
-TVYWVkGbDgCXM3j/jWmarJip10ZPlhHUQwd1o16aBmGBr7aSt5f7iVJD5SGk
-vww14V/9ZOlPqy+gnaXfF37sxLbjRWYtgNUsK5jD8dH58yQFIE1hW+vmlJYT
-aLyv2mY6/G1SZfvqj02ZDpQt66Y2Uwu/LRf4yw9JcmGK1iBss7psq9tPTCmG
-ZAt/Xegsh19pMb7OTDMdlTV9o+t0Di/mTVPZ/d1d/A4fZRdm5D7bxQe747q8
-tGaXetjFlrOsmbdjaLvQdWbLvNL5wtTlblj8/tpjK17+zohx6xH3Osqu6mf3
-CvoazZtFvgXY21efJYlum3lZ7yeJGsLYSk3bPGcSfWqKMmvUYa4za+gdzFQX
-2V+JtPbV0YWpl80c8X366ow+MIzEMbX82vgPhmVlR4VpVgd50WZWnYzUIVBF
-DVRr1wx0bnIzLYss1fEgObRcZLPW5KPUNV60dZbn5deNbwHvFqujfqcL9SIr
-JuNcT9YMeJDn6jkST1rGI/5ZF6NcWn2KS/81UNjI4Ef9AU54ydQrXrM1YxwX
-E1MZ+D/gjGgMWWuirK9n+Gz9DI4WWW7UWWOquS7WdH9a62Jm4p4NthhZbvF1
-Se/X9/37rFDft2s6/bbVlybrrDSge3TZfj2nN9RdUpT1AhpcAGcmKLnCX9Du
-/OTlPnUgIve4aExdUP86p5WGPhYtLh0+U28K+P+B2oJ2kSwBYIuUBNwWdTYB
-ltlXIAQfD0EKUve6nhlgouPzN8NzkAfYK2CbOz0Zffb548cEz/HR0dHe48f7
-nUbIeMB3mTHmpyova2R0Y4jR4e/dRWkb6BHgOLa2NaM/2+qrqi3axdjU//n5
-3t4Xv/ntr+M5ns+NOiA2yxpChXqWEfS6XqpySjDAUoKo1vXEAhLqBbOB4038
-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
-rHoMdHSqAAA=
+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
+Y4v+Hz5F26jytAAA
 
 -->
 
