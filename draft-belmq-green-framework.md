@@ -379,24 +379,17 @@ Logically, the Metering topology overlaps with the wiring
 topology, as meters are connected to the wiring topology.  A
 typical example is meters that clamp onto the existing wiring.
 
-
 ### Physical Meter with New Device
 
-This covers the example of device connected to wall Power Outlet,
-with a Physical Meter placed in the wall Power Outlet, because the previous device
-was not able to monitor its power, energy, demand.
+This covers the example of device connected to wall Power Outlet, with a Physical Meter placed in the wall Power Outlet, because the previous device was not able to monitor its power, energy, demand.
 
 ~~~ aasvg
 {::include art/physical_meter_new_device_ascii.txt}
 ~~~
+{: #fig-new_device title="Reference Model Example: Physical Meter with New Device" }
 
-The most important issue in such a topology is to avoid the double counting
-in the Energy Management System (EnMS). The physical meter reports the Energy
-transmitted, while the connected Device/Component might also report its consumed
-Energy. Those two values are identical. Without the knowledge
-of this specific topology, that is the Metering Relationship between the two
-Energy Objects, the EnMS will double count the Energy consumed in the network.
 
+The most important issue in such a topology is to avoid the double counting in the Energy Management System (EnMS). The physical meter reports the Energy transmitted, while the connected Device/Component might also report its consumed Energy. Those two values are identical. Without the knowledge of this specific topology, that is the Metering Relationship between the two Energy Objects, the EnMS will double count the Energy consumed in the network.
 
 
 ### Power over Ethernet
@@ -409,28 +402,13 @@ with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 ~~~
 {: #fig-power_ethernet title="Reference Model Example: Power over Ethernet" }
 
+Double counting is also an issue in such an example. The switch port, via its Power Outlet, reports the Energy transmitted, while the PoE End Point, via its Power Inlet, reports its Energy consumed.
 
-~~~ aasvg
-{::include art/physical_meter_new_device_ascii.txt}
-~~~
-{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
+A second issue in such an example is the control topology. The controller must have the knowledge that, if it shuts down the switch port, it will also switch off the connected PoE End Point, as a consequence. This is the Power Source Relationship.
 
-Double counting is also an issue in such an example. The switch port, via its Power Outlet,
-reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
-reports its Energy consumed.
+A Power Source Relationship is a relationship where one Energy Object provides power to one or more Energy Objects. The Power Source Relationship gives a view of the physical wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE or a data center server receiving power from two specific Power Interfaces from two different PDUs.
 
-A second issue in such an example is the control topology. The controller must have the
-knowledge that, if it shuts down the switch port, it will also switch off the connected
-PoE End Point, as a consequence. This is the Power Source Relationship.
-
-A Power Source Relationship is a relationship where one Energy Object provides power
-to one or more Energy Objects. The Power Source Relationship gives a view of the physical
-wiring topology -- for example, a PoE End Point receiving power from a switch port over PoE
-or a data center server receiving power from two specific Power Interfaces from two different PDUs.
-
-On top of that, there might be two control points for the PoE End Point. First the connected switch
-port but also the controller direct connection to the PoE End Point (f). Via this interface,
-the controller might for example put the PoE End Point to a lower Power State.
+On top of that, there might be two control points for the PoE End Point. First the connected switch port but also the controller direct connection to the PoE End Point (f). Via this interface, the controller might for example put the PoE End Point to a lower Power State.
 
 
 

@@ -32,5 +32,3 @@ and Capability   Efficiency    |  /network related information:
     | Power Supply |###| Physical Meter |###| Device/Component |
     |              |   |                |   |                  |
     +--------------+   +----------------+   +------------------+
-~~~
-{: title="Reference Model Example: Physical Meter with New Device" #physical_meter_with_new_device}
