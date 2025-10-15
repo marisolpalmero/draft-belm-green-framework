@@ -10,7 +10,7 @@ Of identity      Energy        |  Metadata and other device/component
 and Capability   Efficiency    |  /network related information:
      ^               ^         |
      |               |         |  .Power/Energy related metrics
-     |               |         |   information
+     |               |         |   Information
      |               |         |  .Origin of Energy Mix
      |               |         |  .Carbon aware based on location
      |               |         |
@@ -22,13 +22,15 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-                                             ^   ^   ^ |
-                                             |   |   | |
-                                            (d) (e)  (f)
-                                             |   |   | |
-                                             |   |     v
-            +--------------+            +------------------+
-            |              |            |                  |
-            | Power Supply |############| Device/Component |
-            |              |            |                  |
-            +--------------+            +------------------+
+                              ^                 ^   ^   ^ |
+                              |                 |   |   | |
+                             (e)               (d) (e)  (f)
+                              |                 |   |   | |
+                              |                 |   |     v
+    +--------------+   +----------------+   +------------------+
+    |              |   |                |   |                  |
+    | Power Supply |###| Physical Meter |###| Device/Component |
+    |              |   |                |   |                  |
+    +--------------+   +----------------+   +------------------+
+~~~
+{: title="Reference Model Example: Physical Meter with New Device" #physical_meter_with_new_device}

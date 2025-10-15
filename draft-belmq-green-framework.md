@@ -301,11 +301,12 @@ In conclusion, establishing the framework for energy efficiency management now i
    Relationships.
 
 
+The GREEN Reference Model is represented in the  {{fig-green-reference-model}}
 
-~~~ text
+~~~ aasvg
 {::include art/green_ascii.txt}
 ~~~
-{: title="GREEN Framework Reference Model" #green_reference_model}
+{: #fig-green-reference-model title="GREEN Reference Model" }
 
 
 The main elements in the framework are as follows:
@@ -348,10 +349,10 @@ Even the current reference model implicitly assume a hierarchical network struct
 
 This covers the basic example of router connected to Power Outlet in the wall.
 
-~~~ text
+~~~ aasvg
 {::include art/basic_power_ascii.txt}
 ~~~
-{: title="Reference Model Example: Basic Power Supply" #basic_power}
+{: #fig-basic_power title="Reference Model Example: Basic Power Supply" }
 
 ### Physical Meter with Legacy Device
 
@@ -359,43 +360,10 @@ This covers the basic example of device connected to wall Power Outlet,
 with a Physical Meter placed in the wall Power Outlet, because the device
 can not monitor its power, energy, demand.
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                              ^
-                              |
-                             (e)
-                              |
-                              |
-    +--------------+   +----------------+   +---------------+
-    |              |   |                |   |               |
-    | Power Supply |###| Physical Meter |###| Legacy Device |
-    |              |   |                |   |               |
-    +--------------+   +----------------+   +---------------+
+~~~ aasvg
+{::include art/physical_meter_ascii.txt}
 ~~~
-{: title="Reference Model Example: Physical Meter" #physical_meter}
+{: #fig-physical_meter title="Reference Model Example: Physical Meter" }
 
 When the EnMS discovers the physical meter, it must know for
 which Energy Object(s) it measures power or energy. This is the
@@ -418,43 +386,10 @@ This covers the example of device connected to wall Power Outlet,
 with a Physical Meter placed in the wall Power Outlet, because the previous device
 was not able to monitor its power, energy, demand.
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   Information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-                              ^                 ^   ^   ^ |
-                              |                 |   |   | |
-                             (e)               (d) (e)  (f)
-                              |                 |   |   | |
-                              |                 |   |     v
-    +--------------+   +----------------+   +------------------+
-    |              |   |                |   |                  |
-    | Power Supply |###| Physical Meter |###| Device/Component |
-    |              |   |                |   |                  |
-    +--------------+   +----------------+   +------------------+
+~~~ aasvg
+{::include art/physical_meter_new_device_ascii.txt}
 ~~~
-{: title="Reference Model Example: Physical Meter with New Device" #physical_meter_with_new_device}
+{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
 
 The most important issue in such a topology is to avoid the double counting
 in the Energy Management System (EnMS). The physical meter reports the Energy

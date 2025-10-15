@@ -1,0 +1,72 @@
+# RELAX NG Compact Schema for SVG 1.2 RFC
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+namespace svg = "http://www.w3.org/2000/svg"
+
+start =
+  element svg:svg {
+    attribute version { "1.2" }?,
+    attribute width { text }?,
+    attribute height { text }?,
+    attribute viewBox { text }?,
+    attribute xmlns { "http://www.w3.org/2000/svg" }?,
+    attribute role { text }?,
+    attribute aria-labelledby { text }?,
+    attribute xmlns:xlink { "http://www.w3.org/1999/xlink" }?,
+    element svg:title { text }?,
+    element svg:desc { text }?,
+    SvgContent
+  }
+
+SvgContent =
+  (element svg:g { CommonAttributes, SvgContent }
+   | element svg:defs { CommonAttributes, SvgContent }
+   | element svg:use { CommonAttributes,
+       attribute xlink:href { text }?, attribute transform { text }? }
+   | element svg:rect { CommonAttributes,
+       attribute x { text }?, attribute y { text }?,
+       attribute width { text }?, attribute height { text }?,
+       attribute rx { text }?, attribute ry { text }?,
+       attribute fill { text }?, attribute stroke { text }?,
+       attribute stroke-width { text }? }
+   | element svg:circle { CommonAttributes,
+       attribute cx { text }?, attribute cy { text }?,
+       attribute r { text }?, attribute fill { text }?, attribute stroke { text }?,
+       attribute stroke-width { text }? }
+   | element svg:ellipse { CommonAttributes,
+       attribute cx { text }?, attribute cy { text }?,
+       attribute rx { text }?, attribute ry { text }?,
+       attribute fill { text }?, attribute stroke { text }?,
+       attribute stroke-width { text }? }
+   | element svg:line { CommonAttributes,
+       attribute x1 { text }?, attribute y1 { text }?,
+       attribute x2 { text }?, attribute y2 { text }?,
+       attribute stroke { text }?, attribute stroke-width { text }?,
+       attribute marker-end { text }? }
+   | element svg:polyline { CommonAttributes,
+       attribute points { text }?, attribute fill { text }?,
+       attribute stroke { text }?, attribute stroke-width { text }?,
+       attribute marker-end { text }? }
+   | element svg:polygon { CommonAttributes,
+       attribute points { text }?, attribute fill { text }?,
+       attribute stroke { text }?, attribute stroke-width { text }? }
+   | element svg:path { CommonAttributes,
+       attribute d { text }?, attribute fill { text }?,
+       attribute stroke { text }?, attribute stroke-width { text }? }
+   | element svg:text { CommonAttributes,
+       attribute x { text }?, attribute y { text }?,
+       attribute dx { text }?, attribute dy { text }?,
+       attribute text-anchor { text }?, attribute font-size { text }?,
+       attribute font-family { text }?, attribute font-weight { text }?,
+       attribute fill { text }?, text }
+   | element svg:marker { CommonAttributes,
+       attribute id { text }?, attribute markerWidth { text }?,
+       attribute markerHeight { text }?, attribute refX { text }?,
+       attribute refY { text }?, attribute orient { text }?,
+       attribute markerUnits { text }?, SvgContent }
+   )*
+
+CommonAttributes =
+  attribute id { text }?,
+  attribute transform { text }?,
+  attribute style { text }?,
+  attribute class { text }?
