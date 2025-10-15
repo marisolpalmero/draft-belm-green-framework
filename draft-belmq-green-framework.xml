@@ -1051,7 +1051,7 @@ and Capability   Efficiency    |  /network related information:
 ]]></artwork>
             </artset>
           </figure>
-          <figure anchor="power_ethernet">
+          <figure anchor="fig-power_ethernet">
             <name>Reference Model Example: Power over Ethernet</name>
             <artwork><![CDATA[
 {: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
@@ -1070,7 +1070,7 @@ Energy Objects, the EnMS will double count the Energy consumed in the network.
 This covers the example of a switch port (Power Outlet) the provides energy
 with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
-~~~ text
+~~~ aasvg
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1126,9 +1126,151 @@ the controller might for example put the PoE End Point to a lower Power State.</
           <name>Single Power Supply with Multiple Devices</name>
           <t>This covers the example of a smart PDU that provides energy to a series
 of routers in a rack.</t>
-          <figure anchor="multiple_devices">
+          <figure anchor="fig-multiple_devices">
             <name>Reference Model Example: Single Power Supply with Multiple Devices</name>
-            <sourcecode type="text"><![CDATA[
+            <artset>
+              <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="784" width="568" viewBox="0 0 568 784" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                  <path d="M 8,32 L 8,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 8,400" fill="none" stroke="black"/>
+                  <path d="M 48,192 L 48,328" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 104,576" fill="none" stroke="black"/>
+                  <path d="M 120,408 L 120,432" fill="none" stroke="black"/>
+                  <path d="M 120,464 L 120,488" fill="none" stroke="black"/>
+                  <path d="M 152,408 L 152,432" fill="none" stroke="black"/>
+                  <path d="M 152,464 L 152,488" fill="none" stroke="black"/>
+                  <path d="M 176,192 L 176,328" fill="none" stroke="black"/>
+                  <path d="M 184,408 L 184,440" fill="none" stroke="black"/>
+                  <path d="M 184,456 L 184,464" fill="none" stroke="black"/>
+                  <path d="M 200,408 L 200,440" fill="none" stroke="black"/>
+                  <path d="M 200,456 L 200,488" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 256,144 L 256,328" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 328,560" fill="none" stroke="black"/>
+                  <path d="M 328,608 L 328,672" fill="none" stroke="black"/>
+                  <path d="M 328,704 L 328,768" fill="none" stroke="black"/>
+                  <path d="M 360,408 L 360,432" fill="none" stroke="black"/>
+                  <path d="M 360,464 L 360,488" fill="none" stroke="black"/>
+                  <path d="M 392,408 L 392,432" fill="none" stroke="black"/>
+                  <path d="M 392,464 L 392,488" fill="none" stroke="black"/>
+                  <path d="M 424,408 L 424,440" fill="none" stroke="black"/>
+                  <path d="M 424,456 L 424,464" fill="none" stroke="black"/>
+                  <path d="M 440,408 L 440,440" fill="none" stroke="black"/>
+                  <path d="M 440,456 L 440,488" fill="none" stroke="black"/>
+                  <path d="M 496,496 L 496,560" fill="none" stroke="black"/>
+                  <path d="M 496,608 L 496,672" fill="none" stroke="black"/>
+                  <path d="M 496,704 L 496,768" fill="none" stroke="black"/>
+                  <path d="M 560,32 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 560,336 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 8,32 L 560,32" fill="none" stroke="black"/>
+                  <path d="M 8,96 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 560,336" fill="none" stroke="black"/>
+                  <path d="M 8,400 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 104,496 L 224,496" fill="none" stroke="black"/>
+                  <path d="M 328,496 L 496,496" fill="none" stroke="black"/>
+                  <path d="M 328,560 L 496,560" fill="none" stroke="black"/>
+                  <path d="M 104,576 L 224,576" fill="none" stroke="black"/>
+                  <path d="M 328,608 L 496,608" fill="none" stroke="black"/>
+                  <path d="M 328,672 L 496,672" fill="none" stroke="black"/>
+                  <path d="M 328,704 L 496,704" fill="none" stroke="black"/>
+                  <path d="M 328,768 L 496,768" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="448,488 436,482.4 436,493.6" fill="black" transform="rotate(90,440,488)"/>
+                  <path class="jump" d="M 440,456 C 446,456 446,440 440,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 424,456 C 418,456 418,440 424,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="432,408 420,402.4 420,413.6" fill="black" transform="rotate(270,424,408)"/>
+                  <polygon class="arrowhead" points="400,408 388,402.4 388,413.6" fill="black" transform="rotate(270,392,408)"/>
+                  <polygon class="arrowhead" points="368,408 356,402.4 356,413.6" fill="black" transform="rotate(270,360,408)"/>
+                  <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"/>
+                  <polygon class="arrowhead" points="208,488 196,482.4 196,493.6" fill="black" transform="rotate(90,200,488)"/>
+                  <path class="jump" d="M 200,456 C 206,456 206,440 200,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 184,456 C 178,456 178,440 184,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="192,408 180,402.4 180,413.6" fill="black" transform="rotate(270,184,408)"/>
+                  <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"/>
+                  <polygon class="arrowhead" points="160,408 148,402.4 148,413.6" fill="black" transform="rotate(270,152,408)"/>
+                  <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"/>
+                  <polygon class="arrowhead" points="56,192 44,186.4 44,197.6" fill="black" transform="rotate(270,48,192)"/>
+                  <g class="text">
+                    <text x="168" y="68">(3)</text>
+                    <text x="216" y="68">Network</text>
+                    <text x="276" y="68">Domain</text>
+                    <text x="328" y="68">Level</text>
+                    <text x="16" y="132">(a)</text>
+                    <text x="152" y="132">(b)</text>
+                    <text x="288" y="132">(c)</text>
+                    <text x="40" y="148">Inventory</text>
+                    <text x="168" y="148">Monitor</text>
+                    <text x="264" y="148">-</text>
+                    <text x="352" y="148">DataSheets/DataBase</text>
+                    <text x="460" y="148">and/or</text>
+                    <text x="504" y="148">via</text>
+                    <text x="536" y="148">API</text>
+                    <text x="12" y="164">Of</text>
+                    <text x="60" y="164">identity</text>
+                    <text x="164" y="164">Energy</text>
+                    <text x="308" y="164">Metadata</text>
+                    <text x="360" y="164">and</text>
+                    <text x="400" y="164">other</text>
+                    <text x="492" y="164">device/component</text>
+                    <text x="16" y="180">and</text>
+                    <text x="76" y="180">Capability</text>
+                    <text x="180" y="180">Efficiency</text>
+                    <text x="308" y="180">/network</text>
+                    <text x="376" y="180">related</text>
+                    <text x="460" y="180">information:</text>
+                    <text x="328" y="212">.Power/Energy</text>
+                    <text x="416" y="212">related</text>
+                    <text x="480" y="212">metrics</text>
+                    <text x="328" y="228">information</text>
+                    <text x="304" y="244">.Origin</text>
+                    <text x="348" y="244">of</text>
+                    <text x="388" y="244">Energy</text>
+                    <text x="432" y="244">Mix</text>
+                    <text x="304" y="260">.Carbon</text>
+                    <text x="360" y="260">aware</text>
+                    <text x="408" y="260">based</text>
+                    <text x="444" y="260">on</text>
+                    <text x="492" y="260">location</text>
+                    <text x="80" y="372">(2)</text>
+                    <text x="140" y="372">controller</text>
+                    <text x="236" y="372">(collection,</text>
+                    <text x="320" y="372">compute</text>
+                    <text x="368" y="372">and</text>
+                    <text x="432" y="372">aggregate?)</text>
+                    <text x="120" y="452">(d)</text>
+                    <text x="152" y="452">(e)</text>
+                    <text x="192" y="452">f</text>
+                    <text x="360" y="452">(d)</text>
+                    <text x="392" y="452">(e)</text>
+                    <text x="432" y="452">f</text>
+                    <text x="464" y="452">...</text>
+                    <text x="488" y="452">N</text>
+                    <text x="136" y="532">Power</text>
+                    <text x="188" y="532">Supply</text>
+                    <text x="276" y="532">############</text>
+                    <text x="404" y="532">Device/Component</text>
+                    <text x="480" y="532">1</text>
+                    <text x="140" y="548">(Smart</text>
+                    <text x="188" y="548">PDU)</text>
+                    <text x="248" y="548">#</text>
+                    <text x="248" y="564">#</text>
+                    <text x="248" y="580">#</text>
+                    <text x="248" y="596">#</text>
+                    <text x="248" y="612">#</text>
+                    <text x="248" y="628">#</text>
+                    <text x="284" y="644">##########</text>
+                    <text x="404" y="644">Device/Component</text>
+                    <text x="480" y="644">2</text>
+                    <text x="272" y="660">#</text>
+                    <text x="272" y="676">#</text>
+                    <text x="272" y="692">#</text>
+                    <text x="272" y="708">#</text>
+                    <text x="272" y="724">#</text>
+                    <text x="296" y="740">#######</text>
+                    <text x="404" y="740">Device/Component</text>
+                    <text x="480" y="740">N</text>
+                  </g>
+                </svg>
+              </artwork>
+              <artwork type="ascii-art"><![CDATA[
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1176,14 +1318,153 @@ and Capability   Efficiency    |  /network related information:
                                  #######| Device/Component N |
                                         |                    |
                                         +--------------------+
-]]></sourcecode>
+]]></artwork>
+            </artset>
           </figure>
         </section>
         <section anchor="multiple-power-supplies-with-single-device">
           <name>Multiple Power Supplies with Single Device</name>
-          <figure anchor="multiple_power">
-            <name>Reference Model Example: Multiple Power Supplies with Single Device</name>
-            <sourcecode type="text"><![CDATA[
+          <figure anchor="fig-multiple_power">
+            <name>eference Model Example: Multiple Power Supplies with Single Device</name>
+            <artset>
+              <artwork type="svg"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="576" width="576" viewBox="0 0 576 576" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+                  <path d="M 8,32 L 8,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 8,400" fill="none" stroke="black"/>
+                  <path d="M 32,496 L 32,560" fill="none" stroke="black"/>
+                  <path d="M 48,192 L 48,328" fill="none" stroke="black"/>
+                  <path d="M 56,408 L 56,432" fill="none" stroke="black"/>
+                  <path d="M 56,464 L 56,488" fill="none" stroke="black"/>
+                  <path d="M 88,408 L 88,432" fill="none" stroke="black"/>
+                  <path d="M 88,464 L 88,488" fill="none" stroke="black"/>
+                  <path d="M 120,408 L 120,440" fill="none" stroke="black"/>
+                  <path d="M 120,456 L 120,464" fill="none" stroke="black"/>
+                  <path d="M 136,408 L 136,440" fill="none" stroke="black"/>
+                  <path d="M 136,456 L 136,488" fill="none" stroke="black"/>
+                  <path d="M 168,496 L 168,560" fill="none" stroke="black"/>
+                  <path d="M 176,192 L 176,328" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 224,560" fill="none" stroke="black"/>
+                  <path d="M 256,144 L 256,328" fill="none" stroke="black"/>
+                  <path d="M 256,408 L 256,432" fill="none" stroke="black"/>
+                  <path d="M 256,464 L 256,488" fill="none" stroke="black"/>
+                  <path d="M 288,408 L 288,432" fill="none" stroke="black"/>
+                  <path d="M 288,464 L 288,488" fill="none" stroke="black"/>
+                  <path d="M 320,408 L 320,440" fill="none" stroke="black"/>
+                  <path d="M 320,456 L 320,464" fill="none" stroke="black"/>
+                  <path d="M 336,408 L 336,440" fill="none" stroke="black"/>
+                  <path d="M 336,456 L 336,488" fill="none" stroke="black"/>
+                  <path d="M 376,496 L 376,560" fill="none" stroke="black"/>
+                  <path d="M 432,496 L 432,560" fill="none" stroke="black"/>
+                  <path d="M 464,408 L 464,432" fill="none" stroke="black"/>
+                  <path d="M 464,464 L 464,488" fill="none" stroke="black"/>
+                  <path d="M 496,408 L 496,432" fill="none" stroke="black"/>
+                  <path d="M 496,464 L 496,488" fill="none" stroke="black"/>
+                  <path d="M 528,408 L 528,440" fill="none" stroke="black"/>
+                  <path d="M 528,456 L 528,464" fill="none" stroke="black"/>
+                  <path d="M 544,408 L 544,440" fill="none" stroke="black"/>
+                  <path d="M 544,456 L 544,488" fill="none" stroke="black"/>
+                  <path d="M 560,32 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 560,336 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 568,496 L 568,560" fill="none" stroke="black"/>
+                  <path d="M 8,32 L 560,32" fill="none" stroke="black"/>
+                  <path d="M 8,96 L 560,96" fill="none" stroke="black"/>
+                  <path d="M 8,336 L 560,336" fill="none" stroke="black"/>
+                  <path d="M 8,400 L 560,400" fill="none" stroke="black"/>
+                  <path d="M 32,496 L 168,496" fill="none" stroke="black"/>
+                  <path d="M 224,496 L 376,496" fill="none" stroke="black"/>
+                  <path d="M 432,496 L 568,496" fill="none" stroke="black"/>
+                  <path d="M 32,560 L 168,560" fill="none" stroke="black"/>
+                  <path d="M 224,560 L 376,560" fill="none" stroke="black"/>
+                  <path d="M 432,560 L 568,560" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="552,488 540,482.4 540,493.6" fill="black" transform="rotate(90,544,488)"/>
+                  <path class="jump" d="M 544,456 C 550,456 550,440 544,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 528,456 C 522,456 522,440 528,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="536,408 524,402.4 524,413.6" fill="black" transform="rotate(270,528,408)"/>
+                  <polygon class="arrowhead" points="504,408 492,402.4 492,413.6" fill="black" transform="rotate(270,496,408)"/>
+                  <polygon class="arrowhead" points="472,408 460,402.4 460,413.6" fill="black" transform="rotate(270,464,408)"/>
+                  <polygon class="arrowhead" points="344,488 332,482.4 332,493.6" fill="black" transform="rotate(90,336,488)"/>
+                  <path class="jump" d="M 336,456 C 342,456 342,440 336,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 320,456 C 314,456 314,440 320,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="328,408 316,402.4 316,413.6" fill="black" transform="rotate(270,320,408)"/>
+                  <polygon class="arrowhead" points="296,408 284,402.4 284,413.6" fill="black" transform="rotate(270,288,408)"/>
+                  <polygon class="arrowhead" points="264,408 252,402.4 252,413.6" fill="black" transform="rotate(270,256,408)"/>
+                  <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"/>
+                  <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"/>
+                  <polygon class="arrowhead" points="144,488 132,482.4 132,493.6" fill="black" transform="rotate(90,136,488)"/>
+                  <path class="jump" d="M 136,456 C 142,456 142,440 136,440" fill="none" stroke="black"/>
+                  <path class="jump" d="M 120,456 C 114,456 114,440 120,440" fill="none" stroke="black"/>
+                  <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"/>
+                  <polygon class="arrowhead" points="96,408 84,402.4 84,413.6" fill="black" transform="rotate(270,88,408)"/>
+                  <polygon class="arrowhead" points="64,408 52,402.4 52,413.6" fill="black" transform="rotate(270,56,408)"/>
+                  <polygon class="arrowhead" points="56,192 44,186.4 44,197.6" fill="black" transform="rotate(270,48,192)"/>
+                  <g class="text">
+                    <text x="168" y="68">(3)</text>
+                    <text x="216" y="68">Network</text>
+                    <text x="276" y="68">Domain</text>
+                    <text x="328" y="68">Level</text>
+                    <text x="16" y="132">(a)</text>
+                    <text x="152" y="132">(b)</text>
+                    <text x="288" y="132">(c)</text>
+                    <text x="40" y="148">Inventory</text>
+                    <text x="168" y="148">Monitor</text>
+                    <text x="264" y="148">-</text>
+                    <text x="352" y="148">DataSheets/DataBase</text>
+                    <text x="460" y="148">and/or</text>
+                    <text x="504" y="148">via</text>
+                    <text x="536" y="148">API</text>
+                    <text x="12" y="164">Of</text>
+                    <text x="60" y="164">identity</text>
+                    <text x="164" y="164">Energy</text>
+                    <text x="308" y="164">Metadata</text>
+                    <text x="360" y="164">and</text>
+                    <text x="400" y="164">other</text>
+                    <text x="492" y="164">device/component</text>
+                    <text x="16" y="180">and</text>
+                    <text x="76" y="180">Capability</text>
+                    <text x="180" y="180">Efficiency</text>
+                    <text x="308" y="180">/network</text>
+                    <text x="376" y="180">related</text>
+                    <text x="460" y="180">information:</text>
+                    <text x="328" y="212">.Power/Energy</text>
+                    <text x="416" y="212">related</text>
+                    <text x="480" y="212">metrics</text>
+                    <text x="328" y="228">information</text>
+                    <text x="304" y="244">.Origin</text>
+                    <text x="348" y="244">of</text>
+                    <text x="388" y="244">Energy</text>
+                    <text x="432" y="244">Mix</text>
+                    <text x="304" y="260">.Carbon</text>
+                    <text x="360" y="260">aware</text>
+                    <text x="408" y="260">based</text>
+                    <text x="444" y="260">on</text>
+                    <text x="492" y="260">location</text>
+                    <text x="80" y="372">(2)</text>
+                    <text x="140" y="372">controller</text>
+                    <text x="236" y="372">(collection,</text>
+                    <text x="320" y="372">compute</text>
+                    <text x="368" y="372">and</text>
+                    <text x="432" y="372">aggregate?)</text>
+                    <text x="56" y="452">(d)</text>
+                    <text x="88" y="452">(e)</text>
+                    <text x="128" y="452">f</text>
+                    <text x="256" y="452">(d)</text>
+                    <text x="288" y="452">(e)</text>
+                    <text x="328" y="452">f</text>
+                    <text x="464" y="452">(d)</text>
+                    <text x="496" y="452">(e)</text>
+                    <text x="536" y="452">f</text>
+                    <text x="64" y="532">Power</text>
+                    <text x="116" y="532">Supply</text>
+                    <text x="152" y="532">1</text>
+                    <text x="196" y="532">######</text>
+                    <text x="300" y="532">Device/Component</text>
+                    <text x="404" y="532">######</text>
+                    <text x="464" y="532">Power</text>
+                    <text x="516" y="532">Supply</text>
+                    <text x="552" y="532">2</text>
+                  </g>
+                </svg>
+              </artwork>
+              <artwork type="ascii-art"><![CDATA[
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -1218,7 +1499,8 @@ and Capability   Efficiency    |  /network related information:
    | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
    |                |      |                  |      |                |
    +----------------+      +------------------+      +----------------+
-]]></sourcecode>
+]]></artwork>
+            </artset>
           </figure>
         </section>
       </section>
@@ -1383,6 +1665,51 @@ Power States. TO BE COMPLETED</t>
           </ul>
         </section>
       </section>
+    </section>
+    <section anchor="interfaces-usage-of-the-framework">
+      <name>Interfaces Usage Of the Framework</name>
+      <t>The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.</t>
+      <figure anchor="green-uc-interfaces-usage">
+        <name>Use Cases Interfaces Usage</name>
+        <artwork><![CDATA[
++--+---------------------------+-------------------------------------+
+|UC| Use Case                  | Interfaces Usages                   |
++--+---------------------------+-------------------------------------+
+|1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
+|  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
+|2 | Selective Reduction of    | (e) -> (b) -> (c) -> (f)            |
+|  | Energy Consumption        | monitor -> metrics -> control       |
+|3 | Reporting on Lifecycle    | (c) -> (g)                          |
+|  | Management                | metrics / metadata -> API or report |
+|4 | Real-time Energy Metering | (b) -> (c)                          |
+|  | of Virtualised NFs        | monitor -> metrics                  |
+|5 | Indirect Energy Monitoring| (b) -> (f)                          |
+|  | & Control                 | monitor aggregate -> control        |
+|6 | Consideration of Other    | (c) -> (g) -> (b)                   |
+|  | Domains for End-to-End    | metrics -> cross-domain API ->      |
+|  | Metrics                   | monitoring                          |
+|7 | Dynamic Adjustment via    | (b) -> (f) -> (c)                   |
+|  | Traffic Levels            | observe -> control -> update metrics|
+|8 | Video Streaming Use Case  | (b) -> (c) -> (f)                   |
+|  |                           | monitor -> metrics -> control       |
+|9 | WLAN Network Energy Saving| (b) -> (f)                          |
+|  |                           | monitor -> control                  |
+|10| Fixed Network Energy      | (b) -> (f)                          |
+|  | Saving                    | monitor -> control                  |
+|11| Energy Efficiency Network | (a) -> (b) -> (c) -> (f) -> (g)     |
+|  | Management                | discover -> monitor -> metrics ->   |
+|  |                           | control -> API                      |
+|12| ISAC-enabled Energy-Aware | ---                                 |
+|  | Smart City Traffic Mgmt   | not clearly specified               |
+|13| Double Accounting Open    | (c) -> (g)                          |
+|  | Issue                     | metrics / metadata -> API           |
+|14| Energy Efficiency Under   | (b) -> (f)                          |
+|  | Power Shortage            | monitor -> control                  |
+|15| Energy-Efficient Mgmt of  | (b) -> (c) -> (f)                   |
+|  | AI Training Workloads     | monitor -> metrics -> control       |
++--+---------------------------+-------------------------------------+
+]]></artwork>
+      </figure>
     </section>
     <section anchor="conventions-and-definitions">
       <name>Conventions and Definitions</name>
@@ -1625,258 +1952,274 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).</t>
     </references>
   </back>
   <!-- ##markdown-source:
-H4sIAMGi72gAA+1923LcxrXoO76iN/VgMp4ZirLjxNx7x6Yoyqa3KCoitV2p
-lOPqwfTMIMIACBogPZGU8j+c85Kqc6rOt5xP8ZecdesLMDO8iExOHsiKIxJA
-d69eve69utdwOEyarMnNvtp6XuuFuSzrt2pa1uqoMPVsqY6m0yzNTJEu1Yku
-9MwsTNFsJXo8rs3FLRtNyrSAr/fVpNbTZjg2+eIvw1ltTDGcum6GuW6MbZIU
-/pmV9XJfZcW0TGyji8mPOi8LaN7UrUmSrKrpV9s8efz4y8dPEl0bDRCdVqbW
-TVYWVkGbDgCXM3j/jWmarJip10ZPlhHUQwd1o16aBmGBr7aSt5f7iVJD5SGk
-vww14V/9ZOlPqy+gnaXfF37sxLbjRWYtgNUsK5jD8dH58yQFIE1hW+vmlJYT
-aLyv2mY6/G1SZfvqj02ZDpQt66Y2Uwu/LRf4yw9JcmGK1iBss7psq9tPTCmG
-ZAt/Xegsh19pMb7OTDMdlTV9o+t0Di/mTVPZ/d1d/A4fZRdm5D7bxQe747q8
-tGaXetjFlrOsmbdjaLvQdWbLvNL5wtTlblj8/tpjK17+zohx6xH3Osqu6mf3
-CvoazZtFvgXY21efJYlum3lZ7yeJGsLYSk3bPGcSfWqKMmvUYa4za+gdzFQX
-2V+JtPbV0YWpl80c8X366ow+MIzEMbX82vgPhmVlR4VpVgd50WZWnYzUIVBF
-DVRr1wx0bnIzLYss1fEgObRcZLPW5KPUNV60dZbn5deNbwHvFqujfqcL9SIr
-JuNcT9YMeJDn6jkST1rGI/5ZF6NcWn2KS/81UNjI4Ef9AU54ydQrXrM1YxwX
-E1MZ+D/gjGgMWWuirK9n+Gz9DI4WWW7UWWOquS7WdH9a62Jm4p4NthhZbvF1
-Se/X9/37rFDft2s6/bbVlybrrDSge3TZfj2nN9RdUpT1AhpcAGcmKLnCX9Du
-/OTlPnUgIve4aExdUP86p5WGPhYtLh0+U28K+P+B2oJ2kSwBYIuUBNwWdTYB
-ltlXIAQfD0EKUve6nhlgouPzN8NzkAfYK2CbOz0Zffb548cEz/HR0dHe48f7
-nUbIeMB3mTHmpyova2R0Y4jR4e/dRWkb6BHgOLa2NaM/2+qrqi3axdjU//n5
-3t4Xv/ntr+M5ns+NOiA2yxpChXqWEfS6XqpySjDAUoKo1vXEAhLqBbOB4038
-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
-rHoMdHSqAAA=
+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
+LC6NP2A/T+mKDvsGefjsieSqo3v690P87EW1eG6t6pq6LvgQWwaPYbWkB5dB
+z13Ria41CvMxrMw6bfn/iZ6MxxYwXGEV5nnMkQU6WITnhu4V538tqXqvOHe+
+/1MU58N7xZn+7hXny6D55yjOK59czxu4PM9ru+eWsrFu4hO8xbiXtLWewY/V
+Zfu3VePVzTX5NV7CW0NwKxyISn8z9b2r0GyoB21z4Gd84edcz39mkfDhEtOh
+++6tYflgszQM3bEIGmhMB2dMo/n4Id4T4dVIORtyXqR82mFUNKgAuatc0jxM
+iVh3ZoOP87bNFtF/TdA+oqjuLK1rPAzFt4xLEFvUvSUq4SwLuhZc9Gm67IFv
+bxvJrQI4PF4pBbLUnsJAOeJD1+oNoKmgHBKtXOpDRMp36k5KJMrrzvYOhHqt
+2WHPaOEbMHD7wgbT87Ydn20O8Bpi1M7Eaq32pExkdWk24/BytAPUMrCox2UK
+dOxv+AVcbYb675bova3bQFiVXjEKtj3YIuJQmK2GWWd8XzYImXimq7hnc5Bw
+qB5mSg627pXia0JzrxT/f6wU33uT+e9eKb4Mmn+IUhyovMtjrteHA61zBaj+
+x3azUNFdanWJFvxxo4Xq7fpmt4qK3yIm3g1qtzKzOxFxlJcHNkt7uekmi2iX
+g36DUT8a4BuiqaWwIrf8WVu94EoFdVmX4Fzsp23VkrzKqNfhAfu2eppbjYb1
+ykCj6ZE0QhWw7RBc1jXVGl2ztTbd7uhiON8b/tDR08hLbjTeXLYWaqs32lu9
+vIf1rJ0GTE59yrRFp7zTS0n57GG5DjzpPW3whoZizvphCxepXFJJaJRfivG4
+rVNHnRnHcvOa4ZoNuhUZsOYc31kZ6rs08bW/Xj9E0DmcHeFJcu/9X/L7n10G
+k7j+Y+v4bwVPoo5/W/X7atw9gB/uU39XAbvp+fK+lj5NVA2tIkrgDq50ohx8
+Xa3uA80SZ2IsXengXvEHvV8+fY2Z1CeUu8zzQoLg+0xd3jm2sSQmmrm9a7w1
+sYF6llam7lhaPK2IpoXZ9URDnTT1UVrhigU3X4jjv404EAAD9QfYSJyhb6fW
+izrdMeRhqn8pJlm7P7I5+Cb+4B49ZxKd8v0PLccDWTFHtoKN3Dh2laGEhcwQ
+12zsrbomEZcVM85dlrCUq8G70e5NnWtCc2/q3Js696aOJeN7U2c9btrdXmrq
+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
+Rf8XxLy0gG61AAA=
 
 -->
 

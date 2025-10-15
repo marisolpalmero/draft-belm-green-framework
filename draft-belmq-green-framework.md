@@ -445,7 +445,7 @@ of routers in a rack.
 ~~~ aasvg
 {::include art/multiple_power_ascii.txt}
 ~~~
-{: #fig-multiple_power title="eference Model Example: Multiple Power Supplies with Single Device" }
+{: #fig-multiple_power title="Reference Model Example: Multiple Power Supplies with Single Device" }
 
 
 ## Relationships
@@ -585,6 +585,12 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 # Interfaces Usage Of the Framework
 
 The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.
+
+
+~~~ aasvg
+{::include art/table_UC_alignment.txt}
+~~~
+{: #fig-table_UC_alignment title="Use Cases Interfaces Usage" }
 
 ~~~~
 +--+---------------------------+-------------------------------------+
