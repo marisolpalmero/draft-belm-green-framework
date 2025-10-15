@@ -105,8 +105,9 @@ Table of Contents
        4.1.1.  Basic Power Supply
        4.1.2.  Physical Meter with Legacy Device
        4.1.3.  Physical Meter with New Device
-       4.1.4.  Single Power Supply with Multiple Devices
-       4.1.5.  Multiple Power Supplies with Single Device
+       4.1.4.  Power over Ethernet
+       4.1.5.  Single Power Supply with Multiple Devices
+       4.1.6.  Multiple Power Supplies with Single Device
      4.2.  Relationships
      4.3.  Power State Set
      4.4.  Power State Set Mapping and Intent
@@ -631,61 +632,57 @@ Table of Contents
 
     Figure 4: Reference Model Example: Physical Meter with New Device
 
-{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
+   The most important issue in such a topology is to avoid the double
+   counting in the Energy Management System (EnMS).  The physical meter
+   reports the Energy transmitted, while the connected Device/Component
+   might also report its consumed Energy.  Those two values are
+   identical.  Without the knowledge of this specific topology, that is
+   the Metering Relationship between the two Energy Objects, the EnMS
+   will double count the Energy consumed in the network.
 
+4.1.4.  Power over Ethernet
 
-The most important issue in such a topology is to avoid the double counting
-in the Energy Management System (EnMS). The physical meter reports the Energy
-transmitted, while the connected Device/Component might also report its consumed
-Energy. Those two values are identical. Without the knowledge
-of this specific topology, that is the Metering Relationship between the two
-Energy Objects, the EnMS will double count the Energy consumed in the network.
+   This covers the example of a switch port (Power Outlet) the provides
+   energy with Power over Ethernet (PoE) to a PoE end points (camera,
+   access port, etc.).
 
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |                  (3) Network Domain Level                          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
 
+  (a)              (b)              (c)
+  Inventory        Monitor       +- DataSheets/DataBase and/or via API
+  Of identity      Energy        |  Metadata and other device/component
+  and Capability   Efficiency    |  /network related information:
+       ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
+       |               |         |
+       |               |         |
+       |               |         |
+       |               |         v
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |       (2) controller (collection, compute and aggregate?)          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+                ^   ^   ^ |                  ^   ^   ^ |
+                |   |   | |                  |   |   | |
+               (d) (e)  (f)                 (d) (e)  (f)
+                |   |   | |                  |   |   | |
+                |   |     v                  |   |     v
+              +--------------+            +----------------+
+              |              |            |                |
+              | Device       |############| PoE End Point  |
+              | (switch)     |            |                |
+              |              |            |                |
+              +--------------+            +----------------+
 
-### Power over Ethernet
-
-This covers the example of a switch port (Power Outlet) the provides energy
-with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
-
-~~~ aasvg
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-              ^   ^   ^ |                  ^   ^   ^ |
-              |   |   | |                  |   |   | |
-             (d) (e)  (f)                 (d) (e)  (f)
-              |   |   | |                  |   |   | |
-              |   |     v                  |   |     v
-            +--------------+            +----------------+
-            |              |            |                |
-            | Device       |############| PoE End Point  |
-            | (switch)     |            |                |
-            |              |            |                |
-            +--------------+            +----------------+
-
-        Figure 5: Reference Model Example: Power over Ethernet
+          Figure 5: Reference Model Example: Power over Ethernet
 
    Double counting is also an issue in such an example.  The switch
    port, via its Power Outlet, reports the Energy transmitted, while the
@@ -709,7 +706,7 @@ and Capability   Efficiency    |  /network related information:
    controller might for example put the PoE End Point to a lower Power
    State.
 
-4.1.4.  Single Power Supply with Multiple Devices
+4.1.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
@@ -765,7 +762,7 @@ and Capability   Efficiency    |  /network related information:
        Figure 6: Reference Model Example: Single Power Supply with
                              Multiple Devices
 
-4.1.5.  Multiple Power Supplies with Single Device
+4.1.6.  Multiple Power Supplies with Single Device
 
  +--------------------------------------------------------------------+
  |                                                                    |
