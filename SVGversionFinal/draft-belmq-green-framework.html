@@ -2444,7 +2444,7 @@ of routers in a rack.<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
           <h4 id="name-multiple-power-supplies-wit">
 <a href="#section-4.1.5" class="section-number selfRef">4.1.5. </a><a href="#name-multiple-power-supplies-wit" class="section-name selfRef">Multiple Power Supplies with Single Device</a>
           </h4>
-<span id="name-eference-model-example-mult"></span><div id="fig-multiple_power">
+<span id="name-reference-model-example-mul"></span><div id="fig-multiple_power">
 <figure id="figure-7">
             <div id="section-4.1.5-1.1">
               <div class="alignLeft art-svg artwork" id="section-4.1.5-1.1.1">
@@ -2587,7 +2587,7 @@ of routers in a rack.<a href="#section-4.1.4-1" class="pilcrow">¶</a></p>
 </div>
 </div>
 <figcaption><a href="#figure-7" class="selfRef">Figure 7</a>:
-<a href="#name-eference-model-example-mult" class="selfRef">eference Model Example: Multiple Power Supplies with Single Device</a>
+<a href="#name-reference-model-example-mul" class="selfRef">Reference Model Example: Multiple Power Supplies with Single Device</a>
             </figcaption></figure>
 </div>
 </section>
@@ -2787,9 +2787,270 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-interfaces-usage-of-the-fra" class="section-name selfRef">Interfaces Usage Of the Framework</a>
       </h2>
 <p id="section-5-1">The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.<a href="#section-5-1" class="pilcrow">¶</a></p>
-<span id="name-use-cases-interfaces-usage"></span><div id="green-uc-interfaces-usage">
+<span id="name-use-cases-interfaces-usage"></span><div id="fig-table_UC_alignment">
 <figure id="figure-8">
-        <div class="alignLeft art-text artwork" id="section-5-2.1">
+        <div id="section-5-2.1">
+          <div class="alignLeft art-svg artwork" id="section-5-2.1.1">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="608" width="592" viewBox="0 0 592 608" class="diagram" text-anchor="middle" font-family="monospace" font-size="13px" stroke-linecap="round">
+              <path d="M 8,32 L 8,592" fill="none" stroke="black"></path>
+              <path d="M 32,32 L 32,592" fill="none" stroke="black"></path>
+              <path d="M 256,32 L 256,592" fill="none" stroke="black"></path>
+              <path d="M 560,160 L 560,592" fill="none" stroke="black"></path>
+              <path d="M 584,32 L 584,80" fill="none" stroke="black"></path>
+              <path d="M 8,32 L 584,32" fill="none" stroke="black"></path>
+              <path d="M 8,64 L 584,64" fill="none" stroke="black"></path>
+              <path d="M 432,80 L 448,80" fill="none" stroke="black"></path>
+              <path d="M 272,464 L 288,464" fill="none" stroke="black"></path>
+              <path d="M 8,592 L 560,592" fill="none" stroke="black"></path>
+              <polygon class="arrowhead" points="456,80 444,74.4 444,85.6" fill="black" transform="rotate(0,448,80)"></polygon>
+              <g class="text">
+                <text x="20" y="52">UC</text>
+                <text x="56" y="52">Use</text>
+                <text x="92" y="52">Case</text>
+                <text x="308" y="52">Interfaces</text>
+                <text x="380" y="52">Usages</text>
+                <text x="16" y="84">1</text>
+                <text x="88" y="84">Incremental</text>
+                <text x="184" y="84">Application</text>
+                <text x="280" y="84">(c)</text>
+                <text x="304" y="84">;</text>
+                <text x="328" y="84">(c)</text>
+                <text x="368" y="84">-&gt;(b)</text>
+                <text x="400" y="84">;</text>
+                <text x="420" y="84">(a</text>
+                <text x="464" y="84">(d)</text>
+                <text x="504" y="84">-&gt;(b)</text>
+                <text x="552" y="84">-&gt;(e)</text>
+                <text x="52" y="100">of</text>
+                <text x="80" y="100">the</text>
+                <text x="120" y="100">GREEN</text>
+                <text x="184" y="100">Framework</text>
+                <text x="280" y="100">1,2</text>
+                <text x="304" y="100">:</text>
+                <text x="344" y="100">legacy;</text>
+                <text x="384" y="100">3</text>
+                <text x="400" y="100">:</text>
+                <text x="432" y="100">GREEN</text>
+                <text x="468" y="100">WG</text>
+                <text x="512" y="100">support</text>
+                <text x="560" y="100">|</text>
+                <text x="16" y="116">2</text>
+                <text x="80" y="116">Selective</text>
+                <text x="160" y="116">Reduction</text>
+                <text x="212" y="116">of</text>
+                <text x="280" y="116">(e)</text>
+                <text x="320" y="116">-&gt;(b)</text>
+                <text x="368" y="116">-&gt;(c)</text>
+                <text x="416" y="116">-&gt;(f)</text>
+                <text x="536" y="116">|</text>
+                <text x="68" y="132">Energy</text>
+                <text x="144" y="132">Consumption</text>
+                <text x="296" y="132">monitor</text>
+                <text x="340" y="132">-&gt;</text>
+                <text x="384" y="132">metrics</text>
+                <text x="428" y="132">-&gt;</text>
+                <text x="472" y="132">control</text>
+                <text x="560" y="132">|</text>
+                <text x="16" y="148">3</text>
+                <text x="80" y="148">Reporting</text>
+                <text x="132" y="148">on</text>
+                <text x="184" y="148">Lifecycle</text>
+                <text x="280" y="148">(c)</text>
+                <text x="320" y="148">-&gt;(g)</text>
+                <text x="552" y="148">|</text>
+                <text x="84" y="164">Management</text>
+                <text x="296" y="164">metrics</text>
+                <text x="336" y="164">/</text>
+                <text x="380" y="164">metadata</text>
+                <text x="428" y="164">-&gt;</text>
+                <text x="456" y="164">API</text>
+                <text x="484" y="164">or</text>
+                <text x="524" y="164">report</text>
+                <text x="16" y="180">4</text>
+                <text x="80" y="180">Real-time</text>
+                <text x="148" y="180">Energy</text>
+                <text x="212" y="180">Metering</text>
+                <text x="280" y="180">(b)</text>
+                <text x="308" y="180">-&gt;</text>
+                <text x="336" y="180">(c)</text>
+                <text x="52" y="196">of</text>
+                <text x="112" y="196">Virtualised</text>
+                <text x="176" y="196">NFs</text>
+                <text x="296" y="196">monitor</text>
+                <text x="340" y="196">-&gt;</text>
+                <text x="384" y="196">metrics</text>
+                <text x="16" y="212">5</text>
+                <text x="76" y="212">Indirect</text>
+                <text x="140" y="212">Energy</text>
+                <text x="212" y="212">Monitoring</text>
+                <text x="280" y="212">(b)</text>
+                <text x="308" y="212">-&gt;</text>
+                <text x="336" y="212">(f)</text>
+                <text x="48" y="228">&amp;</text>
+                <text x="88" y="228">Control</text>
+                <text x="296" y="228">monitor</text>
+                <text x="368" y="228">aggregate</text>
+                <text x="420" y="228">-&gt;</text>
+                <text x="464" y="228">control</text>
+                <text x="16" y="244">6</text>
+                <text x="96" y="244">Consideration</text>
+                <text x="164" y="244">of</text>
+                <text x="200" y="244">Other</text>
+                <text x="280" y="244">(c)</text>
+                <text x="308" y="244">-&gt;</text>
+                <text x="336" y="244">(g)</text>
+                <text x="364" y="244">-&gt;</text>
+                <text x="392" y="244">(b)</text>
+                <text x="72" y="260">Domains</text>
+                <text x="120" y="260">for</text>
+                <text x="180" y="260">End-to-End</text>
+                <text x="296" y="260">metrics</text>
+                <text x="340" y="260">-&gt;</text>
+                <text x="404" y="260">cross-domain</text>
+                <text x="472" y="260">API</text>
+                <text x="500" y="260">-&gt;</text>
+                <text x="72" y="276">Metrics</text>
+                <text x="308" y="276">monitoring</text>
+                <text x="16" y="292">7</text>
+                <text x="72" y="292">Dynamic</text>
+                <text x="148" y="292">Adjustment</text>
+                <text x="208" y="292">via</text>
+                <text x="280" y="292">(b)</text>
+                <text x="308" y="292">-&gt;</text>
+                <text x="336" y="292">(f)</text>
+                <text x="364" y="292">-&gt;</text>
+                <text x="392" y="292">(c)</text>
+                <text x="72" y="308">Traffic</text>
+                <text x="132" y="308">Levels</text>
+                <text x="296" y="308">observe</text>
+                <text x="340" y="308">-&gt;</text>
+                <text x="384" y="308">control</text>
+                <text x="428" y="308">-&gt;</text>
+                <text x="468" y="308">update</text>
+                <text x="528" y="308">metrics</text>
+                <text x="16" y="324">8</text>
+                <text x="64" y="324">Video</text>
+                <text x="128" y="324">Streaming</text>
+                <text x="184" y="324">Use</text>
+                <text x="220" y="324">Case</text>
+                <text x="280" y="324">(b)</text>
+                <text x="308" y="324">-&gt;</text>
+                <text x="336" y="324">(c)</text>
+                <text x="364" y="324">-&gt;</text>
+                <text x="392" y="324">(f)</text>
+                <text x="296" y="340">monitor</text>
+                <text x="340" y="340">-&gt;</text>
+                <text x="384" y="340">metrics</text>
+                <text x="428" y="340">-&gt;</text>
+                <text x="472" y="340">control</text>
+                <text x="16" y="356">9</text>
+                <text x="60" y="356">WLAN</text>
+                <text x="112" y="356">Network</text>
+                <text x="172" y="356">Energy</text>
+                <text x="228" y="356">Saving</text>
+                <text x="280" y="356">(b)</text>
+                <text x="308" y="356">-&gt;</text>
+                <text x="336" y="356">(f)</text>
+                <text x="296" y="372">monitor</text>
+                <text x="340" y="372">-&gt;</text>
+                <text x="384" y="372">control</text>
+                <text x="20" y="388">10</text>
+                <text x="64" y="388">Fixed</text>
+                <text x="120" y="388">Network</text>
+                <text x="180" y="388">Energy</text>
+                <text x="280" y="388">(b)</text>
+                <text x="308" y="388">-&gt;</text>
+                <text x="336" y="388">(f)</text>
+                <text x="68" y="404">Saving</text>
+                <text x="296" y="404">monitor</text>
+                <text x="340" y="404">-&gt;</text>
+                <text x="384" y="404">control</text>
+                <text x="20" y="420">11</text>
+                <text x="68" y="420">Energy</text>
+                <text x="140" y="420">Efficiency</text>
+                <text x="216" y="420">Network</text>
+                <text x="280" y="420">(a)</text>
+                <text x="308" y="420">-&gt;</text>
+                <text x="336" y="420">(b)</text>
+                <text x="364" y="420">-&gt;</text>
+                <text x="392" y="420">(c)</text>
+                <text x="420" y="420">-&gt;</text>
+                <text x="448" y="420">(f)</text>
+                <text x="476" y="420">-&gt;</text>
+                <text x="504" y="420">(g)</text>
+                <text x="84" y="436">Management</text>
+                <text x="300" y="436">discover</text>
+                <text x="348" y="436">-&gt;</text>
+                <text x="392" y="436">monitor</text>
+                <text x="436" y="436">-&gt;</text>
+                <text x="480" y="436">metrics</text>
+                <text x="524" y="436">-&gt;</text>
+                <text x="296" y="452">control</text>
+                <text x="340" y="452">-&gt;</text>
+                <text x="368" y="452">API</text>
+                <text x="20" y="468">12</text>
+                <text x="92" y="468">ISAC-enabled</text>
+                <text x="196" y="468">Energy-Aware</text>
+                <text x="64" y="484">Smart</text>
+                <text x="108" y="484">City</text>
+                <text x="160" y="484">Traffic</text>
+                <text x="212" y="484">Mgmt</text>
+                <text x="280" y="484">not</text>
+                <text x="328" y="484">clearly</text>
+                <text x="400" y="484">specified</text>
+                <text x="20" y="500">13</text>
+                <text x="68" y="500">Double</text>
+                <text x="140" y="500">Accounting</text>
+                <text x="204" y="500">Open</text>
+                <text x="280" y="500">(c)</text>
+                <text x="308" y="500">-&gt;</text>
+                <text x="336" y="500">(g)</text>
+                <text x="64" y="516">Issue</text>
+                <text x="296" y="516">metrics</text>
+                <text x="336" y="516">/</text>
+                <text x="380" y="516">metadata</text>
+                <text x="428" y="516">-&gt;</text>
+                <text x="456" y="516">API</text>
+                <text x="20" y="532">14</text>
+                <text x="68" y="532">Energy</text>
+                <text x="140" y="532">Efficiency</text>
+                <text x="208" y="532">Under</text>
+                <text x="280" y="532">(b)</text>
+                <text x="308" y="532">-&gt;</text>
+                <text x="336" y="532">(f)</text>
+                <text x="64" y="548">Power</text>
+                <text x="124" y="548">Shortage</text>
+                <text x="296" y="548">monitor</text>
+                <text x="340" y="548">-&gt;</text>
+                <text x="384" y="548">control</text>
+                <text x="20" y="564">15</text>
+                <text x="108" y="564">Energy-Efficient</text>
+                <text x="196" y="564">Mgmt</text>
+                <text x="228" y="564">of</text>
+                <text x="280" y="564">(b)</text>
+                <text x="308" y="564">-&gt;</text>
+                <text x="336" y="564">(c)</text>
+                <text x="364" y="564">-&gt;</text>
+                <text x="392" y="564">(f)</text>
+                <text x="52" y="580">AI</text>
+                <text x="100" y="580">Training</text>
+                <text x="176" y="580">Workloads</text>
+                <text x="296" y="580">monitor</text>
+                <text x="340" y="580">-&gt;</text>
+                <text x="384" y="580">metrics</text>
+                <text x="428" y="580">-&gt;</text>
+                <text x="472" y="580">control</text>
+              </g>
+            </svg><a href="#section-5-2.1.1" class="pilcrow">¶</a>
+</div>
+</div>
+<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<a href="#name-use-cases-interfaces-usage" class="selfRef">Use Cases Interfaces Usage</a>
+        </figcaption></figure>
+</div>
+<span id="name-use-cases-interfaces-usage-2"></span><div id="green-uc-interfaces-usage">
+<figure id="figure-9">
+        <div class="alignLeft art-text artwork" id="section-5-3.1">
 <pre>
 +--+---------------------------+-------------------------------------+
 |UC| Use Case                  | Interfaces Usages                   |
@@ -2829,8 +3090,8 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 +--+---------------------------+-------------------------------------+
 </pre>
 </div>
-<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
-<a href="#name-use-cases-interfaces-usage" class="selfRef">Use Cases Interfaces Usage</a>
+<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
+<a href="#name-use-cases-interfaces-usage-2" class="selfRef">Use Cases Interfaces Usage</a>
         </figcaption></figure>
 </div>
 </section>
