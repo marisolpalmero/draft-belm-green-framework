@@ -394,8 +394,7 @@ The most important issue in such a topology is to avoid the double counting in t
 
 ### Power over Ethernet
 
-This covers the example of a switch port (Power Outlet) the provides energy
-with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
+This covers the example of a switch port (Power Outlet) the provides energy with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
 ~~~ aasvg
 {::include art/power_over_ethernet_ascii.txt}
@@ -432,19 +431,13 @@ of routers in a rack.
 
 ## Relationships
 
-The framework for Energy Management need to describe a means to monitor
-and control devices and components, and it needs to describe the
-relationships among, and connections between, devices and components.
+The framework for Energy Management need to describe a means to monitor and control devices and components, and it needs to describe the relationships among, and connections between, devices and components.
 
-Two Energy Objects can establish an Energy Object Relationship to
-model the deployment topology with respect to Energy Management.
+Two Energy Objects can establish an Energy Object Relationship to model the deployment topology with respect to Energy Management.
 
-Relationships are modeled with a Relationship that contains
-the UUID of the other participant in the relationship, along with
-a Relationship type.
+Relationships are modeled with a Relationship that contains the UUID of the other participant in the relationship, along with a Relationship type.
 
-There are three types of relationships are Power Source, Metering,
-and Aggregations.
+There are three types of relationships are Power Source, Metering, and Aggregations.
 
 * A Power Source Relationship is a relationship where one Energy
   Object provides power to one or more Energy Objects.  The Power
