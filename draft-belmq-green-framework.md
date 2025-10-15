@@ -389,7 +389,6 @@ was not able to monitor its power, energy, demand.
 ~~~ aasvg
 {::include art/physical_meter_new_device_ascii.txt}
 ~~~
-
 {: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
 
 
