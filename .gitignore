@@ -2,7 +2,7 @@
 *.pdf
 *.redxml
 *.swp
-*.txt
+draft-belmq-green-framework.txt
 *.upload
 *~
 .tags

@@ -1,0 +1,34 @@
++--------------------------------------------------------------------+
+|                                                                    |
+|                  (3) Network Domain Level                          |
+|                                                                    |
++--------------------------------------------------------------------+
+
+(a)              (b)              (c)
+Inventory        Monitor       +- DataSheets/DataBase and/or via API
+Of identity      Energy        |  Metadata and other device/component
+and Capability   Efficiency    |  /network related information:
+     ^               ^         |
+     |               |         |  .Power/Energy related metrics
+     |               |         |   information
+     |               |         |  .Origin of Energy Mix
+     |               |         |  .Carbon aware based on location
+     |               |         |
+     |               |         |
+     |               |         |
+     |               |         v
++--------------------------------------------------------------------+
+|                                                                    |
+|       (2) controller (collection, compute and aggregate?)          |
+|                                                                    |
++--------------------------------------------------------------------+
+                              ^
+                              |
+                             (e)
+                              |
+                              |
+    +--------------+   +----------------+   +---------------+
+    |              |   |                |   |               |
+    | Power Supply |###| Physical Meter |###| Legacy Device |
+    |              |   |                |   |               |
+    +--------------+   +----------------+   +---------------+
