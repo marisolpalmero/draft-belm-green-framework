@@ -389,8 +389,6 @@ was not able to monitor its power, energy, demand.
 ~~~ aasvg
 {::include art/physical_meter_new_device_ascii.txt}
 ~~~
-{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
-
 
 The most important issue in such a topology is to avoid the double counting
 in the Energy Management System (EnMS). The physical meter reports the Energy
@@ -411,6 +409,11 @@ with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 ~~~
 {: #fig-power_ethernet title="Reference Model Example: Power over Ethernet" }
 
+
+~~~ aasvg
+{::include art/physical_meter_new_device_ascii.txt}
+~~~
+{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
 
 Double counting is also an issue in such an example. The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
