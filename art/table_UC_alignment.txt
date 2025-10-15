@@ -1,11 +1,11 @@
-+--+---------------------------+-------------------------------------+
-|UC| Use Case                  | Interfaces Usages                   |
-+--+---------------------------+-------------------------------------+
-|1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
++--+---------------------------+----------------------------------------+
+|UC| Use Case                  | Interfaces Usages                      |
++--+---------------------------+----------------------------------------+
+|1 | Incremental Application   | (c) ; (c) ->(b) ; (a)->(d) ->(b) ->(e) |
 |  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
-|2 | Selective Reduction of    | (e) -> (b) -> (c) -> (f)            |
+|2 | Selective Reduction of    | (e) ->(b) ->(c) ->(f)            |
 |  | Energy Consumption        | monitor -> metrics -> control       |
-|3 | Reporting on Lifecycle    | (c) -> (g)                          |
+|3 | Reporting on Lifecycle    | (c) ->(g)                          |
 |  | Management                | metrics / metadata -> API or report |
 |4 | Real-time Energy Metering | (b) -> (c)                          |
 |  | of Virtualised NFs        | monitor -> metrics                  |
