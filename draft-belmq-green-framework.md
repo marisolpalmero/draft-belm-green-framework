@@ -391,6 +391,7 @@ was not able to monitor its power, energy, demand.
 ~~~
 {: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
 
+
 The most important issue in such a topology is to avoid the double counting
 in the Energy Management System (EnMS). The physical meter reports the Energy
 transmitted, while the connected Device/Component might also report its consumed
@@ -586,11 +587,6 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 
 The table below maps each of the fifteen GREEN use cases to the framework and proposes sequences of usage of its interfaces.
 
-
-~~~ aasvg
-{::include art/table_UC_alignment.txt}
-~~~
-{: #fig-table_UC_alignment title="Use Cases Interfaces Usage" }
 
 ~~~~
 +--+---------------------------+-------------------------------------+
