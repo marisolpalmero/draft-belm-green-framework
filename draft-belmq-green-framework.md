@@ -405,44 +405,11 @@ Energy Objects, the EnMS will double count the Energy consumed in the network.
 This covers the example of a switch port (Power Outlet) the provides energy
 with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-              ^   ^   ^ |                  ^   ^   ^ |
-              |   |   | |                  |   |   | |
-             (d) (e)  (f)                 (d) (e)  (f)
-              |   |   | |                  |   |   | |
-              |   |     v                  |   |     v
-            +--------------+            +----------------+
-            |              |            |                |
-            | Device       |############| PoE End Point  |
-            | (switch)     |            |                |
-            |              |            |                |
-            +--------------+            +----------------+
+~~~ aasvg
+{::include art/power_over_ethernet_ascii.txt}
 ~~~
-{: #power_ethernet title="Reference Model Example: Power over Ethernet"}
+{: #fig-power_ethernet title="Reference Model Example: Power over Ethernet" }
+
 
 Double counting is also an issue in such an example. The switch port, via its Power Outlet,
 reports the Energy transmitted, while the PoE End Point, via its Power Inlet,
@@ -468,96 +435,18 @@ the controller might for example put the PoE End Point to a lower Power State.
 This covers the example of a smart PDU that provides energy to a series
 of routers in a rack.
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-              ^   ^   ^ |                   ^   ^   ^ |
-              |   |   | |                   |   |   | |
-             (d) (e)  (f)                  (d) (e)  (f) ... N
-              |   |   | |                   |   |   | |
-              |   |     v                   |   |     v
-            +--------------+            +--------------------+
-            |              |            |                    |
-            | Power Supply |############| Device/Component 1 |
-            | (Smart PDU)  |  #         |                    |
-            |              |  #         +--------------------+
-            +--------------+  #
-                              #
-                              #         +--------------------+
-                              #         |                    |
-                              ##########| Device/Component 2 |
-                                 #      |                    |
-                                 #      +--------------------+
-                                 #
-                                 #      +--------------------+
-                                 #      |                    |
-                                 #######| Device/Component N |
-                                        |                    |
-                                        +--------------------+
+~~~ aasvg
+{::include art/multiple_devices_ascii.txt}
 ~~~
-{: title="Reference Model Example: Single Power Supply with Multiple Devices" #multiple_devices}
+{: #fig-multiple_devices title="Reference Model Example: Single Power Supply with Multiple Devices" }
 
 ### Multiple Power Supplies with Single Device
 
-~~~ text
-+--------------------------------------------------------------------+
-|                                                                    |
-|                  (3) Network Domain Level                          |
-|                                                                    |
-+--------------------------------------------------------------------+
-
-(a)              (b)              (c)
-Inventory        Monitor       +- DataSheets/DataBase and/or via API
-Of identity      Energy        |  Metadata and other device/component
-and Capability   Efficiency    |  /network related information:
-     ^               ^         |
-     |               |         |  .Power/Energy related metrics
-     |               |         |   information
-     |               |         |  .Origin of Energy Mix
-     |               |         |  .Carbon aware based on location
-     |               |         |
-     |               |         |
-     |               |         |
-     |               |         v
-+--------------------------------------------------------------------+
-|                                                                    |
-|       (2) controller (collection, compute and aggregate?)          |
-|                                                                    |
-+--------------------------------------------------------------------+
-      ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
-      |   |   | |              |   |   | |               |   |   | |
-     (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
-      |   |   | |              |   |   | |               |   |   | |
-      |   |     v              |   |     v               |   |     v
-   +----------------+      +------------------+      +----------------+
-   |                |      |                  |      |                |
-   | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
-   |                |      |                  |      |                |
-   +----------------+      +------------------+      +----------------+
+~~~ aasvg
+{::include art/multiple_power_ascii.txt}
 ~~~
-{: title="Reference Model Example: Multiple Power Supplies with Single Device" #multiple_power}
+{: #fig-multiple_power title="eference Model Example: Multiple Power Supplies with Single Device" }
+
 
 ## Relationships
 
