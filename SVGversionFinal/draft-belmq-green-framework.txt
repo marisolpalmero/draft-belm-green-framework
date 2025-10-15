@@ -113,13 +113,14 @@ Table of Contents
        4.4.1.  Capability Discovery
        4.4.2.  Intent Mapping
        4.4.3.  SLA Considerations
-   5.  Conventions and Definitions
-   6.  Security Considerations
-   7.  IANA Considerations
-   8.  Acknowledgments
-   9.  References
-     9.1.  Normative References
-     9.2.  Informative References
+   5.  Interfaces Usage Of the Framework
+   6.  Conventions and Definitions
+   7.  Security Considerations
+   8.  IANA Considerations
+   9.  Acknowledgments
+   10. References
+     10.1.  Normative References
+     10.2.  Informative References
    Authors' Addresses
 
 1.  TO DO and Open Issues
@@ -646,7 +647,7 @@ Energy Objects, the EnMS will double count the Energy consumed in the network.
 This covers the example of a switch port (Power Outlet) the provides energy
 with Power over Ethernet (PoE) to a PoE end points (camera, access port, etc.).
 
-~~~ text
+~~~ aasvg
 +--------------------------------------------------------------------+
 |                                                                    |
 |                  (3) Network Domain Level                          |
@@ -712,96 +713,96 @@ and Capability   Efficiency    |  /network related information:
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
 
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |                  (3) Network Domain Level                          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |                  (3) Network Domain Level                          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
 
-   (a)              (b)              (c)
-   Inventory        Monitor       +- DataSheets/DataBase and/or via API
-   Of identity      Energy        |  Metadata and other device/component
-   and Capability   Efficiency    |  /network related information:
-        ^               ^         |
-        |               |         |  .Power/Energy related metrics
-        |               |         |   information
-        |               |         |  .Origin of Energy Mix
-        |               |         |  .Carbon aware based on location
-        |               |         |
-        |               |         |
-        |               |         |
-        |               |         v
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |       (2) controller (collection, compute and aggregate?)          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
-                 ^   ^   ^ |                   ^   ^   ^ |
-                 |   |   | |                   |   |   | |
-                (d) (e)  (f)                  (d) (e)  (f) ... N
-                 |   |   | |                   |   |   | |
-                 |   |     v                   |   |     v
-               +--------------+            +--------------------+
-               |              |            |                    |
-               | Power Supply |############| Device/Component 1 |
-               | (Smart PDU)  |  #         |                    |
-               |              |  #         +--------------------+
-               +--------------+  #
-                                 #
-                                 #         +--------------------+
-                                 #         |                    |
-                                 ##########| Device/Component 2 |
-                                    #      |                    |
-                                    #      +--------------------+
-                                    #
-                                    #      +--------------------+
-                                    #      |                    |
-                                    #######| Device/Component N |
-                                           |                    |
-                                           +--------------------+
+  (a)              (b)              (c)
+  Inventory        Monitor       +- DataSheets/DataBase and/or via API
+  Of identity      Energy        |  Metadata and other device/component
+  and Capability   Efficiency    |  /network related information:
+       ^               ^         |
+       |               |         |  .Power/Energy related metrics
+       |               |         |   information
+       |               |         |  .Origin of Energy Mix
+       |               |         |  .Carbon aware based on location
+       |               |         |
+       |               |         |
+       |               |         |
+       |               |         v
+  +--------------------------------------------------------------------+
+  |                                                                    |
+  |       (2) controller (collection, compute and aggregate?)          |
+  |                                                                    |
+  +--------------------------------------------------------------------+
+                ^   ^   ^ |                   ^   ^   ^ |
+                |   |   | |                   |   |   | |
+               (d) (e)  (f)                  (d) (e)  (f) ... N
+                |   |   | |                   |   |   | |
+                |   |     v                   |   |     v
+              +--------------+            +--------------------+
+              |              |            |                    |
+              | Power Supply |############| Device/Component 1 |
+              | (Smart PDU)  |  #         |                    |
+              |              |  #         +--------------------+
+              +--------------+  #
+                                #
+                                #         +--------------------+
+                                #         |                    |
+                                ##########| Device/Component 2 |
+                                   #      |                    |
+                                   #      +--------------------+
+                                   #
+                                   #      +--------------------+
+                                   #      |                    |
+                                   #######| Device/Component N |
+                                          |                    |
+                                          +--------------------+
 
-        Figure 6: Reference Model Example: Single Power Supply with
-                              Multiple Devices
+       Figure 6: Reference Model Example: Single Power Supply with
+                             Multiple Devices
 
 4.1.5.  Multiple Power Supplies with Single Device
 
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |                  (3) Network Domain Level                          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |                  (3) Network Domain Level                          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
 
-   (a)              (b)              (c)
-   Inventory        Monitor       +- DataSheets/DataBase and/or via API
-   Of identity      Energy        |  Metadata and other device/component
-   and Capability   Efficiency    |  /network related information:
-        ^               ^         |
-        |               |         |  .Power/Energy related metrics
-        |               |         |   information
-        |               |         |  .Origin of Energy Mix
-        |               |         |  .Carbon aware based on location
-        |               |         |
-        |               |         |
-        |               |         |
-        |               |         v
-   +--------------------------------------------------------------------+
-   |                                                                    |
-   |       (2) controller (collection, compute and aggregate?)          |
-   |                                                                    |
-   +--------------------------------------------------------------------+
-         ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
-         |   |   | |              |   |   | |               |   |   | |
-        (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
-         |   |   | |              |   |   | |               |   |   | |
-         |   |     v              |   |     v               |   |     v
-      +----------------+      +------------------+      +----------------+
-      |                |      |                  |      |                |
-      | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
-      |                |      |                  |      |                |
-      +----------------+      +------------------+      +----------------+
+ (a)              (b)              (c)
+ Inventory        Monitor       +- DataSheets/DataBase and/or via API
+ Of identity      Energy        |  Metadata and other device/component
+ and Capability   Efficiency    |  /network related information:
+      ^               ^         |
+      |               |         |  .Power/Energy related metrics
+      |               |         |   information
+      |               |         |  .Origin of Energy Mix
+      |               |         |  .Carbon aware based on location
+      |               |         |
+      |               |         |
+      |               |         |
+      |               |         v
+ +--------------------------------------------------------------------+
+ |                                                                    |
+ |       (2) controller (collection, compute and aggregate?)          |
+ |                                                                    |
+ +--------------------------------------------------------------------+
+       ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
+       |   |   | |              |   |   | |               |   |   | |
+      (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
+       |   |   | |              |   |   | |               |   |   | |
+       |   |     v              |   |     v               |   |     v
+    +----------------+      +------------------+      +----------------+
+    |                |      |                  |      |                |
+    | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
+    |                |      |                  |      |                |
+    +----------------+      +------------------+      +----------------+
 
-      Figure 7: Reference Model Example: Multiple Power Supplies with
-                               Single Device
+     Figure 7: eference Model Example: Multiple Power Supplies with
+                             Single Device
 
 4.2.  Relationships
 
@@ -963,7 +964,51 @@ and Capability   Efficiency    |  /network related information:
    *  Operational SLAs – e.g., device frequency or operational cycle
       limits that ensure long-term hardware health.
 
-5.  Conventions and Definitions
+5.  Interfaces Usage Of the Framework
+
+   The table below maps each of the fifteen GREEN use cases to the
+   framework and proposes sequences of usage of its interfaces.
+
+  +--+---------------------------+-------------------------------------+
+  |UC| Use Case                  | Interfaces Usages                   |
+  +--+---------------------------+-------------------------------------+
+  |1 | Incremental Application   | (c) ; (c)->(b) ; (a)->(d)->(b)->(e) |
+  |  | of the GREEN Framework    | 1,2 : legacy; 3 : GREEN WG support  |
+  |2 | Selective Reduction of    | (e) -> (b) -> (c) -> (f)            |
+  |  | Energy Consumption        | monitor -> metrics -> control       |
+  |3 | Reporting on Lifecycle    | (c) -> (g)                          |
+  |  | Management                | metrics / metadata -> API or report |
+  |4 | Real-time Energy Metering | (b) -> (c)                          |
+  |  | of Virtualised NFs        | monitor -> metrics                  |
+  |5 | Indirect Energy Monitoring| (b) -> (f)                          |
+  |  | & Control                 | monitor aggregate -> control        |
+  |6 | Consideration of Other    | (c) -> (g) -> (b)                   |
+  |  | Domains for End-to-End    | metrics -> cross-domain API ->      |
+  |  | Metrics                   | monitoring                          |
+  |7 | Dynamic Adjustment via    | (b) -> (f) -> (c)                   |
+  |  | Traffic Levels            | observe -> control -> update metrics|
+  |8 | Video Streaming Use Case  | (b) -> (c) -> (f)                   |
+  |  |                           | monitor -> metrics -> control       |
+  |9 | WLAN Network Energy Saving| (b) -> (f)                          |
+  |  |                           | monitor -> control                  |
+  |10| Fixed Network Energy      | (b) -> (f)                          |
+  |  | Saving                    | monitor -> control                  |
+  |11| Energy Efficiency Network | (a) -> (b) -> (c) -> (f) -> (g)     |
+  |  | Management                | discover -> monitor -> metrics ->   |
+  |  |                           | control -> API                      |
+  |12| ISAC-enabled Energy-Aware | ---                                 |
+  |  | Smart City Traffic Mgmt   | not clearly specified               |
+  |13| Double Accounting Open    | (c) -> (g)                          |
+  |  | Issue                     | metrics / metadata -> API           |
+  |14| Energy Efficiency Under   | (b) -> (f)                          |
+  |  | Power Shortage            | monitor -> control                  |
+  |15| Energy-Efficient Mgmt of  | (b) -> (c) -> (f)                   |
+  |  | AI Training Workloads     | monitor -> metrics -> control       |
+  +--+---------------------------+-------------------------------------+
+
+                   Figure 8: Use Cases Interfaces Usage
+
+6.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -971,7 +1016,7 @@ and Capability   Efficiency    |  /network related information:
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-6.  Security Considerations
+7.  Security Considerations
 
    Resiliency is an implicit use case of energy efficiency management
    which comes with numerous security considerations :
@@ -998,11 +1043,11 @@ and Capability   Efficiency    |  /network related information:
    of transmitted information and authentication of the origin may be
    needed.
 
-7.  IANA Considerations
+8.  IANA Considerations
 
    This document has no IANA actions.
 
-8.  Acknowledgments
+9.  Acknowledgments
 
    This framework takes into account concepts from the Energy MANagement
    (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
@@ -1013,9 +1058,9 @@ and Capability   Efficiency    |  /network related information:
    Agreement no. 101096925) and Exigence (Grant Agreement no.
    101139120).
 
-9.  References
+10.  References
 
-9.1.  Normative References
+10.1.  Normative References
 
    [I-D.draft-bclp-green-terminology]
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
@@ -1034,7 +1079,7 @@ and Capability   Efficiency    |  /network related information:
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
-9.2.  Informative References
+10.2.  Informative References
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
