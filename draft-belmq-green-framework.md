@@ -760,7 +760,7 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 
 # Interfaces Usage Of the Framework
 
-The table below maps the fifteen GREEN use cases to the framework and describes the sequence in which they use its interfaces.
+The table below maps the fifteen GREEN use cases to the framework and describes the sequences in which they use its interfaces.
 
 Foreach use case, the first line list the set of usages. They are separated with a semicolon. The second line provides a firs level of explanation of these usages.
 
