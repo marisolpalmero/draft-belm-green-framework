@@ -21,8 +21,8 @@ OUT_DIR := .
 # Pattern for ASCII files
 ASCII_FILES := $(wildcard $(SRC_DIR)/*.txt $(SRC_DIR)/*.asc $(SRC_DIR)/*.ascii)
 SVG_FILES := $(patsubst $(SRC_DIR)/%.txt,$(OUT_DIR)/%.svg,$(filter %.txt,$(ASCII_FILES))) \
-             $(patsubst $(SRC_DIR)/%.asc,$(OUT_DIR)/%.svg,$(filter %.asc,$(ASCII_FILES))) \
-             $(patsubst $(SRC_DIR)/%.ascii,$(OUT_DIR)/%.svg,$(filter %.ascii,$(ASCII_FILES)))
+			$(patsubst $(SRC_DIR)/%.asc,$(OUT_DIR)/%.svg,$(filter %.asc,$(ASCII_FILES))) \
+			$(patsubst $(SRC_DIR)/%.ascii,$(OUT_DIR)/%.svg,$(filter %.ascii,$(ASCII_FILES)))
 
 # ------------------------------------------------------------
 # 🎨 Rules
