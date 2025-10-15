@@ -631,7 +631,7 @@ Table of Contents
 
     Figure 4: Reference Model Example: Physical Meter with New Device
 
-{: #fig-physical_meter_with_new_device title="Reference Model Example: PPhysical Meter with New Device" }
+{: #fig-physical_meter_with_new_device title="Reference Model Example: Physical Meter with New Device" }
 
 
 The most important issue in such a topology is to avoid the double counting
