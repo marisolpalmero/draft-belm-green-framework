@@ -42,5 +42,4 @@ and Capability   Efficiency    | Metadata and other             Service
 | |         |  |           |  |                |  |                | |
 | +---------+  +-----------+  +----------------+  +----------------+ |
 +--------------------------------------------------------------------+
-
 {: #fig-green-reference-model title="GREEN Reference Model" }
