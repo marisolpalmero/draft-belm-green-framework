@@ -308,7 +308,6 @@ The GREEN Reference Model is represented in the  {{fig-green-reference-model}}
 ~~~
 {: #fig-green-reference-model title="GREEN Reference Model" }
 
-
 The main elements in the framework are as follows:
 
 * (a), (d) Discovery and Inventory
