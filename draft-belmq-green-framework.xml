@@ -1762,10 +1762,18 @@ Power States. TO BE COMPLETED</t>
         <t>The table <xref target="green-uc-interfaces-usage"/> maps each GREEN use case to the framework interfaces and summarizes how these are used:
 - The first line shows the interface sequences.
 - The second line briefly describes the functional purpose of that flow.</t>
-        <t>The notation <tt>a-&gt;b-&gt;c</tt> represents the flow between framework components as described in the <xref target="fig-green-reference-model"/>, where:
-- (a) – Discovery interface
-- (b) – Monitoring interface
-- (c) – Metrics interface</t>
+        <t>The notation <tt>a-&gt;b-&gt;c</tt> represents the flow between framework components as described in the <xref target="fig-green-reference-model"/>, where:</t>
+        <ul spacing="normal">
+          <li>
+            <t>(a) Discovery interface</t>
+          </li>
+          <li>
+            <t>(b) Monitoring interface</t>
+          </li>
+          <li>
+            <t>(c) Metrics interface</t>
+          </li>
+        </ul>
         <table anchor="green-uc-interfaces-usage">
           <name>Use Cases Interfaces Usage</name>
           <thead>
@@ -1942,7 +1950,7 @@ Power States. TO BE COMPLETED</t>
       </section>
       <section anchor="observations-and-next-steps">
         <name>Observations and Next Steps</name>
-        <t>The mapping in <xref target="green-uc-interfaces-usage"/> demonstrates that most GREEN use cases rely primarily on the <strong>Monitoring</strong> and <strong>Control</strong> interfaces, with <strong>Discovery</strong> being used during initialization or lifecycle events.</t>
+        <t>The mapping in <xref target="green-uc-interfaces-usage"/> demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.</t>
         <t>To complement <xref target="green-uc-interfaces-usage"/>, <xref target="FunctionalOverviewFramework"/>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.</t>
         <table anchor="FunctionalOverviewFramework">
           <name>Functional Overview of Framework Domains</name>
@@ -2234,7 +2242,7 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).</t>
     </references>
   </back>
   <!-- ##markdown-source:
-H4sIADBA9mgAA+1963Icx7Hm/36KOmDECqBmBgQpydboWBIIghJ8CILGxQqH
+H4sIABxG9mgAA+1963Icx7Hm/36KOmDECqBmBgQpydboWBIIghJ8CILGxQqH
 Q9bp6amZabOnu93VDXBM0KFf+wC7548jdiP2WfZR9CSbt7p0zwwuBOzwRgCh
 C9DddcvKyvwyK6uy3+9HdVpneqg2XlbxXF8U1Vs1KSq1n+tqulD7k0mapDpP
 FuowzuOpnuu83oji0ajS57csNC6SHL4eqnEVT+r+SGfzv/SnldZ5f2Kr6Wdx
@@ -2467,62 +2475,62 @@ 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
-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
+TNFO9aAYsIvEDzLImxe3GYxKXZkzrceORlq/GIHiMxa4EeOb0VaQ7Lv9Ktmy
+yQuC59Flv9+PLs/2Lt28q8ultWVwi75/OcR/ossd+iJh3R1n4abWpUq+UglQ
+5SsFtBkTeTTv719aE55ZwTPWpdrpPR0KivtKPRvKFz985/wzm+kW1PEUPj3R
+mZastl6mTuCF5qnofz2xzQkC2gtU8qV1FPW/ltgTKMJaFgo9g/fHLsMkfP4q
+nWiWTpc4qKmtOXDjXrpsV9v4G8Xi9L/GlA6FPZSPpT6jqm06dp/xnk2QS4Vd
+D8j0+7SqGzCEUDe8fmlW9Bs//pzmQU6O2Drd5FOljhj/zeWguPQbrNYb7IiA
+X3+hLtsqFDt0RGiZqQCEtrVyBJeRTd5xvy76eLbEEQUqxsTw/TFHegFZ+l87
+ItqBhM47ePcrrFdS0++OMY8EERpDonhIAals6nYKIcOqihHtrLkB9b9uyjG5
+NDzZfg3f/R5GV4BqxISe2G7A+x0uuoJl8JMv4YMfXu2+dkFtrRQfqj0JQV1B
+FTtPLtXL9B1OdbuOdmFX48o6dhy/B8Fdtr5LFbvVsY6NrcEEw1war++/Iyty
+OLb7FFjwZHevz9lK7B0R/V3S1pcKhIvrP8Uh7yEgtdN2OJ1j07QPKZ5A767D
+2p8hi9FRxt3EHWYEqJF3FuQBHQ9cvxaxrs9WUeiM7Ns2oQU2zfA2j6leR/DP
+bXX9fechofGQNOow0e4BjpldCpjoOyvi8apV3WoCBTMGcaxVsDaWwyvsrtze
++BBFjrV31GYotV84qb0VOG6cvlXchPXurlLU+rzIcM9JvBb4XeYkJnl9bVhh
+YTeSMO97U/YQOFay7QZ4SQx4l93XWp6d1KKAgXZ+g2oMEcJT+E0Ba474T5sP
+GzRDhioxKUB9i2uG1EloODgt/Ow3m7H65b//DzWm/47ov3qLLwQB2xmFic3t
+nuP6fFeD0NA2yiWwiq7GQWM9ZzO79mlYALp0IWeFfS+rFKEP/CZ5YwPxGIbE
++Gbknjzv8hhp/Jic5DI3Kabzjq0divPhZ0qf20CXgmjD/pKrR4QJg3yKtyOB
+006nw5ADvE2GIUgWtl4CjBWGUvjMPuqgXoH/VgE7CSS1aJLDUJh+i5aJMRY9
+BW09fuyQ0+PHPfjTa0z8Gyn8+LHoSvuA0aV0ZMEeSqa5m7uBRVJB5jsb4Iyh
+ZAj1LAaxWXNOyTVVQ1+3KRgYlm+JJ5AvbTSW09kFHb/GI5y7ErZ0yfuvMMN+
+9aNEr2G+a6wQzb4mxG38z/CyP4ROtqiAApS9dnZfQpK5W/ujmxSH3we+24Fy
+h/RTF/eM4rfH29E9xOpz0gl4QJSiQgXbaZscSk009p4rO9bT1NRu/9l+Ajw1
+AUMewOUY6qlTor7zQhpdY9mzPQCU9F8Eqt8D75EYbs80gRwboupT2PRtaHLt
+5iYmCONEmXUnDpymoCXRC/08vRbzkZEMprWe00MYIpbddVvxIvu/cnGy//Hm
+AP4aAzrEIIIcmCgTGsOgnoJhvfOEx/c5wahxCsY6j9DxLb4oxn5CYYAtfwm5
+dua4RPVy1rIBlSZa+SDtnvd0GEzVmFF+LRoJgTQ0qyj1lh5/JbnLlMm0Lr+C
+VdqnI70K1d5XCqqbTtHj3NTFXNwgPDQa1efBAD/D33GUr4oL+NWP1erGK2SQ
+1Y7BejwKzH7/nYDYDb7Ni45Vc6iSiOpJg3OmONUWu8xBxgAf1SCfhuRqncV5
+YlUgySmaf2FL2uJ5V2uA1PIEmg+EumM1tFPdxpA/bs6Udm5wUb7B7rV1YIN8
+mdvFGifiFuurvQwkKTvkW2ic4tH0OwnD2gzqfjx9vEWY3mlkan2irUkA0m6P
+toDxFeYzQ5cYBTBSEMovP/+XONdw/1YH/XYq82p9aff7Al3hXDbXKR5svJhQ
+JAkl9QL8MEPao7c9pTRpy14fzwx2E4qiXsnthWnaK1iLXgIsOVNMAgwPLEG+
+FBTaKAIdauApFWckwoa3oEOgJkCAG4dnJ6cbPf4/Jt3C34/3f3d2cLz/An8/
++X731Sv3SyRfnHx/dPbqhf/Nl9w7Ojzcf/2CC8NT1XoUbRzu/mGDddrG0ZvT
+g6PXu682lrxR7H8sKOWddTnjbqoPUiGXxfO9N//3/+x8BhPyb8cv957u7HwJ
+1Oc/fr3zq8/gD9z44tYwKEP+RBUa4UZkTNvVeHsvyPAUICmHAqGyzSl1GQZj
+/REp8+NQ/fsoKXc++1oe4IBbDy3NWg+JZstPlgozEVc8WtGMo2breYfS7f7u
+/qH1t6V78PDfvyGfVH/n1998jdBTneiE9XjXl32sDYgQYrqUPJk2SaB3rfl0
+bAGH+h19uVIcFoYN6s5h0iu8IdnYVpNWq2qIq523IrqRAgS9edeCo+Gp9Zo3
+dCVoj6rS4whRIEVPkRcZlqPIKIACKXvSYV3g+sOQKVJdOeU+hLWcUMBV5LQq
+YRHye2QLEYzuTx8m2IpdqzQINN2LiN9EtkoH3P64aawpRzi8qCVQiNNlRqCw
+ZnzJISt5/LuonM73+5QSplMLuphrlLGpmaN82LfU4dibityJ7ZZpHmgF8oC1
+HyubBFEJNjFYMmTu4T1B40JyJDIwYxEW0lFx2AAGZ6fmbY9C/FwcSTqR8O85
+puSzxLGy123M63e6SlK3XVEYHVk8yPe32DBUsVts75bTiS7Drb80saULGo65
+kkNveIPOeIyGHTCQ9MOnEKyQiyhcMIym9PlHeVQYYk1RsuPIxU5x81/xfgsx
+hu0f8g0nUqUtVhNM5IDhQTCzsqVsVJs1OP4r5I5wXUS0EcKBJ3Kroz/1YJuH
+gV9ovG/IMHAjfE4BYFHQvrW8+f4lY6Sldl0YPwyUQgsbt5LoRUSNoPh1pLaL
+oI7f6pw3SWN2ugxUAAepoMRW0UzECJjodpnCB+nFzl3TC04m+gVf+JWCN74E
+F0i1ptLSMSCtPcTAB/ykI7KLSdtCu6+XtwBPW+ptRlfA85cOJ0HRXZcslRC+
+FPOuD6SMaVGGwIEuaxuUH1zeuvvaCtzNffhjK8AY799/AzryV8+efoGGNPOJ
+Qe/Gb4tZrt6ATMiyoqee67wAwQ7wDRZdL3pexWN1kswKnTuy/raBxmC2ftcg
+7d4Gt17ZwG8g16sGRnE4YBkONOH98iWKjGhDzxllsuHEXjtxJBo6Sup2an9L
+VwiRCw1Ig4y4efL6RP32bEviRogeDYJhYLOzHPrziYm+x0UBPeMXePBFY0Zb
+EZ95wQ4XXGV81uaL7xAoqs3vgEfqaBdhIx8hKgZq58nOky+/+PLp5+wE2n+X
+Tml3jD9WSx/vPPty5+kT8u/8P+c6QFOdvAAA
 
 -->
 

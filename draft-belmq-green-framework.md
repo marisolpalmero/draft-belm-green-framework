@@ -579,38 +579,38 @@ The notation `a->b->c` represents the flow between framework components as descr
 |---
 |UC| Use Case | Interfaces Usages |
 |-|:-|:-
-|1 | Incremental deployment | c; c->b; a->d->b->e |
-|  | of the GREEN Framework | 1,2: legacy; 3: GREEN WG support (i)|
-|2 | Selective Reduction of | e->b->c->f |
-|  | Energy Consumption | monitor->metrics->control|
-|3 | Reporting on Lifecycle | c->g |
-|  | Management | metrics / metadata->API or report |
-|4 | Real-time Energy Metering | b->c |
-|  | of Virtualised NFs | monitor->metrics |
-|5 | Indirect Energy Monitoring| b->f |
-|  | & Control | monitor aggregate->control |
-|6 | Consideration of Other | c->g->b |
-|  | Domains for End-to-End | metrics->cross-domain API-> |
-|  | Metrics | monitoring |
-|7 | Dynamic Adjustment via | b->f->c |
-|  | Traffic Levels | observe->control->update metrics |
-|8 | Video Streaming Use Case | b->c->f |
-|  | | monitor->metrics->control |
-|9 | WLAN Network Energy Saving | b->f |
-|  | | monitor->control |
+|1| Incremental deployment | c; c->b; a->d->b->e |
+| | of the GREEN Framework | 1,2: legacy; 3: GREEN WG support (i)|
+|2| Selective Reduction of | e->b->c->f |
+| | Energy Consumption | monitor->metrics->control|
+|3| Reporting on Lifecycle | c->g |
+| | Management | metrics / metadata->API or report |
+|4| Real-time Energy Metering | b->c |
+| | of Virtualised NFs | monitor->metrics |
+|5| Indirect Energy Monitoring| b->f |
+| | & Control | monitor aggregate->control |
+|6| Consideration of Other | c->g->b |
+| | Domains for End-to-End | metrics->cross-domain API-> |
+| | Metrics | monitoring |
+|7| Dynamic Adjustment via | b->f->c |
+| | Traffic Levels | observe->control->update metrics |
+|8| Video Streaming Use Case | b->c->f |
+| | | monitor->metrics->control |
+|9| WLAN Network Energy Saving | b->f |
+| | | monitor->control |
 |10| Fixed Network Energy | b->f |
-|  | Saving | monitor->control |
+| | Saving | monitor->control |
 |11| Energy Efficiency Network | a->b->c->f->g |
-|  | Management | discover->monitor->metrics-> |
-|  | | control->API |
+| | Management | discover->monitor->metrics-> |
+| | | control->API |
 |12| ISAC-enabled Energy-Aware | --- |
-|  | Smart City Traffic Mgmt | not clearly specified |
+| | Smart City Traffic Mgmt | not clearly specified |
 |13| Double Accounting Open | c->g |
-|  | Issue | metrics / metadata->API |
+| | Issue | metrics / metadata->API |
 |14| Energy Efficiency Under | b->f |
-|  | Power Shortage | monitor->control |
+| | Power Shortage | monitor->control |
 |15| Energy-Efficient Mgmt of | b->c->f |
-|  | AI Training Workloads | monitor->metrics->control |
+| | AI Training Workloads | monitor->metrics->control |
 |---
 {: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
@@ -625,7 +625,7 @@ To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  pr
 
 |---
 | Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
-|-|:-|:-|:-|:-:|-:
+|-|:-|:-|:-|:-|-:
 | **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
 | **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2–10, UC 15 | Medium |
 | **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5–10, UC 14–15 | Low–Medium |
