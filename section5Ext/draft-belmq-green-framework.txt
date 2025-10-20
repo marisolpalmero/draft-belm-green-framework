@@ -981,8 +981,13 @@ Table of Contents
    functional purpose of that flow.
 
    The notation a->b->c represents the flow between framework components
-   as described in the Figure 1, where: - (a) – Discovery interface -
-   (b) – Monitoring interface - (c) – Metrics interface
+   as described in the Figure 1, where:
+
+   *  (a) Discovery interface
+
+   *  (b) Monitoring interface
+
+   *  (c) Metrics interface
 
       +====+========================+==============================+
       | UC | Use Case               | Interfaces Usages            |
@@ -1075,8 +1080,8 @@ Table of Contents
 5.2.  Observations and Next Steps
 
    The mapping in Table 1 demonstrates that most GREEN use cases rely
-   primarily on the *Monitoring* and *Control* interfaces, with
-   *Discovery* being used during initialization or lifecycle events.
+   primarily on the monitoring and control interfaces, with discovery
+   being used during initialization or lifecycle events.
 
    To complement Table 1, Table 2 provides a higher-level functional
    view of the framework.  It summarizes how the interface sequences
