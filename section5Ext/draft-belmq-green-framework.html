@@ -2856,7 +2856,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
         <h3 id="name-mapping-of-use-cases-to-fra">
 <a href="#section-5.1" class="section-number selfRef">5.1. </a><a href="#name-mapping-of-use-cases-to-fra" class="section-name selfRef">Mapping of Use Cases to Framework Interfaces</a>
         </h3>
-<p id="section-5.1-1">The table <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:
+<p id="section-5.1-1">The table <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> maps each GREEN use case to the framework interfaces and summarizes how these are used:
 - The first line shows the interface sequences.
 - The second line briefly describes the functional purpose of that flow.<a href="#section-5.1-1" class="pilcrow">¶</a></p>
 <p id="section-5.1-2">The notation <code>a-&gt;b-&gt;c</code> represents the flow between framework components as described in the <a href="#fig-green-reference-model" class="auto internal xref">Figure 1</a>, where:
@@ -2864,50 +2864,181 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 - (b) – Monitoring interface
 - (c) – Metrics interface<a href="#section-5.1-2" class="pilcrow">¶</a></p>
 <span id="name-use-cases-interfaces-usage"></span><div id="green-uc-interfaces-usage">
-<figure id="figure-8">
-          <div class="alignLeft art-text artwork" id="section-5.1-3.1">
-<pre>
-+--+---------------------------+-------------------------------------+
-|UC| Use Case                  | Interfaces Usages                   |
-+--+---------------------------+-------------------------------------+
-|1 | Incremental deployment    | c; c-&gt;b; a-&gt;d-&gt;b-&gt;e                 |
-|  | of the GREEN Framework    | 1,2: legacy; 3: GREEN WG support (i)|
-|2 | Selective Reduction of    | e-&gt;b-&gt;c-&gt;f                          |
-|  | Energy Consumption        | monitor-&gt;metrics-&gt;control           |
-|3 | Reporting on Lifecycle    | c-&gt;g                                |
-|  | Management                | metrics / metadata-&gt;API or report   |
-|4 | Real-time Energy Metering | b-&gt;c                                |
-|  | of Virtualised NFs        | monitor-&gt;metrics                    |
-|5 | Indirect Energy Monitoring| b-&gt;f                                |
-|  | &amp; Control                 | monitor aggregate-&gt;control          |
-|6 | Consideration of Other    | c-&gt;g-&gt;b                             |
-|  | Domains for End-to-End    | metrics-&gt;cross-domain API-&gt;         |
-|  | Metrics                   | monitoring                          |
-|7 | Dynamic Adjustment via    | b-&gt;f-&gt;c                             |
-|  | Traffic Levels            | observe-&gt;control-&gt;update metrics    |
-|8 | Video Streaming Use Case  | b-&gt;c-&gt;f                             |
-|  |                           | monitor-&gt;metrics-&gt;control           |
-|9 | WLAN Network Energy Saving| b-&gt;f                                |
-|  |                           | monitor-&gt;control                    |
-|10| Fixed Network Energy      | b-&gt;f                                |
-|  | Saving                    | monitor-&gt;control                    |
-|11| Energy Efficiency Network | a-&gt;b-&gt;c-&gt;f-&gt;g                       |
-|  | Management                | discover-&gt;monitor-&gt;metrics-&gt;        |
-|  |                           | control-&gt;API                        |
-|12| ISAC-enabled Energy-Aware | ---                                 |
-|  | Smart City Traffic Mgmt   | not clearly specified               |
-|13| Double Accounting Open    | c-&gt;g                                |
-|  | Issue                     | metrics / metadata-&gt;API             |
-|14| Energy Efficiency Under   | b-&gt;f                                |
-|  | Power Shortage            | monitor-&gt;control                    |
-|15| Energy-Efficient Mgmt of  | b-&gt;c-&gt;f                             |
-|  | AI Training Workloads     | monitor-&gt;metrics-&gt;control           |
-+--+---------------------------+-------------------------------------+
-</pre>
-</div>
-<figcaption><a href="#figure-8" class="selfRef">Figure 8</a>:
+<table class="center" id="table-1">
+          <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
 <a href="#name-use-cases-interfaces-usage" class="selfRef">Use Cases Interfaces Usage</a>
-          </figcaption></figure>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">UC</th>
+              <th class="text-left" rowspan="1" colspan="1">Use Case</th>
+              <th class="text-left" rowspan="1" colspan="1">Interfaces Usages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">1</td>
+              <td class="text-left" rowspan="1" colspan="1">Incremental deployment</td>
+              <td class="text-left" rowspan="1" colspan="1">c; c-&gt;b; a-&gt;d-&gt;b-&gt;e</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">of the GREEN Framework</td>
+              <td class="text-left" rowspan="1" colspan="1">1,2: legacy; 3: GREEN WG support (i)</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">2</td>
+              <td class="text-left" rowspan="1" colspan="1">Selective Reduction of</td>
+              <td class="text-left" rowspan="1" colspan="1">e-&gt;b-&gt;c-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Energy Consumption</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">3</td>
+              <td class="text-left" rowspan="1" colspan="1">Reporting on Lifecycle</td>
+              <td class="text-left" rowspan="1" colspan="1">c-&gt;g</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Management</td>
+              <td class="text-left" rowspan="1" colspan="1">metrics / metadata-&gt;API or report</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">4</td>
+              <td class="text-left" rowspan="1" colspan="1">Real-time Energy Metering</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;c</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">of Virtualised NFs</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">5</td>
+              <td class="text-left" rowspan="1" colspan="1">Indirect Energy Monitoring</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">&amp; Control</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor aggregate-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">6</td>
+              <td class="text-left" rowspan="1" colspan="1">Consideration of Other</td>
+              <td class="text-left" rowspan="1" colspan="1">c-&gt;g-&gt;b</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Domains for End-to-End</td>
+              <td class="text-left" rowspan="1" colspan="1">metrics-&gt;cross-domain API-&gt;</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Metrics</td>
+              <td class="text-left" rowspan="1" colspan="1">monitoring</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">7</td>
+              <td class="text-left" rowspan="1" colspan="1">Dynamic Adjustment via</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f-&gt;c</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Traffic Levels</td>
+              <td class="text-left" rowspan="1" colspan="1">observe-&gt;control-&gt;update metrics</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">8</td>
+              <td class="text-left" rowspan="1" colspan="1">Video Streaming Use Case</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;c-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">9</td>
+              <td class="text-left" rowspan="1" colspan="1">WLAN Network Energy Saving</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">10</td>
+              <td class="text-left" rowspan="1" colspan="1">Fixed Network Energy</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Saving</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">11</td>
+              <td class="text-left" rowspan="1" colspan="1">Energy Efficiency Network</td>
+              <td class="text-left" rowspan="1" colspan="1">a-&gt;b-&gt;c-&gt;f-&gt;g</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Management</td>
+              <td class="text-left" rowspan="1" colspan="1">discover-&gt;monitor-&gt;metrics-&gt;</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">control-&gt;API</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">12</td>
+              <td class="text-left" rowspan="1" colspan="1">ISAC-enabled Energy-Aware</td>
+              <td class="text-left" rowspan="1" colspan="1">---</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Smart City Traffic Mgmt</td>
+              <td class="text-left" rowspan="1" colspan="1">not clearly specified</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">13</td>
+              <td class="text-left" rowspan="1" colspan="1">Double Accounting Open</td>
+              <td class="text-left" rowspan="1" colspan="1">c-&gt;g</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Issue</td>
+              <td class="text-left" rowspan="1" colspan="1">metrics / metadata-&gt;API</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">14</td>
+              <td class="text-left" rowspan="1" colspan="1">Energy Efficiency Under</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">Power Shortage</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;control</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">15</td>
+              <td class="text-left" rowspan="1" colspan="1">Energy-Efficient Mgmt of</td>
+              <td class="text-left" rowspan="1" colspan="1">b-&gt;c-&gt;f</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1"> </td>
+              <td class="text-left" rowspan="1" colspan="1">AI Training Workloads</td>
+              <td class="text-left" rowspan="1" colspan="1">monitor-&gt;metrics-&gt;control</td>
+            </tr>
+          </tbody>
+        </table>
 </div>
 <p id="section-5.1-4">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).<a href="#section-5.1-4" class="pilcrow">¶</a></p>
 </section>
@@ -2917,20 +3048,20 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
         <h3 id="name-observations-and-next-steps">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-observations-and-next-steps" class="section-name selfRef">Observations and Next Steps</a>
         </h3>
-<p id="section-5.2-1">The mapping in <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> demonstrates that most GREEN use cases rely primarily on the <strong>Monitoring</strong> and <strong>Control</strong> interfaces, with <strong>Discovery</strong> being used during initialization or lifecycle events.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">To complement <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a>, <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 1</a>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<p id="section-5.2-1">The mapping in <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> demonstrates that most GREEN use cases rely primarily on the <strong>Monitoring</strong> and <strong>Control</strong> interfaces, with <strong>Discovery</strong> being used during initialization or lifecycle events.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">To complement <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a>, <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 2</a>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 <span id="name-functional-overview-of-fram"></span><div id="FunctionalOverviewFramework">
-<table class="center" id="table-1">
+<table class="center" id="table-2">
           <caption>
-<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#table-2" class="selfRef">Table 2</a>:
 <a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains</a>
           </caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Functional Domain</th>
               <th class="text-left" rowspan="1" colspan="1">Description</th>
-              <th class="text-center" rowspan="1" colspan="1">Typical Telemetry / Data Inputs</th>
-              <th class="text-center" rowspan="1" colspan="1">Example Control or Output Actions</th>
+              <th class="text-left" rowspan="1" colspan="1">Typical Telemetry / Data Inputs</th>
+              <th class="text-left" rowspan="1" colspan="1">Example Control or Output Actions</th>
               <th class="text-center" rowspan="1" colspan="1">Related Use Cases</th>
               <th class="text-right" rowspan="1" colspan="1">Maturity / Status</th>
             </tr>
@@ -2941,8 +3072,8 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
                 <strong>Discovery</strong>
 </td>
               <td class="text-left" rowspan="1" colspan="1">Identification and characterization of devices and capabilities.</td>
-              <td class="text-center" rowspan="1" colspan="1">Device inventory data, model, firmware version, supported energy features.</td>
-              <td class="text-center" rowspan="1" colspan="1">Register device energy profile; advertise capability set.</td>
+              <td class="text-left" rowspan="1" colspan="1">Device inventory data, model, firmware version, supported energy features.</td>
+              <td class="text-left" rowspan="1" colspan="1">Register device energy profile; advertise capability set.</td>
               <td class="text-center" rowspan="1" colspan="1">UC 1, UC 11</td>
               <td class="text-right" rowspan="1" colspan="1">High</td>
             </tr>
@@ -2951,8 +3082,8 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
                 <strong>Monitoring</strong>
 </td>
               <td class="text-left" rowspan="1" colspan="1">Collection of energy-related telemetry across network elements.</td>
-              <td class="text-center" rowspan="1" colspan="1">Power usage, utilization, operational state, temperature.</td>
-              <td class="text-center" rowspan="1" colspan="1">Aggregate metrics; compute KPIs; detect anomalies.</td>
+              <td class="text-left" rowspan="1" colspan="1">Power usage, utilization, operational state, temperature.</td>
+              <td class="text-left" rowspan="1" colspan="1">Aggregate metrics; compute KPIs; detect anomalies.</td>
               <td class="text-center" rowspan="1" colspan="1">UC 2–10, UC 15</td>
               <td class="text-right" rowspan="1" colspan="1">Medium</td>
             </tr>
@@ -2961,8 +3092,8 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
                 <strong>Control</strong>
 </td>
               <td class="text-left" rowspan="1" colspan="1">Modification of configuration to improve energy efficiency.</td>
-              <td class="text-center" rowspan="1" colspan="1">Monitored metrics, thresholds, policies.</td>
-              <td class="text-center" rowspan="1" colspan="1">Adjust link speed; enable sleep; re-route load; trigger automation.</td>
+              <td class="text-left" rowspan="1" colspan="1">Monitored metrics, thresholds, policies.</td>
+              <td class="text-left" rowspan="1" colspan="1">Adjust link speed; enable sleep; re-route load; trigger automation.</td>
               <td class="text-center" rowspan="1" colspan="1">UC 2, UC 5–10, UC 14–15</td>
               <td class="text-right" rowspan="1" colspan="1">Low–Medium</td>
             </tr>
@@ -2973,7 +3104,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 - Enhancing the interoperability and extensibility of monitoring telemetry.
 - Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces <em>g</em>) for reporting and federation.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
-<p id="section-5.2-5">Combining both perspectives — the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 1</a> — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">Combining both perspectives — the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 2</a> — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
