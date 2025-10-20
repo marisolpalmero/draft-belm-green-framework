@@ -635,7 +635,7 @@ To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  pr
 
 
 This indicates that future work should prioritize:
-   
+
 - Enhancing the interoperability and extensibility of monitoring telemetry.
 - Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
