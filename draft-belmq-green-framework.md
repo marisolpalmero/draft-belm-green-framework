@@ -571,9 +571,9 @@ The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framewor
 - The second line briefly describes the functional purpose of that flow.
 
 The notation `a->b->c` represents the flow between framework components as described in the {{fig-green-reference-model}}, where:
-- **a** – Discovery interface  
-- **b** – Monitoring interface  
-- **c** – Metrics interface  
+- (a) – Discovery interface  
+- (b) – Monitoring interface  
+- (c) – Metrics interface  
 
 ~~~~
 +--+---------------------------+-------------------------------------+
