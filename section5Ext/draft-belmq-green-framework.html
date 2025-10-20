@@ -2910,23 +2910,6 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           </figcaption></figure>
 </div>
 <p id="section-5.1-4">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).<a href="#section-5.1-4" class="pilcrow">¶</a></p>
-<p id="section-5.1-5">To complement <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a>, <a href="#FunctionalOverviewFramework" class="auto internal xref">Figure 9</a>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains
-of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.<a href="#section-5.1-5" class="pilcrow">¶</a></p>
-<span id="name-functional-overview-of-fram"></span><div id="FunctionalOverviewFramework">
-<figure id="figure-9">
-          <div class="alignLeft art-text artwork" id="section-5.1-6.1">
-<pre>
-| Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
-|:---|:----:|:----:|:----:|:----:|----:|
-| **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2–10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5–10, UC 14–15 | Low–Medium |
-</pre>
-</div>
-<figcaption><a href="#figure-9" class="selfRef">Figure 9</a>:
-<a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains</a>
-          </figcaption></figure>
-</div>
 </section>
 </div>
 <div id="observations-and-next-steps">
@@ -2935,12 +2918,62 @@ of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control<
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-observations-and-next-steps" class="section-name selfRef">Observations and Next Steps</a>
         </h3>
 <p id="section-5.2-1">The mapping in <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> demonstrates that most GREEN use cases rely primarily on the <strong>Monitoring</strong> and <strong>Control</strong> interfaces, with <strong>Discovery</strong> being used during initialization or lifecycle events.<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">This indicates that future work should prioritize:
+<p id="section-5.2-2">To complement <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a>, <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 1</a>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
+<span id="name-functional-overview-of-fram"></span><div id="FunctionalOverviewFramework">
+<table class="center" id="table-1">
+          <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">Functional Domain</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-center" rowspan="1" colspan="1">Typical Telemetry / Data Inputs</th>
+              <th class="text-center" rowspan="1" colspan="1">Example Control or Output Actions</th>
+              <th class="text-center" rowspan="1" colspan="1">Related Use Cases</th>
+              <th class="text-right" rowspan="1" colspan="1">Maturity / Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <strong>Discovery</strong>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">Identification and characterization of devices and capabilities.</td>
+              <td class="text-center" rowspan="1" colspan="1">Device inventory data, model, firmware version, supported energy features.</td>
+              <td class="text-center" rowspan="1" colspan="1">Register device energy profile; advertise capability set.</td>
+              <td class="text-center" rowspan="1" colspan="1">UC 1, UC 11</td>
+              <td class="text-right" rowspan="1" colspan="1">High</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <strong>Monitoring</strong>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">Collection of energy-related telemetry across network elements.</td>
+              <td class="text-center" rowspan="1" colspan="1">Power usage, utilization, operational state, temperature.</td>
+              <td class="text-center" rowspan="1" colspan="1">Aggregate metrics; compute KPIs; detect anomalies.</td>
+              <td class="text-center" rowspan="1" colspan="1">UC 2–10, UC 15</td>
+              <td class="text-right" rowspan="1" colspan="1">Medium</td>
+            </tr>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">
+                <strong>Control</strong>
+</td>
+              <td class="text-left" rowspan="1" colspan="1">Modification of configuration to improve energy efficiency.</td>
+              <td class="text-center" rowspan="1" colspan="1">Monitored metrics, thresholds, policies.</td>
+              <td class="text-center" rowspan="1" colspan="1">Adjust link speed; enable sleep; re-route load; trigger automation.</td>
+              <td class="text-center" rowspan="1" colspan="1">UC 2, UC 5–10, UC 14–15</td>
+              <td class="text-right" rowspan="1" colspan="1">Low–Medium</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+<p id="section-5.2-4">This indicates that future work should prioritize:
 - Enhancing the interoperability and extensibility of monitoring telemetry.
 - Defining control policies and interfaces to support energy optimization actions.
-- Clarifying cross-domain data exchange (interfaces <em>g</em>) for reporting and federation.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
-<p id="section-5.2-3">Combining both perspectives — the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> and the functional overview
-<a href="#FunctionalOverviewFramework" class="auto internal xref">Figure 9</a> — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-3" class="pilcrow">¶</a></p>
+- Clarifying cross-domain data exchange (interfaces <em>g</em>) for reporting and federation.<a href="#section-5.2-4" class="pilcrow">¶</a></p>
+<p id="section-5.2-5">Combining both perspectives — the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Figure 8</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 1</a> — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-5" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>

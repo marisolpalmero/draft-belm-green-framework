@@ -1029,24 +1029,49 @@ Table of Contents
    1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific
    components 3=(a → d → b → e).
 
-   To complement Figure 8, Figure 9 provides a higher-level functional
-   view of the framework.  It summarizes how the interface sequences
-   relate to the three primary operational domains of *Discovery*,
-   *Monitoring*, and *Control*, and shows how they align with use cases.
-
-| Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
-|:---|:----:|:----:|:----:|:----:|----:|
-| **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2–10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5–10, UC 14–15 | Low–Medium |
-
-          Figure 9: Functional Overview of Framework Domains
-
 5.2.  Observations and Next Steps
 
    The mapping in Figure 8 demonstrates that most GREEN use cases rely
    primarily on the *Monitoring* and *Control* interfaces, with
    *Discovery* being used during initialization or lifecycle events.
+
+   To complement Figure 8, Table 1 provides a higher-level functional
+   view of the framework.  It summarizes how the interface sequences
+   relate to the three primary operational domains of *Discovery*,
+   *Monitoring*, and *Control*, and shows how they align with use cases.
+
+   +============+================+============+===========+=======+==========+
+   |Functional  |Description     |  Typical   |  Example  |Related|Maturity /|
+   |Domain      |                |Telemetry / | Control or|  Use  |    Status|
+   |            |                |Data Inputs |   Output  | Cases |          |
+   |            |                |            |  Actions  |       |          |
+   +============+================+============+===========+=======+==========+
+   |*Discovery* |Identification  |   Device   |  Register | UC 1, |      High|
+   |            |and             | inventory  |   device  | UC 11 |          |
+   |            |characterization|data, model,|   energy  |       |          |
+   |            |of devices and  |  firmware  |  profile; |       |          |
+   |            |capabilities.   |  version,  | advertise |       |          |
+   |            |                | supported  | capability|       |          |
+   |            |                |   energy   |    set.   |       |          |
+   |            |                | features.  |           |       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+   |*Monitoring*|Collection of   |Power usage,| Aggregate |   UC  |    Medium|
+   |            |energy-related  |utilization,|  metrics; | 2–10, |          |
+   |            |telemetry across|operational |  compute  | UC 15 |          |
+   |            |network         |   state,   |   KPIs;   |       |          |
+   |            |elements.       |temperature.|   detect  |       |          |
+   |            |                |            | anomalies.|       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+   |*Control*   |Modification of | Monitored  |Adjust link| UC 2, |Low–Medium|
+   |            |configuration to|  metrics,  |   speed;  |   UC  |          |
+   |            |improve energy  |thresholds, |   enable  | 5–10, |          |
+   |            |efficiency.     | policies.  | sleep; re-|   UC  |          |
+   |            |                |            |route load;| 14–15 |          |
+   |            |                |            |  trigger  |       |          |
+   |            |                |            |automation.|       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+
+             Table 1: Functional Overview of Framework Domains
 
    This indicates that future work should prioritize: - Enhancing the
    interoperability and extensibility of monitoring telemetry. -
@@ -1055,7 +1080,7 @@ Table of Contents
    (interfaces _g_) for reporting and federation.
 
    Combining both perspectives — the detailed interface mapping Figure 8
-   and the functional overview Figure 9 — offers a comprehensive picture
+   and the functional overview Table 1 — offers a comprehensive picture
    of how the GREEN Framework can be applied to concrete network energy-
    efficiency scenarios.
 
