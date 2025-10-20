@@ -1,6 +1,6 @@
 ---
 title: "Framework for Energy Efficiency Management"
-abbrev: "Framework for Energy Efficiency Management"
+abbrev: "Energy Efficiency Management Framework"
 docname: draft-belmq-green-framework-latest
 category: info
 stand_alone: true
@@ -94,7 +94,7 @@ informative:
 
 --- abstract
 
-Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
+Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network's functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
 
 --- middle
 
@@ -519,7 +519,7 @@ Power States. TO BE COMPLETED
 
 ## Power State Set Mapping and Intent
 
-Defining and enforcing power states can be challenging, because each Energy Object’s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object’s power-saving capabilities can be aligned with typical intents:
+Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:
 
 - running at reduced capacity during predictable low-demand periods;
 
@@ -531,7 +531,7 @@ By expressing such intents, a controller can decide which power state an Energy 
 
 ### Capability Discovery
 
-Identifying what power states an Energy Object supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:
+Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:
 
 - Whether the energy object supports multiple Power State Sets.
 - Semantics and limitations of each state (e.g., absolute power, relative power).
@@ -548,14 +548,14 @@ The goal of intent mapping is to translate high-level energy-saving intents into
 - An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.
 - Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."
 
-This is comparable to intent mapping in YANG-based systems—from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.
+This is comparable to intent mapping in YANG-based systems, from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.
 
 ### SLA Considerations
 
-Meanwhile saving energy, the device or component shouldn’t drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:
+Meanwhile saving energy, the device or component shouldn't drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:
 
-- Transition SLAs – e.g., the maximum time allowed to transition between states.
-- Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.
+- Transition SLAs - e.g., the maximum time allowed to transition between states.
+- Operational SLAs - e.g., device frequency or operational cycle limits that ensure long-term hardware health.
 
 # Interfaces Usage Of the Framework
 
@@ -628,8 +628,8 @@ To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  pr
 | Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
 |-|:-|:-|:-|:-|-:
 | **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2–10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5–10, UC 14–15 | Low–Medium |
+| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
+| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
 |---
 {: #FunctionalOverviewFramework title="Functional Overview of Framework Domains"}
 
@@ -640,7 +640,7 @@ This indicates that future work should prioritize:
 - Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
 
-Combining both perspectives — the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview {{FunctionalOverviewFramework}} — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
+Combining both perspectives, the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview {{FunctionalOverviewFramework}}, offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
 
 # Conventions and Definitions
 
