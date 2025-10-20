@@ -114,7 +114,7 @@ The following topics remain open for further discussion points:
 - Represent these capabilities in a machine-readable format.
 
 ## Mapping Intents to Device Settings
-- Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.
+- Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.
 - Create a standard method to describe this mapping across systems.
 
 ## Handling Transitions and Ensuring Safety
@@ -615,7 +615,7 @@ The notation `a->b->c` represents the flow between framework components as descr
 |---
 {: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
-Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).
+Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a -> d -> b -> e).
 
 
 ## Observations and Next Steps
