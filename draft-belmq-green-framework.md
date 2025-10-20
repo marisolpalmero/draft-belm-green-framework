@@ -627,9 +627,9 @@ To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  pr
 |---
 | Functional Domain | Details | Related Use Cases | Maturity / Status |
 |-|:-|:-|:-|-:
-| **Discovery** | Identification and characterization of devices and capabilities. **Telemetry/Data Inputs:** Device inventory data, model, firmware version, supported energy features. **Example Actions:** Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. **Telemetry/Data Inputs:** Power usage, utilization, operational state, temperature. **Example Actions:** Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. **Telemetry/Data Inputs:** Monitored metrics, thresholds, policies. **Example Actions:** Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
+| **Discovery** | Identification and characterization of devices and capabilities. Telemetry/Data Inputs: Device inventory data, model, firmware version, supported energy features. Example Actions: Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
+| **Monitoring** | Collection of energy-related telemetry across network elements. Telemetry/Data Inputs: Power usage, utilization, operational state, temperature. Example Actions: Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
+| **Control** | Modification of configuration to improve energy efficiency. Telemetry/Data Inputs: Monitored metrics, thresholds, policies.  Example Actions: Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
 |---
 {: #FunctionalOverviewFramework title="Functional Overview of Framework Domains (Merged Details)"}
 
