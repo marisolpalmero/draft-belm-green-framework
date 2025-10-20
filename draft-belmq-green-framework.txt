@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 18 April 2026                                        Telefonica
+Expires: 23 April 2026                                        Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 18 April 2026                                        Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                         15 October 2025
+                                                         20 October 2025
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -115,6 +115,8 @@ Table of Contents
        4.4.2.  Intent Mapping
        4.4.3.  SLA Considerations
    5.  Interfaces Usage Of the Framework
+     5.1.  Mapping of Use Cases to Framework Interfaces
+     5.2.  Observations and Next Steps
    6.  Conventions and Definitions
    7.  Security Considerations
    8.  IANA Considerations
@@ -964,54 +966,171 @@ Table of Contents
 
 5.  Interfaces Usage Of the Framework
 
-   The table below maps the fifteen GREEN use cases to the framework and
-   describes the sequences in which they use its interfaces.
+   This section provides an overview of how the GREEN use cases
+   described in [draft-stephan-green-use-cases] interact with the
+   framework interfaces defined in this document.
 
-   Foreach use case, the first line list the set of usages.  They are
-   separated with a semicolon.  The second line provides a firs level of
-   explanation of these usages.
+   Each use case is characterized by the sequence of framework
+   interfaces it invokes to achieve energy-efficiency objectives.
 
-  +--+---------------------------+-------------------------------------+
-  |UC| Use Case                  | Interfaces Usages                   |
-  +--+---------------------------+-------------------------------------+
-  |1 | Incremental deployment    | c; c->b; a->d->b->e                 |
-  |  | of the GREEN Framework    | 1,2: legacy; 3: GREEN WG support (i)|
-  |2 | Selective Reduction of    | e->b->c->f                          |
-  |  | Energy Consumption        | monitor->metrics->control           |
-  |3 | Reporting on Lifecycle    | c->g                                |
-  |  | Management                | metrics / metadata->API or report   |
-  |4 | Real-time Energy Metering | b->c                                |
-  |  | of Virtualised NFs        | monitor->metrics                    |
-  |5 | Indirect Energy Monitoring| b->f                                |
-  |  | & Control                 | monitor aggregate->control          |
-  |6 | Consideration of Other    | c->g->b                             |
-  |  | Domains for End-to-End    | metrics->cross-domain API->         |
-  |  | Metrics                   | monitoring                          |
-  |7 | Dynamic Adjustment via    | b->f->c                             |
-  |  | Traffic Levels            | observe->control->update metrics    |
-  |8 | Video Streaming Use Case  | b->c->f                             |
-  |  |                           | monitor->metrics->control           |
-  |9 | WLAN Network Energy Saving| b->f                                |
-  |  |                           | monitor->control                    |
-  |10| Fixed Network Energy      | b->f                                |
-  |  | Saving                    | monitor->control                    |
-  |11| Energy Efficiency Network | a->b->c->f->g                       |
-  |  | Management                | discover->monitor->metrics->        |
-  |  |                           | control->API                        |
-  |12| ISAC-enabled Energy-Aware | ---                                 |
-  |  | Smart City Traffic Mgmt   | not clearly specified               |
-  |13| Double Accounting Open    | c->g                                |
-  |  | Issue                     | metrics / metadata->API             |
-  |14| Energy Efficiency Under   | b->f                                |
-  |  | Power Shortage            | monitor->control                    |
-  |15| Energy-Efficient Mgmt of  | b->c->f                             |
-  |  | AI Training Workloads     | monitor->metrics->control           |
-  +--+---------------------------+-------------------------------------+
+5.1.  Mapping of Use Cases to Framework Interfaces
 
-                   Figure 8: Use Cases Interfaces Usage
+   The table Table 1 maps each GREEN use case to the framework
+   interfaces and summarizes how these are used: - The first line shows
+   the interface sequences. - The second line briefly describes the
+   functional purpose of that flow.
 
-   UC1 usage (1,2 and 3) of the framework rises progressively during the
-   lifecycle of a set of devices
+   The notation a->b->c represents the flow between framework components
+   as described in the Figure 1, where:
+
+   *  (a) Discovery interface
+
+   *  (b) Monitoring interface
+
+   *  (c) Metrics interface
+
+      +====+========================+==============================+
+      | UC | Use Case               | Interfaces Usages            |
+      +====+========================+==============================+
+      | 1  | Incremental deployment | c; c->b; a->d->b->e          |
+      +----+------------------------+------------------------------+
+      |    | of the GREEN Framework | 1,2: legacy; 3: GREEN WG     |
+      |    |                        | support (i)                  |
+      +----+------------------------+------------------------------+
+      | 2  | Selective Reduction of | e->b->c->f                   |
+      +----+------------------------+------------------------------+
+      |    | Energy Consumption     | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
+      | 3  | Reporting on Lifecycle | c->g                         |
+      +----+------------------------+------------------------------+
+      |    | Management             | metrics / metadata->API or   |
+      |    |                        | report                       |
+      +----+------------------------+------------------------------+
+      | 4  | Real-time Energy       | b->c                         |
+      |    | Metering               |                              |
+      +----+------------------------+------------------------------+
+      |    | of Virtualised NFs     | monitor->metrics             |
+      +----+------------------------+------------------------------+
+      | 5  | Indirect Energy        | b->f                         |
+      |    | Monitoring             |                              |
+      +----+------------------------+------------------------------+
+      |    | & Control              | monitor aggregate->control   |
+      +----+------------------------+------------------------------+
+      | 6  | Consideration of Other | c->g->b                      |
+      +----+------------------------+------------------------------+
+      |    | Domains for End-to-End | metrics->cross-domain API->  |
+      +----+------------------------+------------------------------+
+      |    | Metrics                | monitoring                   |
+      +----+------------------------+------------------------------+
+      | 7  | Dynamic Adjustment via | b->f->c                      |
+      +----+------------------------+------------------------------+
+      |    | Traffic Levels         | observe->control->update     |
+      |    |                        | metrics                      |
+      +----+------------------------+------------------------------+
+      | 8  | Video Streaming Use    | b->c->f                      |
+      |    | Case                   |                              |
+      +----+------------------------+------------------------------+
+      |    |                        | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
+      | 9  | WLAN Network Energy    | b->f                         |
+      |    | Saving                 |                              |
+      +----+------------------------+------------------------------+
+      |    |                        | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 10 | Fixed Network Energy   | b->f                         |
+      +----+------------------------+------------------------------+
+      |    | Saving                 | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 11 | Energy Efficiency      | a->b->c->f->g                |
+      |    | Network                |                              |
+      +----+------------------------+------------------------------+
+      |    | Management             | discover->monitor->metrics-> |
+      +----+------------------------+------------------------------+
+      |    |                        | control->API                 |
+      +----+------------------------+------------------------------+
+      | 12 | ISAC-enabled Energy-   | ---                          |
+      |    | Aware                  |                              |
+      +----+------------------------+------------------------------+
+      |    | Smart City Traffic     | not clearly specified        |
+      |    | Mgmt                   |                              |
+      +----+------------------------+------------------------------+
+      | 13 | Double Accounting Open | c->g                         |
+      +----+------------------------+------------------------------+
+      |    | Issue                  | metrics / metadata->API      |
+      +----+------------------------+------------------------------+
+      | 14 | Energy Efficiency      | b->f                         |
+      |    | Under                  |                              |
+      +----+------------------------+------------------------------+
+      |    | Power Shortage         | monitor->control             |
+      +----+------------------------+------------------------------+
+      | 15 | Energy-Efficient Mgmt  | b->c->f                      |
+      |    | of                     |                              |
+      +----+------------------------+------------------------------+
+      |    | AI Training Workloads  | monitor->metrics->control    |
+      +----+------------------------+------------------------------+
+
+                   Table 1: Use Cases Interfaces Usage
+
+   Use Case 1 (Incremental Deployment) illustrates how the usage of the
+   framework interfaces evolves during the lifecycle of a network or
+   device group, starting with legacy reporting, which is represented by
+   1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific
+   components 3=(a → d → b → e).
+
+5.2.  Observations and Next Steps
+
+   The mapping in Table 1 demonstrates that most GREEN use cases rely
+   primarily on the monitoring and control interfaces, with discovery
+   being used during initialization or lifecycle events.
+
+   To complement Table 1, Table 2 provides a higher-level functional
+   view of the framework.  It summarizes how the interface sequences
+   relate to the three primary operational domains of *Discovery*,
+   *Monitoring*, and *Control*, and shows how they align with use cases.
+
+   +============+================+============+===========+=======+==========+
+   |Functional  |Description     |Typical     |Example    |Related|Maturity /|
+   |Domain      |                |Telemetry / |Control or |  Use  |    Status|
+   |            |                |Data Inputs |Output     | Cases |          |
+   |            |                |            |Actions    |       |          |
+   +============+================+============+===========+=======+==========+
+   |*Discovery* |Identification  |Device      |Register   | UC 1, |      High|
+   |            |and             |inventory   |device     | UC 11 |          |
+   |            |characterization|data, model,|energy     |       |          |
+   |            |of devices and  |firmware    |profile;   |       |          |
+   |            |capabilities.   |version,    |advertise  |       |          |
+   |            |                |supported   |capability |       |          |
+   |            |                |energy      |set.       |       |          |
+   |            |                |features.   |           |       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+   |*Monitoring*|Collection of   |Power usage,|Aggregate  |   UC  |    Medium|
+   |            |energy-related  |utilization,|metrics;   | 2–10, |          |
+   |            |telemetry across|operational |compute    | UC 15 |          |
+   |            |network         |state,      |KPIs;      |       |          |
+   |            |elements.       |temperature.|detect     |       |          |
+   |            |                |            |anomalies. |       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+   |*Control*   |Modification of |Monitored   |Adjust link| UC 2, |Low–Medium|
+   |            |configuration to|metrics,    |speed;     |   UC  |          |
+   |            |improve energy  |thresholds, |enable     | 5–10, |          |
+   |            |efficiency.     |policies.   |sleep; re- |   UC  |          |
+   |            |                |            |route load;| 14–15 |          |
+   |            |                |            |trigger    |       |          |
+   |            |                |            |automation.|       |          |
+   +------------+----------------+------------+-----------+-------+----------+
+
+             Table 2: Functional Overview of Framework Domains
+
+   This indicates that future work should prioritize: - Enhancing the
+   interoperability and extensibility of monitoring telemetry. -
+   Defining control policies and interfaces to support energy
+   optimization actions. - Clarifying cross-domain data exchange
+   (interfaces _g_) for reporting and federation.
+
+   Combining both perspectives — the detailed interface mapping Table 1
+   and the functional overview Table 2 — offers a comprehensive picture
+   of how the GREEN Framework can be applied to concrete network energy-
+   efficiency scenarios.
 
 6.  Conventions and Definitions
 
