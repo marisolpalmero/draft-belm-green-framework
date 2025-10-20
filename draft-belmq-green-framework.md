@@ -625,13 +625,14 @@ The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use ca
 To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
 
 |---
-| Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
-|-|:-|:-|:-|:-|-:
-| **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
+| Functional Domain | Details | Related Use Cases | Maturity / Status |
+|-|:-|:-|:-|-:
+| **Discovery** | Identification and characterization of devices and capabilities. **Telemetry/Data Inputs:** Device inventory data, model, firmware version, supported energy features. **Example Actions:** Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
+| **Monitoring** | Collection of energy-related telemetry across network elements. **Telemetry/Data Inputs:** Power usage, utilization, operational state, temperature. **Example Actions:** Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
+| **Control** | Modification of configuration to improve energy efficiency. **Telemetry/Data Inputs:** Monitored metrics, thresholds, policies. **Example Actions:** Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
 |---
-{: #FunctionalOverviewFramework title="Functional Overview of Framework Domains"}
+{: #FunctionalOverviewFramework title="Functional Overview of Framework Domains (Merged Details)"}
+
 
 
 This indicates that future work should prioritize:
