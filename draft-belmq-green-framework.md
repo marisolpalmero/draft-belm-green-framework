@@ -301,7 +301,7 @@ In conclusion, establishing the framework for energy efficiency management now i
    Relationships.
 
 
-The GREEN Reference Model is represented in the  {{fig-green-reference-model}}
+The GREEN Reference Model is represented in the {{fig-green-reference-model}}
 
 ~~~ aasvg
 {::include art/green_ascii.txt}
@@ -559,52 +559,86 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 
 # Interfaces Usage Of the Framework
 
-The table below maps the fifteen GREEN use cases to the framework and describes the sequences in which they use its interfaces.
+This section provides an overview of how the GREEN use cases described in
+[draft-stephan-green-use-cases] interact with the framework interfaces defined in this document.
 
-Foreach use case, the first line list the set of usages. They are separated with a semicolon. The second line provides a firs level of explanation of these usages.
+Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.
 
+## Mapping of Use Cases to Framework Interfaces
 
-~~~~
-+--+---------------------------+-------------------------------------+
-|UC| Use Case                  | Interfaces Usages                   |
-+--+---------------------------+-------------------------------------+
-|1 | Incremental deployment    | c; c->b; a->d->b->e                 |
-|  | of the GREEN Framework    | 1,2: legacy; 3: GREEN WG support (i)|
-|2 | Selective Reduction of    | e->b->c->f                          |
-|  | Energy Consumption        | monitor->metrics->control           |
-|3 | Reporting on Lifecycle    | c->g                                |
-|  | Management                | metrics / metadata->API or report   |
-|4 | Real-time Energy Metering | b->c                                |
-|  | of Virtualised NFs        | monitor->metrics                    |
-|5 | Indirect Energy Monitoring| b->f                                |
-|  | & Control                 | monitor aggregate->control          |
-|6 | Consideration of Other    | c->g->b                             |
-|  | Domains for End-to-End    | metrics->cross-domain API->         |
-|  | Metrics                   | monitoring                          |
-|7 | Dynamic Adjustment via    | b->f->c                             |
-|  | Traffic Levels            | observe->control->update metrics    |
-|8 | Video Streaming Use Case  | b->c->f                             |
-|  |                           | monitor->metrics->control           |
-|9 | WLAN Network Energy Saving| b->f                                |
-|  |                           | monitor->control                    |
-|10| Fixed Network Energy      | b->f                                |
-|  | Saving                    | monitor->control                    |
-|11| Energy Efficiency Network | a->b->c->f->g                       |
-|  | Management                | discover->monitor->metrics->        |
-|  |                           | control->API                        |
-|12| ISAC-enabled Energy-Aware | ---                                 |
-|  | Smart City Traffic Mgmt   | not clearly specified               |
-|13| Double Accounting Open    | c->g                                |
-|  | Issue                     | metrics / metadata->API             |
-|14| Energy Efficiency Under   | b->f                                |
-|  | Power Shortage            | monitor->control                    |
-|15| Energy-Efficient Mgmt of  | b->c->f                             |
-|  | AI Training Workloads     | monitor->metrics->control           |
-+--+---------------------------+-------------------------------------+
-~~~~
+The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framework interfaces and summarizes how these are used:
+- The first line shows the interface sequences.
+- The second line briefly describes the functional purpose of that flow.
+
+The notation `a->b->c` represents the flow between framework components as described in the {{fig-green-reference-model}}, where:
+
+- (a) Discovery interface
+- (b) Monitoring interface
+- (c) Metrics interface
+
+|---
+|UC| Use Case | Interfaces Usages |
+|-|:-|:-
+|1| Incremental deployment | c; c->b; a->d->b->e |
+| | of the GREEN Framework | 1,2: legacy; 3: GREEN WG support (i)|
+|2| Selective Reduction of | e->b->c->f |
+| | Energy Consumption | monitor->metrics->control|
+|3| Reporting on Lifecycle | c->g |
+| | Management | metrics / metadata->API or report |
+|4| Real-time Energy Metering | b->c |
+| | of Virtualised NFs | monitor->metrics |
+|5| Indirect Energy Monitoring| b->f |
+| | & Control | monitor aggregate->control |
+|6| Consideration of Other | c->g->b |
+| | Domains for End-to-End | metrics->cross-domain API-> |
+| | Metrics | monitoring |
+|7| Dynamic Adjustment via | b->f->c |
+| | Traffic Levels | observe->control->update metrics |
+|8| Video Streaming Use Case | b->c->f |
+| | | monitor->metrics->control |
+|9| WLAN Network Energy Saving | b->f |
+| | | monitor->control |
+|10| Fixed Network Energy | b->f |
+| | Saving | monitor->control |
+|11| Energy Efficiency Network | a->b->c->f->g |
+| | Management | discover->monitor->metrics-> |
+| | | control->API |
+|12| ISAC-enabled Energy-Aware | --- |
+| | Smart City Traffic Mgmt | not clearly specified |
+|13| Double Accounting Open | c->g |
+| | Issue | metrics / metadata->API |
+|14| Energy Efficiency Under | b->f |
+| | Power Shortage | monitor->control |
+|15| Energy-Efficient Mgmt of | b->c->f |
+| | AI Training Workloads | monitor->metrics->control |
+|---
 {: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
-UC1 usage (1,2 and 3) of the framework rises progressively during the lifecycle of a set of devices
+Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).
+
+
+## Observations and Next Steps
+
+The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.
+
+To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
+
+|---
+| Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
+|-|:-|:-|:-|:-|-:
+| **Discovery** | Identification and characterization of devices and capabilities. | Device inventory data, model, firmware version, supported energy features. | Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
+| **Monitoring** | Collection of energy-related telemetry across network elements. | Power usage, utilization, operational state, temperature. | Aggregate metrics; compute KPIs; detect anomalies. | UC 2–10, UC 15 | Medium |
+| **Control** | Modification of configuration to improve energy efficiency. | Monitored metrics, thresholds, policies. | Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5–10, UC 14–15 | Low–Medium |
+|---
+{: #FunctionalOverviewFramework title="Functional Overview of Framework Domains"}
+
+
+This indicates that future work should prioritize:
+- Enhancing the interoperability and extensibility of monitoring telemetry.
+- Defining control policies and interfaces to support energy optimization actions.
+- Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
+
+Combining both perspectives — the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview {{FunctionalOverviewFramework}} — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
 
 # Conventions and Definitions
 
