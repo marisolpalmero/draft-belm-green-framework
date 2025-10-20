@@ -173,7 +173,7 @@ Energy Management.
 
       NOTES:
 
-      1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+      1. An Energy Management System according to ISO50001 (ISO-EnMS)
          is a set of systems or procedures upon which organizations can
          develop and implement an energy policy, set targets and action
          plans, and take into account legal requirements related to
@@ -191,7 +191,7 @@ Energy Management.
          reporting as required by their local government.
 
       3. For the purposes of EMAN, the definition herein is the
-         preferred meaning of an EnMS.  The definition from [ISO50001]
+         preferred meaning of an EnMS.  The definition from ISO50001
          can be referred to as an ISO Energy Management System
          (ISO-EnMS).
 
