@@ -618,8 +618,11 @@ The notation `a->b->c` represents the flow between framework components as descr
 Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).
 
 
-To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains
-of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
+## Observations and Next Steps
+
+The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the **Monitoring** and **Control** interfaces, with **Discovery** being used during initialization or lifecycle events.
+
+To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
 
 |---
 | Functional Domain | Description | Typical Telemetry / Data Inputs | Example Control or Output Actions | Related Use Cases | Maturity / Status |
@@ -630,17 +633,13 @@ of **Discovery**, **Monitoring**, and **Control**, and shows how they align with
 |---
 {: #FunctionalOverviewFramework title="Functional Overview of Framework Domains"}
 
-## Observations and Next Steps
-
-The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the **Monitoring** and **Control** interfaces, with **Discovery** being used during initialization or lifecycle events.
 
 This indicates that future work should prioritize:
 - Enhancing the interoperability and extensibility of monitoring telemetry.
 - Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
 
-Combining both perspectives — the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview
-{{FunctionalOverviewFramework}} — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
+Combining both perspectives — the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview {{FunctionalOverviewFramework}} — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
 
 # Conventions and Definitions
 
