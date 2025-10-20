@@ -976,9 +976,12 @@ Table of Contents
 5.1.  Mapping of Use Cases to Framework Interfaces
 
    The table Table 1 maps each GREEN use case to the framework
-   interfaces and summarizes how these are used: - The first line shows
-   the interface sequences. - The second line briefly describes the
-   functional purpose of that flow.
+   interfaces and summarizes how these are used:
+
+   *  The first line shows the interface sequences.
+
+   *  The second line briefly describes the functional purpose of that
+      flow.
 
    The notation a->b->c represents the flow between framework components
    as described in the Figure 1, where:
@@ -1090,12 +1093,12 @@ Table of Contents
 
    +============+================+============+===========+=======+==========+
    |Functional  |Description     |Typical     |Example    |Related|Maturity /|
-   |Domain      |                |Telemetry / |Control or |  Use  |    Status|
-   |            |                |Data Inputs |Output     | Cases |          |
+   |Domain      |                |Telemetry / |Control or |Use    |    Status|
+   |            |                |Data Inputs |Output     |Cases  |          |
    |            |                |            |Actions    |       |          |
    +============+================+============+===========+=======+==========+
-   |*Discovery* |Identification  |Device      |Register   | UC 1, |      High|
-   |            |and             |inventory   |device     | UC 11 |          |
+   |*Discovery* |Identification  |Device      |Register   |UC 1,  |      High|
+   |            |and             |inventory   |device     |UC 11  |          |
    |            |characterization|data, model,|energy     |       |          |
    |            |of devices and  |firmware    |profile;   |       |          |
    |            |capabilities.   |version,    |advertise  |       |          |
@@ -1103,29 +1106,34 @@ Table of Contents
    |            |                |energy      |set.       |       |          |
    |            |                |features.   |           |       |          |
    +------------+----------------+------------+-----------+-------+----------+
-   |*Monitoring*|Collection of   |Power usage,|Aggregate  |   UC  |    Medium|
-   |            |energy-related  |utilization,|metrics;   | 2–10, |          |
-   |            |telemetry across|operational |compute    | UC 15 |          |
+   |*Monitoring*|Collection of   |Power usage,|Aggregate  |UC     |    Medium|
+   |            |energy-related  |utilization,|metrics;   |2–10,  |          |
+   |            |telemetry across|operational |compute    |UC 15  |          |
    |            |network         |state,      |KPIs;      |       |          |
    |            |elements.       |temperature.|detect     |       |          |
    |            |                |            |anomalies. |       |          |
    +------------+----------------+------------+-----------+-------+----------+
-   |*Control*   |Modification of |Monitored   |Adjust link| UC 2, |Low–Medium|
-   |            |configuration to|metrics,    |speed;     |   UC  |          |
-   |            |improve energy  |thresholds, |enable     | 5–10, |          |
-   |            |efficiency.     |policies.   |sleep; re- |   UC  |          |
-   |            |                |            |route load;| 14–15 |          |
+   |*Control*   |Modification of |Monitored   |Adjust link|UC 2,  |Low–Medium|
+   |            |configuration to|metrics,    |speed;     |UC     |          |
+   |            |improve energy  |thresholds, |enable     |5–10,  |          |
+   |            |efficiency.     |policies.   |sleep; re- |UC     |          |
+   |            |                |            |route load;|14–15  |          |
    |            |                |            |trigger    |       |          |
    |            |                |            |automation.|       |          |
    +------------+----------------+------------+-----------+-------+----------+
 
              Table 2: Functional Overview of Framework Domains
 
-   This indicates that future work should prioritize: - Enhancing the
-   interoperability and extensibility of monitoring telemetry. -
-   Defining control policies and interfaces to support energy
-   optimization actions. - Clarifying cross-domain data exchange
-   (interfaces _g_) for reporting and federation.
+   This indicates that future work should prioritize:
+
+   *  Enhancing the interoperability and extensibility of monitoring
+      telemetry.
+
+   *  Defining control policies and interfaces to support energy
+      optimization actions.
+
+   *  Clarifying cross-domain data exchange (interfaces _g_) for
+      reporting and federation.
 
    Combining both perspectives — the detailed interface mapping Table 1
    and the functional overview Table 2 — offers a comprehensive picture
