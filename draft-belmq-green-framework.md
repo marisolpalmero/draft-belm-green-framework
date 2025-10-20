@@ -567,6 +567,7 @@ Each use case is characterized by the sequence of framework interfaces it invoke
 ## Mapping of Use Cases to Framework Interfaces
 
 The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framework interfaces and summarizes how these are used:
+
 - The first line shows the interface sequences.
 - The second line briefly describes the functional purpose of that flow.
 
@@ -634,6 +635,7 @@ To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  pr
 
 
 This indicates that future work should prioritize:
+
 - Enhancing the interoperability and extensibility of monitoring telemetry.
 - Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
