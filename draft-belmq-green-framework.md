@@ -562,7 +562,7 @@ Meanwhile saving energy, the device or component shouldn’t drop below a certai
 This section provides an overview of how the GREEN use cases described in
 [draft-stephan-green-use-cases] interact with the framework interfaces defined in this document.
 
-Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.  
+Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.
 
 ## Mapping of Use Cases to Framework Interfaces
 
@@ -571,9 +571,9 @@ The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framewor
 - The second line briefly describes the functional purpose of that flow.
 
 The notation `a->b->c` represents the flow between framework components as described in the {{fig-green-reference-model}}, where:
-- (a) – Discovery interface  
-- (b) – Monitoring interface  
-- (c) – Metrics interface  
+- (a) – Discovery interface
+- (b) – Monitoring interface
+- (c) – Metrics interface
 
 ~~~~
 +--+---------------------------+-------------------------------------+
@@ -636,8 +636,8 @@ of **Discovery**, **Monitoring**, and **Control**, and shows how they align with
 The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the **Monitoring** and **Control** interfaces, with **Discovery** being used during initialization or lifecycle events.
 
 This indicates that future work should prioritize:
-- Enhancing the interoperability and extensibility of monitoring telemetry.  
-- Defining control policies and interfaces to support energy optimization actions.  
+- Enhancing the interoperability and extensibility of monitoring telemetry.
+- Defining control policies and interfaces to support energy optimization actions.
 - Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
 
 Combining both perspectives — the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview
