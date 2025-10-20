@@ -571,9 +571,10 @@ The table {{green-uc-interfaces-usage}} maps each GREEN use case to the framewor
 - The second line briefly describes the functional purpose of that flow.
 
 The notation `a->b->c` represents the flow between framework components as described in the {{fig-green-reference-model}}, where:
-- (a) – Discovery interface
-- (b) – Monitoring interface
-- (c) – Metrics interface
+
+- (a) Discovery interface
+- (b) Monitoring interface
+- (c) Metrics interface
 
 |---
 |UC| Use Case | Interfaces Usages |
@@ -595,13 +596,13 @@ The notation `a->b->c` represents the flow between framework components as descr
 |  | Traffic Levels | observe->control->update metrics |
 |8 | Video Streaming Use Case | b->c->f |
 |  | | monitor->metrics->control |
-|9 | WLAN Network Energy Saving| b->f |
-|  |                           | monitor->control |
-|10| Fixed Network Energy      | b->f |
-|  | Saving                    | monitor->control |
+|9 | WLAN Network Energy Saving | b->f |
+|  | | monitor->control |
+|10| Fixed Network Energy | b->f |
+|  | Saving | monitor->control |
 |11| Energy Efficiency Network | a->b->c->f->g |
-|  | Management                | discover->monitor->metrics-> |
-|  |                           | control->API |
+|  | Management | discover->monitor->metrics-> |
+|  | | control->API |
 |12| ISAC-enabled Energy-Aware | --- |
 |  | Smart City Traffic Mgmt | not clearly specified |
 |13| Double Accounting Open | c->g |
@@ -618,7 +619,7 @@ Use Case 1 (Incremental Deployment) illustrates how the usage of the framework i
 
 ## Observations and Next Steps
 
-The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the **Monitoring** and **Control** interfaces, with **Discovery** being used during initialization or lifecycle events.
+The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.
 
 To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
 
