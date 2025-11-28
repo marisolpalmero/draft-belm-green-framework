@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 23 April 2026                                        Telefonica
+Expires: 1 June 2026                                          Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 23 April 2026                                        Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                         20 October 2025
+                                                        28 November 2025
 
 
                Framework for Energy Efficiency Management
@@ -26,7 +26,7 @@ Abstract
    specifies a management framework focused on devices and device
    components within, or connected to, interconnected systems.  The
    framework aims to enable energy usage optimization, based on the
-   network condition while achieving the network’s functional and
+   network condition while achieving the network's functional and
    performance requirements (e.g., improving overall network
    utilization) and also ensure interoperability across diverse systems.
    Leveraging data from existing use cases, it delivers actionable
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 April 2026.
+   This Internet-Draft will expire on 1 June 2026.
 
 Copyright Notice
 
@@ -150,8 +150,8 @@ Table of Contents
 
 1.3.  Mapping Intents to Device Settings
 
-   *  Develop ways to translate high-level energy goals (like “save
-      energy at low utilization”) into actual device configurations.
+   *  Develop ways to translate high-level energy goals (like "save
+      energy at low utilization") into actual device configurations.
 
    *  Create a standard method to describe this mapping across systems.
 
@@ -243,7 +243,7 @@ Table of Contents
 
       NOTES:
 
-      1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+      1. An Energy Management System according to ISO50001 (ISO-EnMS)
          is a set of systems or procedures upon which organizations can
          develop and implement an energy policy, set targets and action
          plans, and take into account legal requirements related to
@@ -261,7 +261,7 @@ Table of Contents
          reporting as required by their local government.
 
       3. For the purposes of EMAN, the definition herein is the
-         preferred meaning of an EnMS.  The definition from [ISO50001]
+         preferred meaning of an EnMS.  The definition from ISO50001
          can be referred to as an ISO Energy Management System
          (ISO-EnMS).
 
@@ -900,9 +900,9 @@ Table of Contents
 4.4.  Power State Set Mapping and Intent
 
    Defining and enforcing power states can be challenging, because each
-   Energy Object’s technical capabilities must be mapped to high-level
+   Energy Object's technical capabilities must be mapped to high-level
    operational intents for energy-efficient operation.  The following
-   examples illustrate how an Energy Object’s power-saving capabilities
+   examples illustrate how an Energy Object's power-saving capabilities
    can be aligned with typical intents:
 
    *  running at reduced capacity during predictable low-demand periods;
@@ -919,7 +919,7 @@ Table of Contents
 4.4.1.  Capability Discovery
 
    Identifying what power states an Energy Object supports is crucial
-   for onboarding and integration—especially for legacy systems.  Key
+   for onboarding and integration, especially for legacy systems.  Key
    discovery elements include:
 
    *  Whether the energy object supports multiple Power State Sets.
@@ -947,21 +947,21 @@ Table of Contents
    *  Controllers may interpret intents variably, e.g., "run at half
       capacity but be ready to scale up if needed."
 
-   This is comparable to intent mapping in YANG-based systems—from high-
-   level Customer-Facing Services (CFS) to Resource-Facing Services
+   This is comparable to intent mapping in YANG-based systems, from
+   high-level Customer-Facing Services (CFS) to Resource-Facing Services
    (RFS) and ultimately to device-specific configurations.
 
 4.4.3.  SLA Considerations
 
-   Meanwhile saving energy, the device or component shouldn’t drop below
+   Meanwhile saving energy, the device or component shouldn't drop below
    a certain performance threshold or allow a certain service reduction
    or degradation.  Based on this, there are two kinds of service level
    expectations (SLAs) are associated with Power State behavior:
 
-   *  Transition SLAs – e.g., the maximum time allowed to transition
+   *  Transition SLAs - e.g., the maximum time allowed to transition
       between states.
 
-   *  Operational SLAs – e.g., device frequency or operational cycle
+   *  Operational SLAs - e.g., device frequency or operational cycle
       limits that ensure long-term hardware health.
 
 5.  Interfaces Usage Of the Framework
@@ -1078,7 +1078,7 @@ Table of Contents
    framework interfaces evolves during the lifecycle of a network or
    device group, starting with legacy reporting, which is represented by
    1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific
-   components 3=(a → d → b → e).
+   components 3=(a -> d -> b -> e).
 
 5.2.  Observations and Next Steps
 
@@ -1091,38 +1091,46 @@ Table of Contents
    relate to the three primary operational domains of *Discovery*,
    *Monitoring*, and *Control*, and shows how they align with use cases.
 
-   +============+================+============+===========+=======+==========+
-   |Functional  |Description     |Typical     |Example    |Related|Maturity /|
-   |Domain      |                |Telemetry / |Control or |Use    |    Status|
-   |            |                |Data Inputs |Output     |Cases  |          |
-   |            |                |            |Actions    |       |          |
-   +============+================+============+===========+=======+==========+
-   |*Discovery* |Identification  |Device      |Register   |UC 1,  |      High|
-   |            |and             |inventory   |device     |UC 11  |          |
-   |            |characterization|data, model,|energy     |       |          |
-   |            |of devices and  |firmware    |profile;   |       |          |
-   |            |capabilities.   |version,    |advertise  |       |          |
-   |            |                |supported   |capability |       |          |
-   |            |                |energy      |set.       |       |          |
-   |            |                |features.   |           |       |          |
-   +------------+----------------+------------+-----------+-------+----------+
-   |*Monitoring*|Collection of   |Power usage,|Aggregate  |UC     |    Medium|
-   |            |energy-related  |utilization,|metrics;   |2–10,  |          |
-   |            |telemetry across|operational |compute    |UC 15  |          |
-   |            |network         |state,      |KPIs;      |       |          |
-   |            |elements.       |temperature.|detect     |       |          |
-   |            |                |            |anomalies. |       |          |
-   +------------+----------------+------------+-----------+-------+----------+
-   |*Control*   |Modification of |Monitored   |Adjust link|UC 2,  |Low–Medium|
-   |            |configuration to|metrics,    |speed;     |UC     |          |
-   |            |improve energy  |thresholds, |enable     |5–10,  |          |
-   |            |efficiency.     |policies.   |sleep; re- |UC     |          |
-   |            |                |            |route load;|14–15  |          |
-   |            |                |            |trigger    |       |          |
-   |            |                |            |automation.|       |          |
-   +------------+----------------+------------+-----------+-------+----------+
+   +==============+============================+=========+============+
+   | Functional   | Details                    | Related | Maturity / |
+   | Domain       |                            | Use     | Status     |
+   |              |                            | Cases   |            |
+   +==============+============================+=========+============+
+   | *Discovery*  | Identification and         | UC 1,   | High       |
+   |              | characterization of        | UC 11   |            |
+   |              | devices and capabilities.  |         |            |
+   |              | Telemetry/Data Inputs:     |         |            |
+   |              | Device inventory data,     |         |            |
+   |              | model, firmware version,   |         |            |
+   |              | supported energy features. |         |            |
+   |              | Example Actions: Register  |         |            |
+   |              | device energy profile;     |         |            |
+   |              | advertise capability set.  |         |            |
+   +--------------+----------------------------+---------+------------+
+   | *Monitoring* | Collection of energy-      | UC      | Medium     |
+   |              | related telemetry across   | 2-10,   |            |
+   |              | network elements.          | UC 15   |            |
+   |              | Telemetry/Data Inputs:     |         |            |
+   |              | Power usage, utilization,  |         |            |
+   |              | operational state,         |         |            |
+   |              | temperature.  Example      |         |            |
+   |              | Actions: Aggregate         |         |            |
+   |              | metrics; compute KPIs;     |         |            |
+   |              | detect anomalies.          |         |            |
+   +--------------+----------------------------+---------+------------+
+   | *Control*    | Modification of            | UC 2,   | Low-Medium |
+   |              | configuration to improve   | UC      |            |
+   |              | energy efficiency.         | 5-10,   |            |
+   |              | Telemetry/Data Inputs:     | UC      |            |
+   |              | Monitored metrics,         | 14-15   |            |
+   |              | thresholds, policies.      |         |            |
+   |              | Example Actions: Adjust    |         |            |
+   |              | link speed; enable sleep;  |         |            |
+   |              | re-route load; trigger     |         |            |
+   |              | automation.                |         |            |
+   +--------------+----------------------------+---------+------------+
 
-             Table 2: Functional Overview of Framework Domains
+    Table 2: Functional Overview of Framework Domains (Merged Details)
 
    This indicates that future work should prioritize:
 
@@ -1135,8 +1143,8 @@ Table of Contents
    *  Clarifying cross-domain data exchange (interfaces _g_) for
       reporting and federation.
 
-   Combining both perspectives — the detailed interface mapping Table 1
-   and the functional overview Table 2 — offers a comprehensive picture
+   Combining both perspectives, the detailed interface mapping Table 1
+   and the functional overview Table 2, offers a comprehensive picture
    of how the GREEN Framework can be applied to concrete network energy-
    efficiency scenarios.
 
@@ -1232,12 +1240,12 @@ Table of Contents
               Control of Electronic Devices Employed in Office/Consumer
               Environments, IEEE 1621", December 2004.
 
-   [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Muniz, A., Palmero,
-              M. P., Munoz, F., and J. Lindblad, "Path Energy Traffic
+   [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M. P.,
+              Lindblad, J., and A. G. Sánchez, "Path Energy Traffic
               Ratio API (PETRA)", Work in Progress, Internet-Draft,
-              draft-petra-green-api-01, 7 July 2025,
+              draft-petra-green-api-02, 20 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
-              api-01>.
+              api-02>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,

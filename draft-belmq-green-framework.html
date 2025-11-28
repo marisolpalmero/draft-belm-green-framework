@@ -12,7 +12,7 @@
 <meta content="Emile Stephan" name="author">
 <meta content="Qin Wu" name="author">
 <meta content="
-       Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices. 
+       Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network's functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices. 
     " name="description">
 <meta content="xml2rfc 3.31.0" name="generator">
 <meta content="framework" name="keyword">
@@ -1051,12 +1051,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">Framework for Energy Efficiency Manageme</td>
-<td class="right">October 2025</td>
+<td class="center">Energy Efficiency Management Framework</td>
+<td class="right">November 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 23 April 2026</td>
+<td class="center">Expires 1 June 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-10-20" class="published">20 October 2025</time>
+<time datetime="2025-11-28" class="published">28 November 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-04-23">23 April 2026</time></dd>
+<dd class="expires"><time datetime="2026-06-01">1 June 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1107,7 +1107,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <h1 id="title">Framework for Energy Efficiency Management</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network’s functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network's functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1144,7 +1144,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 23 April 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 1 June 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1355,7 +1355,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         </h3>
 <ul class="normal">
 <li class="normal" id="section-1.3-1.1">
-            <p id="section-1.3-1.1.1">Develop ways to translate high-level energy goals (like “save energy at low utilization”) into actual device configurations.<a href="#section-1.3-1.1.1" class="pilcrow">¶</a></p>
+            <p id="section-1.3-1.1.1">Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.<a href="#section-1.3-1.1.1" class="pilcrow">¶</a></p>
 </li>
           <li class="normal" id="section-1.3-1.2">
             <p id="section-1.3-1.2.1">Create a standard method to describe this mapping across systems.<a href="#section-1.3-1.2.1" class="pilcrow">¶</a></p>
@@ -1469,7 +1469,7 @@ Energy Management.<a href="#section-2.1-3.2.1" class="pilcrow">¶</a></p>
 <pre>
 NOTES:
 
-1. An Energy Management System according to [ISO50001] (ISO-EnMS)
+1. An Energy Management System according to ISO50001 (ISO-EnMS)
    is a set of systems or procedures upon which organizations can
    develop and implement an energy policy, set targets and action
    plans, and take into account legal requirements related to
@@ -1487,7 +1487,7 @@ NOTES:
    reporting as required by their local government.
 
 3. For the purposes of EMAN, the definition herein is the
-   preferred meaning of an EnMS.  The definition from [ISO50001]
+   preferred meaning of an EnMS.  The definition from ISO50001
    can be referred to as an ISO Energy Management System
    (ISO-EnMS).
 </pre><a href="#section-2.1-3.2.2" class="pilcrow">¶</a>
@@ -2768,7 +2768,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
         <h3 id="name-power-state-set-mapping-and">
 <a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-power-state-set-mapping-and" class="section-name selfRef">Power State Set Mapping and Intent</a>
         </h3>
-<p id="section-4.4-1">Defining and enforcing power states can be challenging, because each Energy Object’s technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object’s power-saving capabilities can be aligned with typical intents:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">Defining and enforcing power states can be challenging, because each Energy Object's technical capabilities must be mapped to high-level operational intents for energy-efficient operation. The following examples illustrate how an Energy Object's power-saving capabilities can be aligned with typical intents:<a href="#section-4.4-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4-2.1">
             <p id="section-4.4-2.1.1">running at reduced capacity during predictable low-demand periods;<a href="#section-4.4-2.1.1" class="pilcrow">¶</a></p>
@@ -2786,7 +2786,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           <h4 id="name-capability-discovery">
 <a href="#section-4.4.1" class="section-number selfRef">4.4.1. </a><a href="#name-capability-discovery" class="section-name selfRef">Capability Discovery</a>
           </h4>
-<p id="section-4.4.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration—especially for legacy systems. Key discovery elements include:<a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.1-1">Identifying what power states an Energy Object supports is crucial for onboarding and integration, especially for legacy systems. Key discovery elements include:<a href="#section-4.4.1-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4.1-2.1">
               <p id="section-4.4.1-2.1.1">Whether the energy object supports multiple Power State Sets.<a href="#section-4.4.1-2.1.1" class="pilcrow">¶</a></p>
@@ -2820,7 +2820,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
               <p id="section-4.4.2-2.2.1">Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."<a href="#section-4.4.2-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.4.2-3">This is comparable to intent mapping in YANG-based systems—from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.<a href="#section-4.4.2-3" class="pilcrow">¶</a></p>
+<p id="section-4.4.2-3">This is comparable to intent mapping in YANG-based systems, from high-level Customer-Facing Services (CFS) to Resource-Facing Services (RFS) and ultimately to device-specific configurations.<a href="#section-4.4.2-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sla-considerations">
@@ -2828,13 +2828,13 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           <h4 id="name-sla-considerations">
 <a href="#section-4.4.3" class="section-number selfRef">4.4.3. </a><a href="#name-sla-considerations" class="section-name selfRef">SLA Considerations</a>
           </h4>
-<p id="section-4.4.3-1">Meanwhile saving energy, the device or component shouldn’t drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
+<p id="section-4.4.3-1">Meanwhile saving energy, the device or component shouldn't drop below a certain performance threshold or allow a certain service reduction or degradation. Based on this, there are two kinds of service level expectations (SLAs) are associated with Power State behavior:<a href="#section-4.4.3-1" class="pilcrow">¶</a></p>
 <ul class="normal">
 <li class="normal" id="section-4.4.3-2.1">
-              <p id="section-4.4.3-2.1.1">Transition SLAs – e.g., the maximum time allowed to transition between states.<a href="#section-4.4.3-2.1.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.3-2.1.1">Transition SLAs - e.g., the maximum time allowed to transition between states.<a href="#section-4.4.3-2.1.1" class="pilcrow">¶</a></p>
 </li>
             <li class="normal" id="section-4.4.3-2.2">
-              <p id="section-4.4.3-2.2.1">Operational SLAs – e.g., device frequency or operational cycle limits that ensure long-term hardware health.<a href="#section-4.4.3-2.2.1" class="pilcrow">¶</a></p>
+              <p id="section-4.4.3-2.2.1">Operational SLAs - e.g., device frequency or operational cycle limits that ensure long-term hardware health.<a href="#section-4.4.3-2.2.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
 </section>
@@ -3054,7 +3054,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
           </tbody>
         </table>
 </div>
-<p id="section-5.1-6">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a → d → b → e).<a href="#section-5.1-6" class="pilcrow">¶</a></p>
+<p id="section-5.1-6">Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -&gt; b) and progressively incorporating GREEN-specific components 3=(a -&gt; d -&gt; b -&gt; e).<a href="#section-5.1-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="observations-and-next-steps">
@@ -3068,16 +3068,14 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
 <table class="center" id="table-2">
           <caption>
 <a href="#table-2" class="selfRef">Table 2</a>:
-<a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains</a>
+<a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains (Merged Details)</a>
           </caption>
 <thead>
             <tr>
               <th class="text-left" rowspan="1" colspan="1">Functional Domain</th>
-              <th class="text-left" rowspan="1" colspan="1">Description</th>
-              <th class="text-left" rowspan="1" colspan="1">Typical Telemetry / Data Inputs</th>
-              <th class="text-left" rowspan="1" colspan="1">Example Control or Output Actions</th>
+              <th class="text-left" rowspan="1" colspan="1">Details</th>
               <th class="text-left" rowspan="1" colspan="1">Related Use Cases</th>
-              <th class="text-right" rowspan="1" colspan="1">Maturity / Status</th>
+              <th class="text-left" rowspan="1" colspan="1">Maturity / Status</th>
             </tr>
           </thead>
           <tbody>
@@ -3085,31 +3083,25 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
               <td class="text-left" rowspan="1" colspan="1">
                 <strong>Discovery</strong>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">Identification and characterization of devices and capabilities.</td>
-              <td class="text-left" rowspan="1" colspan="1">Device inventory data, model, firmware version, supported energy features.</td>
-              <td class="text-left" rowspan="1" colspan="1">Register device energy profile; advertise capability set.</td>
+              <td class="text-left" rowspan="1" colspan="1">Identification and characterization of devices and capabilities. Telemetry/Data Inputs: Device inventory data, model, firmware version, supported energy features. Example Actions: Register device energy profile; advertise capability set.</td>
               <td class="text-left" rowspan="1" colspan="1">UC 1, UC 11</td>
-              <td class="text-right" rowspan="1" colspan="1">High</td>
+              <td class="text-left" rowspan="1" colspan="1">High</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <strong>Monitoring</strong>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">Collection of energy-related telemetry across network elements.</td>
-              <td class="text-left" rowspan="1" colspan="1">Power usage, utilization, operational state, temperature.</td>
-              <td class="text-left" rowspan="1" colspan="1">Aggregate metrics; compute KPIs; detect anomalies.</td>
-              <td class="text-left" rowspan="1" colspan="1">UC 2–10, UC 15</td>
-              <td class="text-right" rowspan="1" colspan="1">Medium</td>
+              <td class="text-left" rowspan="1" colspan="1">Collection of energy-related telemetry across network elements. Telemetry/Data Inputs: Power usage, utilization, operational state, temperature. Example Actions: Aggregate metrics; compute KPIs; detect anomalies.</td>
+              <td class="text-left" rowspan="1" colspan="1">UC 2-10, UC 15</td>
+              <td class="text-left" rowspan="1" colspan="1">Medium</td>
             </tr>
             <tr>
               <td class="text-left" rowspan="1" colspan="1">
                 <strong>Control</strong>
 </td>
-              <td class="text-left" rowspan="1" colspan="1">Modification of configuration to improve energy efficiency.</td>
-              <td class="text-left" rowspan="1" colspan="1">Monitored metrics, thresholds, policies.</td>
-              <td class="text-left" rowspan="1" colspan="1">Adjust link speed; enable sleep; re-route load; trigger automation.</td>
-              <td class="text-left" rowspan="1" colspan="1">UC 2, UC 5–10, UC 14–15</td>
-              <td class="text-right" rowspan="1" colspan="1">Low–Medium</td>
+              <td class="text-left" rowspan="1" colspan="1">Modification of configuration to improve energy efficiency. Telemetry/Data Inputs: Monitored metrics, thresholds, policies.  Example Actions: Adjust link speed; enable sleep; re-route load; trigger automation.</td>
+              <td class="text-left" rowspan="1" colspan="1">UC 2, UC 5-10, UC 14-15</td>
+              <td class="text-left" rowspan="1" colspan="1">Low-Medium</td>
             </tr>
           </tbody>
         </table>
@@ -3126,7 +3118,7 @@ Power States. TO BE COMPLETED<a href="#section-4.3-8" class="pilcrow">¶</a></p>
             <p id="section-5.2-5.3.1">Clarifying cross-domain data exchange (interfaces <em>g</em>) for reporting and federation.<a href="#section-5.2-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-5.2-6">Combining both perspectives — the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 2</a> — offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
+<p id="section-5.2-6">Combining both perspectives, the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 2</a>, offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-5.2-6" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
@@ -3242,7 +3234,7 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).<a href="#
 <dd class="break"></dd>
 <dt id="PetraApi">[PetraApi]</dt>
         <dd>
-<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Muniz, A.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Munoz, F.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-01</span>, <time datetime="2025-07-07" class="refDate">7 July 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-01">https://datatracker.ietf.org/doc/html/draft-petra-green-api-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Rodriguez-Natal, A.</span>, <span class="refAuthor">Contreras, L. M.</span>, <span class="refAuthor">Palmero, M. P.</span>, <span class="refAuthor">Lindblad, J.</span>, and <span class="refAuthor">A. G. Sánchez</span>, <span class="refTitle">"Path Energy Traffic Ratio API (PETRA)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-petra-green-api-02</span>, <time datetime="2025-10-20" class="refDate">20 October 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-petra-green-api-02">https://datatracker.ietf.org/doc/html/draft-petra-green-api-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7326">[RFC7326]</dt>
         <dd>
