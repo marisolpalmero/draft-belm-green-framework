@@ -324,10 +324,45 @@ The main elements in the framework are as follows:
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be implemented inside the device or in the controller or a combination of both.
+Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device or in the controller or a combination of both.
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
+
+<<TO DO: should be a separated section?? or just continuation of the Reference Model section>> 
+
+The referene model covers every network device and component that has a unique identifiable ID and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+
+In scope:
+
+- Devices
+- Chassis, 
+- Line cards, modules, ports
+- Power supply units (PSUs), fans, thermal units
+- Accelerators, GPUs, NPUs
+- Virtualized components where applicable
+- Any element providing power, energy
+
+Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy:
+
+1. Device-Provided UUID (read-only)
+
+- Originates from hardware or firmware
+
+- Represents the authoritative physical identifier
+
+- Preference to follow IETF hardware YANG identity
+
+2. Controller-Generated UUID (read-write)
+
+- Used by orchestrators, schedulers, etc
+
+- Supports correlation across datasets, lifecycle stages, or clouds
+
+- Maintains identifier mapping.
+
+A YANG extension will be introduced to capture Power Factor(PF), enabling controllers engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially PSUs.
+
+
 
 ## Typical Power Topologies
 
