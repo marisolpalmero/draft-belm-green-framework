@@ -167,8 +167,9 @@ monitored by this framework can be either of the following:
 
 Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{PowerAndEnergy}}. This data model includes:
 
-- a data model to preserve measurement accuracy.
-- reporting on industry-standard certifications (such as 80 PLUS for Power Supply Units, Energy Star, etc) rather than requiring vendors to report granular precision metrics.
+- power and energy reporting,
+- reporting on the measurement accuracy,
+- reporting on industry-standard certifications (such as 80 PLUS for Power Supply Units, Energy Star, etc) rather than requiring vendors to report granular precision metrics,
 - translation of the framework's concepts into an implementable specification, relying on the hardware management models such as {{RFC8348}}.
 
 ## Terminology
@@ -420,11 +421,11 @@ The framework defines three primary accuracy categories:
  - Learned estimates: Generated potentially by machine learning models predicting consumption from workload patterns (UC 15, AI Training Workloads)
 
 - Measured Data: Direct, real-time sensor measurements with quantified precision:
-- Bronze: ±30% accuracy for typical values
-- Silver: ±10% accuracy for typical values  
-- Gold: ±5% accuracy for typical values
-- Red: ±2% accuracy for typical values
-- Ones: All non-zero digits are significant/valid
+- Bronze: ±30% accuracy for typical values.
+- Silver: ±10% accuracy for typical values.
+- Gold: ±5% accuracy for typical values.
+- Red: ±2% accuracy for typical values.
+- Ones: All non-zero digits are significant/valid.
 
 ### Framework Benefits
 
@@ -436,7 +437,7 @@ Explicit accuracy reporting enables:
 - Double-accounting prevention: Understand when PDU-level measurements (±2%) should override device estimates (±30%) to avoid counting the same energy twice (UC 13)
 - Cross-domain correlation: Map accuracy expectations when integrating with external systems like 3GPP energy KPIs (UC 6)
 
-The accuracy hierarchy uses YANG identities for extensibility, allowing vendors to define manufacturer-specific accuracy classes while maintaining interoperability through standardized base types. Implementation details are provided in the companion YANG data model {{I-D.draft-bcmj-green-power-and-energy-yang}}.
+The accuracy hierarchy uses YANG identities for extensibility, allowing vendors to define manufacturer-specific accuracy classes while maintaining interoperability through standardized base types. Implementation details are provided in the companion YANG data model {{PowerAndEnergy}}.
 
 ### Industry-standard certifications
 
