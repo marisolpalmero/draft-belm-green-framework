@@ -618,6 +618,108 @@ The notation `a->b->c` represents the flow between framework components as descr
 Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a -> d -> b -> e).
 
 
+# Use Case Implementation Requirements: Device vs. Controller Focus
+
+
+This section analyzes the {{I-D.ietf-green-use-cases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides vendors on device feature priorities and operators on controller capabilities needed for effective energy management.
+
+## Implementation Focus Analysis
+
+The framework uses two distinct concepts: 
+  - **Device/Controller-Centric**: Describes **where intelligence resides**. Device-centric use cases (e.g., UC 14: Power Shortage) require autonomous on-device decision-making. Controller-centric use cases (e.g., UC 10: Fixed Network Saving) require centralized orchestration and network-wide visibility. 
+  - **Device/Controller-Initiated**: Describes **who triggers data flow**. Controller-initiated means the controller establishes YANG-Push subscriptions {{?RFC8641}} to energy objects, and devices stream telemetry in response. Device-initiated, means devices autonomously push critical alerts without prior subscription. These concepts are independent: controller-centric use cases typically use controller-initiated telemetry for routine monitoring, but may also leverage device-initiated alerts for critical events requiring immediate attention (e.g., power supply failure, certification threshold violations).
+
+
+| UC# | Use Case | Critical Capabilities |
+|-----|----------|---------------------|----------------------|
+| **Device-Centric** ||||
+| 14 | Power Shortage Management | Backup power awareness, autonomous operation |
+| 1 | Incremental Deployment | **Device → Controller** | Baseline metrics, certification reporting, capability discovery |
+||||
+| **Hybrid (Device + Controller)** |||
+| 4 | Virtualized NF Metering | HW-layer metering, VM correlation, real-time telemetry push |
+| 9 | WLAN Energy Saving | PoE power modes, double counting, coordinated state transitions |
+||||
+| **Controller-Centric** |||
+| 2 | Selective Energy Reduction | Traffic pattern analysis, coordinated sleep modes, global optimization |
+| 3 | Lifecycle Reporting | External database integration, carbon factor correlation, metadata aggregation |
+| 5 | Indirect Monitoring | PDU/meter integration, topology-aware aggregation, proxy measurement |
+| 6 | Cross-Domain Metrics | Multi-domain API integration, double-accounting prevention, metric mapping |
+| 7 | Wireless Transport Optimization | *Traffic-aware power adjustment, dynamic link control, pattern recognition |
+| 8 | Video Streaming | Multicast optimization, cache placement, traffic engineering |
+| 10 | Fixed Network Saving | pattern prediction, coordinated reconfiguration, AI/ML integration |
+| 11 | Network-Wide Management | Centralized visibility, topology mapping, vendor-neutral aggregation |
+| 12 | ISAC Smart City | Context-aware activation, city-wide coordination, sensing prioritization |
+| 13 | Double Accounting Prevention | Metering topology awareness, relationship modeling, intelligent aggregation |
+| 15 | AI Training Workloads | Energy-aware scheduling, data placement, East-West traffic optimization |
+| 16 | Cross-Layer Saving | Multi-layer coordination (L0-L3), cross-layer state synchronization |
+{: #uc-implementation-focus title="Use Case Implementation Focus"}
+
+<<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
+
+## Key Findings 
+
+### Device Capabilities Required Across Use Cases
+
+To support controller-orchestrated optimization, devices MUST provide:
+
+1. **Discovery Interface (a, d)**
+   - Power state capabilities and transitions
+   - Certification information (80 PLUS, Energy Star, etc.)
+   - Backup power source awareness
+   - Component-level UUID identification (per {{RFC8348}})
+
+2. **Telemetry Push (b→c)**
+   - Real-time power/energy metrics
+   - Power state change notifications
+   - Component-level granularity
+   - Timestamp correlation for traffic patterns
+
+3. **Control Interface (f)**
+   - Power state transitions (on/off, sleep, low-power)
+   - Component-level control (ports, line cards, radios)
+   - Transition time and frequency constraints
+   - Safe operational limits (SLAs)
+
+### Controller Capabilities Required
+
+To enable network-wide energy optimization, controllers MUST provide:
+
+1. **Topology Awareness**
+   - Power source relationships (who powers whom)
+   - Metering relationships (who meters whom)
+   - Cross-domain mappings (3GPP, optical, IP layers)
+
+2. **Intelligent Orchestration**
+   - Traffic pattern analysis and prediction
+   - Coordinated state transitions across devices
+   - Double-accounting prevention
+   - Global vs. local optimization decisions
+
+3. **Cross-Domain Integration**
+   - External database integration (datasheets, carbon factors)
+   - Multi-domain API support (3GPP, optical transport)
+   - Metadata aggregation and correlation
+
+## Implementation Priorities
+
+### Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)
+- **Devices**: UUID identification, basic power metrics, certification reporting
+- **Controllers**: Discovery interface, topology awareness, double-accounting prevention
+
+### Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)
+- **Devices**: Power state support, telemetry push, transition constraints
+- **Controllers**: Traffic correlation, coordinated control, pattern prediction
+
+### Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15, 16)
+- **Devices**: Granular metering, fast state transitions, component-level control
+- **Controllers**: Cross-domain integration, AI/ML optimization, multi-layer coordination
+
+This phased approach allows incremental deployment while maximizing value at each stage.
+
+
+
+
 ## Observations and Next Steps
 
 The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.
