@@ -103,21 +103,25 @@ Table of Contents
    4.  Reference Model
      4.1.  Data Collection Architecture
        4.1.1.  Telemetry Push Pattern
-       4.1.2.  UUID-Based Component Identification
-       4.1.3.  Controller vs. Device Initiated
-     4.2.  Typical Power Topologies
-       4.2.1.  Basic Power Supply
-       4.2.2.  Physical Meter with Legacy Device
-       4.2.3.  Physical Meter with New Device
-       4.2.4.  Power over Ethernet
-       4.2.5.  Single Power Supply with Multiple Devices
-       4.2.6.  Multiple Power Supplies with Single Device
-     4.3.  Relationships
-     4.4.  Power State Set
-     4.5.  Power State Set Mapping and Intent
-       4.5.1.  Capability Discovery
-       4.5.2.  Intent Mapping
-       4.5.3.  SLA Considerations
+       4.1.2.  Controller vs. Device Initiated
+       4.1.3.  UUID-Based Component Identification
+       4.1.4.  Measurement Accuracy and Data Source Classification
+     4.2.  Measurement Accuracy Framework
+       4.2.1.  Framework Benefits
+       4.2.2.  Industry-standard certifications
+     4.3.  Typical Power Topologies
+       4.3.1.  Basic Power Supply
+       4.3.2.  Physical Meter with Legacy Device
+       4.3.3.  Physical Meter with New Device
+       4.3.4.  Power over Ethernet
+       4.3.5.  Single Power Supply with Multiple Devices
+       4.3.6.  Multiple Power Supplies with Single Device
+     4.4.  Relationships
+     4.5.  Power State Set
+     4.6.  Power State Set Mapping and Intent
+       4.6.1.  Capability Discovery
+       4.6.2.  Intent Mapping
+       4.6.3.  SLA Considerations
    5.  Interfaces Usage Of the Framework
      5.1.  Mapping of Use Cases to Framework Interfaces
      5.2.  Observations and Next Steps
@@ -228,17 +232,19 @@ Table of Contents
 
    Based on the framework, companion work has been initiated to develop
    a YANG data model for energy efficiency metrics [PowerAndEnergy].
-   This work includes:
+   This data model includes:
 
-   *  a data model to preserve measurement accuracy.
+   *  power and energy reporting,
 
-   *  a data model to capture industry-standard certifications (such as
-      80 PLUS for Power Supply Units) rather than requiring vendors to
-      report granular precision metrics.
+   *  reporting on the measurement accuracy,
 
-   *  a data model that translates the framework's concepts into an
-      implementable specification that extends existing hardware
-      management models such as [RFC8348].
+   *  reporting on industry-standard certifications (such as 80 PLUS for
+      Power Supply Units, Energy Star, etc) rather than requiring
+      vendors to report granular precision metrics,
+
+   *  translation of the framework's concepts into an implementable
+      specification, relying on the hardware management models such as
+      [RFC8348].
 
 2.1.  Terminology
 
@@ -478,17 +484,14 @@ Table of Contents
    power and energy, (for example traffic monitoring) but this is not
    covered in the framework.
 
-   Note that this framework specificies logical blocks, however, the
-   Energy Efficiency Management Function might be implemented inside the
-   device, based in [RFC8348] or in the controller or a combination of
-   both.
+   Note that the GREEN framework specificies logical blocks, however,
+   the Energy Efficiency Management function might be implemented inside
+   the device, based in [RFC8348], in the controller, or a combination
+   of both.
 
    Even the current reference model implicitly assume a hierarchical
    network structure, this assumption acknowledges that modern networks
    have flatter and anticipate more distributed topologies.
-
-   <<TO DO: should be a separated section?? or just continuation of the
-   Reference Model section>>
 
    The referene model covers every network device and component that has
    a unique identifiable ID and can represent or influence power or
@@ -510,27 +513,6 @@ Table of Contents
    *  Virtualized components where applicable
 
    *  Any element providing power, energy
-
-   Energy Efficiency workflows require stable, cross-system identity for
-   devices and components.  To support this, the GREEN Framework adopts
-   a dual-UUID strategy, based on ietf-hardware YANG module defined in
-   [RFC8348]:
-
-   1.  Device-Provided UUID (read-only)
-
-   *  Originates from hardware or firmware
-
-   *  Represents the authoritative physical identifier
-
-   *  Preference to follow IETF hardware YANG identity
-
-   1.  Controller-Generated UUID (read-write)
-
-   *  Used by orchestrators, schedulers, etc
-
-   *  Supports correlation across datasets, lifecycle stages, or clouds
-
-   *  Maintains identifier mapping.
 
    A YANG extension will be introduced to capture Power Factor(PF),
    enabling controllers engines to accurately compute real power.  PF is
@@ -560,12 +542,34 @@ Table of Contents
    *  Scalability: Controllers can subscribe once rather than poll
       continuously.
 
-4.1.2.  UUID-Based Component Identification
+4.1.2.  Controller vs. Device Initiated
+
+   The framework supports both initiation models:
+
+   *  Controller-Initiated:
+
+      -  Controller subscribes to energy objects from managed devices
+
+      -  Provides centralized control over monitoring scope and
+         frequency
+
+      -  Enables dynamic adjustment of monitoring based on operational
+         needs
+
+   *  Device-Initiated**:
+
+      -  Devices can autonomously report critical energy events
+
+      -  Useful for threshold violations or hardware failures
+
+      -  Complements controller-initiated subscriptions
+
+4.1.3.  UUID-Based Component Identification
 
    Energy metrics are anchored to hardware components using UUIDs from
    the ietf-hardware model [RFC8348]:
 
-   *  Each physical component** (chassis, power supply, line card, etc.)
+   *  Each physical component (chassis, power supply, line card, etc.)
       has a stable UUID
 
    *  Energy metrics reference these UUIDs, enabling correlation with:
@@ -579,31 +583,102 @@ Table of Contents
 
       -  Asset management databases
 
-4.1.3.  Controller vs. Device Initiated
+   Energy Efficiency workflows require stable, cross-system identity for
+   devices and components.  To support this, the GREEN Framework adopts
+   a dual-UUID strategy, based on ietf-hardware YANG module defined in
+   [RFC8348]:
 
-   The framework supports both initiation models:
+   1.  Device-Provided UUID (read-only):
 
-   *  Controller-Initiated (Recommended?):
+   *  Originates from hardware or firmware.
 
-      -  Controller subscribes to energy objects from managed devices
+   *  Represents the authoritative physical identifier.
 
-      -  Provides centralized control over monitoring scope and
-         frequency
+   *  Preference to follow IETF hardware YANG identity.
 
-      -  Enables dynamic adjustment of monitoring based on operational
-         needs
+   1.  Controller-Generated UUID (read-write):
 
-   *  Device-Initiated** (Optional?):
+   *  Used by orchestrators, schedulers, etc.
 
-      -  Devices can autonomously report critical energy events
+   *  Supports correlation across datasets, lifecycle stages, or clouds.
 
-      -  Useful for threshold violations or hardware failures
+   *  Maintains identifier mapping.
 
-      -  Complements controller-initiated subscriptions
+4.1.4.  Measurement Accuracy and Data Source Classification
 
-   TODO: <<Question to the working group on the approach>>
+4.2.  Measurement Accuracy Framework
 
-4.2.  Typical Power Topologies
+   Energy metrics vary significantly in quality and source: some
+   represent direct sensor measurements with known precision, others are
+   estimates from datasheets or even machine learning predictions.  To
+   enable informed decision-making and prevent misleading comparisons,
+   the framework requires explicit accuracy classification for all power
+   and energy data.
+
+   The framework defines three primary accuracy categories:
+
+   *  Unknown Accuracy: Data accuracy cannot be determined, or
+      measurements are unavailable due to sensor failures, powered-off
+      components, or other operational constraints.
+
+   *  Estimated Data: Values derived through indirect methods:
+
+   *  Static estimates: From manufacturer datasheets, nameplate ratings,
+      or typical values (essential for UC 1, Incremental Deployment with
+      legacy devices).
+
+   *  Historic estimates: Based on prior measurements of this specific
+      system under similar operational conditions.
+
+   *  Learned estimates: Generated potentially by machine learning
+      models predicting consumption from workload patterns (UC 15, AI
+      Training Workloads)
+
+   *  Measured Data: Direct, real-time sensor measurements with
+      quantified precision:
+
+   *  Bronze: ±30% accuracy for typical values.
+
+   *  Silver: ±10% accuracy for typical values.
+
+   *  Gold: ±5% accuracy for typical values.
+
+   *  Red: ±2% accuracy for typical values.
+
+   *  Ones: All non-zero digits are significant/valid.
+
+4.2.1.  Framework Benefits
+
+   Explicit accuracy reporting enables:
+
+   *  Weighted aggregation: High-precision measurements carry
+      appropriate weight when calculating network-wide energy
+      consumption
+
+   *  Upgrade prioritization: Identify devices with low-accuracy
+      reporting for sensor upgrades or replacement
+
+   *  Compliance validation: Automated verification against regulatory
+      thresholds requiring specific measurement precision
+
+   *  Double-accounting prevention: Understand when PDU-level
+      measurements (±2%) should override device estimates (±30%) to
+      avoid counting the same energy twice (UC 13)
+
+   *  Cross-domain correlation: Map accuracy expectations when
+      integrating with external systems like 3GPP energy KPIs (UC 6)
+
+   The accuracy hierarchy uses YANG identities for extensibility,
+   allowing vendors to define manufacturer-specific accuracy classes
+   while maintaining interoperability through standardized base types.
+   Implementation details are provided in the companion YANG data model
+   [PowerAndEnergy].
+
+4.2.2.  Industry-standard certifications
+
+   <<TO_DO>>
+
+4.3.  Typical Power Topologies
 
    The following reference model describes physical power topologies
    that exist in parallel with a communication topology.  While many
@@ -621,7 +696,7 @@ Table of Contents
    *  "- >" is used to denote a transfer of information using Network
       Interface.
 
-4.2.1.  Basic Power Supply
+4.3.1.  Basic Power Supply
 
    This covers the basic example of router connected to Power Outlet in
    the wall.
@@ -663,7 +738,7 @@ Table of Contents
 
           Figure 2: Reference Model Example: Basic Power Supply
 
-4.2.2.  Physical Meter with Legacy Device
+4.3.2.  Physical Meter with Legacy Device
 
    This covers the basic example of device connected to wall Power
    Outlet, with a Physical Meter placed in the wall Power Outlet,
@@ -720,7 +795,7 @@ Table of Contents
    as meters are connected to the wiring topology.  A typical example is
    meters that clamp onto the existing wiring.
 
-4.2.3.  Physical Meter with New Device
+4.3.3.  Physical Meter with New Device
 
    This covers the example of device connected to wall Power Outlet,
    with a Physical Meter placed in the wall Power Outlet, because the
@@ -771,7 +846,7 @@ Table of Contents
    the Metering Relationship between the two Energy Objects, the EnMS
    will double count the Energy consumed in the network.
 
-4.2.4.  Power over Ethernet
+4.3.4.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
@@ -837,7 +912,7 @@ Table of Contents
    controller might for example put the PoE End Point to a lower Power
    State.
 
-4.2.5.  Single Power Supply with Multiple Devices
+4.3.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
@@ -893,7 +968,7 @@ Table of Contents
        Figure 6: Reference Model Example: Single Power Supply with
                              Multiple Devices
 
-4.2.6.  Multiple Power Supplies with Single Device
+4.3.6.  Multiple Power Supplies with Single Device
 
  +--------------------------------------------------------------------+
  |                                                                    |
@@ -933,7 +1008,7 @@ Table of Contents
     Figure 7: Reference Model Example: Multiple Power Supplies with
                              Single Device
 
-4.3.  Relationships
+4.4.  Relationships
 
    The framework for Energy Management need to describe a means to
    monitor and control devices and components, and it needs to describe
@@ -984,7 +1059,7 @@ Table of Contents
    Given that relationships can be assigned manually, the following
    sections describe guidelines for use.
 
-4.4.  Power State Set
+4.5.  Power State Set
 
    The Energy Object contains a Power State Set attribute that
    represents a set of Power States a device or component supports.
@@ -1026,7 +1101,7 @@ Table of Contents
    There are many existing standards describing device and component
    Power States.  TO BE COMPLETED
 
-4.5.  Power State Set Mapping and Intent
+4.6.  Power State Set Mapping and Intent
 
    Defining and enforcing power states can be challenging, because each
    Energy Object's technical capabilities must be mapped to high-level
@@ -1045,7 +1120,7 @@ Table of Contents
    an Energy Object should enter at any given time and under what
    conditions.
 
-4.5.1.  Capability Discovery
+4.6.1.  Capability Discovery
 
    Identifying what power states an Energy Object supports is crucial
    for onboarding and integration, especially for legacy systems.  Key
@@ -1065,7 +1140,7 @@ Table of Contents
 
    *  Impacts on measurement accuracy.
 
-4.5.2.  Intent Mapping
+4.6.2.  Intent Mapping
 
    The goal of intent mapping is to translate high-level energy-saving
    intents into specific device/component configurations.  For example:
@@ -1080,7 +1155,7 @@ Table of Contents
    high-level Customer-Facing Services (CFS) to Resource-Facing Services
    (RFS) and ultimately to device-specific configurations.
 
-4.5.3.  SLA Considerations
+4.6.3.  SLA Considerations
 
    Meanwhile saving energy, the device or component shouldn't drop below
    a certain performance threshold or allow a certain service reduction
