@@ -613,13 +613,13 @@ The notation `a->b->c` represents the flow between framework components as descr
 |15| Energy-Efficient Mgmt of | b->c->f |
 | | AI Training Workloads | monitor->metrics->control |
 |---
+
 {: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
 Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a -> d -> b -> e).
 
 
-# Use Case Implementation Requirements: Device vs. Controller Focus
-
+# Use Case Implementation Requirements: Device vs. Controller Centric
 
 This section analyzes the {{I-D.ietf-green-use-cases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides vendors on device feature priorities and operators on controller capabilities needed for effective energy management.
 
@@ -630,6 +630,7 @@ The framework uses two distinct concepts:
   - **Device/Controller-Initiated**: Describes **who triggers data flow**. Controller-initiated means the controller establishes YANG-Push subscriptions {{?RFC8641}} to energy objects, and devices stream telemetry in response. Device-initiated, means devices autonomously push critical alerts without prior subscription. These concepts are independent: controller-centric use cases typically use controller-initiated telemetry for routine monitoring, but may also leverage device-initiated alerts for critical events requiring immediate attention (e.g., power supply failure, certification threshold violations).
 
 
+|---
 | UC# | Use Case | Critical Capabilities |
 |-----|----------|---------------------|
 | **Device-Centric** |||
@@ -654,6 +655,7 @@ The framework uses two distinct concepts:
 | 15 | AI Training Workloads | Energy-aware scheduling, data placement, East-West traffic optimization |
 | 16 | Cross-Layer Saving | Multi-layer coordination (L0-L3), cross-layer state synchronization |
 |---
+
 {: #uc-implementation-focus title="Use Case Implementation Focus"}
 
 <<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
