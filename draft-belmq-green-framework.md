@@ -632,9 +632,9 @@ The framework uses two distinct concepts:
 
 | UC# | Use Case | Critical Capabilities |
 |-----|----------|---------------------|
-| **Device-Centric** ||||
+| **Device-Centric** |||
 | 14 | Power Shortage Management | Backup power awareness, autonomous operation |
-| 1 | Incremental Deployment | **Device → Controller** | Baseline metrics, certification reporting, capability discovery |
+| 1 | Incremental Deployment | Baseline metrics, certification reporting, capability discovery |
 ||||
 | **Hybrid (Device + Controller)** |||
 | 4 | Virtualized NF Metering | HW-layer metering, VM correlation, real-time telemetry push |
