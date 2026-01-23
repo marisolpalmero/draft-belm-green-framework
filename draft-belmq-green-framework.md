@@ -59,6 +59,11 @@ author:
 
 normative:
 
+   RFC8348:
+    title: A YANG Data Model for Hardware Management
+    date: 2018-03
+    target: https://www.rfc-editor.org/info/rfc8348 
+
 informative:
 
    TMN:
@@ -91,6 +96,7 @@ informative:
 
    GreenUseCases: I-D.stephan-green-use-cases
 
+   PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
 
 --- abstract
 
@@ -120,7 +126,6 @@ The following topics remain open for further discussion points:
 ## Handling Transitions and Ensuring Safety
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
-- Recommendation to standardize a data model to preserved measurement accuracy.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
 
 ## East-West Traffic/Energy Metrics
@@ -156,6 +161,13 @@ monitored by this framework can be either of the following:
 - producers of energy (like an uninterruptible power supply or
   renewable energy system) and their associated components (such as
   battery cells, inverters, or photovoltaic panels)
+
+
+Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{!I-D.draft-bcmj-green-power-and-energy-yang}}, including:
+
+- a data model to preserve measurement accuracy.
+- a data model to capture industry-standard certifications (such as 80 PLUS for Power Supply Units) rather than requiring vendors to report granular precision metrics. 
+- The data model work translates the framework's concepts into an implementable specification that extends existing hardware management models such as {{?RFC8348}}.
 
 The Energy Management framework does not cover non-electrical equipment, nor does it
 cover energy procurement and manufacturing.
@@ -324,7 +336,7 @@ The main elements in the framework are as follows:
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device or in the controller or a combination of both.
+Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device, based in {{?RFC8348}} or in the controller or a combination of both.
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
@@ -342,7 +354,7 @@ In scope:
 - Virtualized components where applicable
 - Any element providing power, energy
 
-Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy:
+Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{?RFC8348}}:
 
 1. Device-Provided UUID (read-only)
 
@@ -362,7 +374,45 @@ Energy Efficiency workflows require stable, cross-system identity for devices an
 
 A YANG extension will be introduced to capture Power Factor(PF), enabling controllers engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially PSUs.
 
+## Data Collection Architecture
 
+### Telemetry Push Pattern
+
+The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream energy measurements to management systems rather than waiting for poll requests.
+
+For energy monitoring specifically, push-based telemetry offers:
+
+- Temporal accuracy: Energy consumption varies over time; push models capture variations that polling might miss.
+- Reduced latency: Anomalies (power spikes, efficiency degradation) are detected immediately.
+- Network and data collection efficiency: Eliminates repetitive poll/response cycles.
+- Scalability: Controllers can subscribe once rather than poll continuously.
+
+### UUID-Based Component Identification
+
+Energy metrics are anchored to hardware components using UUIDs from the ietf-hardware model {{?RFC8348}}:
+
+- Each physical component** (chassis, power supply, line card, etc.) has a stable UUID
+- Energy metrics reference these UUIDs, enabling correlation with:
+  - Component lifecycle (installation, replacement, decommissioning)
+  - Inventory management systems
+  - Warranty and support tracking
+  - Asset management databases
+
+### Controller vs. Device Initiated
+
+The framework supports both initiation models:
+
+- Controller-Initiated (Recommended?):
+  - Controller subscribes to energy objects from managed devices
+  - Provides centralized control over monitoring scope and frequency
+  - Enables dynamic adjustment of monitoring based on operational needs
+
+- Device-Initiated** (Optional?):
+  - Devices can autonomously report critical energy events
+  - Useful for threshold violations or hardware failures
+  - Complements controller-initiated subscriptions
+
+TODO: <<Question to the working group on the approach>>
 
 ## Typical Power Topologies
 
