@@ -165,11 +165,11 @@ monitored by this framework can be either of the following:
   battery cells, inverters, or photovoltaic panels)
 
 
-Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{PowerAndEnergy}}. This work includes:
+Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{PowerAndEnergy}}. This data model includes:
 
 - a data model to preserve measurement accuracy.
-- a data model to capture industry-standard certifications (such as 80 PLUS for Power Supply Units) rather than requiring vendors to report granular precision metrics.
-- a data model that translates the framework's concepts into an implementable specification that extends existing hardware management models such as {{RFC8348}}.
+- reporting on industry-standard certifications (such as 80 PLUS for Power Supply Units, Energy Star, etc) rather than requiring vendors to report granular precision metrics.
+- translation of the framework's concepts into an implementable specification, relying on the hardware management models such as {{RFC8348}}.
 
 ## Terminology
 
@@ -335,7 +335,7 @@ The main elements in the framework are as follows:
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device, based in {{RFC8348}} or in the controller or a combination of both.
+Note that the GREEN framework specificies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in {{RFC8348}}, in the controller, or a combination of both.
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
