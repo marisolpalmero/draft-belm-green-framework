@@ -339,8 +339,6 @@ Note that this framework specificies logical blocks, however, the Energy Efficie
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
-<<TO DO: should be a separated section?? or just continuation of the Reference Model section>>
-
 The referene model covers every network device and component that has a unique identifiable ID and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
 
 In scope:
@@ -352,24 +350,6 @@ In scope:
 - Accelerators, GPUs, NPUs
 - Virtualized components where applicable
 - Any element providing power, energy
-
-Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{RFC8348}}:
-
-1. Device-Provided UUID (read-only)
-
-- Originates from hardware or firmware
-
-- Represents the authoritative physical identifier
-
-- Preference to follow IETF hardware YANG identity
-
-2. Controller-Generated UUID (read-write)
-
-- Used by orchestrators, schedulers, etc
-
-- Supports correlation across datasets, lifecycle stages, or clouds
-
-- Maintains identifier mapping.
 
 A YANG extension will be introduced to capture Power Factor(PF), enabling controllers engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially PSUs.
 
@@ -386,32 +366,82 @@ For energy monitoring specifically, push-based telemetry offers:
 - Network and data collection efficiency: Eliminates repetitive poll/response cycles.
 - Scalability: Controllers can subscribe once rather than poll continuously.
 
+### Controller vs. Device Initiated
+
+The framework supports both initiation models:
+
+- Controller-Initiated:
+  - Controller subscribes to energy objects from managed devices
+  - Provides centralized control over monitoring scope and frequency
+  - Enables dynamic adjustment of monitoring based on operational needs
+
+- Device-Initiated**:
+  - Devices can autonomously report critical energy events
+  - Useful for threshold violations or hardware failures
+  - Complements controller-initiated subscriptions
+
 ### UUID-Based Component Identification
 
 Energy metrics are anchored to hardware components using UUIDs from the ietf-hardware model {{RFC8348}}:
 
-- Each physical component** (chassis, power supply, line card, etc.) has a stable UUID
+- Each physical component (chassis, power supply, line card, etc.) has a stable UUID
 - Energy metrics reference these UUIDs, enabling correlation with:
   - Component lifecycle (installation, replacement, decommissioning)
   - Inventory management systems
   - Warranty and support tracking
   - Asset management databases
 
-### Controller vs. Device Initiated
+Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{RFC8348}}:
 
-The framework supports both initiation models:
+1. Device-Provided UUID (read-only):
 
-- Controller-Initiated (Recommended?):
-  - Controller subscribes to energy objects from managed devices
-  - Provides centralized control over monitoring scope and frequency
-  - Enables dynamic adjustment of monitoring based on operational needs
+- Originates from hardware or firmware.
+- Represents the authoritative physical identifier.
+- Preference to follow IETF hardware YANG identity.
 
-- Device-Initiated** (Optional?):
-  - Devices can autonomously report critical energy events
-  - Useful for threshold violations or hardware failures
-  - Complements controller-initiated subscriptions
+2. Controller-Generated UUID (read-write):
 
-TODO: <<Question to the working group on the approach>>
+- Used by orchestrators, schedulers, etc.
+- Supports correlation across datasets, lifecycle stages, or clouds.
+- Maintains identifier mapping.
+
+### Measurement Accuracy and Data Source Classification
+
+## Measurement Accuracy Framework
+
+Energy metrics vary significantly in quality and source: some represent direct sensor measurements with known precision, others are estimates from datasheets or even machine learning predictions. To enable informed decision-making and prevent misleading comparisons, the framework requires explicit accuracy classification for all power and energy data.
+
+The framework defines three primary accuracy categories:
+
+- Unknown Accuracy: Data accuracy cannot be determined, or measurements are unavailable due to sensor failures, powered-off components, or other operational constraints.
+- Estimated Data: Values derived through indirect methods:
+ - Static estimates: From manufacturer datasheets, nameplate ratings, or typical values (essential for UC 1, Incremental Deployment with legacy devices).
+ - Historic estimates: Based on prior measurements of this specific system under similar operational conditions.
+ - Learned estimates: Generated potentially by machine learning models predicting consumption from workload patterns (UC 15, AI Training Workloads)
+
+- Measured Data: Direct, real-time sensor measurements with quantified precision:
+- Bronze: ±30% accuracy for typical values
+- Silver: ±10% accuracy for typical values  
+- Gold: ±5% accuracy for typical values
+- Red: ±2% accuracy for typical values
+- Ones: All non-zero digits are significant/valid
+
+### Framework Benefits
+
+Explicit accuracy reporting enables:
+
+- Weighted aggregation: High-precision measurements carry appropriate weight when calculating network-wide energy consumption
+- Upgrade prioritization: Identify devices with low-accuracy reporting for sensor upgrades or replacement
+- Compliance validation: Automated verification against regulatory thresholds requiring specific measurement precision
+- Double-accounting prevention: Understand when PDU-level measurements (±2%) should override device estimates (±30%) to avoid counting the same energy twice (UC 13)
+- Cross-domain correlation: Map accuracy expectations when integrating with external systems like 3GPP energy KPIs (UC 6)
+
+The accuracy hierarchy uses YANG identities for extensibility, allowing vendors to define manufacturer-specific accuracy classes while maintaining interoperability through standardized base types. Implementation details are provided in the companion YANG data model {{I-D.draft-bcmj-green-power-and-energy-yang}}.
+
+### Industry-standard certifications
+
+<<TO_DO>>
+
 
 ## Typical Power Topologies
 
