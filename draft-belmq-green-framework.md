@@ -62,7 +62,7 @@ normative:
    RFC8348:
     title: A YANG Data Model for Hardware Management
     date: 2018-03
-    target: https://www.rfc-editor.org/info/rfc8348 
+    target: https://www.rfc-editor.org/info/rfc8348
 
 informative:
 
@@ -166,7 +166,7 @@ monitored by this framework can be either of the following:
 Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{!I-D.draft-bcmj-green-power-and-energy-yang}}, including:
 
 - a data model to preserve measurement accuracy.
-- a data model to capture industry-standard certifications (such as 80 PLUS for Power Supply Units) rather than requiring vendors to report granular precision metrics. 
+- a data model to capture industry-standard certifications (such as 80 PLUS for Power Supply Units) rather than requiring vendors to report granular precision metrics.
 - The data model work translates the framework's concepts into an implementable specification that extends existing hardware management models such as {{?RFC8348}}.
 
 The Energy Management framework does not cover non-electrical equipment, nor does it
