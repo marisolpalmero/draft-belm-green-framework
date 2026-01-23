@@ -653,6 +653,7 @@ The framework uses two distinct concepts:
 | 13 | Double Accounting Prevention | Metering topology awareness, relationship modeling, intelligent aggregation |
 | 15 | AI Training Workloads | Energy-aware scheduling, data placement, East-West traffic optimization |
 | 16 | Cross-Layer Saving | Multi-layer coordination (L0-L3), cross-layer state synchronization |
+|---
 {: #uc-implementation-focus title="Use Case Implementation Focus"}
 
 <<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
