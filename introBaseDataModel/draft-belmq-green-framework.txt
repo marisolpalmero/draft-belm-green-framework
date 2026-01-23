@@ -101,19 +101,23 @@ Table of Contents
      3.2.  Current Device Readiness
      3.3.  Why Now?
    4.  Reference Model
-     4.1.  Typical Power Topologies
-       4.1.1.  Basic Power Supply
-       4.1.2.  Physical Meter with Legacy Device
-       4.1.3.  Physical Meter with New Device
-       4.1.4.  Power over Ethernet
-       4.1.5.  Single Power Supply with Multiple Devices
-       4.1.6.  Multiple Power Supplies with Single Device
-     4.2.  Relationships
-     4.3.  Power State Set
-     4.4.  Power State Set Mapping and Intent
-       4.4.1.  Capability Discovery
-       4.4.2.  Intent Mapping
-       4.4.3.  SLA Considerations
+     4.1.  Data Collection Architecture
+       4.1.1.  Telemetry Push Pattern
+       4.1.2.  UUID-Based Component Identification
+       4.1.3.  Controller vs. Device Initiated
+     4.2.  Typical Power Topologies
+       4.2.1.  Basic Power Supply
+       4.2.2.  Physical Meter with Legacy Device
+       4.2.3.  Physical Meter with New Device
+       4.2.4.  Power over Ethernet
+       4.2.5.  Single Power Supply with Multiple Devices
+       4.2.6.  Multiple Power Supplies with Single Device
+     4.3.  Relationships
+     4.4.  Power State Set
+     4.5.  Power State Set Mapping and Intent
+       4.5.1.  Capability Discovery
+       4.5.2.  Intent Mapping
+       4.5.3.  SLA Considerations
    5.  Interfaces Usage Of the Framework
      5.1.  Mapping of Use Cases to Framework Interfaces
      5.2.  Observations and Next Steps
@@ -163,9 +167,6 @@ Table of Contents
    *  Recommendation to standardize a data model for safe limits on
       frequency or speed of transitions to prevent device/component's
       damage.
-
-   *  Recommendation to standardize a data model to preserved
-      measurement accuracy.
 
    *  Model SLAs that include both performance (e.g., transition time)
       and device safety (e.g., cycle limitations).
@@ -225,14 +226,25 @@ Table of Contents
       renewable energy system) and their associated components (such as
       battery cells, inverters, or photovoltaic panels)
 
-   The Energy Management framework does not cover non-electrical
-   equipment, nor does it cover energy procurement and manufacturing.
+   Based on the framework, companion work has been initiated to develop
+   a YANG data model for energy efficiency metrics [PowerAndEnergy].
+   This work includes:
+
+   *  a data model to preserve measurement accuracy.
+
+   *  a data model to capture industry-standard certifications (such as
+      80 PLUS for Power Supply Units) rather than requiring vendors to
+      report granular precision metrics.
+
+   *  a data model that translates the framework's concepts into an
+      implementable specification that extends existing hardware
+      management models such as [RFC8348].
 
 2.1.  Terminology
 
-   The following terms are defined in [I-D.draft-bclp-green-terminology]
-   and EMAN Framework [RFC7326]: Energy, Power, Energy Management,
-   Energy Monitoring, Energy Control.
+   The following terms are defined in [GreenTerminology] and EMAN
+   Framework [RFC7326]: Energy, Power, Energy Management, Energy
+   Monitoring, Energy Control.
 
    The following terms are defined in EMAN Framework [RFC7326], and cut/
    paste here for completeness:
@@ -468,7 +480,8 @@ Table of Contents
 
    Note that this framework specificies logical blocks, however, the
    Energy Efficiency Management Function might be implemented inside the
-   device or in the controller or a combination of both.
+   device, based in [RFC8348] or in the controller or a combination of
+   both.
 
    Even the current reference model implicitly assume a hierarchical
    network structure, this assumption acknowledges that modern networks
@@ -500,7 +513,8 @@ Table of Contents
 
    Energy Efficiency workflows require stable, cross-system identity for
    devices and components.  To support this, the GREEN Framework adopts
-   a dual-UUID strategy:
+   a dual-UUID strategy, based on ietf-hardware YANG module defined in
+   [RFC8348]:
 
    1.  Device-Provided UUID (read-only)
 
@@ -523,7 +537,73 @@ Table of Contents
    essential for accurately estimating real power consumption in AC-
    powered components, especially PSUs.
 
-4.1.  Typical Power Topologies
+4.1.  Data Collection Architecture
+
+4.1.1.  Telemetry Push Pattern
+
+   The framework recommends a push-based telemetry model for energy
+   efficiency data collection, where network devices stream energy
+   measurements to management systems rather than waiting for poll
+   requests.
+
+   For energy monitoring specifically, push-based telemetry offers:
+
+   *  Temporal accuracy: Energy consumption varies over time; push
+      models capture variations that polling might miss.
+
+   *  Reduced latency: Anomalies (power spikes, efficiency degradation)
+      are detected immediately.
+
+   *  Network and data collection efficiency: Eliminates repetitive
+      poll/response cycles.
+
+   *  Scalability: Controllers can subscribe once rather than poll
+      continuously.
+
+4.1.2.  UUID-Based Component Identification
+
+   Energy metrics are anchored to hardware components using UUIDs from
+   the ietf-hardware model [RFC8348]:
+
+   *  Each physical component** (chassis, power supply, line card, etc.)
+      has a stable UUID
+
+   *  Energy metrics reference these UUIDs, enabling correlation with:
+
+      -  Component lifecycle (installation, replacement,
+         decommissioning)
+
+      -  Inventory management systems
+
+      -  Warranty and support tracking
+
+      -  Asset management databases
+
+4.1.3.  Controller vs. Device Initiated
+
+   The framework supports both initiation models:
+
+   *  Controller-Initiated (Recommended?):
+
+      -  Controller subscribes to energy objects from managed devices
+
+      -  Provides centralized control over monitoring scope and
+         frequency
+
+      -  Enables dynamic adjustment of monitoring based on operational
+         needs
+
+   *  Device-Initiated** (Optional?):
+
+      -  Devices can autonomously report critical energy events
+
+      -  Useful for threshold violations or hardware failures
+
+      -  Complements controller-initiated subscriptions
+
+   TODO: <<Question to the working group on the approach>>
+
+4.2.  Typical Power Topologies
 
    The following reference model describes physical power topologies
    that exist in parallel with a communication topology.  While many
@@ -541,7 +621,7 @@ Table of Contents
    *  "- >" is used to denote a transfer of information using Network
       Interface.
 
-4.1.1.  Basic Power Supply
+4.2.1.  Basic Power Supply
 
    This covers the basic example of router connected to Power Outlet in
    the wall.
@@ -583,7 +663,7 @@ Table of Contents
 
           Figure 2: Reference Model Example: Basic Power Supply
 
-4.1.2.  Physical Meter with Legacy Device
+4.2.2.  Physical Meter with Legacy Device
 
    This covers the basic example of device connected to wall Power
    Outlet, with a Physical Meter placed in the wall Power Outlet,
@@ -640,7 +720,7 @@ Table of Contents
    as meters are connected to the wiring topology.  A typical example is
    meters that clamp onto the existing wiring.
 
-4.1.3.  Physical Meter with New Device
+4.2.3.  Physical Meter with New Device
 
    This covers the example of device connected to wall Power Outlet,
    with a Physical Meter placed in the wall Power Outlet, because the
@@ -691,7 +771,7 @@ Table of Contents
    the Metering Relationship between the two Energy Objects, the EnMS
    will double count the Energy consumed in the network.
 
-4.1.4.  Power over Ethernet
+4.2.4.  Power over Ethernet
 
    This covers the example of a switch port (Power Outlet) the provides
    energy with Power over Ethernet (PoE) to a PoE end points (camera,
@@ -757,7 +837,7 @@ Table of Contents
    controller might for example put the PoE End Point to a lower Power
    State.
 
-4.1.5.  Single Power Supply with Multiple Devices
+4.2.5.  Single Power Supply with Multiple Devices
 
    This covers the example of a smart PDU that provides energy to a
    series of routers in a rack.
@@ -813,7 +893,7 @@ Table of Contents
        Figure 6: Reference Model Example: Single Power Supply with
                              Multiple Devices
 
-4.1.6.  Multiple Power Supplies with Single Device
+4.2.6.  Multiple Power Supplies with Single Device
 
  +--------------------------------------------------------------------+
  |                                                                    |
@@ -853,7 +933,7 @@ Table of Contents
     Figure 7: Reference Model Example: Multiple Power Supplies with
                              Single Device
 
-4.2.  Relationships
+4.3.  Relationships
 
    The framework for Energy Management need to describe a means to
    monitor and control devices and components, and it needs to describe
@@ -904,7 +984,7 @@ Table of Contents
    Given that relationships can be assigned manually, the following
    sections describe guidelines for use.
 
-4.3.  Power State Set
+4.4.  Power State Set
 
    The Energy Object contains a Power State Set attribute that
    represents a set of Power States a device or component supports.
@@ -946,7 +1026,7 @@ Table of Contents
    There are many existing standards describing device and component
    Power States.  TO BE COMPLETED
 
-4.4.  Power State Set Mapping and Intent
+4.5.  Power State Set Mapping and Intent
 
    Defining and enforcing power states can be challenging, because each
    Energy Object's technical capabilities must be mapped to high-level
@@ -965,7 +1045,7 @@ Table of Contents
    an Energy Object should enter at any given time and under what
    conditions.
 
-4.4.1.  Capability Discovery
+4.5.1.  Capability Discovery
 
    Identifying what power states an Energy Object supports is crucial
    for onboarding and integration, especially for legacy systems.  Key
@@ -985,7 +1065,7 @@ Table of Contents
 
    *  Impacts on measurement accuracy.
 
-4.4.2.  Intent Mapping
+4.5.2.  Intent Mapping
 
    The goal of intent mapping is to translate high-level energy-saving
    intents into specific device/component configurations.  For example:
@@ -1000,7 +1080,7 @@ Table of Contents
    high-level Customer-Facing Services (CFS) to Resource-Facing Services
    (RFS) and ultimately to device-specific configurations.
 
-4.4.3.  SLA Considerations
+4.5.3.  SLA Considerations
 
    Meanwhile saving energy, the device or component shouldn't drop below
    a certain performance threshold or allow a certain service reduction
@@ -1251,14 +1331,6 @@ Table of Contents
 
 10.1.  Normative References
 
-   [I-D.draft-bclp-green-terminology]
-              Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
-              P. Palmero, "Terminology for Energy Efficiency Network
-              Management", Work in Progress, Internet-Draft, draft-bclp-
-              green-terminology-05, 15 September 2025,
-              <https://datatracker.ietf.org/doc/html/draft-bclp-green-
-              terminology-05>.
-
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
@@ -1268,7 +1340,18 @@ Table of Contents
               2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
               May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
 
+   [RFC8348]  "A YANG Data Model for Hardware Management", March 2018,
+              <https://www.rfc-editor.org/info/rfc8348>.
+
 10.2.  Informative References
+
+   [GreenTerminology]
+              Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
+              P. Palmero, "Terminology for Energy Efficiency Network
+              Management", Work in Progress, Internet-Draft, draft-bclp-
+              green-terminology-05, 15 September 2025,
+              <https://datatracker.ietf.org/doc/html/draft-bclp-green-
+              terminology-05>.
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
@@ -1295,6 +1378,13 @@ Table of Contents
               draft-petra-green-api-02, 20 October 2025,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
               api-02>.
+
+   [PowerAndEnergy]
+              Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
+              "Power and Energy YANG Module", Work in Progress,
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-00,
+              15 December 2025, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-00>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
