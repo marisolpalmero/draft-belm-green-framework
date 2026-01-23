@@ -98,6 +98,8 @@ informative:
 
    PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
 
+   GreenTerminology: I-D.draft-bclp-green-terminology
+
 --- abstract
 
 Recognizing the urgent need for energy efficiency, this document specifies a management framework focused on devices and device components within, or connected to, interconnected systems. The framework aims to enable energy usage optimization, based on the network condition while achieving the network's functional and performance requirements (e.g., improving overall network utilization) and also ensure interoperability across diverse systems. Leveraging data from existing use cases, it delivers actionable metrics to support effective energy management and informed decision-making. Furthermore, the framework proposes mechanisms for representing and organizing timestamped telemetry data using YANG models and metadata, enabling transparent and reliable monitoring. This structured approach facilitates improved energy efficiency through consistent energy management practices.
@@ -163,15 +165,15 @@ monitored by this framework can be either of the following:
   battery cells, inverters, or photovoltaic panels)
 
 
-Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{!I-D.draft-bcmj-green-power-and-energy-yang}}. This work includes:
+Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{PowerAndEnergy}}. This work includes:
 
 - a data model to preserve measurement accuracy.
 - a data model to capture industry-standard certifications (such as 80 PLUS for Power Supply Units) rather than requiring vendors to report granular precision metrics.
-- a data model that translates the framework's concepts into an implementable specification that extends existing hardware management models such as {{?RFC8348}}.
+- a data model that translates the framework's concepts into an implementable specification that extends existing hardware management models such as {{RFC8348}}.
 
 ## Terminology
 
-The following terms are defined in {{!I-D.draft-bclp-green-terminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
+The following terms are defined in {{GreenTerminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
 
 The following terms are defined in EMAN Framework {{?RFC7326}}, and cut/paste here for completeness:
 
@@ -333,7 +335,7 @@ The main elements in the framework are as follows:
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device, based in {{?RFC8348}} or in the controller or a combination of both.
+Note that this framework specificies logical blocks, however, the Energy Efficiency Management Function might be implemented inside the device, based in {{RFC8348}} or in the controller or a combination of both.
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
@@ -351,7 +353,7 @@ In scope:
 - Virtualized components where applicable
 - Any element providing power, energy
 
-Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{?RFC8348}}:
+Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{RFC8348}}:
 
 1. Device-Provided UUID (read-only)
 
@@ -386,7 +388,7 @@ For energy monitoring specifically, push-based telemetry offers:
 
 ### UUID-Based Component Identification
 
-Energy metrics are anchored to hardware components using UUIDs from the ietf-hardware model {{?RFC8348}}:
+Energy metrics are anchored to hardware components using UUIDs from the ietf-hardware model {{RFC8348}}:
 
 - Each physical component** (chassis, power supply, line card, etc.) has a stable UUID
 - Energy metrics reference these UUIDs, enabling correlation with:
