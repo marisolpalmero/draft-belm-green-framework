@@ -136,41 +136,34 @@ The following topics remain open for further discussion points:
 
 # Introduction
 
-{{GreenUseCases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics"  reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations, for:
+{{GreenUseCases}} analyzes use cases such as "Incremental Application of the GREEN Framework" and "Consideration of other domains for end-to-end metrics," revealing the critical need for a structured approach to transitioning network device management towards energy-efficient operations. This framework addresses:
 
-* Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
-* Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
-  network/resource/component/capability utilization and implement improvements.
-* Scalability: Offering solutions that accommodate growing network demands and complexity.
-* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
-* Competitiveness: Enabling organizations to maintain a competitive infrastructure through enhanced sustainability.
-* Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints.
-* Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
-* Security: Protecting sensitive operations related to power states and consumption.
+* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability
+* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements
+* Scalability: Offering solutions that accommodate growing network demands and complexity
+* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles
+* Competitiveness: Enabling organizations to maintain competitive infrastructure through enhanced sustainability
+* Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints
+* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions
+* Security: Protecting sensitive operations related to power states and consumption
 
-This document specifies an Energy Management framework for devices
-within, or connected to, communication networks, for the use cases
-described in {{GreenUseCases}}.
-The devices, or the components of these devices (such as line cards, fans, and
-disks), can then be monitored and controlled. Monitoring includes measuring
-power, energy, demand, and attributes of power.  Energy Control can
-be performed by setting a device's or component's state.  The devices
-monitored by this framework can be either of the following:
+This document specifies an Energy Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
 
-- consumers of energy (such as routers and computer systems) and
-  components of such devices (such as line cards, fans, and disks)
+The framework covers devices and components that can be monitored and controlled for energy management purposes:
 
-- producers of energy (like an uninterruptible power supply or
-  renewable energy system) and their associated components (such as
-  battery cells, inverters, or photovoltaic panels)
+- Power consumers: Routers, switches, servers, storage systems, and their components (line cards, fans, disks, processors, GPUs)
+- Power sources: Uninterruptible power supplies (UPS), Power Distribution Units (PDUs), Power over Ethernet (PoE) switches, renewable energy systems, and their components (battery cells, inverters, photovoltaic panels)
+- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{RFC8348}}) that influences power or energy consumption
 
+This framework defines conceptual requirements and architectural patterns for energy efficiency management. The companion YANG data model {{PowerAndEnergy}} provides the implementable specification, including:
 
-Based on the framework, companion work has been initiated to develop a YANG data model for energy efficiency metrics {{PowerAndEnergy}}. This data model includes:
+- Power and energy metric definitions and units
+- Measurement accuracy
+- Industry certification reporting (80 PLUS, Energy Star)
+- Hierarchical default value inheritance
+- Extension of {{RFC8348}} hardware model with energy attributes
 
-- power and energy reporting,
-- reporting on the measurement accuracy,
-- reporting on industry-standard certifications (such as 80 PLUS for Power Supply Units, Energy Star, etc) rather than requiring vendors to report granular precision metrics,
-- translation of the framework's concepts into an implementable specification, relying on the hardware management models such as {{RFC8348}}.
+Implementers should reference both documents: this framework for understanding requirements and use cases, the YANG model for implementation details and data structures.
 
 ## Terminology
 
@@ -462,10 +455,32 @@ This maintains interoperability (base `accuracy-measured` classification) while 
 
 Implementation details are in {{PowerAndEnergy}}.
 
+### Industry-Standard Certifications
 
-### Industry-standard certifications
+In addition to measurement accuracy, the framework supports reporting of industry-standard energy efficiency certifications. These certifications provide vendor-verified efficiency benchmarks that complement direct measurements:
 
-<<TO_DO>>
+Common Certifications:
+- 80 PLUS (Power Supply Units): Bronze/Silver/Gold/Platinum/Titanium tiers based on efficiency at 20%/50%/100% load
+- Energy Star: Government-backed program certifying energy-efficient products
+- EPEAT: Electronic Product Environmental Assessment Tool ratings (Bronze/Silver/Gold)
+- TCO Certified: Sustainability certification for IT products
+- EU Energy Label: European efficiency ratings
+
+Certifications and measurement accuracy serve complementary purposes:
+
+| Aspect | Industry Certification | Measurement Accuracy |
+|--------|----------------------|---------------------|
+| Purpose | Verify design efficiency | Indicate real-time measurement precision |
+| Source | Independent testing labs | Device sensors or estimates |
+| Granularity | Device-level (e.g., PSU) | Component or system-level |
+| Stability | Fixed at manufacturing | May vary with sensor calibration |
+| Use Case | Procurement decisions, compliance | Operational monitoring, optimization |
+
+Example: A power supply might have:
+- Certification: `80-PLUS-Platinum` (≥92% efficient at 50% load, independently verified)
+- Measurement Accuracy: `accuracy-measured-silver` (±10% sensor precision on real-time power readings)
+
+The certification tells operators the PSU is designed to be efficient; the measurement accuracy tells them how precisely they can monitor its actual performance.
 
 ### Hierarchical Data Model and Default Value Inheritance
 
