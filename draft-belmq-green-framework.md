@@ -89,7 +89,7 @@ informative:
 
    PetraApi: I-D.draft-petra-green-api
 
-   GreenUseCases: I-D.stephan-green-use-cases
+   GreenUseCases: I-D.ietf-green-use-cases
 
 
 --- abstract
@@ -619,13 +619,39 @@ Use Case 1 (Incremental Deployment) illustrates how the usage of the framework i
 
 # Use Case Implementation Requirements: Device vs. Controller Centric
 
-This section analyzes the {{I-D.ietf-green-use-cases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides vendors on device feature priorities and operators on controller capabilities needed for effective energy management.
+This section analyzes the {{GreenUseCases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides vendors on device feature priorities and operators on controller capabilities needed for effective energy management.
 
-## Implementation Focus Analysis
+The framework distinguishes between two orthogonal concepts:
 
-The framework uses two distinct concepts: 
-  - **Device/Controller-Centric**: Describes **where intelligence resides**. Device-centric use cases (e.g., UC 14: Power Shortage) require autonomous on-device decision-making. Controller-centric use cases (e.g., UC 10: Fixed Network Saving) require centralized orchestration and network-wide visibility. 
-  - **Device/Controller-Initiated**: Describes **who triggers data flow**. Controller-initiated means the controller establishes YANG-Push subscriptions {{?RFC8641}} to energy objects, and devices stream telemetry in response. Device-initiated, means devices autonomously push critical alerts without prior subscription. These concepts are independent: controller-centric use cases typically use controller-initiated telemetry for routine monitoring, but may also leverage device-initiated alerts for critical events requiring immediate attention (e.g., power supply failure, certification threshold violations).
+### Implementation Focus: Where Intelligence Resides
+
+Device-Centric Use Cases require autonomous on-device decision-making:
+- Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost. 
+- It might require local algorithms, minimal controller dependency, autonomous operation, etc.
+
+Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
+- Example: UC 10 (Fixed Network Saving) - Controller predicts traffic patterns across devices and coordinates state changes.
+- Ir requires cross-device coordination, centralized intelligence
+
+Hybrid Use Cases need both device capabilities and controller coordination:
+- Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.
+
+### Data Flow Initiation: Who Triggers Telemetry
+
+This is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
+
+Controller-Initiated:
+- Controller establishes YANG-Push subscriptions to energy objects
+- Device streams telemetry at specified intervals (periodic) or on change (event-driven)
+- Centralized monitoring policy management
+
+Device-Initiated:
+- Device autonomously pushes alerts without prior subscription
+- Used for threshold violations, hardware failures, certification degradation
+- Complements controller-initiated monitoring
+
+Even device-centric use cases(autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.
+
 
 | UC# | Use Case | Critical Capabilities |
 |-----|----------|---------------------|
