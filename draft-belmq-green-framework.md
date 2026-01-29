@@ -680,7 +680,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 <<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
 
-## Key Findings 
+## Key Findings
 
 ### Device Capabilities Required Across Use Cases
 
