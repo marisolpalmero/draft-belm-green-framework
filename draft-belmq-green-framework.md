@@ -619,7 +619,7 @@ Use Case 1 (Incremental Deployment) illustrates how the usage of the framework i
 
 # Use Case Implementation Requirements: Device vs. Controller Centric
 
-This section analyzes the {{GreenUseCases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides vendors on device feature priorities and operators on controller capabilities needed for effective energy management.
+This section analyzes the {{GreenUseCases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides implementers on device feature priorities and operators on controller capabilities needed for effective energy management.
 
 The framework distinguishes between two orthogonal concepts:
 
