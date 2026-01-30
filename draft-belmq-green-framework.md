@@ -641,7 +641,7 @@ Hybrid Use Cases need both device capabilities and controller coordination:
 This is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 Controller-Initiated:
-- Controller establishes YANG-Push subscriptions to energy objects
+- Controller establishes YANG-Push subscriptions to Energy Objects
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management
 
