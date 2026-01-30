@@ -497,7 +497,7 @@ Energy metrics and metadata follow these same hierarchical relationships, enabli
 2. Reduced telemetry bandwidth: 90%+ reduction in accuracy/metadata reporting
 3. Topology-awareness: Controllers understand parent-child relationships from {{RFC8348}}
 4. Contextual accuracy: Children inherit measurement accuracy from parents unless explicitly overridden. 
-5. Simpler device implementation: Components inherit parent values by default. Explicit values always take precedence over inheritance.
+5. Simpler device implementation: Child components inherit the parent accuracy values by default. Explicit values always take precedence over inheritance.
 
 To avoid generating repetitive data across thousands of components, the YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
 
