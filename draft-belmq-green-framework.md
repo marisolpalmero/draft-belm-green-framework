@@ -631,7 +631,7 @@ Device-Centric Use Cases require autonomous on-device decision-making:
 
 Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
 - Example: UC 10 (Fixed Network Saving) - Controller predicts traffic patterns across devices and coordinates state changes.
-- Ir requires cross-device coordination, centralized intelligence
+- It requires cross-device coordination, centralized intelligence
 
 Hybrid Use Cases need both device capabilities and controller coordination:
 - Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.
