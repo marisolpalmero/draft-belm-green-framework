@@ -167,7 +167,7 @@ Implementers should reference both documents: this framework for understanding r
 
 ## Terminology
 
-The following terms are defined in {{GreenTerminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
+The following terms are defined in {{GreenTerminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control.
 
 The following terms are defined in EMAN Framework {{?RFC7326}}, and cut/paste here for completeness:
 
