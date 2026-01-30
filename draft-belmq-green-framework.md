@@ -333,7 +333,7 @@ Note that the GREEN framework specificies logical blocks, however, the Energy Ef
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
 
-The referene model covers every network device and component that has a unique identifiable ID and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+The referene model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
 
 In scope:
 
