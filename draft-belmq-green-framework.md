@@ -365,7 +365,7 @@ For energy monitoring specifically, push-based telemetry offers:
 The framework supports both initiation models:
 
 - Controller-Initiated:
-  - Controller subscribes to energy objects from managed devices
+  - Controller subscribes to Energy Objects streaming.
   - Provides centralized control over monitoring scope and frequency
   - Enables dynamic adjustment of monitoring based on operational needs
 
