@@ -161,7 +161,7 @@ This framework defines conceptual requirements and architectural patterns for en
 - Measurement accuracy
 - Industry certification reporting (80 PLUS, Energy Star)
 - Hierarchical default value inheritance
-- Extension of {{RFC8348}} hardware model with energy attributes
+-  {{RFC8348}} hardware model link with energy attributes
 
 Implementers should reference both documents: this framework for understanding requirements and use cases, the YANG model for implementation details and data structures.
 
