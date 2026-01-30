@@ -351,7 +351,7 @@ A YANG extension will be introduced to capture Power Factor(PF), enabling contro
 
 ### Telemetry Push Pattern
 
-The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream energy measurements to management systems rather than waiting for poll requests.
+The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream power and energy measurements to management systems rather than waiting for poll requests.
 
 For energy monitoring specifically, push-based telemetry offers:
 
