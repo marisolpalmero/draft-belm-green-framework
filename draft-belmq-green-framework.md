@@ -92,13 +92,13 @@ informative:
     - org: IEC
     date: 2000-12-11
 
-   PetraApi: I-D.draft-petra-green-api
+   GreenTerminology: draft-ietf-green-terminology
 
-   GreenUseCases: I-D.stephan-green-use-cases
+   GreenUseCases: draft-ietf-green-use-cases
 
    PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
 
-   GreenTerminology: I-D.draft-bclp-green-terminology
+   PetraApi: I-D.draft-petra-green-api
 
 --- abstract
 
@@ -475,12 +475,12 @@ The framework leverages the hierarchical structure of the ietf-hardware model {{
 
 Energy objects inherit their hierarchical relationships from the hardware component tree. For example:
 - A chassis(parent) contains line cards(children).
-- Each line card(parent) contains ports(children).  
+- Each line card(parent) contains ports(children).
 - Each chassis(parent) is powered by power supply units(children).
 
 Energy metrics and metadata follow these same hierarchical relationships, enabling:
 
-- Child components inherit measurement accuracy from their parent unless explicitly overridden.  
+- Child components inherit measurement accuracy from their parent unless explicitly overridden.
 - Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.
 - Hierarchical validation: Controllers leverage the device containment tree (per {{RFC8348}}) to verify parent measurements by aggregating child values.
 
