@@ -92,9 +92,9 @@ informative:
     - org: IEC
     date: 2000-12-11
 
-   GreenTerminology: draft-ietf-green-terminology
+   GreenTerminology: I-D.draft-ietf-green-terminology
 
-   GreenUseCases: draft-ietf-green-use-cases
+   GreenUseCases: I-D.draft-ietf-green-use-cases
 
    PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
 
