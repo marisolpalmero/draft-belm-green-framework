@@ -345,7 +345,6 @@ In scope:
 - Virtualized components where applicable
 - Any element providing power, energy
 
-A YANG extension will be introduced to capture Power Factor(PF), enabling controllers engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially PSUs.
 
 ## Data Collection Architecture
 
@@ -493,13 +492,11 @@ Energy objects inherit their hierarchical relationships from the hardware compon
 
 Energy metrics and metadata follow these same hierarchical relationships, enabling:
 
-1. Efficient data aggregation: A controller can sum child component power values to verify parent totals
-2. Reduced telemetry bandwidth: 90%+ reduction in accuracy/metadata reporting
-3. Topology-awareness: Controllers understand parent-child relationships from {{RFC8348}}
-4. Contextual accuracy: Children inherit measurement accuracy from parents unless explicitly overridden. 
-5. Simpler device implementation: Child components inherit the parent accuracy values by default. Explicit values always take precedence over inheritance.
+- Child components inherit measurement accuracy from their parent unless explicitly overridden.  
+- Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.
+- Hierarchical validation: Controllers leverage the device containment tree (per {{RFC8348}}) to verify parent measurements by aggregating child values.
 
-To avoid generating repetitive data across thousands of components, the YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
+The YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
 
 The `data-source-accuracy` leaf has a default value of `accuracy-like-parent`, meaning:
 
@@ -528,7 +525,9 @@ While `unit-multiplier` does not inherit, the framework recommends:
 > "Either mandatory or default to 1, not inheritance. Leave it open to authors to discuss further." The final YANG model can choose either approach, but must not use inheritance to avoid client code complexity.
 
 
-### Power Factor Default
+### Power Factor
+
+The YANG data model {{PowerAndEnergy}} introduces a power-factor leaf to capture Power Factor (PF), enabling controller engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially Power Supply Units (PSUs).
 
 The `power-factor` leaf defaults to 100 (unity power factor), meaning:
 - Devices with typical resistive loads don't need to report power factor
