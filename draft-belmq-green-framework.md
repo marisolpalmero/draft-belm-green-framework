@@ -636,16 +636,21 @@ Controller-Centric Use Cases require centralized orchestration and network-wide 
 Hybrid Use Cases need both device capabilities and controller coordination:
 - Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.
 
-### Data Flow Initiation: Who Triggers Telemetry
+Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
+<<<<<<< Updated upstream
 This is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 Controller-Initiated:
 - Controller establishes YANG-Push subscriptions to Energy Objects
+=======
+Controller-Initiated, or Dynamic subscription:
+- Controller establishes YANG-Push subscriptions to energy objects
+>>>>>>> Stashed changes
 - Device streams telemetry at specified intervals (periodic) or on change (event-driven)
 - Centralized monitoring policy management
 
-Device-Initiated:
+Device-Initiated, or Static Subscription:
 - Device autonomously pushes alerts without prior subscription
 - Used for threshold violations, hardware failures, certification degradation
 - Complements controller-initiated monitoring
