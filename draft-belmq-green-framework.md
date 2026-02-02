@@ -626,7 +626,7 @@ The framework distinguishes between two orthogonal concepts:
 ### Implementation Focus: Where Intelligence Resides
 
 Device-Centric Use Cases require autonomous on-device decision-making:
-- Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost. 
+- Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost.
 - It might require local algorithms, minimal controller dependency, autonomous operation, etc.
 
 Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
@@ -685,7 +685,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 
 <<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
 
-## Key Findings 
+## Key Findings
 
 ### Device Capabilities Required Across Use Cases
 
