@@ -385,7 +385,7 @@ Energy metrics are anchored to hardware components using UUIDs from the ietf-har
   - Warranty and support tracking
   - Asset management databases
 
-Energy Efficiency workflows require stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{RFC8348}}:
+Energy Efficiency workflows should consider stable, cross-system identity for devices and components. To support this, the GREEN Framework adopts a dual-UUID strategy, based on ietf-hardware YANG module defined in {{RFC8348}}:
 
 1. Device-Provided UUID (read-only):
 
