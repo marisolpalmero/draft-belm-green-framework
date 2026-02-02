@@ -3101,10 +3101,15 @@ compared to the other relationships, as this refers more to a
 management function.<a href="#section-4.3-5.3.1" class="pilcrow">¶</a></p>
 </li>
         </ul>
-<p id="section-4.3-6">In some situations, it is not possible to discover the Energy Object
-Relationships, and an EnMS or administrator must manually set them.  Given
-that relationships can be assigned manually, the following sections
-describe guidelines for use.<a href="#section-4.3-6" class="pilcrow">¶</a></p>
+<p id="section-4.3-6">To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):<a href="#section-4.3-6" class="pilcrow">¶</a></p>
+<p id="section-4.3-7">Convention: Report both consumed and delivered energy separately:
+- The providing Energy Object reports total-energy-consumed (self) AND total-energy-delivered (to downstream)
+- The receiving Energy Object reports total-energy-consumed<a href="#section-4.3-7" class="pilcrow">¶</a></p>
+<p id="section-4.3-8">Example: A PoE switch port consuming 1W and providing 9W to an endpoint:
+- Port reports: total-energy-consumed=1W, total-energy-produced=9W
+- Endpoint reports: total-energy-consumed=9W<a href="#section-4.3-8" class="pilcrow">¶</a></p>
+<p id="section-4.3-9">Controllers must use Metering Relationships to identify and avoid aggregating both values.<a href="#section-4.3-9" class="pilcrow">¶</a></p>
+<p id="section-4.3-10">In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.<a href="#section-4.3-10" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="power-state-set">
