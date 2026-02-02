@@ -468,10 +468,19 @@ There are three types of relationships are Power Source, Metering, and Aggregati
   compared to the other relationships, as this refers more to a
   management function.
 
-In some situations, it is not possible to discover the Energy Object
-Relationships, and an EnMS or administrator must manually set them.  Given
-that relationships can be assigned manually, the following sections
-describe guidelines for use.
+To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
+
+Convention: Report both consumed and delivered energy separately:
+- The providing Energy Object reports total-energy-consumed (self) AND total-energy-delivered (to downstream)
+- The receiving Energy Object reports total-energy-consumed
+
+Example: A PoE switch port consuming 1W and providing 9W to an endpoint:
+- Port reports: total-energy-consumed=1W, total-energy-produced=9W
+- Endpoint reports: total-energy-consumed=9W
+
+Controllers must use Metering Relationships to identify and avoid aggregating both values.
+
+In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.
 
 ## Power State Set
 
