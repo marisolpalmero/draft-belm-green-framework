@@ -359,6 +359,15 @@ For energy monitoring specifically, push-based telemetry offers:
 - Network and data collection efficiency: Eliminates repetitive poll/response cycles.
 - Scalability: Controllers can subscribe once rather than poll continuously.
 
+Following the YANG-Push approach, several parameters from EMAN {{?RFC7460}} are not needed in this framework:
+
+- eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push 
+  subscriptions
+- eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy 
+  time series; controllers handle historical data
+- Energy collection parameters table: Replaced by YANG-Push subscription 
+  configuration
+
 ### Controller vs. Device Initiated
 
 The framework supports both initiation models:
