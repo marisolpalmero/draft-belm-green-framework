@@ -772,7 +772,7 @@ The notation `a->b->c` represents the flow between framework components as descr
 - (b) Monitoring interface
 - (c) Metrics interface
 
-|---
+
 |UC| Use Case | Interfaces Usages |
 |-|:-|:-
 |1| Incremental deployment | c; c->b; a->d->b->e |
@@ -807,10 +807,133 @@ The notation `a->b->c` represents the flow between framework components as descr
 | | Power Shortage | monitor->control |
 |15| Energy-Efficient Mgmt of | b->c->f |
 | | AI Training Workloads | monitor->metrics->control |
-|---
 {: #green-uc-interfaces-usage title="Use Cases Interfaces Usage"}
 
 Use Case 1 (Incremental Deployment) illustrates how the usage of the framework interfaces evolves during the lifecycle of a network or device group, starting with legacy reporting, which is represented by 1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific components 3=(a -> d -> b -> e).
+
+
+# Use Case Implementation Requirements: Device vs. Controller Centric
+
+This section analyzes the {{GreenUseCases}} to identify which capabilities require device-level implementation versus controller orchestration. This guides implementers on device feature priorities and operators on controller capabilities needed for effective energy management.
+
+The framework distinguishes between two orthogonal concepts:
+
+### Implementation Focus: Where Intelligence Resides
+
+Device-Centric Use Cases require autonomous on-device decision-making:
+- Example: UC 14 (Power Shortage) - Device must independently manage backup power transitions when network connectivity is lost.
+- It might require local algorithms, minimal controller dependency, autonomous operation, etc.
+
+Controller-Centric Use Cases require centralized orchestration and network-wide visibility:
+- Example: UC 10 (Fixed Network Saving) - Controller predicts traffic patterns across devices and coordinates state changes.
+- It requires cross-device coordination, centralized intelligence
+
+Hybrid Use Cases need both device capabilities and controller coordination:
+- Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.
+
+Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
+
+Controller-Initiated, or Dynamic subscription:
+- Controller establishes YANG-Push subscriptions to energy objects
+- Device streams telemetry at specified intervals (periodic) or on change (event-driven)
+- Centralized monitoring policy management
+
+Device-Initiated, or Static Subscription:
+- Device autonomously pushes alerts without prior subscription
+- Used for threshold violations, hardware failures, certification degradation
+- Complements controller-initiated monitoring
+
+Even device-centric use cases(autonomous operation) typically use controller-initiated telemetry (controller subscribes to observe device behavior). These concepts are independent.
+
+
+| UC# | Use Case | Critical Capabilities |
+|-----|----------|---------------------|
+| **Device-Centric** |||
+| 14 | Power Shortage Management | Backup power awareness, autonomous operation |
+| 1 | Incremental Deployment | Baseline metrics, certification reporting, capability discovery |
+||||
+| **Hybrid (Device + Controller)** |||
+| 4 | Virtualized NF Metering | HW-layer metering, VM correlation, real-time telemetry push |
+| 9 | WLAN Energy Saving | PoE power modes, double counting, coordinated state transitions |
+||||
+| **Controller-Centric** |||
+| 2 | Selective Energy Reduction | Traffic pattern analysis, coordinated sleep modes, global optimization |
+| 3 | Lifecycle Reporting | External database integration, carbon factor correlation, metadata aggregation |
+| 5 | Indirect Monitoring | PDU/meter integration, topology-aware aggregation, proxy measurement |
+| 6 | Cross-Domain Metrics | Multi-domain API integration, double-accounting prevention, metric mapping |
+| 7 | Wireless Transport Optimization | *Traffic-aware power adjustment, dynamic link control, pattern recognition |
+| 8 | Video Streaming | Multicast optimization, cache placement, traffic engineering |
+| 10 | Fixed Network Saving | pattern prediction, coordinated reconfiguration, AI/ML integration |
+| 11 | Network-Wide Management | Centralized visibility, topology mapping, vendor-neutral aggregation |
+| 12 | ISAC Smart City | Context-aware activation, city-wide coordination, sensing prioritization |
+| 13 | Double Accounting Prevention | Metering topology awareness, relationship modeling, intelligent aggregation |
+| 15 | AI Training Workloads | Energy-aware scheduling, data placement, East-West traffic optimization |
+| 16 | Cross-Layer Saving | Multi-layer coordination (L0-L3), cross-layer state synchronization |
+{: #uc-implementation-focus title="Use Case Implementation Focus"}
+
+<<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
+
+## Key Findings
+
+### Device Capabilities Required Across Use Cases
+
+To support controller-orchestrated optimization, devices MUST provide:
+
+1. **Discovery Interface (a, d)**
+   - Power state capabilities and transitions
+   - Certification information (80 PLUS, Energy Star, etc.)
+   - Backup power source awareness
+   - Component-level UUID identification (per {{RFC8348}})
+
+2. **Telemetry Push (b→c)**
+   - Real-time power/energy metrics
+   - Power state change notifications
+   - Component-level granularity
+   - Timestamp correlation for traffic patterns
+
+3. **Control Interface (f)**
+   - Power state transitions (on/off, sleep, low-power)
+   - Component-level control (ports, line cards, radios)
+   - Transition time and frequency constraints
+   - Safe operational limits (SLAs)
+
+### Controller Capabilities Required
+
+To enable network-wide energy optimization, controllers MUST provide:
+
+1. **Topology Awareness**
+   - Power source relationships (who powers whom)
+   - Metering relationships (who meters whom)
+   - Cross-domain mappings (3GPP, optical, IP layers)
+
+2. **Intelligent Orchestration**
+   - Traffic pattern analysis and prediction
+   - Coordinated state transitions across devices
+   - Double-accounting prevention
+   - Global vs. local optimization decisions
+
+3. **Cross-Domain Integration**
+   - External database integration (datasheets, carbon factors)
+   - Multi-domain API support (3GPP, optical transport)
+   - Metadata aggregation and correlation
+
+## Implementation Priorities
+
+### Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)
+- **Devices**: UUID identification, basic power metrics, certification reporting
+- **Controllers**: Discovery interface, topology awareness, double-accounting prevention
+
+### Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)
+- **Devices**: Power state support, telemetry push, transition constraints
+- **Controllers**: Traffic correlation, coordinated control, pattern prediction
+
+### Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15, 16)
+- **Devices**: Granular metering, fast state transitions, component-level control
+- **Controllers**: Cross-domain integration, AI/ML optimization, multi-layer coordination
+
+This phased approach allows incremental deployment while maximizing value at each stage.
+
+
 
 
 ## Observations and Next Steps
