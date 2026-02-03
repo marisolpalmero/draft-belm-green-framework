@@ -640,11 +640,14 @@ Who triggers telemetry is independent of implementation focus and follows YANG-P
 
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 This is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 Controller-Initiated:
 - Controller establishes YANG-Push subscriptions to Energy Objects
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 Controller-Initiated, or Dynamic subscription:
