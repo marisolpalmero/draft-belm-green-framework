@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 6 August 2026                                        Telefonica
+Expires: 7 August 2026                                        Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 6 August 2026                                        Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                         2 February 2026
+                                                         3 February 2026
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2026.
+   This Internet-Draft will expire on 7 August 2026.
 
 Copyright Notice
 
@@ -126,14 +126,25 @@ Table of Contents
        4.5.3.  SLA Considerations
    5.  Interfaces Usage Of the Framework
      5.1.  Mapping of Use Cases to Framework Interfaces
-     5.2.  Observations and Next Steps
-   6.  Conventions and Definitions
-   7.  Security Considerations
-   8.  IANA Considerations
-   9.  Acknowledgments
-   10. References
-     10.1.  Normative References
-     10.2.  Informative References
+   6.  Use Case Implementation Requirements: Device vs. Controller
+           Centric
+     6.1.  Implementation Focus: Where Intelligence Resides
+     6.2.  Key Findings
+       6.2.1.  Device Capabilities Required Across Use Cases
+       6.2.2.  Controller Capabilities Required
+     6.3.  Implementation Priorities
+       6.3.1.  Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)
+       6.3.2.  Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)
+       6.3.3.  Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8,
+               12, 15, 16)
+     6.4.  Observations and Next Steps
+   7.  Conventions and Definitions
+   8.  Security Considerations
+   9.  IANA Considerations
+   10. Acknowledgments
+   11. References
+     11.1.  Normative References
+     11.2.  Informative References
    Authors' Addresses
 
 1.  TO DO and Open Issues
@@ -1417,13 +1428,243 @@ Table of Contents
    1=(c) and 2=(c -> b) and progressively incorporating GREEN-specific
    components 3=(a -> d -> b -> e).
 
-5.2.  Observations and Next Steps
+6.  Use Case Implementation Requirements: Device vs. Controller Centric
+
+   This section analyzes the [GreenUseCases] to identify which
+   capabilities require device-level implementation versus controller
+   orchestration.  This guides implementers on device feature priorities
+   and operators on controller capabilities needed for effective energy
+   management.
+
+   The framework distinguishes between two orthogonal concepts:
+
+6.1.  Implementation Focus: Where Intelligence Resides
+
+   Device-Centric Use Cases require autonomous on-device decision-
+   making: - Example: UC 14 (Power Shortage) - Device must independently
+   manage backup power transitions when network connectivity is lost. -
+   It might require local algorithms, minimal controller dependency,
+   autonomous operation, etc.
+
+   Controller-Centric Use Cases require centralized orchestration and
+   network-wide visibility: - Example: UC 10 (Fixed Network Saving) -
+   Controller predicts traffic patterns across devices and coordinates
+   state changes. - It requires cross-device coordination, centralized
+   intelligence
+
+   Hybrid Use Cases need both device capabilities and controller
+   coordination: - Example: UC 9 (WLAN Energy Saving) - Devices support
+   power modes; controller coordinates AP groups to maintain coverage.
+
+   Who triggers telemetry is independent of implementation focus and
+   follows YANG-Push [RFC8641] patterns:
+
+   Controller-Initiated, or Dynamic subscription: - Controller
+   establishes YANG-Push subscriptions to energy objects - Device
+   streams telemetry at specified intervals (periodic) or on change
+   (event-driven) - Centralized monitoring policy management
+
+   Device-Initiated, or Static Subscription: - Device autonomously
+   pushes alerts without prior subscription - Used for threshold
+   violations, hardware failures, certification degradation -
+   Complements controller-initiated monitoring
+
+   Even device-centric use cases(autonomous operation) typically use
+   controller-initiated telemetry (controller subscribes to observe
+   device behavior).  These concepts are independent.
+
+    +======================+==============+===========================+
+    | UC#                  | Use Case     | Critical Capabilities     |
+    +======================+==============+===========================+
+    | *Device-Centric*     |              |                           |
+    +----------------------+--------------+---------------------------+
+    | 14                   | Power        | Backup power awareness,   |
+    |                      | Shortage     | autonomous operation      |
+    |                      | Management   |                           |
+    +----------------------+--------------+---------------------------+
+    | 1                    | Incremental  | Baseline metrics,         |
+    |                      | Deployment   | certification reporting,  |
+    |                      |              | capability discovery      |
+    +----------------------+--------------+---------------------------+
+    +----------------------+--------------+---------------------------+
+    | *Hybrid (Device +    |              |                           |
+    | Controller)*         |              |                           |
+    +----------------------+--------------+---------------------------+
+    | 4                    | Virtualized  | HW-layer metering, VM     |
+    |                      | NF Metering  | correlation, real-time    |
+    |                      |              | telemetry push            |
+    +----------------------+--------------+---------------------------+
+    | 9                    | WLAN Energy  | PoE power modes, double   |
+    |                      | Saving       | counting, coordinated     |
+    |                      |              | state transitions         |
+    +----------------------+--------------+---------------------------+
+    +----------------------+--------------+---------------------------+
+    | *Controller-Centric* |              |                           |
+    +----------------------+--------------+---------------------------+
+    | 2                    | Selective    | Traffic pattern analysis, |
+    |                      | Energy       | coordinated sleep modes,  |
+    |                      | Reduction    | global optimization       |
+    +----------------------+--------------+---------------------------+
+    | 3                    | Lifecycle    | External database         |
+    |                      | Reporting    | integration, carbon       |
+    |                      |              | factor correlation,       |
+    |                      |              | metadata aggregation      |
+    +----------------------+--------------+---------------------------+
+    | 5                    | Indirect     | PDU/meter integration,    |
+    |                      | Monitoring   | topology-aware            |
+    |                      |              | aggregation, proxy        |
+    |                      |              | measurement               |
+    +----------------------+--------------+---------------------------+
+    | 6                    | Cross-Domain | Multi-domain API          |
+    |                      | Metrics      | integration, double-      |
+    |                      |              | accounting prevention,    |
+    |                      |              | metric mapping            |
+    +----------------------+--------------+---------------------------+
+    | 7                    | Wireless     | *Traffic-aware power      |
+    |                      | Transport    | adjustment, dynamic link  |
+    |                      | Optimization | control, pattern          |
+    |                      |              | recognition               |
+    +----------------------+--------------+---------------------------+
+    | 8                    | Video        | Multicast optimization,   |
+    |                      | Streaming    | cache placement, traffic  |
+    |                      |              | engineering               |
+    +----------------------+--------------+---------------------------+
+    | 10                   | Fixed        | pattern prediction,       |
+    |                      | Network      | coordinated               |
+    |                      | Saving       | reconfiguration, AI/ML    |
+    |                      |              | integration               |
+    +----------------------+--------------+---------------------------+
+    | 11                   | Network-Wide | Centralized visibility,   |
+    |                      | Management   | topology mapping, vendor- |
+    |                      |              | neutral aggregation       |
+    +----------------------+--------------+---------------------------+
+    | 12                   | ISAC Smart   | Context-aware activation, |
+    |                      | City         | city-wide coordination,   |
+    |                      |              | sensing prioritization    |
+    +----------------------+--------------+---------------------------+
+    | 13                   | Double       | Metering topology         |
+    |                      | Accounting   | awareness, relationship   |
+    |                      | Prevention   | modeling, intelligent     |
+    |                      |              | aggregation               |
+    +----------------------+--------------+---------------------------+
+    | 15                   | AI Training  | Energy-aware scheduling,  |
+    |                      | Workloads    | data placement, East-West |
+    |                      |              | traffic optimization      |
+    +----------------------+--------------+---------------------------+
+    | 16                   | Cross-Layer  | Multi-layer coordination  |
+    |                      | Saving       | (L0-L3), cross-layer      |
+    |                      |              | state synchronization     |
+    +----------------------+--------------+---------------------------+
+
+                   Table 3: Use Case Implementation Focus
+
+   <<TODO - to decide if we include from here onwards, key findings! and
+   implementation priorities>>
+
+6.2.  Key Findings
+
+6.2.1.  Device Capabilities Required Across Use Cases
+
+   To support controller-orchestrated optimization, devices MUST
+   provide:
+
+   1.  *Discovery Interface (a, d)*
+
+       *  Power state capabilities and transitions
+
+       *  Certification information (80 PLUS, Energy Star, etc.)
+
+       *  Backup power source awareness
+
+       *  Component-level UUID identification (per [RFC8348])
+
+   2.  *Telemetry Push (b→c)*
+
+       *  Real-time power/energy metrics
+
+       *  Power state change notifications
+
+       *  Component-level granularity
+
+       *  Timestamp correlation for traffic patterns
+
+   3.  *Control Interface (f)*
+
+       *  Power state transitions (on/off, sleep, low-power)
+
+       *  Component-level control (ports, line cards, radios)
+
+       *  Transition time and frequency constraints
+
+       *  Safe operational limits (SLAs)
+
+6.2.2.  Controller Capabilities Required
+
+   To enable network-wide energy optimization, controllers MUST provide:
+
+   1.  *Topology Awareness*
+
+       *  Power source relationships (who powers whom)
+
+       *  Metering relationships (who meters whom)
+
+       *  Cross-domain mappings (3GPP, optical, IP layers)
+
+   2.  *Intelligent Orchestration*
+
+       *  Traffic pattern analysis and prediction
+
+       *  Coordinated state transitions across devices
+
+       *  Double-accounting prevention
+
+       *  Global vs. local optimization decisions
+
+   3.  *Cross-Domain Integration*
+
+       *  External database integration (datasheets, carbon factors)
+
+       *  Multi-domain API support (3GPP, optical transport)
+
+       *  Metadata aggregation and correlation
+
+6.3.  Implementation Priorities
+
+6.3.1.  Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)
+
+   *  *Devices*: UUID identification, basic power metrics, certification
+      reporting
+
+   *  *Controllers*: Discovery interface, topology awareness, double-
+      accounting prevention
+
+6.3.2.  Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)
+
+   *  *Devices*: Power state support, telemetry push, transition
+      constraints
+
+   *  *Controllers*: Traffic correlation, coordinated control, pattern
+      prediction
+
+6.3.3.  Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15,
+        16)
+
+   *  *Devices*: Granular metering, fast state transitions, component-
+      level control
+
+   *  *Controllers*: Cross-domain integration, AI/ML optimization,
+      multi-layer coordination
+
+   This phased approach allows incremental deployment while maximizing
+   value at each stage.
+
+6.4.  Observations and Next Steps
 
    The mapping in Table 2 demonstrates that most GREEN use cases rely
    primarily on the monitoring and control interfaces, with discovery
    being used during initialization or lifecycle events.
 
-   To complement Table 2, Table 3 provides a higher-level functional
+   To complement Table 2, Table 4 provides a higher-level functional
    view of the framework.  It summarizes how the interface sequences
    relate to the three primary operational domains of *Discovery*,
    *Monitoring*, and *Control*, and shows how they align with use cases.
@@ -1467,7 +1708,7 @@ Table of Contents
    |              | automation.                |         |            |
    +--------------+----------------------------+---------+------------+
 
-    Table 3: Functional Overview of Framework Domains (Merged Details)
+    Table 4: Functional Overview of Framework Domains (Merged Details)
 
    This indicates that future work should prioritize:
 
@@ -1481,11 +1722,11 @@ Table of Contents
       reporting and federation.
 
    Combining both perspectives, the detailed interface mapping Table 2
-   and the functional overview Table 3, offers a comprehensive picture
+   and the functional overview Table 4, offers a comprehensive picture
    of how the GREEN Framework can be applied to concrete network energy-
    efficiency scenarios.
 
-6.  Conventions and Definitions
+7.  Conventions and Definitions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -1493,7 +1734,7 @@ Table of Contents
    BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
    capitals, as shown here.
 
-7.  Security Considerations
+8.  Security Considerations
 
    Resiliency is an implicit use case of energy efficiency management
    which comes with numerous security considerations :
@@ -1520,11 +1761,11 @@ Table of Contents
    of transmitted information and authentication of the origin may be
    needed.
 
-8.  IANA Considerations
+9.  IANA Considerations
 
    This document has no IANA actions.
 
-9.  Acknowledgments
+10.  Acknowledgments
 
    This framework takes into account concepts from the Energy MANagement
    (EMAN) Framework [RFC7326], authors by John Parello, Benoit Claise,
@@ -1535,9 +1776,9 @@ Table of Contents
    Agreement no. 101096925) and Exigence (Grant Agreement no.
    101139120).
 
-10.  References
+11.  References
 
-10.1.  Normative References
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -1551,7 +1792,7 @@ Table of Contents
    [RFC8348]  "A YANG Data Model for Hardware Management", March 2018,
               <https://www.rfc-editor.org/info/rfc8348>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [GreenTerminology]
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
@@ -1590,14 +1831,18 @@ Table of Contents
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-bcmj-green-power-and-energy-yang-00,
-              15 December 2025, <https://datatracker.ietf.org/doc/html/
-              draft-bcmj-green-power-and-energy-yang-00>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-01,
+              2 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-01>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
               DOI 10.17487/RFC7326, September 2014,
               <https://www.rfc-editor.org/rfc/rfc7326>.
+
+   [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
+              for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
+              September 2019, <https://www.rfc-editor.org/rfc/rfc8641>.
 
    [TMN]      "International Telecommunication Union, "TMN management
               functions"", February 2000, <ITU-T Recommendation M.3400>.
