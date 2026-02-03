@@ -59,6 +59,11 @@ author:
 
 normative:
 
+   RFC8348:
+    title: A YANG Data Model for Hardware Management
+    date: 2018-03
+    target: https://www.rfc-editor.org/info/rfc8348
+
 informative:
 
    TMN:
@@ -87,10 +92,13 @@ informative:
     - org: IEC
     date: 2000-12-11
 
-   PetraApi: I-D.draft-petra-green-api
+   GreenTerminology: I-D.draft-ietf-green-terminology
 
    GreenUseCases: I-D.draft-ietf-green-use-cases
 
+   PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
+
+   PetraApi: I-D.draft-petra-green-api
 
 --- abstract
 
@@ -120,7 +128,6 @@ The following topics remain open for further discussion points:
 ## Handling Transitions and Ensuring Safety
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
-- Recommendation to standardize a data model to preserved measurement accuracy.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
 
 ## East-West Traffic/Energy Metrics
@@ -129,40 +136,38 @@ The following topics remain open for further discussion points:
 
 # Introduction
 
-{{GreenUseCases}}, analyzing use cases such as the "Incremental Application of the GREEN Framework" and "Consideration of other domains for obtention of end-to-end metrics"  reveals the critical need for a structured approach to transitioning network devices' management towards energy-efficient operations, for:
+{{GreenUseCases}} analyzes use cases such as "Incremental Application of the GREEN Framework" and "Consideration of other domains for end-to-end metrics," revealing the critical need for a structured approach to transitioning network device management towards energy-efficient operations. This framework addresses:
 
-* Standardization: Ensuring consistent practices across different devices and network segments to facilitate interoperability.
-* Energy Efficiency Management: Providing guidelines to identify inefficiencies, look for the balance between energy usage and
-  network/resource/component/capability utilization and implement improvements.
-* Scalability: Offering solutions that accommodate growing network demands and complexity.
-* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles.
-* Competitiveness: Enabling organizations to maintain a competitive infrastructure through enhanced sustainability.
-* Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints.
-* Simplified Implementation: Streamlining the deployment of energy-efficient measures to minimize service disruptions.
-* Security: Protecting sensitive operations related to power states and consumption.
+* Standardization: Ensuring consistent practices across devices and network segments to facilitate interoperability
+* Energy Efficiency Management: Providing guidelines to identify inefficiencies, balance energy usage with network/resource/component utilization, and implement improvements
+* Scalability: Offering solutions that accommodate growing network demands and complexity
+* Cost Reduction: Optimizing energy usage to lower operational costs and extend equipment lifecycles
+* Competitiveness: Enabling organizations to maintain competitive infrastructure through enhanced sustainability
+* Environmental Impact: Supporting broader sustainability initiatives by reducing carbon footprints
+* Simplified Implementation: Streamlining deployment of energy-efficient measures to minimize service disruptions
+* Security: Protecting sensitive operations related to power states and consumption
 
-This document specifies an Energy Management framework for devices
-within, or connected to, communication networks, for the use cases
-described in {{GreenUseCases}}.
-The devices, or the components of these devices (such as line cards, fans, and
-disks), can then be monitored and controlled. Monitoring includes measuring
-power, energy, demand, and attributes of power.  Energy Control can
-be performed by setting a device's or component's state.  The devices
-monitored by this framework can be either of the following:
+This document specifies an Energy Management framework for devices within, or connected to, communication networks, addressing the use cases in {{GreenUseCases}}.
 
-- consumers of energy (such as routers and computer systems) and
-  components of such devices (such as line cards, fans, and disks)
+The framework covers devices and components that can be monitored and controlled for energy management purposes:
 
-- producers of energy (like an uninterruptible power supply or
-  renewable energy system) and their associated components (such as
-  battery cells, inverters, or photovoltaic panels)
+- Power consumers: Routers, switches, servers, storage systems, and their components (line cards, fans, disks, processors, GPUs)
+- Power sources: Uninterruptible power supplies (UPS), Power Distribution Units (PDUs), Power over Ethernet (PoE) switches, renewable energy systems, and their components (battery cells, inverters, photovoltaic panels)
+- Monitored entities: Any network-attached device or component with a unique identifier (UUID per {{RFC8348}}) that influences power or energy consumption
 
-The Energy Management framework does not cover non-electrical equipment, nor does it
-cover energy procurement and manufacturing.
+This framework defines conceptual requirements and architectural patterns for energy efficiency management. The companion YANG data model {{PowerAndEnergy}} provides the implementable specification, including:
+
+- Power and energy metric definitions and units
+- Measurement accuracy
+- Industry certification reporting (80 PLUS, Energy Star)
+- Hierarchical default value inheritance
+-  {{RFC8348}} hardware model link with energy attributes
+
+Implementers should reference both documents: this framework for understanding requirements and use cases, the YANG model for implementation details and data structures.
 
 ## Terminology
 
-The following terms are defined in {{!I-D.draft-bclp-green-terminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Management, Energy Monitoring, Energy Control.
+The following terms are defined in {{GreenTerminology}} and EMAN Framework {{?RFC7326}}: Energy, Power, Energy Object, Energy Management, Energy Monitoring, Energy Control.
 
 The following terms are defined in EMAN Framework {{?RFC7326}}, and cut/paste here for completeness:
 
@@ -324,10 +329,200 @@ The main elements in the framework are as follows:
 The monitoring interface (e) obviously monitor more aspects than just power and energy,
 (for example traffic monitoring) but this is not covered in the framework.
 
-Note that this framework specificies logical blocks, however, the Energy Efficiency Management
-Function might be implemented inside the device or in the controller or a combination of both.
+Note that the GREEN framework specificies logical blocks, however, the Energy Efficiency Management function might be implemented inside the device, based in {{RFC8348}}, in the controller, or a combination of both.
 
 Even the current reference model implicitly assume a hierarchical network structure, this assumption acknowledges that modern networks have flatter and anticipate more distributed topologies.
+
+The referene model covers every network device and component that have a Unique Identifiable ID (UUID) and can represent or influence power or energy consumption. If the component can be uniquely identified, it can be modeled.
+
+In scope:
+
+- Devices
+- Chassis,
+- Line cards, modules, ports
+- Power supply units (PSUs), fans, thermal units
+- Accelerators, GPUs, NPUs
+- Virtualized components where applicable
+- Any element providing power, energy
+
+
+## Data Collection Architecture
+
+### Telemetry Push Pattern
+
+The framework recommends a push-based telemetry model for energy efficiency data collection, where network devices stream power and energy measurements to management systems rather than waiting for poll requests.
+
+For energy monitoring specifically, push-based telemetry offers:
+
+- Temporal accuracy: Energy consumption varies over time; push models capture variations that polling might miss.
+- Reduced latency: Anomalies (power spikes, efficiency degradation) are detected immediately.
+- Network and data collection efficiency: Eliminates repetitive poll/response cycles.
+- Scalability: Controllers can subscribe once rather than poll continuously.
+
+### Controller vs. Device Initiated
+
+The framework supports both initiation models:
+
+- Controller-Initiated:
+  - Controller subscribes to Energy Objects streaming.
+  - Provides centralized control over monitoring scope and frequency
+  - Enables dynamic adjustment of monitoring based on operational needs
+
+- Device-Initiated:
+  - Devices can autonomously report critical energy events
+  - Useful for threshold violations or hardware failures
+  - Complements controller-initiated subscriptions
+
+### UUID-Based Component Identification
+
+Energy metrics are anchored to hardware components using UUIDs from the ietf-hardware model {{RFC8348}}:
+
+- Each physical component (chassis, power supply, line card, etc.) has a stable UUID
+- Energy metrics reference these UUIDs, enabling correlation with:
+  - Component lifecycle (installation, replacement, decommissioning)
+  - Inventory management systems
+  - Warranty and support tracking
+  - Asset management databases
+
+To enable stable component identification across systems, the GREEN Framework supports dual identifiers based on {{RFC8348}}: controllers will need to assign their own ID during onboarding, query the device's ietf-hardware UUID, and maintain a mapping between both for cross-system correlation.
+
+### Measurement Accuracy and Data Source Classification
+
+Energy metrics vary significantly in quality and source: some represent direct sensor measurements with known precision, others are estimates from datasheets or even machine learning predictions. To enable informed decision-making and prevent misleading comparisons, the framework requires explicit accuracy classification for all power and energy data.
+
+The framework defines three primary accuracy categories:
+
+- Unknown Accuracy: Data accuracy cannot be determined, or measurements are unavailable due to sensor failures, powered-off components, or other operational constraints.
+
+- Estimated Data: Values derived through indirect methods:
+  - Static estimates: From manufacturer datasheets, nameplate ratings (critical for UC 1: Incremental Deployment with legacy devices)
+    - Identity: `accuracy-static`
+  - Historic estimates: Based on prior measurements of this specific system under similar conditions
+    - Identity: `accuracy-historic`
+  - Learned estimates: Generated by machine learning models predicting consumption from workload patterns (UC 15: AI Training)
+    - Identity: `accuracy-learned`
+
+- Measured Data: Direct, real-time sensor measurements with quantified precision:
+- Bronze: ±30% accuracy for typical values.
+- Silver: ±10% accuracy for typical values.
+- Gold: ±5% accuracy for typical values.
+- Red: ±2% accuracy for typical values.
+- Ones: All non-zero digits are significant/valid.
+
+Percentage-based accuracy fails for small values. For example, ±5% of 0.1W is only 0.005W, which may be smaller than sensor noise. Industry standards (IEC 62053, IEC 61850-7-4) address this by specifying: Accuracy = MAX(percentage_error, absolute_threshold)
+
+The absolute threshold suffixes (`-1`, `-10`, `-100`, `-1000`) refer to the unit-multiplier scale. For `unit-multiplier: milli`, `-10` means ±10 milliwatts.
+
+Example: A sensor with `accuracy-measured-gold-10` reports:
+- 16.25W → actual value between 16.2375W and 16.2625W (5% = 0.8125W > 0.010W threshold)
+- 0.15W → actual value between 0.140W and 0.160W (5% = 0.0075W < 0.010W threshold, so ±10mW applies)
+
+Explicit accuracy reporting enables:
+
+- Weighted aggregation: High-precision measurements carry appropriate weight when calculating network-wide energy consumption
+- Upgrade prioritization: Identify devices with low-accuracy reporting for sensor upgrades or replacement
+- Compliance validation: Automated verification against regulatory thresholds requiring specific measurement precision
+- Double-accounting prevention: Understand when PDU-level measurements (±2%) should override device estimates (±30%) to avoid counting the same energy twice (UC 13)
+- Cross-domain correlation: Map accuracy expectations when integrating with external systems like 3GPP energy KPIs (UC 6)
+
+The accuracy hierarchy uses YANG identities for extensibility, allowing vendors to define manufacturer-specific accuracy classes while maintaining interoperability through standardized base types. Implementation details are provided in the companion YANG data model {{PowerAndEnergy}}.
+
+### Extensibility Through YANG Identities
+
+The accuracy hierarchy uses YANG `identityref` to allow vendor-specific extensions:
+```yang
+identity accuracy-measured-vendor-calibrated {
+  base accuracy-measured;
+  description
+    "Vendor-specific calibrated sensor with certificate ID XYZ";
+}
+```
+
+This maintains interoperability (base `accuracy-measured` classification) while supporting proprietary accuracy metadata.
+
+Implementation details are in {{PowerAndEnergy}}.
+
+### Industry-Standard Certifications
+
+In addition to measurement accuracy, the framework supports reporting of industry-standard energy efficiency certifications. These certifications provide vendor-verified efficiency benchmarks that complement direct measurements:
+
+Common Certifications:
+- 80 PLUS (Power Supply Units): Bronze/Silver/Gold/Platinum/Titanium tiers based on efficiency at 20%/50%/100% load
+- Energy Star: Government-backed program certifying energy-efficient products
+- EPEAT: Electronic Product Environmental Assessment Tool ratings (Bronze/Silver/Gold)
+- TCO Certified: Sustainability certification for IT products
+- EU Energy Label: European efficiency ratings
+
+Certifications and measurement accuracy serve complementary purposes:
+
+| Aspect | Industry Certification | Measurement Accuracy |
+|--------|----------------------|---------------------|
+| Purpose | Verify design efficiency | Indicate real-time measurement precision |
+| Source | Independent testing labs | Device sensors or estimates |
+| Granularity | Device-level (e.g., PSU) | Component or system-level |
+| Stability | Fixed at manufacturing | May vary with sensor calibration |
+| Use Case | Procurement decisions, compliance | Operational monitoring, optimization |
+
+Example: A power supply might have:
+- Certification: `80-PLUS-Platinum` (≥92% efficient at 50% load, independently verified)
+- Measurement Accuracy: `accuracy-measured-silver` (±10% sensor precision on real-time power readings)
+
+The certification tells operators the PSU is designed to be efficient; the measurement accuracy tells them how precisely they can monitor its actual performance.
+
+### Hierarchical Data Model and Default Value Inheritance
+
+The framework leverages the hierarchical structure of the ietf-hardware model {{RFC8348}} to minimize redundant data reporting and simplify device implementation. The framework refers as parent-child relationships.
+
+Energy objects inherit their hierarchical relationships from the hardware component tree. For example:
+- A chassis(parent) contains line cards(children).
+- Each line card(parent) contains ports(children).
+- Each chassis(parent) is powered by power supply units(children).
+
+Energy metrics and metadata follow these same hierarchical relationships, enabling:
+
+- Child components inherit measurement accuracy from their parent unless explicitly overridden.
+- Reduced reporting overhead: Devices only transmit accuracy metadata for components that differ from their parent.
+- Hierarchical validation: Controllers leverage the device containment tree (per {{RFC8348}}) to verify parent measurements by aggregating child values.
+
+The YANG data model {{PowerAndEnergy}} implements hierarchical defaults for key attributes. For example:
+
+The `data-source-accuracy` leaf has a default value of `accuracy-like-parent`, meaning:
+
+- If a chassis reports `accuracy-measured-gold` (±5%)
+- All child components(line cards, ports, fans) automatically inherit `accuracy-measured-gold`
+- Only components with different accuracy need to explicitly report their value
+
+Example:
+```
+Chassis (accuracy: gold ±5%)
+├── Line Card 1 (inherits: gold ±5%)  ← No need to report
+├── Line Card 2 (inherits: gold ±5%)  ← No need to report
+└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
+```
+
+This dramatically reduces YANG-Push telemetry volume while maintaining accuracy transparency.
+
+### Unit Multiplier Consistency
+
+While `unit-multiplier` does not inherit, the framework recommends:
+
+- Mandatory unit-multiplier specification OR
+- Default to `multiplier-units` (10^0 = 1) for simplicity
+
+**Rationale from WG Discussion:**
+> "Either mandatory or default to 1, not inheritance. Leave it open to authors to discuss further." The final YANG model can choose either approach, but must not use inheritance to avoid client code complexity.
+
+
+### Power Factor
+
+The YANG data model {{PowerAndEnergy}} introduces a power-factor leaf to capture Power Factor (PF), enabling controller engines to accurately compute real power. PF is essential for accurately estimating real power consumption in AC-powered components, especially Power Supply Units (PSUs).
+
+The `power-factor` leaf defaults to 100 (unity power factor), meaning:
+- Devices with typical resistive loads don't need to report power factor
+- Only devices with significant reactive power (motors, large PSUs) need explicit values
+- Simplifies data for most networking equipment
+
+
 
 ## Typical Power Topologies
 
