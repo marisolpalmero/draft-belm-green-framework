@@ -361,12 +361,9 @@ For energy monitoring specifically, push-based telemetry offers:
 
 Following the YANG-Push approach, several parameters from EMAN {{?RFC7460}} are not needed in this framework:
 
-- eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push 
-  subscriptions
-- eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy 
-  time series; controllers handle historical data
-- Energy collection parameters table: Replaced by YANG-Push subscription 
-  configuration
+- eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push subscriptions.
+- eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy time series; controllers handle historical data.
+- Energy collection parameters table: Replaced by YANG-Push subscription configuration.
 
 ### Controller vs. Device Initiated
 
@@ -773,7 +770,7 @@ Meanwhile saving energy, the device or component shouldn't drop below a certain 
 # Interfaces Usage Of the Framework
 
 This section provides an overview of how the GREEN use cases described in
-[draft-stephan-green-use-cases] interact with the framework interfaces defined in this document.
+{{GreenUseCases}} interact with the framework interfaces defined in this document.
 
 Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.
 
