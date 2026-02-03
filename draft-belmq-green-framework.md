@@ -89,7 +89,7 @@ informative:
 
    PetraApi: I-D.draft-petra-green-api
 
-   GreenUseCases: I-D.ietf-green-use-cases
+   GreenUseCases: I-D.draft-ietf-green-use-cases
 
 
 --- abstract
