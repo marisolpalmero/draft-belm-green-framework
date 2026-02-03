@@ -5,7 +5,7 @@
 Getting Ready for Energy-Efficient Networking                  B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 6 August 2026                                        Telefonica
+Expires: 7 August 2026                                        Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 6 August 2026                                        Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                         2 February 2026
+                                                         3 February 2026
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 6 August 2026.
+   This Internet-Draft will expire on 7 August 2026.
 
 Copyright Notice
 
@@ -543,6 +543,18 @@ Table of Contents
 
    *  Scalability: Controllers can subscribe once rather than poll
       continuously.
+
+   Following the YANG-Push approach, several parameters from EMAN
+   [RFC7460] are not needed in this framework:
+
+   *  eoEnergyCollectionStartTime: Collection timing is managed by YANG-
+      Push subscriptions.
+
+   *  eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store
+      energy time series; controllers handle historical data.
+
+   *  Energy collection parameters table: Replaced by YANG-Push
+      subscription configuration.
 
 4.1.2.  Controller vs. Device Initiated
 
@@ -1319,8 +1331,8 @@ Table of Contents
 5.  Interfaces Usage Of the Framework
 
    This section provides an overview of how the GREEN use cases
-   described in [draft-stephan-green-use-cases] interact with the
-   framework interfaces defined in this document.
+   described in [GreenUseCases] interact with the framework interfaces
+   defined in this document.
 
    Each use case is characterized by the sequence of framework
    interfaces it invokes to achieve energy-efficiency objectives.
@@ -1605,14 +1617,19 @@ Table of Contents
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-bcmj-green-power-and-energy-yang-00,
-              15 December 2025, <https://datatracker.ietf.org/doc/html/
-              draft-bcmj-green-power-and-energy-yang-00>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-01,
+              2 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-01>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
               DOI 10.17487/RFC7326, September 2014,
               <https://www.rfc-editor.org/rfc/rfc7326>.
+
+   [RFC7460]  Chandramouli, M., Claise, B., Schoening, B., Quittek, J.,
+              and T. Dietz, "Monitoring and Control MIB for Power and
+              Energy", RFC 7460, DOI 10.17487/RFC7460, March 2015,
+              <https://www.rfc-editor.org/rfc/rfc7460>.
 
    [TMN]      "International Telecommunication Union, "TMN management
               functions"", February 2000, <ITU-T Recommendation M.3400>.
