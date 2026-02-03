@@ -359,6 +359,12 @@ For energy monitoring specifically, push-based telemetry offers:
 - Network and data collection efficiency: Eliminates repetitive poll/response cycles.
 - Scalability: Controllers can subscribe once rather than poll continuously.
 
+Following the YANG-Push approach, several parameters from EMAN {{?RFC7460}} are not needed in this framework:
+
+- eoEnergyCollectionStartTime: Collection timing is managed by YANG-Push subscriptions.
+- eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store energy time series; controllers handle historical data.
+- Energy collection parameters table: Replaced by YANG-Push subscription configuration.
+
 ### Controller vs. Device Initiated
 
 The framework supports both initiation models:
@@ -663,10 +669,19 @@ There are three types of relationships are Power Source, Metering, and Aggregati
   compared to the other relationships, as this refers more to a
   management function.
 
-In some situations, it is not possible to discover the Energy Object
-Relationships, and an EnMS or administrator must manually set them.  Given
-that relationships can be assigned manually, the following sections
-describe guidelines for use.
+To prevent double counting in scenarios where one Energy Object provides power to another (e.g., PoE switch port to PoE endpoint):
+
+Convention: Report both consumed and delivered energy separately:
+- The providing Energy Object reports total-energy-consumed (self) AND total-energy-delivered (to downstream)
+- The receiving Energy Object reports total-energy-consumed
+
+Example: A PoE switch port consuming 1W and providing 9W to an endpoint:
+- Port reports: total-energy-consumed=1W, total-energy-produced=9W
+- Endpoint reports: total-energy-consumed=9W
+
+Controllers must use Metering Relationships to identify and avoid aggregating both values.
+
+In some situations, it is not possible to discover the Energy Object Relationships, and an EnMS or administrator must manually set them.  Given that relationships can be assigned manually, the following sections describe guidelines for use.
 
 ## Power State Set
 
@@ -755,7 +770,7 @@ Meanwhile saving energy, the device or component shouldn't drop below a certain 
 # Interfaces Usage Of the Framework
 
 This section provides an overview of how the GREEN use cases described in
-[draft-stephan-green-use-cases] interact with the framework interfaces defined in this document.
+{{GreenUseCases}} interact with the framework interfaces defined in this document.
 
 Each use case is characterized by the sequence of framework interfaces it invokes to achieve energy-efficiency objectives.
 
