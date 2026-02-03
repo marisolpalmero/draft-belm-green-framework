@@ -639,11 +639,14 @@ Hybrid Use Cases need both device capabilities and controller coordination:
 Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 This is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
 
 Controller-Initiated:
 - Controller establishes YANG-Push subscriptions to Energy Objects
 =======
+=======
+>>>>>>> Stashed changes
 Controller-Initiated, or Dynamic subscription:
 - Controller establishes YANG-Push subscriptions to energy objects
 >>>>>>> Stashed changes
