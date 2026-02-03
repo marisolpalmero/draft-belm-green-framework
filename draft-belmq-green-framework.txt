@@ -555,6 +555,18 @@ Table of Contents
    *  Scalability: Controllers can subscribe once rather than poll
       continuously.
 
+   Following the YANG-Push approach, several parameters from EMAN
+   [RFC7460] are not needed in this framework:
+
+   *  eoEnergyCollectionStartTime: Collection timing is managed by YANG-
+      Push subscriptions.
+
+   *  eoEnergyMaxConsumed/eoEnergyMaxProduced: Devices do not store
+      energy time series; controllers handle historical data.
+
+   *  Energy collection parameters table: Replaced by YANG-Push
+      subscription configuration.
+
 4.1.2.  Controller vs. Device Initiated
 
    The framework supports both initiation models:
@@ -1198,6 +1210,21 @@ Table of Contents
       compared to the other relationships, as this refers more to a
       management function.
 
+   To prevent double counting in scenarios where one Energy Object
+   provides power to another (e.g., PoE switch port to PoE endpoint):
+
+   Convention: Report both consumed and delivered energy separately: -
+   The providing Energy Object reports total-energy-consumed (self) AND
+   total-energy-delivered (to downstream) - The receiving Energy Object
+   reports total-energy-consumed
+
+   Example: A PoE switch port consuming 1W and providing 9W to an
+   endpoint: - Port reports: total-energy-consumed=1W, total-energy-
+   produced=9W - Endpoint reports: total-energy-consumed=9W
+
+   Controllers must use Metering Relationships to identify and avoid
+   aggregating both values.
+
    In some situations, it is not possible to discover the Energy Object
    Relationships, and an EnMS or administrator must manually set them.
    Given that relationships can be assigned manually, the following
@@ -1315,8 +1342,8 @@ Table of Contents
 5.  Interfaces Usage Of the Framework
 
    This section provides an overview of how the GREEN use cases
-   described in [draft-stephan-green-use-cases] interact with the
-   framework interfaces defined in this document.
+   described in [GreenUseCases] interact with the framework interfaces
+   defined in this document.
 
    Each use case is characterized by the sequence of framework
    interfaces it invokes to achieve energy-efficiency objectives.
@@ -1839,6 +1866,11 @@ Table of Contents
               "Energy Management Framework", RFC 7326,
               DOI 10.17487/RFC7326, September 2014,
               <https://www.rfc-editor.org/rfc/rfc7326>.
+
+   [RFC7460]  Chandramouli, M., Claise, B., Schoening, B., Quittek, J.,
+              and T. Dietz, "Monitoring and Control MIB for Power and
+              Energy", RFC 7460, DOI 10.17487/RFC7460, March 2015,
+              <https://www.rfc-editor.org/rfc/rfc7460>.
 
    [RFC8641]  Clemm, A. and E. Voit, "Subscription to YANG Notifications
               for Datastore Updates", RFC 8641, DOI 10.17487/RFC8641,
