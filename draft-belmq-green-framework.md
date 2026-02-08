@@ -1,13 +1,14 @@
 ---
 title: "Framework for Energy Efficiency Management"
-abbrev: "Energy Efficiency Management Framework"
+abbrev: "GREEN-Framework"
 docname: draft-belmq-green-framework-latest
-category: info
-stand_alone: true
+category: std
+category: std
+stand_alone: yes
 
 ipr: trust200902
-area: "Operations and Management"
-wg: "Getting Ready for Energy-Efficient Networking"
+area: OPS
+wg: GREEN
 kw:
   - framework
   - energy
@@ -28,34 +29,33 @@ venue:
   github: "marisolpalmero/draft-belm-green-framework"
   latest: "https://marisolpalmero.github.io/draft-belm-green-framework/draft-belmq-green-framework.html"
 
-v: 3
 
 author:
 
- -
-    fullname: Benoit Claise
-    organization: Everything OPS
-    email: benoit@everything-ops.net
- -
-    fullname: Luis M. Contreras
-    organization: Telefonica
-    email: luismiguel.contrerasmurillo@telefonica.com
- -
-    fullname: Jan Lindblad
-    organization: All For Eco
-    email: jan.lindblad+ietf@for.eco
- -
-    fullname: Marisol Palmero
-    organization: Independent
-    email: marisol.ietf@gmail.com
- -
-    fullname: Emile Stephan
-    organization: Orange
-    email: emile.stephan@orange.com
- -
-    fullname: Qin Wu
-    organization: Huawei
-    email: bill.wu@huawei.com
+ - ins: C. Benoit
+   fullname: Benoit Claise
+   organization: Everything OPS
+   email: benoit@everything-ops.net
+ - ins: C. Luis
+   fullname: Luis M. Contreras
+   organization: Telefonica
+   email: luismiguel.contrerasmurillo@telefonica.com
+ - ins: L. Jan
+   fullname: Jan Lindblad
+   organization: All For Eco
+   email: jan.lindblad+ietf@for.eco
+ - ins: P. Marisol
+   fullname: Marisol Palmero
+   organization: Independent
+   email: marisol.ietf@gmail.com
+ - ins: S. Emile
+   fullname: Emile Stephan
+   organization: Orange
+   email: emile.stephan@orange.com
+ - ins: W. Qin
+   fullname: Qin Wu
+   organization: Huawei
+   email: bill.wu@huawei.com
 
 normative:
 
@@ -99,6 +99,7 @@ informative:
    PowerAndEnergy: I-D.draft-bcmj-green-power-and-energy-yang
 
    PetraApi: I-D.draft-petra-green-api
+
 
 --- abstract
 
