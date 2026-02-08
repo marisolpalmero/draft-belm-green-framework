@@ -647,9 +647,10 @@ Table of Contents
 4.1.5.  Industry-Standard Certifications
 
    In addition to measurement accuracy, the framework supports the
-   reporting of industry-standard energy efficiency certifications.
-   These certifications provide vendor- or laboratory-validated
-   benchmarks that characterize the designed efficiency of equipment and
+   reporting of industry-standard energy efficiency certifications, per
+   Energy Object, when available (for example a PSU).  These
+   certifications provide vendor- or laboratory-validated benchmarks
+   that characterize the designed efficiency of equipment and
    components.
 
    Certification information complements measurement accuracy by
@@ -659,6 +660,8 @@ Table of Contents
    these mechanisms enable informed assessment of both expected and
    observed energy performance.
 
+   The purpose of this framework and YANG module is not to identify all
+   certifications, but to establish a foundation for future extensions.
    Detailed certification models and encoding rules are defined in the
    companion GREEN YANG data model.
 
