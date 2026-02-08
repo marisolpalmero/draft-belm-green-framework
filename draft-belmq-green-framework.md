@@ -841,95 +841,20 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 | 16 | Cross-Layer Saving | Multi-layer coordination (L0-L3), cross-layer state synchronization |
 {: #uc-implementation-focus title="Use Case Implementation Focus"}
 
-<<TODO - to decide if we include from here onwards, key findings! and implementation priorities>>
+
+<<TODO - consider to include>>
 
 ## Key Findings
 
-### Device Capabilities Required Across Use Cases
+### Device Capabilities Required across Use Cases
 
-To support controller-orchestrated optimization, devices MUST provide:
-
-1. **Discovery Interface (a, d)**
-   - Power state capabilities and transitions
-   - Certification information (80 PLUS, Energy Star, etc.)
-   - Backup power source awareness
-   - Component-level UUID identification (per {{RFC8348}})
-
-2. **Telemetry Push (b→c)**
-   - Real-time power/energy metrics
-   - Power state change notifications
-   - Component-level granularity
-   - Timestamp correlation for traffic patterns
-
-3. **Control Interface (f)**
-   - Power state transitions (on/off, sleep, low-power)
-   - Component-level control (ports, line cards, radios)
-   - Transition time and frequency constraints
-   - Safe operational limits (SLAs)
-
-### Controller Capabilities Required
-
-To enable network-wide energy optimization, controllers MUST provide:
-
-1. **Topology Awareness**
-   - Power source relationships (who powers whom)
-   - Metering relationships (who meters whom)
-   - Cross-domain mappings (3GPP, optical, IP layers)
-
-2. **Intelligent Orchestration**
-   - Traffic pattern analysis and prediction
-   - Coordinated state transitions across devices
-   - Double-accounting prevention
-   - Global vs. local optimization decisions
-
-3. **Cross-Domain Integration**
-   - External database integration (datasheets, carbon factors)
-   - Multi-domain API support (3GPP, optical transport)
-   - Metadata aggregation and correlation
+### Controller Capabilities Required across Use Cases
 
 ## Implementation Priorities
 
-### Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)
-- **Devices**: UUID identification, basic power metrics, certification reporting
-- **Controllers**: Discovery interface, topology awareness, double-accounting prevention
+## Next Steps
 
-### Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)
-- **Devices**: Power state support, telemetry push, transition constraints
-- **Controllers**: Traffic correlation, coordinated control, pattern prediction
-
-### Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15, 16)
-- **Devices**: Granular metering, fast state transitions, component-level control
-- **Controllers**: Cross-domain integration, AI/ML optimization, multi-layer coordination
-
-This phased approach allows incremental deployment while maximizing value at each stage.
-
-
-
-
-## Observations and Next Steps
-
-The mapping in {{green-uc-interfaces-usage}} demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.
-
-To complement {{green-uc-interfaces-usage}}, {{FunctionalOverviewFramework}}  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of **Discovery**, **Monitoring**, and **Control**, and shows how they align with use cases.
-
-|---
-| Functional Domain | Details | Related Use Cases | Maturity / Status |
-|-|:-|:-|:-|-:
-| **Discovery** | Identification and characterization of devices and capabilities. Telemetry/Data Inputs: Device inventory data, model, firmware version, supported energy features. Example Actions: Register device energy profile; advertise capability set. | UC 1, UC 11 | High |
-| **Monitoring** | Collection of energy-related telemetry across network elements. Telemetry/Data Inputs: Power usage, utilization, operational state, temperature. Example Actions: Aggregate metrics; compute KPIs; detect anomalies. | UC 2-10, UC 15 | Medium |
-| **Control** | Modification of configuration to improve energy efficiency. Telemetry/Data Inputs: Monitored metrics, thresholds, policies.  Example Actions: Adjust link speed; enable sleep; re-route load; trigger automation. | UC 2, UC 5-10, UC 14-15 | Low-Medium |
-|---
-{: #FunctionalOverviewFramework title="Functional Overview of Framework Domains (Merged Details)"}
-
-
-
-This indicates that future work should prioritize:
-
-- Enhancing the interoperability and extensibility of monitoring telemetry.
-- Defining control policies and interfaces to support energy optimization actions.
-- Clarifying cross-domain data exchange (interfaces *g*) for reporting and federation.
-
-Combining both perspectives, the detailed interface mapping {{green-uc-interfaces-usage}} and the functional overview {{FunctionalOverviewFramework}}, offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.
+<<TODO - ends here>>
 
 # Conventions and Definitions
 
