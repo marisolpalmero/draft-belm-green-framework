@@ -406,11 +406,11 @@ Detailed accuracy categories, and extensibility mechanisms are specified in the 
 
 ### Industry-Standard Certifications
 
-In addition to measurement accuracy, the framework supports the reporting of industry-standard energy efficiency certifications. These certifications provide vendor- or laboratory-validated benchmarks that characterize the designed efficiency of equipment and components.
+In addition to measurement accuracy, the framework supports the reporting of industry-standard energy efficiency certifications, per Energy Object, when available (for example a PSU). These certifications provide vendor- or laboratory-validated benchmarks that characterize the designed efficiency of equipment and components.
 
 Certification information complements measurement accuracy by providing a stable, device-level reference for procurement, compliance, and lifecycle management, while accuracy indicators describe the reliability of operational measurements. Together, these mechanisms enable informed assessment of both expected and observed energy performance.
 
-Detailed certification models and encoding rules are defined in the companion GREEN YANG data model.
+The purpose of this framework and YANG module is not to identify all certifications, but to establish a foundation for future extensions. Detailed certification models and encoding rules are defined in the companion GREEN YANG data model.
 
 
 ### Extensibility Through YANG Identities
