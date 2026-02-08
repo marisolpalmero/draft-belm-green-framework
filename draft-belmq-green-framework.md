@@ -1,7 +1,7 @@
 ---
 title: "Framework for Energy Efficiency Management"
 abbrev: "GREEN-Framework"
-docname: draft-belmq-green-framework-08
+docname: draft-belmq-green-framework-10
 category: info
 stand_alone: yes
 
@@ -40,7 +40,7 @@ author:
    organization: Telefonica
    email: luismiguel.contrerasmurillo@telefonica.com
  - ins:
-   fullname:
+   fullname: Jan Lindblad
    organization: All For Eco
    email: jan.lindblad+ietf@for.eco
  - ins:
