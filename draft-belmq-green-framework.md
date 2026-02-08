@@ -31,27 +31,27 @@ venue:
 
 author:
 
- - ins: Benoit C.
+ - ins:
    fullname: Benoit Claise
    organization: Everything OPS
    email: benoit@everything-ops.net
- - ins: Luis M. C.
+ - ins:
    fullname: Luis M. Contreras
    organization: Telefonica
    email: luismiguel.contrerasmurillo@telefonica.com
- - ins: Jan L.
-   fullname: Jan Lindblad
+ - ins:
+   fullname:
    organization: All For Eco
    email: jan.lindblad+ietf@for.eco
- - ins: Marisol P.
+ - ins:
    fullname: Marisol Palmero
    organization: Independent
    email: marisol.ietf@gmail.com
- - ins: Emile S.
+ - ins:
    fullname: Emile Stephan
    organization: Orange
    email: emile.stephan@orange.com
- - ins: Qin W.
+ - ins:
    fullname: Qin Wu
    organization: Huawei
    email: bill.wu@huawei.com
