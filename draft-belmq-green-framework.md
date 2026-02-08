@@ -2,7 +2,7 @@
 title: "Framework for Energy Efficiency Management"
 abbrev: "GREEN-Framework"
 docname: draft-belmq-green-framework-07
-category: std
+category: info
 stand_alone: yes
 
 ipr: trust200902
@@ -31,27 +31,27 @@ venue:
 
 author:
 
- - ins: C. Benoit
+ - ins: Benoit C.
    fullname: Benoit Claise
    organization: Everything OPS
    email: benoit@everything-ops.net
- - ins: C. Luis
+ - ins: Luis M. C.
    fullname: Luis M. Contreras
    organization: Telefonica
    email: luismiguel.contrerasmurillo@telefonica.com
- - ins: L. Jan
+ - ins: Jan L.
    fullname: Jan Lindblad
    organization: All For Eco
    email: jan.lindblad+ietf@for.eco
- - ins: P. Marisol
+ - ins: Marisol P.
    fullname: Marisol Palmero
    organization: Independent
    email: marisol.ietf@gmail.com
- - ins: S. Emile
+ - ins: Emile S.
    fullname: Emile Stephan
    organization: Orange
    email: emile.stephan@orange.com
- - ins: W. Qin
+ - ins: Qin W.
    fullname: Qin Wu
    organization: Huawei
    email: bill.wu@huawei.com
