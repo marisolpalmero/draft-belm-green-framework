@@ -1314,29 +1314,18 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-key-findings" class="internal xref">Key Findings</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.1">
-                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-device-capabilities-require" class="internal xref">Device Capabilities Required Across Use Cases</a></p>
+                    <p id="section-toc.1-1.6.2.2.2.1.1"><a href="#section-6.2.1" class="auto internal xref">6.2.1</a>.  <a href="#name-device-capabilities-require" class="internal xref">Device Capabilities Required across Use Cases</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2.2.2">
-                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-controller-capabilities-req" class="internal xref">Controller Capabilities Required</a></p>
+                    <p id="section-toc.1-1.6.2.2.2.2.1"><a href="#section-6.2.2" class="auto internal xref">6.2.2</a>.  <a href="#name-controller-capabilities-req" class="internal xref">Controller Capabilities Required across Use Cases</a></p>
 </li>
                 </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3">
                 <p id="section-toc.1-1.6.2.3.1"><a href="#section-6.3" class="auto internal xref">6.3</a>.  <a href="#name-implementation-priorities" class="internal xref">Implementation Priorities</a></p>
-<ul class="compact toc ulBare ulEmpty">
-<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.1">
-                    <p id="section-toc.1-1.6.2.3.2.1.1"><a href="#section-6.3.1" class="auto internal xref">6.3.1</a>.  <a href="#name-phase-1-enable-basic-monito" class="internal xref">Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.2">
-                    <p id="section-toc.1-1.6.2.3.2.2.1"><a href="#section-6.3.2" class="auto internal xref">6.3.2</a>.  <a href="#name-phase-2-enable-dynamic-opti" class="internal xref">Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)</a></p>
-</li>
-                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.3.2.3">
-                    <p id="section-toc.1-1.6.2.3.2.3.1"><a href="#section-6.3.3" class="auto internal xref">6.3.3</a>.  <a href="#name-phase-3-enable-advanced-use" class="internal xref">Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15, 16)</a></p>
-</li>
-                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.4">
-                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-observations-and-next-steps" class="internal xref">Observations and Next Steps</a></p>
+                <p id="section-toc.1-1.6.2.4.1"><a href="#section-6.4" class="auto internal xref">6.4</a>.  <a href="#name-next-steps" class="internal xref">Next Steps</a></p>
 </li>
             </ul>
 </li>
@@ -3551,7 +3540,7 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
           </tbody>
         </table>
 </div>
-<p id="section-6.1-9">&lt;&lt;TODO - to decide if we include from here onwards, key findings! and implementation priorities&gt;&gt;<a href="#section-6.1-9" class="pilcrow">¶</a></p>
+<p id="section-6.1-9">&lt;&lt;TODO - consider to include&gt;&gt;<a href="#section-6.1-9" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="key-findings">
@@ -3562,117 +3551,15 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
 <div id="device-capabilities-required-across-use-cases">
 <section id="section-6.2.1">
           <h4 id="name-device-capabilities-require">
-<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-device-capabilities-require" class="section-name selfRef">Device Capabilities Required Across Use Cases</a>
-          </h4>
-<p id="section-6.2.1-1">To support controller-orchestrated optimization, devices <span class="bcp14">MUST</span> provide:<a href="#section-6.2.1-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2.1-2">
-<li id="section-6.2.1-2.1">
-              <p id="section-6.2.1-2.1.1"><strong>Discovery Interface (a, d)</strong><a href="#section-6.2.1-2.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.1-2.1.2.1">
-                  <p id="section-6.2.1-2.1.2.1.1">Power state capabilities and transitions<a href="#section-6.2.1-2.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.1.2.2">
-                  <p id="section-6.2.1-2.1.2.2.1">Certification information (80 PLUS, Energy Star, etc.)<a href="#section-6.2.1-2.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.1.2.3">
-                  <p id="section-6.2.1-2.1.2.3.1">Backup power source awareness<a href="#section-6.2.1-2.1.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.1.2.4">
-                  <p id="section-6.2.1-2.1.2.4.1">Component-level UUID identification (per <span>[<a href="#RFC8348" class="cite xref">RFC8348</a>]</span>)<a href="#section-6.2.1-2.1.2.4.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-            <li id="section-6.2.1-2.2">
-              <p id="section-6.2.1-2.2.1"><strong>Telemetry Push (b→c)</strong><a href="#section-6.2.1-2.2.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.1-2.2.2.1">
-                  <p id="section-6.2.1-2.2.2.1.1">Real-time power/energy metrics<a href="#section-6.2.1-2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.2.2.2">
-                  <p id="section-6.2.1-2.2.2.2.1">Power state change notifications<a href="#section-6.2.1-2.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.2.2.3">
-                  <p id="section-6.2.1-2.2.2.3.1">Component-level granularity<a href="#section-6.2.1-2.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.2.2.4">
-                  <p id="section-6.2.1-2.2.2.4.1">Timestamp correlation for traffic patterns<a href="#section-6.2.1-2.2.2.4.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-            <li id="section-6.2.1-2.3">
-              <p id="section-6.2.1-2.3.1"><strong>Control Interface (f)</strong><a href="#section-6.2.1-2.3.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.1-2.3.2.1">
-                  <p id="section-6.2.1-2.3.2.1.1">Power state transitions (on/off, sleep, low-power)<a href="#section-6.2.1-2.3.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.3.2.2">
-                  <p id="section-6.2.1-2.3.2.2.1">Component-level control (ports, line cards, radios)<a href="#section-6.2.1-2.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.3.2.3">
-                  <p id="section-6.2.1-2.3.2.3.1">Transition time and frequency constraints<a href="#section-6.2.1-2.3.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.1-2.3.2.4">
-                  <p id="section-6.2.1-2.3.2.4.1">Safe operational limits (SLAs)<a href="#section-6.2.1-2.3.2.4.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-          </ol>
+<a href="#section-6.2.1" class="section-number selfRef">6.2.1. </a><a href="#name-device-capabilities-require" class="section-name selfRef">Device Capabilities Required across Use Cases</a>
+        </h4>
 </section>
 </div>
-<div id="controller-capabilities-required">
+<div id="controller-capabilities-required-across-use-cases">
 <section id="section-6.2.2">
           <h4 id="name-controller-capabilities-req">
-<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-controller-capabilities-req" class="section-name selfRef">Controller Capabilities Required</a>
-          </h4>
-<p id="section-6.2.2-1">To enable network-wide energy optimization, controllers <span class="bcp14">MUST</span> provide:<a href="#section-6.2.2-1" class="pilcrow">¶</a></p>
-<ol start="1" type="1" class="normal type-1" id="section-6.2.2-2">
-<li id="section-6.2.2-2.1">
-              <p id="section-6.2.2-2.1.1"><strong>Topology Awareness</strong><a href="#section-6.2.2-2.1.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.2-2.1.2.1">
-                  <p id="section-6.2.2-2.1.2.1.1">Power source relationships (who powers whom)<a href="#section-6.2.2-2.1.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.1.2.2">
-                  <p id="section-6.2.2-2.1.2.2.1">Metering relationships (who meters whom)<a href="#section-6.2.2-2.1.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.1.2.3">
-                  <p id="section-6.2.2-2.1.2.3.1">Cross-domain mappings (3GPP, optical, IP layers)<a href="#section-6.2.2-2.1.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-            <li id="section-6.2.2-2.2">
-              <p id="section-6.2.2-2.2.1"><strong>Intelligent Orchestration</strong><a href="#section-6.2.2-2.2.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.2-2.2.2.1">
-                  <p id="section-6.2.2-2.2.2.1.1">Traffic pattern analysis and prediction<a href="#section-6.2.2-2.2.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.2.2.2">
-                  <p id="section-6.2.2-2.2.2.2.1">Coordinated state transitions across devices<a href="#section-6.2.2-2.2.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.2.2.3">
-                  <p id="section-6.2.2-2.2.2.3.1">Double-accounting prevention<a href="#section-6.2.2-2.2.2.3.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.2.2.4">
-                  <p id="section-6.2.2-2.2.2.4.1">Global vs. local optimization decisions<a href="#section-6.2.2-2.2.2.4.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-            <li id="section-6.2.2-2.3">
-              <p id="section-6.2.2-2.3.1"><strong>Cross-Domain Integration</strong><a href="#section-6.2.2-2.3.1" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.2.2-2.3.2.1">
-                  <p id="section-6.2.2-2.3.2.1.1">External database integration (datasheets, carbon factors)<a href="#section-6.2.2-2.3.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.3.2.2">
-                  <p id="section-6.2.2-2.3.2.2.1">Multi-domain API support (3GPP, optical transport)<a href="#section-6.2.2-2.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-                <li class="normal" id="section-6.2.2-2.3.2.3">
-                  <p id="section-6.2.2-2.3.2.3.1">Metadata aggregation and correlation<a href="#section-6.2.2-2.3.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              </ul>
-</li>
-          </ol>
+<a href="#section-6.2.2" class="section-number selfRef">6.2.2. </a><a href="#name-controller-capabilities-req" class="section-name selfRef">Controller Capabilities Required across Use Cases</a>
+        </h4>
 </section>
 </div>
 </section>
@@ -3681,117 +3568,15 @@ Power States. TO BE COMPLETED<a href="#section-4.4-8" class="pilcrow">¶</a></p>
 <section id="section-6.3">
         <h3 id="name-implementation-priorities">
 <a href="#section-6.3" class="section-number selfRef">6.3. </a><a href="#name-implementation-priorities" class="section-name selfRef">Implementation Priorities</a>
-        </h3>
-<div id="phase-1-enable-basic-monitoring-uc-1-11-13-14">
-<section id="section-6.3.1">
-          <h4 id="name-phase-1-enable-basic-monito">
-<a href="#section-6.3.1" class="section-number selfRef">6.3.1. </a><a href="#name-phase-1-enable-basic-monito" class="section-name selfRef">Phase 1: Enable Basic Monitoring (UC 1, 11, 13, 14)</a>
-          </h4>
-<ul class="normal">
-<li class="normal" id="section-6.3.1-1.1">
-              <p id="section-6.3.1-1.1.1"><strong>Devices</strong>: UUID identification, basic power metrics, certification reporting<a href="#section-6.3.1-1.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-6.3.1-1.2">
-              <p id="section-6.3.1-1.2.1"><strong>Controllers</strong>: Discovery interface, topology awareness, double-accounting prevention<a href="#section-6.3.1-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
+      </h3>
 </section>
 </div>
-<div id="phase-2-enable-dynamic-optimization-uc-2-7-9-10">
-<section id="section-6.3.2">
-          <h4 id="name-phase-2-enable-dynamic-opti">
-<a href="#section-6.3.2" class="section-number selfRef">6.3.2. </a><a href="#name-phase-2-enable-dynamic-opti" class="section-name selfRef">Phase 2: Enable Dynamic Optimization (UC 2, 7, 9, 10)</a>
-          </h4>
-<ul class="normal">
-<li class="normal" id="section-6.3.2-1.1">
-              <p id="section-6.3.2-1.1.1"><strong>Devices</strong>: Power state support, telemetry push, transition constraints<a href="#section-6.3.2-1.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-6.3.2-1.2">
-              <p id="section-6.3.2-1.2.1"><strong>Controllers</strong>: Traffic correlation, coordinated control, pattern prediction<a href="#section-6.3.2-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-</section>
-</div>
-<div id="phase-3-enable-advanced-use-cases-uc-3-4-5-6-8-12-15-16">
-<section id="section-6.3.3">
-          <h4 id="name-phase-3-enable-advanced-use">
-<a href="#section-6.3.3" class="section-number selfRef">6.3.3. </a><a href="#name-phase-3-enable-advanced-use" class="section-name selfRef">Phase 3: Enable Advanced Use Cases (UC 3, 4, 5, 6, 8, 12, 15, 16)</a>
-          </h4>
-<ul class="normal">
-<li class="normal" id="section-6.3.3-1.1">
-              <p id="section-6.3.3-1.1.1"><strong>Devices</strong>: Granular metering, fast state transitions, component-level control<a href="#section-6.3.3-1.1.1" class="pilcrow">¶</a></p>
-</li>
-            <li class="normal" id="section-6.3.3-1.2">
-              <p id="section-6.3.3-1.2.1"><strong>Controllers</strong>: Cross-domain integration, AI/ML optimization, multi-layer coordination<a href="#section-6.3.3-1.2.1" class="pilcrow">¶</a></p>
-</li>
-          </ul>
-<p id="section-6.3.3-2">This phased approach allows incremental deployment while maximizing value at each stage.<a href="#section-6.3.3-2" class="pilcrow">¶</a></p>
-</section>
-</div>
-</section>
-</div>
-<div id="observations-and-next-steps">
+<div id="next-steps">
 <section id="section-6.4">
-        <h3 id="name-observations-and-next-steps">
-<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-observations-and-next-steps" class="section-name selfRef">Observations and Next Steps</a>
+        <h3 id="name-next-steps">
+<a href="#section-6.4" class="section-number selfRef">6.4. </a><a href="#name-next-steps" class="section-name selfRef">Next Steps</a>
         </h3>
-<p id="section-6.4-1">The mapping in <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> demonstrates that most GREEN use cases rely primarily on the monitoring and control interfaces, with discovery being used during initialization or lifecycle events.<a href="#section-6.4-1" class="pilcrow">¶</a></p>
-<p id="section-6.4-2">To complement <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a>, <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 3</a>  provides a higher-level functional view of the framework. It summarizes how the interface sequences relate to the three primary operational domains of <strong>Discovery</strong>, <strong>Monitoring</strong>, and <strong>Control</strong>, and shows how they align with use cases.<a href="#section-6.4-2" class="pilcrow">¶</a></p>
-<span id="name-functional-overview-of-fram"></span><div id="FunctionalOverviewFramework">
-<table class="center" id="table-3">
-          <caption>
-<a href="#table-3" class="selfRef">Table 3</a>:
-<a href="#name-functional-overview-of-fram" class="selfRef">Functional Overview of Framework Domains (Merged Details)</a>
-          </caption>
-<thead>
-            <tr>
-              <th class="text-left" rowspan="1" colspan="1">Functional Domain</th>
-              <th class="text-left" rowspan="1" colspan="1">Details</th>
-              <th class="text-left" rowspan="1" colspan="1">Related Use Cases</th>
-              <th class="text-left" rowspan="1" colspan="1">Maturity / Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <strong>Discovery</strong>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">Identification and characterization of devices and capabilities. Telemetry/Data Inputs: Device inventory data, model, firmware version, supported energy features. Example Actions: Register device energy profile; advertise capability set.</td>
-              <td class="text-left" rowspan="1" colspan="1">UC 1, UC 11</td>
-              <td class="text-left" rowspan="1" colspan="1">High</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <strong>Monitoring</strong>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">Collection of energy-related telemetry across network elements. Telemetry/Data Inputs: Power usage, utilization, operational state, temperature. Example Actions: Aggregate metrics; compute KPIs; detect anomalies.</td>
-              <td class="text-left" rowspan="1" colspan="1">UC 2-10, UC 15</td>
-              <td class="text-left" rowspan="1" colspan="1">Medium</td>
-            </tr>
-            <tr>
-              <td class="text-left" rowspan="1" colspan="1">
-                <strong>Control</strong>
-</td>
-              <td class="text-left" rowspan="1" colspan="1">Modification of configuration to improve energy efficiency. Telemetry/Data Inputs: Monitored metrics, thresholds, policies.  Example Actions: Adjust link speed; enable sleep; re-route load; trigger automation.</td>
-              <td class="text-left" rowspan="1" colspan="1">UC 2, UC 5-10, UC 14-15</td>
-              <td class="text-left" rowspan="1" colspan="1">Low-Medium</td>
-            </tr>
-          </tbody>
-        </table>
-</div>
-<p id="section-6.4-4">This indicates that future work should prioritize:<a href="#section-6.4-4" class="pilcrow">¶</a></p>
-<ul class="normal">
-<li class="normal" id="section-6.4-5.1">
-            <p id="section-6.4-5.1.1">Enhancing the interoperability and extensibility of monitoring telemetry.<a href="#section-6.4-5.1.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-5.2">
-            <p id="section-6.4-5.2.1">Defining control policies and interfaces to support energy optimization actions.<a href="#section-6.4-5.2.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="normal" id="section-6.4-5.3">
-            <p id="section-6.4-5.3.1">Clarifying cross-domain data exchange (interfaces <em>g</em>) for reporting and federation.<a href="#section-6.4-5.3.1" class="pilcrow">¶</a></p>
-</li>
-        </ul>
-<p id="section-6.4-6">Combining both perspectives, the detailed interface mapping <a href="#green-uc-interfaces-usage" class="auto internal xref">Table 1</a> and the functional overview <a href="#FunctionalOverviewFramework" class="auto internal xref">Table 3</a>, offers a comprehensive picture of how the GREEN Framework can be applied to concrete network energy-efficiency scenarios.<a href="#section-6.4-6" class="pilcrow">¶</a></p>
+<p id="section-6.4-1">&lt;&lt;TODO - ends here&gt;&gt;<a href="#section-6.4-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
