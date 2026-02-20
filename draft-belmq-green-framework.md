@@ -225,7 +225,7 @@ Both concepts are required within this YANG module: Power enables real-time moni
 
 ## Impact on Energy Metrics
 
-The framework aims to significantly enhance the creation of energy metrics with actionable insights by:
+The framework aims to enhance the creation of energy metrics with actionable insights by:
 
 * Standardizing Metrics: Establishing consistent measurement protocols for energy consumption and efficiency.
 * Enhancing Data Collection: Facilitating comprehensive monitoring and data aggregation across devices.
