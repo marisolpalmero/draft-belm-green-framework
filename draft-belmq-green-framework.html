@@ -174,7 +174,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -182,7 +182,8 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 }
 
 @font-face {
@@ -1052,12 +1053,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">Energy Efficiency Management Framework</td>
+<td class="center">GREEN-Framework</td>
 <td class="right">February 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Claise, et al.</td>
-<td class="center">Expires 12 August 2026</td>
+<td class="center">Expires 29 August 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1065,17 +1066,17 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">Getting Ready for Energy-Efficient Networking</dd>
+<dd class="workgroup">GREEN</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
 <dd class="internet-draft">draft-belmq-green-framework-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-02-08" class="published">8 February 2026</time>
+<time datetime="2026-02-25" class="published">25 February 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-08-12">12 August 2026</time></dd>
+<dd class="expires"><time datetime="2026-08-29">29 August 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1145,7 +1146,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 12 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 29 August 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -2060,16 +2061,18 @@ Both concepts are required within this YANG module: Power enables real-time moni
           <h4 id="name-extensibility-through-yang-">
 <a href="#section-4.1.6" class="section-number selfRef">4.1.6. </a><a href="#name-extensibility-through-yang-" class="section-name selfRef">Extensibility Through YANG Identities</a>
           </h4>
-<p id="section-4.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions:
-<code>yang
+<p id="section-4.1.6-1">The accuracy hierarchy uses YANG <code>identityref</code> to allow vendor-specific extensions:<a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
+<div class="lang-yang sourcecode" id="section-4.1.6-2">
+<pre>
 identity accuracy-measured-vendor-calibrated {
   base accuracy-measured;
   description
     "Vendor-specific calibrated sensor with certificate ID XYZ";
 }
-</code><a href="#section-4.1.6-1" class="pilcrow">¶</a></p>
-<p id="section-4.1.6-2">This maintains interoperability (base <code>accuracy-measured</code> classification) while supporting proprietary accuracy metadata.<a href="#section-4.1.6-2" class="pilcrow">¶</a></p>
-<p id="section-4.1.6-3">Implementation details are in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.6-3" class="pilcrow">¶</a></p>
+</pre><a href="#section-4.1.6-2" class="pilcrow">¶</a>
+</div>
+<p id="section-4.1.6-3">This maintains interoperability (base <code>accuracy-measured</code> classification) while supporting proprietary accuracy metadata.<a href="#section-4.1.6-3" class="pilcrow">¶</a></p>
+<p id="section-4.1.6-4">Implementation details are in <span>[<a href="#PowerAndEnergy" class="cite xref">PowerAndEnergy</a>]</span>.<a href="#section-4.1.6-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="hierarchical-data-model-and-default-value-inheritance">
@@ -2115,14 +2118,16 @@ identity accuracy-measured-vendor-calibrated {
               <p id="section-4.1.7-8.3.1">Only components with different accuracy need to explicitly report their value<a href="#section-4.1.7-8.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<p id="section-4.1.7-9">Example:
-<code>
+<p id="section-4.1.7-9">Example:<a href="#section-4.1.7-9" class="pilcrow">¶</a></p>
+<div class="alignLeft art-text artwork" id="section-4.1.7-10">
+<pre>
 Chassis (accuracy: gold ±5%)
 ├── Line Card 1 (inherits: gold ±5%)  ← No need to report
 ├── Line Card 2 (inherits: gold ±5%)  ← No need to report
 └── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
-</code><a href="#section-4.1.7-9" class="pilcrow">¶</a></p>
-<p id="section-4.1.7-10">This dramatically reduces YANG-Push telemetry volume while maintaining accuracy transparency.<a href="#section-4.1.7-10" class="pilcrow">¶</a></p>
+</pre><a href="#section-4.1.7-10" class="pilcrow">¶</a>
+</div>
+<p id="section-4.1.7-11">This dramatically reduces YANG-Push telemetry volume while maintaining accuracy transparency.<a href="#section-4.1.7-11" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="unit-multiplier-consistency">
@@ -2201,10 +2206,8 @@ Chassis (accuracy: gold ±5%)
                   <path d="M 368,464 L 368,488" fill="none" stroke="black"></path>
                   <path d="M 400,408 L 400,432" fill="none" stroke="black"></path>
                   <path d="M 400,464 L 400,488" fill="none" stroke="black"></path>
-                  <path d="M 432,408 L 432,440" fill="none" stroke="black"></path>
-                  <path d="M 432,456 L 432,464" fill="none" stroke="black"></path>
-                  <path d="M 448,408 L 448,440" fill="none" stroke="black"></path>
-                  <path d="M 448,456 L 448,488" fill="none" stroke="black"></path>
+                  <path d="M 432,408 L 432,432" fill="none" stroke="black"></path>
+                  <path d="M 432,464 L 432,488" fill="none" stroke="black"></path>
                   <path d="M 480,496 L 480,560" fill="none" stroke="black"></path>
                   <path d="M 560,32 L 560,96" fill="none" stroke="black"></path>
                   <path d="M 560,336 L 560,400" fill="none" stroke="black"></path>
@@ -2216,9 +2219,7 @@ Chassis (accuracy: gold ±5%)
                   <path d="M 328,496 L 480,496" fill="none" stroke="black"></path>
                   <path d="M 104,560 L 224,560" fill="none" stroke="black"></path>
                   <path d="M 328,560 L 480,560" fill="none" stroke="black"></path>
-                  <polygon class="arrowhead" points="456,488 444,482.4 444,493.6" fill="black" transform="rotate(90,448,488)"></polygon>
-                  <path class="jump" d="M 448,456 C 454,456 454,440 448,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 432,456 C 426,456 426,440 432,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="440,488 428,482.4 428,493.6" fill="black" transform="rotate(90,432,488)"></polygon>
                   <polygon class="arrowhead" points="440,408 428,402.4 428,413.6" fill="black" transform="rotate(270,432,408)"></polygon>
                   <polygon class="arrowhead" points="408,408 396,402.4 396,413.6" fill="black" transform="rotate(270,400,408)"></polygon>
                   <polygon class="arrowhead" points="376,408 364,402.4 364,413.6" fill="black" transform="rotate(270,368,408)"></polygon>
@@ -2274,7 +2275,7 @@ Chassis (accuracy: gold ±5%)
                     <text x="432" y="372">aggregate?)</text>
                     <text x="368" y="452">(d)</text>
                     <text x="400" y="452">(e)</text>
-                    <text x="440" y="452">f</text>
+                    <text x="432" y="452">(f)</text>
                     <text x="136" y="532">Power</text>
                     <text x="188" y="532">Supply</text>
                     <text x="276" y="532">############</text>
@@ -2436,10 +2437,8 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                   <path d="M 392,464 L 392,488" fill="none" stroke="black"></path>
                   <path d="M 424,408 L 424,432" fill="none" stroke="black"></path>
                   <path d="M 424,464 L 424,488" fill="none" stroke="black"></path>
-                  <path d="M 456,408 L 456,440" fill="none" stroke="black"></path>
-                  <path d="M 456,456 L 456,464" fill="none" stroke="black"></path>
-                  <path d="M 472,408 L 472,440" fill="none" stroke="black"></path>
-                  <path d="M 472,456 L 472,488" fill="none" stroke="black"></path>
+                  <path d="M 456,408 L 456,432" fill="none" stroke="black"></path>
+                  <path d="M 456,464 L 456,488" fill="none" stroke="black"></path>
                   <path d="M 488,496 L 488,560" fill="none" stroke="black"></path>
                   <path d="M 504,32 L 504,96" fill="none" stroke="black"></path>
                   <path d="M 512,336 L 512,400" fill="none" stroke="black"></path>
@@ -2453,9 +2452,7 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                   <path d="M 16,560 L 136,560" fill="none" stroke="black"></path>
                   <path d="M 168,560 L 304,560" fill="none" stroke="black"></path>
                   <path d="M 336,560 L 488,560" fill="none" stroke="black"></path>
-                  <polygon class="arrowhead" points="480,488 468,482.4 468,493.6" fill="black" transform="rotate(90,472,488)"></polygon>
-                  <path class="jump" d="M 472,456 C 478,456 478,440 472,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 456,456 C 450,456 450,440 456,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="464,488 452,482.4 452,493.6" fill="black" transform="rotate(90,456,488)"></polygon>
                   <polygon class="arrowhead" points="464,408 452,402.4 452,413.6" fill="black" transform="rotate(270,456,408)"></polygon>
                   <polygon class="arrowhead" points="432,408 420,402.4 420,413.6" fill="black" transform="rotate(270,424,408)"></polygon>
                   <polygon class="arrowhead" points="400,408 388,402.4 388,413.6" fill="black" transform="rotate(270,392,408)"></polygon>
@@ -2513,7 +2510,7 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                     <text x="248" y="452">(e)</text>
                     <text x="392" y="452">(d)</text>
                     <text x="424" y="452">(e)</text>
-                    <text x="464" y="452">f</text>
+                    <text x="456" y="452">(f)</text>
                     <text x="48" y="532">Power</text>
                     <text x="100" y="532">Supply</text>
                     <text x="152" y="532">###</text>
@@ -2552,10 +2549,8 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                   <path d="M 152,408 L 152,432" fill="none" stroke="black"></path>
                   <path d="M 152,464 L 152,488" fill="none" stroke="black"></path>
                   <path d="M 176,192 L 176,328" fill="none" stroke="black"></path>
-                  <path d="M 184,408 L 184,440" fill="none" stroke="black"></path>
-                  <path d="M 184,456 L 184,464" fill="none" stroke="black"></path>
-                  <path d="M 200,408 L 200,440" fill="none" stroke="black"></path>
-                  <path d="M 200,456 L 200,488" fill="none" stroke="black"></path>
+                  <path d="M 184,408 L 184,432" fill="none" stroke="black"></path>
+                  <path d="M 184,464 L 184,488" fill="none" stroke="black"></path>
                   <path d="M 224,496 L 224,576" fill="none" stroke="black"></path>
                   <path d="M 256,144 L 256,328" fill="none" stroke="black"></path>
                   <path d="M 328,496 L 328,576" fill="none" stroke="black"></path>
@@ -2563,10 +2558,8 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                   <path d="M 352,464 L 352,488" fill="none" stroke="black"></path>
                   <path d="M 384,408 L 384,432" fill="none" stroke="black"></path>
                   <path d="M 384,464 L 384,488" fill="none" stroke="black"></path>
-                  <path d="M 416,408 L 416,440" fill="none" stroke="black"></path>
-                  <path d="M 416,456 L 416,464" fill="none" stroke="black"></path>
-                  <path d="M 432,408 L 432,440" fill="none" stroke="black"></path>
-                  <path d="M 432,456 L 432,488" fill="none" stroke="black"></path>
+                  <path d="M 416,408 L 416,432" fill="none" stroke="black"></path>
+                  <path d="M 416,464 L 416,488" fill="none" stroke="black"></path>
                   <path d="M 464,496 L 464,576" fill="none" stroke="black"></path>
                   <path d="M 560,32 L 560,96" fill="none" stroke="black"></path>
                   <path d="M 560,336 L 560,400" fill="none" stroke="black"></path>
@@ -2578,16 +2571,12 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                   <path d="M 328,496 L 464,496" fill="none" stroke="black"></path>
                   <path d="M 104,576 L 224,576" fill="none" stroke="black"></path>
                   <path d="M 328,576 L 464,576" fill="none" stroke="black"></path>
-                  <polygon class="arrowhead" points="440,488 428,482.4 428,493.6" fill="black" transform="rotate(90,432,488)"></polygon>
-                  <path class="jump" d="M 432,456 C 438,456 438,440 432,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 416,456 C 410,456 410,440 416,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="424,488 412,482.4 412,493.6" fill="black" transform="rotate(90,416,488)"></polygon>
                   <polygon class="arrowhead" points="424,408 412,402.4 412,413.6" fill="black" transform="rotate(270,416,408)"></polygon>
                   <polygon class="arrowhead" points="392,408 380,402.4 380,413.6" fill="black" transform="rotate(270,384,408)"></polygon>
                   <polygon class="arrowhead" points="360,408 348,402.4 348,413.6" fill="black" transform="rotate(270,352,408)"></polygon>
                   <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"></polygon>
-                  <polygon class="arrowhead" points="208,488 196,482.4 196,493.6" fill="black" transform="rotate(90,200,488)"></polygon>
-                  <path class="jump" d="M 200,456 C 206,456 206,440 200,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 184,456 C 178,456 178,440 184,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="192,488 180,482.4 180,493.6" fill="black" transform="rotate(90,184,488)"></polygon>
                   <polygon class="arrowhead" points="192,408 180,402.4 180,413.6" fill="black" transform="rotate(270,184,408)"></polygon>
                   <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"></polygon>
                   <polygon class="arrowhead" points="160,408 148,402.4 148,413.6" fill="black" transform="rotate(270,152,408)"></polygon>
@@ -2642,10 +2631,10 @@ typical example is meters that clamp onto the existing wiring.<a href="#section-
                     <text x="432" y="372">aggregate?)</text>
                     <text x="120" y="452">(d)</text>
                     <text x="152" y="452">(e)</text>
-                    <text x="192" y="452">f</text>
+                    <text x="184" y="452">(f)</text>
                     <text x="352" y="452">(d)</text>
                     <text x="384" y="452">(e)</text>
-                    <text x="424" y="452">f</text>
+                    <text x="416" y="452">(f)</text>
                     <text x="140" y="532">Device</text>
                     <text x="276" y="532">############</text>
                     <text x="352" y="532">PoE</text>
@@ -2687,10 +2676,8 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 152,408 L 152,432" fill="none" stroke="black"></path>
                   <path d="M 152,464 L 152,488" fill="none" stroke="black"></path>
                   <path d="M 176,192 L 176,328" fill="none" stroke="black"></path>
-                  <path d="M 184,408 L 184,440" fill="none" stroke="black"></path>
-                  <path d="M 184,456 L 184,464" fill="none" stroke="black"></path>
-                  <path d="M 200,408 L 200,440" fill="none" stroke="black"></path>
-                  <path d="M 200,456 L 200,488" fill="none" stroke="black"></path>
+                  <path d="M 184,408 L 184,432" fill="none" stroke="black"></path>
+                  <path d="M 184,464 L 184,488" fill="none" stroke="black"></path>
                   <path d="M 224,496 L 224,576" fill="none" stroke="black"></path>
                   <path d="M 256,144 L 256,328" fill="none" stroke="black"></path>
                   <path d="M 328,496 L 328,560" fill="none" stroke="black"></path>
@@ -2700,10 +2687,8 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 360,464 L 360,488" fill="none" stroke="black"></path>
                   <path d="M 392,408 L 392,432" fill="none" stroke="black"></path>
                   <path d="M 392,464 L 392,488" fill="none" stroke="black"></path>
-                  <path d="M 424,408 L 424,440" fill="none" stroke="black"></path>
-                  <path d="M 424,456 L 424,464" fill="none" stroke="black"></path>
-                  <path d="M 440,408 L 440,440" fill="none" stroke="black"></path>
-                  <path d="M 440,456 L 440,488" fill="none" stroke="black"></path>
+                  <path d="M 424,408 L 424,432" fill="none" stroke="black"></path>
+                  <path d="M 424,464 L 424,488" fill="none" stroke="black"></path>
                   <path d="M 496,496 L 496,560" fill="none" stroke="black"></path>
                   <path d="M 496,608 L 496,672" fill="none" stroke="black"></path>
                   <path d="M 496,704 L 496,768" fill="none" stroke="black"></path>
@@ -2721,16 +2706,12 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 328,672 L 496,672" fill="none" stroke="black"></path>
                   <path d="M 328,704 L 496,704" fill="none" stroke="black"></path>
                   <path d="M 328,768 L 496,768" fill="none" stroke="black"></path>
-                  <polygon class="arrowhead" points="448,488 436,482.4 436,493.6" fill="black" transform="rotate(90,440,488)"></polygon>
-                  <path class="jump" d="M 440,456 C 446,456 446,440 440,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 424,456 C 418,456 418,440 424,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="432,488 420,482.4 420,493.6" fill="black" transform="rotate(90,424,488)"></polygon>
                   <polygon class="arrowhead" points="432,408 420,402.4 420,413.6" fill="black" transform="rotate(270,424,408)"></polygon>
                   <polygon class="arrowhead" points="400,408 388,402.4 388,413.6" fill="black" transform="rotate(270,392,408)"></polygon>
                   <polygon class="arrowhead" points="368,408 356,402.4 356,413.6" fill="black" transform="rotate(270,360,408)"></polygon>
                   <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"></polygon>
-                  <polygon class="arrowhead" points="208,488 196,482.4 196,493.6" fill="black" transform="rotate(90,200,488)"></polygon>
-                  <path class="jump" d="M 200,456 C 206,456 206,440 200,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 184,456 C 178,456 178,440 184,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="192,488 180,482.4 180,493.6" fill="black" transform="rotate(90,184,488)"></polygon>
                   <polygon class="arrowhead" points="192,408 180,402.4 180,413.6" fill="black" transform="rotate(270,184,408)"></polygon>
                   <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"></polygon>
                   <polygon class="arrowhead" points="160,408 148,402.4 148,413.6" fill="black" transform="rotate(270,152,408)"></polygon>
@@ -2785,12 +2766,12 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                     <text x="432" y="372">aggregate?)</text>
                     <text x="120" y="452">(d)</text>
                     <text x="152" y="452">(e)</text>
-                    <text x="192" y="452">f</text>
+                    <text x="184" y="452">(f)</text>
                     <text x="360" y="452">(d)</text>
                     <text x="392" y="452">(e)</text>
-                    <text x="432" y="452">f</text>
-                    <text x="464" y="452">...</text>
-                    <text x="488" y="452">N</text>
+                    <text x="424" y="452">(f)</text>
+                    <text x="456" y="452">...</text>
+                    <text x="480" y="452">N</text>
                     <text x="136" y="532">Power</text>
                     <text x="188" y="532">Supply</text>
                     <text x="276" y="532">############</text>
@@ -2843,10 +2824,8 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 56,464 L 56,488" fill="none" stroke="black"></path>
                   <path d="M 88,408 L 88,432" fill="none" stroke="black"></path>
                   <path d="M 88,464 L 88,488" fill="none" stroke="black"></path>
-                  <path d="M 120,408 L 120,440" fill="none" stroke="black"></path>
-                  <path d="M 120,456 L 120,464" fill="none" stroke="black"></path>
-                  <path d="M 136,408 L 136,440" fill="none" stroke="black"></path>
-                  <path d="M 136,456 L 136,488" fill="none" stroke="black"></path>
+                  <path d="M 120,408 L 120,432" fill="none" stroke="black"></path>
+                  <path d="M 120,464 L 120,488" fill="none" stroke="black"></path>
                   <path d="M 168,496 L 168,560" fill="none" stroke="black"></path>
                   <path d="M 176,192 L 176,328" fill="none" stroke="black"></path>
                   <path d="M 224,496 L 224,560" fill="none" stroke="black"></path>
@@ -2855,20 +2834,16 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 256,464 L 256,488" fill="none" stroke="black"></path>
                   <path d="M 288,408 L 288,432" fill="none" stroke="black"></path>
                   <path d="M 288,464 L 288,488" fill="none" stroke="black"></path>
-                  <path d="M 320,408 L 320,440" fill="none" stroke="black"></path>
-                  <path d="M 320,456 L 320,464" fill="none" stroke="black"></path>
-                  <path d="M 336,408 L 336,440" fill="none" stroke="black"></path>
-                  <path d="M 336,456 L 336,488" fill="none" stroke="black"></path>
+                  <path d="M 320,408 L 320,432" fill="none" stroke="black"></path>
+                  <path d="M 320,464 L 320,488" fill="none" stroke="black"></path>
                   <path d="M 376,496 L 376,560" fill="none" stroke="black"></path>
                   <path d="M 432,496 L 432,560" fill="none" stroke="black"></path>
                   <path d="M 464,408 L 464,432" fill="none" stroke="black"></path>
                   <path d="M 464,464 L 464,488" fill="none" stroke="black"></path>
                   <path d="M 496,408 L 496,432" fill="none" stroke="black"></path>
                   <path d="M 496,464 L 496,488" fill="none" stroke="black"></path>
-                  <path d="M 528,408 L 528,440" fill="none" stroke="black"></path>
-                  <path d="M 528,456 L 528,464" fill="none" stroke="black"></path>
-                  <path d="M 544,408 L 544,440" fill="none" stroke="black"></path>
-                  <path d="M 544,456 L 544,488" fill="none" stroke="black"></path>
+                  <path d="M 528,408 L 528,432" fill="none" stroke="black"></path>
+                  <path d="M 528,464 L 528,488" fill="none" stroke="black"></path>
                   <path d="M 560,32 L 560,96" fill="none" stroke="black"></path>
                   <path d="M 560,336 L 560,400" fill="none" stroke="black"></path>
                   <path d="M 568,496 L 568,560" fill="none" stroke="black"></path>
@@ -2882,23 +2857,17 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                   <path d="M 32,560 L 168,560" fill="none" stroke="black"></path>
                   <path d="M 224,560 L 376,560" fill="none" stroke="black"></path>
                   <path d="M 432,560 L 568,560" fill="none" stroke="black"></path>
-                  <polygon class="arrowhead" points="552,488 540,482.4 540,493.6" fill="black" transform="rotate(90,544,488)"></polygon>
-                  <path class="jump" d="M 544,456 C 550,456 550,440 544,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 528,456 C 522,456 522,440 528,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="536,488 524,482.4 524,493.6" fill="black" transform="rotate(90,528,488)"></polygon>
                   <polygon class="arrowhead" points="536,408 524,402.4 524,413.6" fill="black" transform="rotate(270,528,408)"></polygon>
                   <polygon class="arrowhead" points="504,408 492,402.4 492,413.6" fill="black" transform="rotate(270,496,408)"></polygon>
                   <polygon class="arrowhead" points="472,408 460,402.4 460,413.6" fill="black" transform="rotate(270,464,408)"></polygon>
-                  <polygon class="arrowhead" points="344,488 332,482.4 332,493.6" fill="black" transform="rotate(90,336,488)"></polygon>
-                  <path class="jump" d="M 336,456 C 342,456 342,440 336,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 320,456 C 314,456 314,440 320,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="328,488 316,482.4 316,493.6" fill="black" transform="rotate(90,320,488)"></polygon>
                   <polygon class="arrowhead" points="328,408 316,402.4 316,413.6" fill="black" transform="rotate(270,320,408)"></polygon>
                   <polygon class="arrowhead" points="296,408 284,402.4 284,413.6" fill="black" transform="rotate(270,288,408)"></polygon>
                   <polygon class="arrowhead" points="264,408 252,402.4 252,413.6" fill="black" transform="rotate(270,256,408)"></polygon>
                   <polygon class="arrowhead" points="264,328 252,322.4 252,333.6" fill="black" transform="rotate(90,256,328)"></polygon>
                   <polygon class="arrowhead" points="184,192 172,186.4 172,197.6" fill="black" transform="rotate(270,176,192)"></polygon>
-                  <polygon class="arrowhead" points="144,488 132,482.4 132,493.6" fill="black" transform="rotate(90,136,488)"></polygon>
-                  <path class="jump" d="M 136,456 C 142,456 142,440 136,440" fill="none" stroke="black"></path>
-                  <path class="jump" d="M 120,456 C 114,456 114,440 120,440" fill="none" stroke="black"></path>
+                  <polygon class="arrowhead" points="128,488 116,482.4 116,493.6" fill="black" transform="rotate(90,120,488)"></polygon>
                   <polygon class="arrowhead" points="128,408 116,402.4 116,413.6" fill="black" transform="rotate(270,120,408)"></polygon>
                   <polygon class="arrowhead" points="96,408 84,402.4 84,413.6" fill="black" transform="rotate(270,88,408)"></polygon>
                   <polygon class="arrowhead" points="64,408 52,402.4 52,413.6" fill="black" transform="rotate(270,56,408)"></polygon>
@@ -2952,13 +2921,13 @@ of routers in a rack.<a href="#section-4.2.5-1" class="pilcrow">¶</a></p>
                     <text x="432" y="372">aggregate?)</text>
                     <text x="56" y="452">(d)</text>
                     <text x="88" y="452">(e)</text>
-                    <text x="128" y="452">f</text>
+                    <text x="120" y="452">(f)</text>
                     <text x="256" y="452">(d)</text>
                     <text x="288" y="452">(e)</text>
-                    <text x="328" y="452">f</text>
+                    <text x="320" y="452">(f)</text>
                     <text x="464" y="452">(d)</text>
                     <text x="496" y="452">(e)</text>
-                    <text x="536" y="452">f</text>
+                    <text x="528" y="452">(f)</text>
                     <text x="64" y="532">Power</text>
                     <text x="116" y="532">Supply</text>
                     <text x="152" y="532">1</text>
@@ -3676,7 +3645,7 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).<a href="#
 <dl class="references">
 <dt id="GreenTerminology">[GreenTerminology]</dt>
         <dd>
-<span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">M. P. Palmero</span>, <span class="refTitle">"Terminology for Energy Efficiency Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-terminology-00</span>, <time datetime="2025-11-18" class="refDate">18 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-00">https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-00</a>&gt;</span>. </dd>
+<span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Boucadair, M.</span>, <span class="refAuthor">Wu, Q.</span>, <span class="refAuthor">Contreras, L. M.</span>, and <span class="refAuthor">M. P. Palmero</span>, <span class="refTitle">"Terminology for Energy Efficiency Network Management"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-green-terminology-01</span>, <time datetime="2026-02-13" class="refDate">13 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-01">https://datatracker.ietf.org/doc/html/draft-ietf-green-terminology-01</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="GreenUseCases">[GreenUseCases]</dt>
         <dd>
@@ -3700,7 +3669,7 @@ Agreement no. 101096925) and Exigence (Grant Agreement no. 101139120).<a href="#
 <dd class="break"></dd>
 <dt id="PowerAndEnergy">[PowerAndEnergy]</dt>
         <dd>
-<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-bcmj-green-power-and-energy-yang-01</span>, <time datetime="2026-02-02" class="refDate">2 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-bcmj-green-power-and-energy-yang-01">https://datatracker.ietf.org/doc/html/draft-bcmj-green-power-and-energy-yang-01</a>&gt;</span>. </dd>
+<span class="refAuthor">Claise, B.</span>, <span class="refAuthor">Chen, G.</span>, <span class="refAuthor">Palmero, M. P.</span>, and <span class="refAuthor">J. Lindblad</span>, <span class="refTitle">"Power and Energy YANG Module"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-bcmj-green-power-and-energy-yang-02</span>, <time datetime="2026-02-09" class="refDate">9 February 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-bcmj-green-power-and-energy-yang-02">https://datatracker.ietf.org/doc/html/draft-bcmj-green-power-and-energy-yang-02</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7326">[RFC7326]</dt>
         <dd>

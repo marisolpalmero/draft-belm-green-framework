@@ -2,10 +2,10 @@
 
 
 
-Getting Ready for Energy-Efficient Networking                  B. Claise
+GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 12 August 2026                                       Telefonica
+Expires: 29 August 2026                                       Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,7 +14,7 @@ Expires: 12 August 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                         8 February 2026
+                                                        25 February 2026
 
 
                Framework for Energy Efficiency Management
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 12 August 2026.
+   This Internet-Draft will expire on 29 August 2026.
 
 Copyright Notice
 
@@ -664,9 +664,13 @@ Table of Contents
 4.1.6.  Extensibility Through YANG Identities
 
    The accuracy hierarchy uses YANG identityref to allow vendor-specific
-   extensions: yang identity accuracy-measured-vendor-calibrated { base
-   accuracy-measured; description "Vendor-specific calibrated sensor
-   with certificate ID XYZ"; }
+   extensions:
+
+   identity accuracy-measured-vendor-calibrated {
+     base accuracy-measured;
+     description
+       "Vendor-specific calibrated sensor with certificate ID XYZ";
+   }
 
    This maintains interoperability (base accuracy-measured
    classification) while supporting proprietary accuracy metadata.
@@ -716,10 +720,12 @@ Table of Contents
    *  Only components with different accuracy need to explicitly report
       their value
 
-   Example: Chassis (accuracy: gold ±5%) ├── Line Card 1 (inherits: gold
-   ±5%) ← No need to report ├── Line Card 2 (inherits: gold ±5%) ← No
-   need to report └── PSU 1 (explicit: silver ±10%) ← Must report
-   (differs from parent)
+   Example:
+
+Chassis (accuracy: gold ±5%)
+├── Line Card 1 (inherits: gold ±5%)  ← No need to report
+├── Line Card 2 (inherits: gold ±5%)  ← No need to report
+└── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
 
    This dramatically reduces YANG-Push telemetry volume while
    maintaining accuracy transparency.
@@ -798,11 +804,11 @@ Table of Contents
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                                               ^   ^   ^ |
-                                               |   |   | |
-                                              (d) (e)  (f)
-                                               |   |   | |
-                                               |   |     v
+                                               ^   ^   ^
+                                               |   |   |
+                                              (d) (e) (f)
+                                               |   |   |
+                                               |   |   v
               +--------------+            +------------------+
               |              |            |                  |
               | Power Supply |############| Device/Component |
@@ -898,11 +904,11 @@ Table of Contents
    |    (2) controller (collection, compute and aggregate?)       |
    |                                                              |
    +--------------------------------------------------------------+
-                                 ^                 ^   ^   ^ |
-                                 |                 |   |   | |
-                                (e)               (d) (e)  (f)
-                                 |                 |   |   | |
-                                 |                 |   |     v
+                                 ^                 ^   ^   ^
+                                 |                 |   |   |
+                                (e)               (d) (e) (f)
+                                 |                 |   |   |
+                                 |                 |   |   v
     +--------------+   +----------------+   +------------------+
     |              |   |                |   |                  |
     | Power Supply |###| Physical Meter |###| Device/Component |
@@ -949,11 +955,11 @@ Table of Contents
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^ |                  ^   ^   ^ |
-                |   |   | |                  |   |   | |
-               (d) (e)  (f)                 (d) (e)  (f)
-                |   |   | |                  |   |   | |
-                |   |     v                  |   |     v
+                ^   ^   ^                    ^   ^   ^
+                |   |   |                    |   |   |
+               (d) (e) (f)                  (d) (e) (f)
+                |   |   |                    |   |   |
+                |   |   v                    |   |   v
               +--------------+            +----------------+
               |              |            |                |
               | Device       |############| PoE End Point  |
@@ -1014,11 +1020,11 @@ Table of Contents
   |       (2) controller (collection, compute and aggregate?)          |
   |                                                                    |
   +--------------------------------------------------------------------+
-                ^   ^   ^ |                   ^   ^   ^ |
-                |   |   | |                   |   |   | |
-               (d) (e)  (f)                  (d) (e)  (f) ... N
-                |   |   | |                   |   |   | |
-                |   |     v                   |   |     v
+                ^   ^   ^                     ^   ^   ^
+                |   |   |                     |   |   |
+               (d) (e) (f)                   (d) (e) (f) ... N
+                |   |   |                     |   |   |
+                |   |   v                     |   |   v
               +--------------+            +--------------------+
               |              |            |                    |
               | Power Supply |############| Device/Component 1 |
@@ -1067,11 +1073,11 @@ Table of Contents
  |       (2) controller (collection, compute and aggregate?)          |
  |                                                                    |
  +--------------------------------------------------------------------+
-       ^   ^   ^ |              ^   ^   ^ |               ^   ^   ^ |
-       |   |   | |              |   |   | |               |   |   | |
-      (d) (e)  (f)             (d) (e)  (f)              (d) (e)  (f)
-       |   |   | |              |   |   | |               |   |   | |
-       |   |     v              |   |     v               |   |     v
+       ^   ^   ^                ^   ^   ^                 ^   ^   ^
+       |   |   |                |   |   |                 |   |   |
+      (d) (e) (f)              (d) (e) (f)               (d) (e) (f)
+       |   |   |                |   |   |                 |   |   |
+       |   |   v                |   |   v                 |   |   v
     +----------------+      +------------------+      +----------------+
     |                |      |                  |      |                |
     | Power Supply 1 |######| Device/Component |######| Power Supply 2 |
@@ -1588,9 +1594,9 @@ Table of Contents
               Chen, G., Boucadair, M., Wu, Q., Contreras, L. M., and M.
               P. Palmero, "Terminology for Energy Efficiency Network
               Management", Work in Progress, Internet-Draft, draft-ietf-
-              green-terminology-00, 18 November 2025,
+              green-terminology-01, 13 February 2026,
               <https://datatracker.ietf.org/doc/html/draft-ietf-green-
-              terminology-00>.
+              terminology-01>.
 
    [GreenUseCases]
               Stephan, E., Palmero, M. P., Claise, B., Wu, Q.,
@@ -1621,9 +1627,9 @@ Table of Contents
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-bcmj-green-power-and-energy-yang-01,
-              2 February 2026, <https://datatracker.ietf.org/doc/html/
-              draft-bcmj-green-power-and-energy-yang-01>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-02,
+              9 February 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-02>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
