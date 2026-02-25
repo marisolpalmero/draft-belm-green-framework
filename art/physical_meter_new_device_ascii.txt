@@ -22,11 +22,11 @@ of identity    Energy     |  Metadata and other device/
 |    (2) controller (collection, compute and aggregate?)       |
 |                                                              |
 +--------------------------------------------------------------+
-                              ^                 ^   ^   ^ |
-                              |                 |   |   | |
-                             (e)               (d) (e)  (f)
-                              |                 |   |   | |
-                              |                 |   |     v
+                              ^                 ^   ^   ^
+                              |                 |   |   |
+                             (e)               (d) (e) (f)
+                              |                 |   |   |
+                              |                 |   |   v
  +--------------+   +----------------+   +------------------+
  |              |   |                |   |                  |
  | Power Supply |###| Physical Meter |###| Device/Component |

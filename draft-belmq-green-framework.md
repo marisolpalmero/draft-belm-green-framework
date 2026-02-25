@@ -1,7 +1,7 @@
 ---
 title: "Framework for Energy Efficiency Management"
 abbrev: "GREEN-Framework"
-docname: draft-belmq-green-framework-10
+docname: draft-belmq-green-framework-latest
 category: info
 stand_alone: yes
 
@@ -416,13 +416,14 @@ The purpose of this framework and YANG module is not to identify all certificati
 ### Extensibility Through YANG Identities
 
 The accuracy hierarchy uses YANG `identityref` to allow vendor-specific extensions:
-```yang
+
+~~~ yang
 identity accuracy-measured-vendor-calibrated {
   base accuracy-measured;
   description
     "Vendor-specific calibrated sensor with certificate ID XYZ";
 }
-```
+~~~
 
 This maintains interoperability (base `accuracy-measured` classification) while supporting proprietary accuracy metadata.
 
@@ -454,12 +455,13 @@ The `data-source-accuracy` leaf has a default value of `accuracy-like-parent`, m
 - Only components with different accuracy need to explicitly report their value
 
 Example:
-```
+
+~~~
 Chassis (accuracy: gold ±5%)
 ├── Line Card 1 (inherits: gold ±5%)  ← No need to report
 ├── Line Card 2 (inherits: gold ±5%)  ← No need to report
 └── PSU 1 (explicit: silver ±10%)     ← Must report (differs from parent)
-```
+~~~
 
 This dramatically reduces YANG-Push telemetry volume while maintaining accuracy transparency.
 

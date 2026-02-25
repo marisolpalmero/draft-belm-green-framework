@@ -22,11 +22,11 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-              ^   ^   ^ |                  ^   ^   ^ |
-              |   |   | |                  |   |   | |
-             (d) (e)  (f)                 (d) (e)  (f)
-              |   |   | |                  |   |   | |
-              |   |     v                  |   |     v
+              ^   ^   ^                    ^   ^   ^
+              |   |   |                    |   |   |
+             (d) (e) (f)                  (d) (e) (f)
+              |   |   |                    |   |   |
+              |   |   v                    |   |   v
             +--------------+            +----------------+
             |              |            |                |
             | Device       |############| PoE End Point  |

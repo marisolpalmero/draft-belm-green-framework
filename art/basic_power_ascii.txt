@@ -22,11 +22,11 @@ and Capability   Efficiency    |  /network related information:
 |       (2) controller (collection, compute and aggregate?)          |
 |                                                                    |
 +--------------------------------------------------------------------+
-                                             ^   ^   ^ |
-                                             |   |   | |
-                                            (d) (e)  (f)
-                                             |   |   | |
-                                             |   |     v
+                                             ^   ^   ^
+                                             |   |   |
+                                            (d) (e) (f)
+                                             |   |   |
+                                             |   |   v
             +--------------+            +------------------+
             |              |            |                  |
             | Power Supply |############| Device/Component |
