@@ -2,11 +2,11 @@
 *.pdf
 *.redxml
 *.swp
-draft-belmq-green-framework.txt
+draft-ietf-green-framework.txt
 *.upload
 *~
 .tags
-/*-[0-9][0-9].xml
+#/*-[0-9][0-9].xml
 /.*.mk
 /.gems/
 /.refcache
