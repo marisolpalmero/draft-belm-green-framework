@@ -2,18 +2,18 @@
 
 # Framework for Energy Efficiency Management
 
-This is the working area for the individual Internet-Draft, "Framework for Energy Efficiency Management".
+This is the working area for the GREEN WG Internet-Draft, "Framework for Energy Efficiency Management".
 
-* [Editor's Copy](https://marisolpalmero.github.io/draft-belm-green-framework/#go.draft-belmq-green-framework.html)
-* [Datatracker Page](https://datatracker.ietf.org/doc/draft-belmq-green-framework)
-* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-belmq-green-framework)
-* [Compare Editor's Copy to Individual Draft](https://marisolpalmero.github.io/draft-belm-green-framework/#go.draft-belmq-green-framework.diff)
+* [Editor's Copy](https://ietf-wg-green.github.io/draft-ietf-green-framework/#go.draft-ietf-green-framework.html)
+* [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-green-framework)
+* [Individual Draft](https://datatracker.ietf.org/doc/html/draft-ietf-green-framework)
+* [Compare Editor's Copy to Individual Draft](https://ietf-wg-green.github.io/draft-ietf-green-framework/#go.draft-ietf-green-framework.diff)
 
 
 ## Contributing
 
 See the
-[guidelines for contributions](https://github.com/marisolpalmero/draft-belm-green-framework/blob/main/CONTRIBUTING.md).
+[guidelines for contributions](https://github.com/marisolpalmero/draft-ietf-green-framework/blob/main/CONTRIBUTING.md).
 
 Contributions can be made by creating pull requests.
 The GitHub interface supports creating pull requests using the Edit (✏) button.
