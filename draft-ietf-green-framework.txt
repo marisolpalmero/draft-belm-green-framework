@@ -5,7 +5,7 @@
 GREEN                                                          B. Claise
 Internet-Draft                                            Everything OPS
 Intended status: Informational                           L. M. Contreras
-Expires: 29 August 2026                                       Telefonica
+Expires: 13 September 2026                                    Telefonica
                                                              J. Lindblad
                                                              All For Eco
                                                               M. Palmero
@@ -14,11 +14,11 @@ Expires: 29 August 2026                                       Telefonica
                                                                   Orange
                                                                    Q. Wu
                                                                   Huawei
-                                                        25 February 2026
+                                                           12 March 2026
 
 
                Framework for Energy Efficiency Management
-                   draft-belmq-green-framework-latest
+                   draft-ietf-green-framework-latest
 
 Abstract
 
@@ -41,11 +41,10 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://marisolpalmero.github.io/draft-belm-green-framework/draft-
-   belmq-green-framework.html.  Status information for this document may
-   be found at https://datatracker.ietf.org/doc/draft-belmq-green-
-   framework/.
+   The latest revision of this draft can be found at https://github.com/
+   ietf-wg-green/draft-ietf-green-framework.html.  Status information
+   for this document may be found at https://datatracker.ietf.org/doc/
+   draft-ietf-green-framework/.
 
    Discussion of this document takes place on the Getting Ready for
    Energy-Efficient Networking mailing list (mailto:green@ietf.org),
@@ -53,7 +52,8 @@ About This Document
    Subscribe at https://www.ietf.org/mailman/listinfo/green/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/marisolpalmero/draft-belm-green-framework.
+   https://github.com/https://github.com/ietf-wg-green/draft-ietf-green-
+   framework.
 
 Status of This Memo
 
@@ -70,7 +70,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 29 August 2026.
+   This Internet-Draft will expire on 13 September 2026.
 
 Copyright Notice
 
@@ -1620,16 +1620,16 @@ Chassis (accuracy: gold ±5%)
    [PetraApi] Rodriguez-Natal, A., Contreras, L. M., Palmero, M. P.,
               Lindblad, J., and A. G. Sánchez, "Path Energy Traffic
               Ratio API (PETRA)", Work in Progress, Internet-Draft,
-              draft-petra-green-api-02, 20 October 2025,
+              draft-petra-green-api-03, 2 March 2026,
               <https://datatracker.ietf.org/doc/html/draft-petra-green-
-              api-02>.
+              api-03>.
 
    [PowerAndEnergy]
               Claise, B., Chen, G., Palmero, M. P., and J. Lindblad,
               "Power and Energy YANG Module", Work in Progress,
-              Internet-Draft, draft-bcmj-green-power-and-energy-yang-02,
-              9 February 2026, <https://datatracker.ietf.org/doc/html/
-              draft-bcmj-green-power-and-energy-yang-02>.
+              Internet-Draft, draft-bcmj-green-power-and-energy-yang-04,
+              2 March 2026, <https://datatracker.ietf.org/doc/html/
+              draft-bcmj-green-power-and-energy-yang-04>.
 
    [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
               "Energy Management Framework", RFC 7326,
