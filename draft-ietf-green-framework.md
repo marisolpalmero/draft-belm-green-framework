@@ -217,8 +217,7 @@ This document uses the terms Power and Energy in accordance with {{GreenTerminol
 
 - Power refers to the instantaneous rate at which a device consumes or produces electrical energy (typically expressed in Watts).
 - Energy, by contrast, represents the cumulative amount of work performed over time (typically expressed in Joules or Watt-hours).
-Both concepts are required within this YANG module: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
-
+Both concepts are required within the YANG modules: Power enables real-time monitoring, control, and optimization of device operation, while Energy provides a time-integrated view necessary for accounting and reporting. For completeness and alignment with existing operational models and use cases, this specification includes both Power and Energy attributes.
 
 # Motivation
 
@@ -286,7 +285,7 @@ The GREEN Reference Model is represented in {{fig-green-reference-model}}.
 ~~~ aasvg
 {::include art/green_ascii.txt}
 ~~~
-{: #fig-green-reference-model title="GREEN Reference Model" }
+{: #fig-green-reference-model title="GREEN Framework Reference Model" }
 
 
 The main elements in the framework are as follows:
@@ -681,7 +680,7 @@ Identifying what power states an Energy Object supports is crucial for onboardin
 
 ### Intent Mapping
 
-The goal of intent mapping is to translate high-level energy-saving intents into specific device/component configurations. For example:
+The goal of intent mapping is to translate Energy-Aware intent into specific device/component configurations. For example:
 
 - An intent like "reduce power consumption at low utilization" might map to a predefined low-power state.
 - Controllers may interpret intents variably, e.g., "run at half capacity but be ready to scale up if needed."
@@ -881,13 +880,14 @@ The following topics remain open for further discussion points:
 ## Understanding Device Capabilities
 - Explore if Energy Objects can support multiple sets of power states.
 - Make power states clearly described and understandable.
-- Represent these capabilities in a machine-readable format.
+- Represent these capabilities in a machine-readable format. 
 
 ## Mapping Intents to Device Settings
 - Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.
 - Create a standard method to describe this mapping across systems.
 
 ## Handling Transitions and Ensuring Safety
+- Capability to power off individual components, as described in {{?I-D.li-green-power}}, should be explicitly modeled in the Power State Set. Also to review recovery procedures and impact on dependent Energy Objects.
 - Consider how long it takes for an Energy Object to switch power states.
 - Recommendation to standardize a data model for safe limits on frequency or speed of transitions to prevent device/component's damage.
 - Model SLAs that include both performance (e.g., transition time) and device safety (e.g., cycle limitations).
