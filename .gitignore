@@ -2,7 +2,7 @@
 *.pdf
 *.redxml
 *.swp
-draft-ietf-green-framework.txt
+#draft-ietf-green-framework.txt
 *.upload
 *~
 .tags
