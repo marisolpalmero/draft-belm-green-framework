@@ -18,7 +18,7 @@ Expires: 14 September 2026                                    Telefonica
 
 
                Framework for Energy Efficiency Management
-                   draft-ietf-green-framework-latest
+                     draft-ietf-green-framework-00
 
 Abstract
 
