@@ -771,7 +771,7 @@ Controller-Centric Use Cases require centralized orchestration and network-wide 
 - Example: UC 10 (Fixed Network Saving) - Controller predicts traffic patterns across devices and coordinates state changes.
 - It requires cross-device coordination, centralized intelligence
 
-Hybrid Use Cases need both device capabilities and controller coordination:
+Use Cases need both device capabilities and controller coordination:
 - Example: UC 9 (WLAN Energy Saving) - Devices support power modes; controller coordinates AP groups to maintain coverage.
 
 Who triggers telemetry is independent of implementation focus and follows YANG-Push {{?RFC8641}} patterns:
@@ -795,7 +795,7 @@ Even device-centric use cases(autonomous operation) typically use controller-ini
 | 14 | Power Shortage Management | Backup power awareness, autonomous operation |
 | 1 | Incremental Deployment | Baseline metrics, certification reporting, capability discovery |
 ||||
-| **Hybrid (Device + Controller)** |||
+| **Device + Controller** |||
 | 4 | Virtualized NF Metering | HW-layer metering, VM correlation, real-time telemetry push |
 | 9 | WLAN Energy Saving | PoE power modes, double counting, coordinated state transitions |
 ||||
