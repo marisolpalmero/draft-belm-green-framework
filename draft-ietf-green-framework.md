@@ -880,7 +880,7 @@ The following topics remain open for further discussion points:
 ## Understanding Device Capabilities
 - Explore if Energy Objects can support multiple sets of power states.
 - Make power states clearly described and understandable.
-- Represent these capabilities in a machine-readable format. 
+- Represent these capabilities in a machine-readable format.
 
 ## Mapping Intents to Device Settings
 - Develop ways to translate high-level energy goals (like "save energy at low utilization") into actual device configurations.
