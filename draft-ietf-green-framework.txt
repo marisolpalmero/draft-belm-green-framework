@@ -291,7 +291,7 @@ Table of Contents
 
    *  Energy, by contrast, represents the cumulative amount of work
       performed over time (typically expressed in Joules or Watt-hours).
-      Both concepts are required within this YANG module: Power enables
+      Both concepts are required within the YANG modules: Power enables
       real-time monitoring, control, and optimization of device
       operation, while Energy provides a time-integrated view necessary
       for accounting and reporting.  For completeness and alignment with
@@ -1194,8 +1194,8 @@ Chassis (accuracy: gold ±5%)
 
 3.5.2.  Intent Mapping
 
-   The goal of intent mapping is to translate high-level energy-saving
-   intents into specific device/component configurations.  For example:
+   The goal of intent mapping is to translate Energy-Aware intent into
+   specific device/component configurations.  For example:
 
    *  An intent like "reduce power consumption at low utilization" might
       map to a predefined low-power state.
@@ -1555,6 +1555,12 @@ Chassis (accuracy: gold ±5%)
               2026, <https://datatracker.ietf.org/doc/html/draft-ietf-
               green-use-cases-01>.
 
+   [I-D.li-green-power]
+              Li, T. and R. Bonica, "A YANG model for Power Management",
+              Work in Progress, Internet-Draft, draft-li-green-power-00,
+              17 October 2024, <https://datatracker.ietf.org/doc/html/
+              draft-li-green-power-00>.
+
    [IEC60050] IEC, "Power Utility Automation", 11 December 2000,
               <http://www.iec.ch/smartgrid/standards/>.
 
@@ -1627,6 +1633,11 @@ A.3.  Mapping Intents to Device Settings
    *  Create a standard method to describe this mapping across systems.
 
 A.4.  Handling Transitions and Ensuring Safety
+
+   *  Capability to power off individual components, as described in
+      [I-D.li-green-power], should be explicitly modeled in the Power
+      State Set. Also to review recovery procedures and impact on
+      dependent Energy Objects.
 
    *  Consider how long it takes for an Energy Object to switch power
       states.
