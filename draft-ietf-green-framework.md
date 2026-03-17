@@ -281,12 +281,12 @@ Establishing the framework for energy efficiency management now is strategic and
    this document, include power source, Metering, and Aggregation
    Relationships.
 
-The GREEN Reference Model is represented in {{fig-green-reference-model}}.
+The GREEN Framework Reference Model is represented in {{fig-green-reference-model}}.
 
 ~~~ aasvg
 {::include art/green_ascii.txt}
 ~~~
-{: #fig-green-reference-model title="GREEN Reference Model" }
+{: #fig-green-reference-model title="GREEN Framework Reference Model" }
 
 
 The main elements in the framework are as follows:
